@@ -229,23 +229,24 @@ SC.seguranca=t=>{
 
 /* ---------- CTA ---------- */
 SC.cta=t=>{
- const word='PREGÃO'; const typed=word.slice(0,Math.floor(clamp((t-0.6)/0.9)*word.length));
- const sent=t>1.8; const dm=ease((t-2.4)/.4); const pdf=ease((t-3.0)/.4);
+ const tap=clamp((t-1.4)/0.5); const pdf=ease((t-2.2)/.45); const pulse=t>1.4&&t<2.0?Math.sin((t-1.4)/0.6*Math.PI):0;
  return `<div class="bg"></div>${topbar(N)}${title('Quer o','Kit do Pregão?')}
- <div class="sub" style="top:340px;left:72px;width:600px;font-size:28px">Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong></div>
- <div style="position:absolute;left:72px;top:470px;background:#ff5f3c;color:#0b2219;border-radius:28px;padding:26px 36px;font-family:'Inter Display';font-weight:900;font-size:64px;letter-spacing:-.03em;transform:scale(${1+0.025*Math.sin(t*5)});transform-origin:left center;box-shadow:0 26px 50px -24px rgba(255,95,60,.8)">Comenta PREGÃO</div>
- <div style="position:absolute;left:72px;top:640px;width:520px;background:#fbf8f2;border:2px solid #d8cfbf;border-radius:999px;padding:16px 22px;display:flex;align-items:center;gap:14px;font-size:22px">
-   <div style="width:40px;height:40px;border-radius:50%;background:#e5ddcd"></div>
-   <span style="flex:1">${typed?`<b>${typed}</b>`:'<span style=\'color:#9a9384\'>Adicione um comentário…</span>'}<span style="opacity:${sent?0:blink(t*2)}">|</span></span>
-   <span style="color:${typed.length===word.length?'#2f6fde':'#b9b1a2'};font-weight:700;font-size:20px">Publicar</span></div>
- <div style="position:absolute;left:400px;top:780px;width:608px;opacity:${dm};transform:translateY(${(1-dm)*20}px)">
-   <div class="mono" style="font-size:15px;color:#56645b;margin-bottom:10px">Direct · agora</div>
-   <div style="background:#0b2219;color:#f1ede4;border-radius:26px 26px 26px 8px;padding:22px 26px;font-size:26px;line-height:1.35">Aqui está o seu Kit do Pregão. Bom lance!</div>
-   <div style="margin-top:12px;background:#fbf8f2;border:2px solid #d8cfbf;border-radius:22px;padding:16px;display:flex;gap:16px;align-items:center;opacity:${pdf};transform:scale(${0.96+0.04*pdf})">
-     <div style="width:104px;height:134px;border-radius:12px;background:#0b2219;padding:12px;color:#f1ede4;font-family:'Inter Display';font-weight:800;font-size:18px;line-height:1.05">Kit do<br><span style="color:#ff5f3c">Pregão</span></div>
-     <div><div style="font-weight:700;font-size:26px">Kit-do-Pregao.pdf</div><div style="font-size:20px;color:#56645b;margin-top:4px">Checklist + calculadora</div></div></div>
+ <div class="sub" style="top:340px;left:72px;width:600px;font-size:28px">Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no link da bio.</strong></div>
+ <div style="position:absolute;left:72px;top:470px;background:#ff5f3c;color:#0b2219;border-radius:28px;padding:24px 34px;font-family:'Inter Display';font-weight:900;font-size:58px;letter-spacing:-.03em;transform:scale(${1+0.025*Math.sin(t*5)});transform-origin:left center;box-shadow:0 26px 50px -24px rgba(255,95,60,.8)">Link na bio</div>
+ <div style="position:absolute;left:72px;top:640px;width:560px;background:#fbf8f2;border:2px solid #d8cfbf;border-radius:30px;padding:26px;box-shadow:0 20px 50px -30px rgba(11,34,25,.5)">
+   <div style="display:flex;gap:18px;align-items:center"><div style="width:84px;height:84px;border-radius:50%;background:#f2ede3;border:3px solid #ff5f3c;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:800;font-size:20px">Kairos<b style="color:#ff5f3c">.</b></div>
+   <div><div style="font-weight:700;font-size:22px">kairoslicitacao</div><div style="font-size:18px;color:#56645b;margin-top:4px">Kairos | Automação para Licitações</div></div></div>
+   <div style="font-size:18px;line-height:1.45;margin-top:16px;color:#0b2219">Robô de lances no Compras.gov.br<br>Teste grátis por 7 dias</div>
+   <div style="margin-top:14px;font-size:19px;color:#2f6fde">🔗 kairoslicita.com.br</div>
+   <div style="margin-top:10px;font-size:19px;color:#2f6fde;display:inline-block;padding:6px 12px;margin-left:-12px;border-radius:12px;background:rgba(255,95,60,${0.18*tap});position:relative">🔗 Kit do Pregão (grátis)
+     <span style="position:absolute;right:-26px;top:50%;width:${40+30*pulse}px;height:${40+30*pulse}px;margin-top:-${(40+30*pulse)/2}px;border-radius:50%;background:rgba(11,34,25,${t>1.2&&t<2.2?0.25:0})"></span></div>
  </div>
- <div style="position:absolute;left:72px;top:1160px;font-size:24px;color:#0b2219">E se quiser o robô: <b>teste grátis por 7 dias</b>, link na bio.</div>`;
+ <div style="position:absolute;left:600px;top:930px;width:408px;opacity:${pdf};transform:translateY(${(1-pdf)*20}px) scale(${0.96+0.04*pdf})">
+   <div style="background:#fbf8f2;border:2px solid #d8cfbf;border-radius:22px;padding:16px;display:flex;gap:16px;align-items:center;box-shadow:0 20px 40px -24px rgba(11,34,25,.5)">
+     <div style="width:96px;height:124px;border-radius:12px;background:#0b2219;padding:12px;color:#f1ede4;font-family:'Inter Display';font-weight:800;font-size:17px;line-height:1.05;flex:none">Kit do<br><span style="color:#ff5f3c">Pregão</span></div>
+     <div><div style="font-weight:700;font-size:22px">Kit-do-Pregao.pdf</div><div style="font-size:18px;color:#56645b;margin-top:4px">Checklist + calculadora</div></div></div>
+ </div>
+ <div style="position:absolute;left:72px;top:1160px;font-size:24px;color:#0b2219">E se quiser o robô: <b>teste grátis por 7 dias</b>, também na bio.</div>`;
 };
 
 /* ---------- ERROS: capa ---------- */
