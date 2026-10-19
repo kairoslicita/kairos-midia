@@ -1,0 +1,296 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--paper:#f2ede3;--paper2:#e9e2d4;--forest:#0b2219;--forest2:#10291f;--coral:#ff5f3c;--lime:#b9ee4f;--ink2:#56645b;--line:#d8cfbf;--card:#fbf8f2;--mut:#8fa699}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden;background:var(--paper)}
+body{font-family:'Inter',sans-serif;color:var(--forest);position:relative}
+.mono{font-family:'DejaVu Sans Mono',monospace}
+.bg{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 72%,rgba(255,95,60,.10),rgba(255,95,60,0) 60%),radial-gradient(70% 50% at 10% 0%,rgba(11,34,25,.06),rgba(11,34,25,0) 70%),var(--paper)}
+.bgd{position:absolute;inset:0;background:radial-gradient(80% 55% at 50% 62%,rgba(255,95,60,.22),rgba(0,0,0,0) 70%),#0b2219}
+.top{position:absolute;left:72px;right:72px;top:60px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Inter Display';font-weight:800;font-size:38px;letter-spacing:-.03em}.logo b{color:var(--coral)}
+.count{font-family:'DejaVu Sans Mono',monospace;font-size:22px;color:var(--ink2);border:2px solid var(--line);border-radius:999px;padding:6px 16px}
+.title{position:absolute;left:72px;top:136px;font-family:'Inter Display';font-weight:900;letter-spacing:-.045em;line-height:.9;font-size:96px}
+.title .b{color:var(--coral)}
+.sub{position:absolute;font-size:25px;line-height:1.35;color:var(--ink2)}
+.sub strong{color:var(--forest);font-weight:700}
+.phone{position:absolute;width:430px;height:880px;border-radius:66px;background:#0a0f0d;padding:14px;box-shadow:0 50px 90px -30px rgba(11,34,25,.55),0 0 0 2px #26302b inset;transform-origin:top left}
+.screen{width:100%;height:100%;border-radius:54px;background:var(--forest);overflow:hidden;position:relative;color:#f1ede4}
+.island{position:absolute;left:50%;top:14px;width:120px;height:34px;margin-left:-60px;border-radius:20px;background:#000;z-index:5}
+.sb{display:flex;justify-content:space-between;padding:20px 34px 0;font-size:17px;font-weight:600}
+.apph{display:flex;justify-content:space-between;align-items:center;padding:30px 24px 12px}
+.apph .t{font-family:'Inter Display';font-weight:700;font-size:24px}
+.live{font-family:'DejaVu Sans Mono',monospace;font-size:13px;color:var(--lime);display:flex;align-items:center;gap:8px}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--lime);display:inline-block}
+.panel{margin:8px 16px;background:var(--forest2);border:1px solid #1d3b2f;border-radius:20px;padding:16px}
+.panel h6{font-family:'Inter Display';font-size:18px;font-weight:700}
+.panel .k{font-family:'DejaVu Sans Mono',monospace;font-size:11.5px;color:var(--mut);letter-spacing:.04em}
+.row{display:flex;align-items:center;gap:10px;background:var(--forest2);border:1px solid #1d3b2f;border-radius:14px;padding:11px 12px;font-size:13.5px}
+.row .tm{font-family:'DejaVu Sans Mono',monospace;font-size:11.5px;color:var(--mut);width:62px}
+.row .tx{flex:1}
+.pill{font-family:'DejaVu Sans Mono',monospace;font-size:11px;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.pl{background:rgba(255,95,60,.18);color:#ff8a6d}.pw{background:rgba(185,238,79,.18);color:var(--lime)}.ph{background:rgba(241,237,228,.12);color:#cfd8cf}.pa{background:rgba(255,196,87,.18);color:#ffcf73}
+.col-h{position:absolute;font-family:'DejaVu Sans Mono',monospace;font-size:17px;color:var(--ink2)}
+.card{position:absolute;width:240px;background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 14px 30px -18px rgba(11,34,25,.35)}
+.card .ic{width:40px;height:40px;border-radius:12px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex:none}
+.card .ic svg{width:22px;height:22px}
+.card h4{font-family:'Inter Display';font-weight:800;font-size:21px;line-height:1.1;letter-spacing:-.01em}
+.card p{font-size:15px;color:var(--ink2);margin-top:4px;line-height:1.25}
+.card .cnt{margin-left:auto;font-family:'DejaVu Sans Mono',monospace;font-size:20px;color:var(--coral);align-self:center}
+.card.out{border-color:rgba(255,95,60,.45)}
+svg.wires{position:absolute;inset:0;pointer-events:none}
+.note{position:absolute;font-size:16px;color:var(--ink2)}
+.swipe{position:absolute;display:flex;align-items:center;gap:14px;font-family:'Inter Display';font-weight:700;font-size:28px;padding:18px 30px;border-radius:999px}
+.toast{position:absolute;left:16px;right:16px;top:58px;background:rgba(241,237,228,.97);color:var(--forest);border-radius:22px;padding:14px 16px;display:flex;gap:12px;align-items:center;z-index:6;box-shadow:0 18px 30px -12px rgba(0,0,0,.5)}
+.toast .ap{width:38px;height:38px;border-radius:10px;background:var(--forest);color:var(--paper);font-family:'Inter Display';font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex:none}
+.toast .ap b{color:var(--coral)}
+.toast h6{font-size:15px;font-weight:700}.toast p{font-size:14px;color:#3b4a42}
+.sys{border-radius:30px;background:var(--forest);color:#f1ede4;box-shadow:0 40px 80px -36px rgba(11,34,25,.65)}
+.fix{position:absolute;background:var(--card);border:2px solid var(--line);border-radius:26px;padding:26px 30px;box-shadow:0 18px 40px -24px rgba(11,34,25,.4)}
+.fix .lb{display:inline-flex;align-items:center;gap:10px;font-family:'DejaVu Sans Mono';font-size:18px;color:#4f7a12;background:rgba(185,238,79,.35);padding:6px 14px;border-radius:999px}
+.fix p{font-size:36px;line-height:1.3;margin-top:16px;letter-spacing:-.01em}
+</style></head><body><div id="root"></div>
+<script>
+const P=new URLSearchParams(location.search); const S=P.get('s'); const N=P.get('n')||'';
+const root=document.getElementById('root');
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const fmt=v=>'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const chev=(t,col)=>[0,1,2].map(i=>`<svg width="22" height="22" viewBox="0 0 24 24" style="opacity:${.3+.7*clamp(Math.sin(t*5-i*.9)*.5+.5)}"><path d="M8 4l8 8-8 8" stroke="${col}" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>`).join('');
+const topbar=(n,dark)=>`<div class="top" style="color:${dark?'#f1ede4':'#0b2219'}"><div class="logo">Kairos<b>.</b></div><div class="count" style="${dark?'color:#8fa699;border-color:#24463a':''}">${n}</div></div>`;
+const title=(a,b,size=96,y=136)=>`<div class="title" style="font-size:${size}px;top:${y}px"><div>${a}</div><div class="b">${b}</div></div>`;
+const blink=t=>(Math.floor(t*2)%2)?1:.25;
+const phone=(x,y,sc,inner,t,head='Robô de lances',rot=0)=>`<div class="phone" style="left:${x}px;top:${y}px;transform:scale(${sc}) rotate(${rot}deg)"><div class="screen"><div class="island"></div><div class="sb"><span>08:53</span><span>5G ▮▮▮</span></div><div class="apph"><div class="t">${head}</div><div class="live"><i style="opacity:${blink(t)}"></i>ao vivo</div></div>${inner}</div></div>`;
+const wireP=(x1,y1,x2,y2)=>{const mx=(x1+x2)/2;return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`};
+const wire=(x1,y1,x2,y2,t,op=.55)=>`<path d="${wireP(x1,y1,x2,y2)}" stroke="#ff5f3c" stroke-opacity="${op}" stroke-width="2.5" fill="none" stroke-dasharray="6 7" style="stroke-dashoffset:${-t*30}"/>`;
+const dotOn=(x1,y1,x2,y2,u)=>{const mx=(x1+x2)/2,P=[[x1,y1],[mx,y1],[mx,y2],[x2,y2]];const a=(1-u)**3,b=3*u*(1-u)**2,c=3*u*u*(1-u),d=u**3;return [a*P[0][0]+b*P[1][0]+c*P[2][0]+d*P[3][0],a*P[0][1]+b*P[1][1]+c*P[2][1]+d*P[3][1]]};
+const ICON={
+ box:'<path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/>',
+ truck:'<path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+ pct:'<path d="M5 19L19 5"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
+ up:'<path d="M12 19V6M6 11l6-6 6 6"/>',
+ srv:'<rect x="4" y="4" width="16" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/><path d="M8 7.5h.01M8 16.5h.01"/>',
+ live:'<path d="M3 12h4l3-7 4 14 3-7h4"/>',
+ pause:'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>',
+ lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+ key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l3 3"/>',
+ shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+ list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/>',
+ cal:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>'
+};
+const ic=(k,col='#0b2219')=>`<svg viewBox="0 0 24 24" fill="none" stroke="${col}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+const card=(x,y,k,h,p,extra='',cls='',style='')=>`<div class="card ${cls}" style="left:${x}px;top:${y}px;${style}"><div class="ic">${ic(k,cls?'#ff5f3c':'#0b2219')}</div><div><h4>${h}</h4><p>${p}</p></div>${extra}</div>`;
+const note=(x,y,w=240,txt='Telas ilustrativas, com valores de exemplo.')=>`<div class="note" style="left:${x}px;top:${y}px;width:${w}px">${txt}</div>`;
+
+const SC={};
+
+/* ---------- 3. LIMITE ---------- */
+SC.limite=t=>{
+ const items=[{k:'box',h:'Custo do produto',v:900,f:v=>fmt(v)},{k:'truck',h:'Frete',v:80,f:v=>fmt(v)},{k:'pct',h:'Impostos',v:6,f:v=>v.toFixed(0)+'%'},{k:'up',h:'Margem mínima',v:10,f:v=>v.toFixed(0)+'%'}];
+ const target='1.166,67'; const typed=target.slice(0,Math.floor(clamp((t-2.3)/1.1)*target.length));
+ const saved=t>3.7;
+ const PX=355,PY=440,SCL=.86;
+ let wires='',dots='',cards='';
+ items.forEach((c,i)=>{const y=520+i*150; const a=ease((t-0.25-i*0.35)/0.5);
+   cards+=`<div class="card" style="left:40px;top:${y}px;opacity:${0.25+0.75*a}"><div class="ic">${ic(c.k)}</div><div><h4 style="font-size:19px">${c.h}</h4><p class="mono" style="font-size:20px;color:#0b2219;margin-top:6px">${c.f(c.v*a)}</p></div></div>`;
+   const x1=280,y1=y+44,x2=PX+6,y2=PY+330*SCL; wires+=wire(x1,y1,x2,y2,t,.25+.4*a);
+   if(t<2.3){const u=(t*0.6+i*0.25)%1;const [dx,dy]=dotOn(x1,y1,x2,y2,u);dots+=`<circle cx="${dx}" cy="${dy}" r="6" fill="#ff5f3c"/>`;}});
+ const inner=`<div class="panel"><div class="k">ITEM 1 · IMPRESSORA MULTIFUNCIONAL</div>
+   <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:13px;color:#8fa699"><span>Melhor geral</span><span>Variação mín.</span></div>
+   <div style="display:flex;justify-content:space-between;font-family:'DejaVu Sans Mono';font-size:18px;margin-top:4px"><span style="color:#ff8a6d">R$ 1.289,90</span><span>R$ 0,10</span></div>
+   <div class="k" style="margin-top:22px">STOP LOSS (SEU LIMITE)</div>
+   <div style="margin-top:8px;border:3px solid ${t>2.2&&!saved?'#b9ee4f':'#24463a'};border-radius:14px;padding:14px 16px;font-family:'DejaVu Sans Mono';font-size:30px;background:#0b2219;display:flex;justify-content:space-between"><span>R$ ${typed||'<span style=\'color:#55705f\'>0,00</span>'}<span style="opacity:${t>2.2&&!saved?blink(t*2):0}">|</span></span></div>
+   <div style="margin-top:16px;background:${saved?'var(--lime)':'#24463a'};color:${saved?'#0b2219':'#8fa699'};border-radius:12px;text-align:center;padding:12px;font-weight:700;font-size:15px">${saved?'Limite salvo':'Salvar limite'}</div></div>
+   <div style="margin:14px 22px 8px;font-size:15px;font-weight:700">Log de atividades</div>
+   <div style="margin:0 16px;display:flex;flex-direction:column;gap:8px">
+   ${saved?`<div class="row" style="opacity:${ease((t-3.7)/.3)}"><span class="tm">08:52:50</span><span class="tx">Configuração salva no servidor</span><span class="pill pw">ok</span></div>`:''}
+   <div class="row"><span class="tm">08:52:05</span><span class="tx">Itens carregados: 1</span><span class="pill ph">ok</span></div></div>`;
+ const rv=ease((t-3.9)/.5);
+ return `<div class="bg"></div>${topbar(N)}${title('Seu','limite')}
+ <div class="sub" style="top:150px;left:470px;width:540px">Você calcula o menor preço que ainda dá lucro. <strong>O robô respeita esse número em todos os lances.</strong></div>
+ <div class="col-h" style="left:40px;top:478px">o que compõe</div>
+ <svg class="wires" width="1080" height="1350">${wires}${dots}</svg>${cards}
+ ${phone(PX,PY,SCL,inner,t)}
+ <div class="col-h" style="left:800px;top:478px">o resultado</div>
+ <div class="card out" style="left:800px;top:520px;flex-direction:column;gap:6px;transform:scale(${1+0.04*Math.sin(clamp((t-3.9)/.5)*Math.PI)})"><div class="ic">${ic('shield','#ff5f3c')}</div><h4>Lance mínimo</h4><p class="mono" style="font-size:24px;color:#0b2219">${saved?'R$ 1.166,67':'calculando…'}</p></div>
+ <div class="card" style="left:800px;top:740px;flex-direction:column;gap:6px;opacity:${0.3+0.7*rv}"><h4 style="font-size:19px">Abaixo disso</h4><p>o robô para e não dá lance.</p></div>
+ <div style="position:absolute;left:800px;top:900px;width:240px;font-size:15px;line-height:1.35;color:#56645b;opacity:${0.3+0.7*rv}"><span class="mono" style="color:#0b2219">(900 + 80) ÷ (1 − 16%)</span><br>custos divididos por 1 menos impostos e margem.</div>
+ ${note(800,1250)}`;
+};
+
+/* ---------- 4. MONITOR ---------- */
+SC.monitor=t=>{
+ const on=t>1.3; const tg=ease((t-1.3)/.25);
+ const day=[['09:00','Reunião'],['10:30','Cliente'],['12:00','Almoço'],['14:00','Entregas']];
+ const act=Math.floor(clamp(t/5.2)*4.999);
+ const PX=355,PY=440,SCL=.86;
+ const inner=`<div class="panel"><h6>Status do robô</h6>
+  <div style="font-size:13px;margin-top:6px;color:${on?'var(--lime)':'#8fa699'}">${on?'Monitoramento habilitado: recebendo atualizações':'Aguardando…'}</div>
+  <div style="display:flex;align-items:center;gap:12px;margin-top:16px"><div style="width:54px;height:30px;border-radius:999px;background:${on?'var(--lime)':'#2b4a3d'};position:relative"><div style="position:absolute;top:3px;left:${3+24*tg}px;width:24px;height:24px;border-radius:50%;background:${on?'#0b2219':'#8fa699'}"></div></div><span style="font-size:15px">Monitoramento automático</span></div>
+  <div style="font-size:12.5px;color:#8fa699;margin-top:14px;line-height:1.4">Execução no servidor: o robô segue ativo mesmo com o celular bloqueado e o computador desligado.</div></div>
+  <div style="margin:14px 22px 8px;font-size:15px;font-weight:700">Agora</div>
+  <div style="margin:0 16px;display:flex;flex-direction:column;gap:8px">
+  ${[[4.2,'10:31:12','Cobriu o lance','cobriu','pw'],[3.0,'09:47:03','Cobriu o lance','cobriu','pw'],[1.6,'09:02:40','Robô ligado','ok','ph']].filter(r=>t>=r[0]).map(r=>`<div class="row" style="opacity:${ease((t-r[0])/.3)}"><span class="tm">${r[1]}</span><span class="tx">${r[2]}</span><span class="pill ${r[4]}">${r[3]}</span></div>`).join('')}</div>`;
+ let wires='';
+ [0,1,2].forEach(i=>{wires+=wire(PX+370-6,PY+260*SCL+i*40,800,560+i*170+44,t,on?.55:.15)});
+ return `<div class="bg"></div>${topbar(N)}${title('Liga e','segue o dia')}
+ <div class="sub" style="top:150px;left:600px;width:420px">Um toque e o monitoramento fica ativo. <strong>Você volta para a sua rotina.</strong></div>
+ <div class="col-h" style="left:40px;top:478px">o seu dia</div>
+ <div style="position:absolute;left:40px;top:520px;width:250px">
+  ${day.map((d,i)=>`<div style="display:flex;gap:16px;align-items:center;margin-bottom:26px;opacity:${i<=act?1:.35}"><div style="width:18px;height:18px;border-radius:50%;border:3px solid ${i<=act?'#ff5f3c':'#c9bfae'};background:${i===act?'#ff5f3c':'transparent'}"></div><div><div class="mono" style="font-size:18px;color:#56645b">${d[0]}</div><div style="font-family:'Inter Display';font-weight:800;font-size:26px">${d[1]}</div></div></div>`).join('')}
+  <div style="font-size:16px;color:#56645b;line-height:1.35;margin-top:10px">Enquanto isso, o robô acompanha a disputa.</div></div>
+ <svg class="wires" width="1080" height="1350">${wires}</svg>
+ ${phone(PX,PY,SCL,inner,t)}
+ <div class="col-h" style="left:800px;top:520px">o que acontece</div>
+ ${card(800,560,'srv','No servidor','sem computador ligado','','out')}
+ ${card(800,730,'live','Ao vivo','atualiza a disputa a todo momento','','out')}
+ ${card(800,900,'up','Em milissegundos','reage na hora ao lance do concorrente','','out')}
+ ${note(800,1250)}`;
+};
+
+/* ---------- 5. ORBITA ---------- */
+SC.orbita=t=>{
+ const win=t>2.6; const ring=(t*0.5)%1; const R=250,C=2*Math.PI*R;
+ const steps=[[0.3,'08:53:02','Concorrente: R$ 1.289,90','alerta','pl'],[1.5,'08:53:05','Robô cobriu: R$ 1.289,80','cobriu','pw'],[2.1,'08:53:09','Concorrente: R$ 1.279,90','alerta','pl'],[2.6,'08:53:11','Robô cobriu: R$ 1.279,80','ganhando','pw']];
+ const flash=win?Math.max(0,1-(t-2.6)/0.5):0;
+ return `<div class="bg"></div>${topbar(N)}${title('Perdendo','virou ganhando')}
+ <div class="sub" style="top:340px;left:72px;width:880px">Cada lance do concorrente é lido na hora. O robô cobre com a variação mínima, <strong>sem passar do seu limite.</strong></div>
+ <div class="sys" style="position:absolute;left:72px;top:470px;width:936px;height:560px;overflow:hidden">
+   <div style="position:absolute;left:28px;top:24px;font-family:'Inter Display';font-weight:700;font-size:24px">Itens na órbita</div>
+   <div class="mono" style="position:absolute;right:28px;top:30px;font-size:14px;color:#8fa699">DESTA COMPRA</div>
+   <div style="position:absolute;left:${468-R-30}px;top:${300-R-30}px;width:${2*R+60}px;height:${2*R+60}px;border-radius:50%;background:radial-gradient(circle,#123427 0%,#0b2219 70%)"></div>
+   <svg width="936" height="560" style="position:absolute;inset:0"><circle cx="468" cy="300" r="${R}" stroke="#1d3b2f" stroke-width="2" fill="none"/>
+   <circle cx="468" cy="300" r="${R}" stroke="${win?'#b9ee4f':'#ff5f3c'}" stroke-width="9" fill="none" stroke-linecap="round" stroke-dasharray="${C*.6} ${C}" transform="rotate(${ring*360-90} 468 300)"/></svg>
+   <div style="position:absolute;left:0;right:0;top:215px;text-align:center"><div class="mono" style="font-size:16px;color:#8fa699">seu lance</div><div class="mono" style="font-size:64px;margin-top:6px;color:${win?'#b9ee4f':'#f1ede4'};transform:scale(${1+flash*.08})">${fmt(win?1279.80:t>1.5?1289.80:1800)}</div></div>
+   <div style="position:absolute;left:50%;top:345px;transform:translateX(-50%)" class="pill ${win?'pw':'pl'}"><span style="font-size:20px;padding:4px 10px;display:inline-block">${win?'ganhando':'perdendo'}</span></div>
+   <div style="position:absolute;left:40px;top:120px;width:200px;background:#10291f;border:1px solid #24463a;border-radius:14px;padding:12px 14px"><div class="mono" style="font-size:12px;color:#8fa699">ITEM 1</div><div style="font-weight:700;font-size:16px;margin-top:4px">Impressora multifuncional</div><div class="mono" style="font-size:13px;margin-top:6px;color:${win?'#b9ee4f':'#ff8a6d'}">${win?'ganhando':'perdendo'}</div></div>
+ </div>
+ <div style="position:absolute;left:72px;top:1050px;width:936px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+  ${steps.map(s=>`<div class="row" style="background:#fbf8f2;border:2px solid #d8cfbf;color:#0b2219;opacity:${t>=s[0]?ease((t-s[0])/.3):.2}"><span class="tm" style="color:#56645b">${s[1]}</span><span class="tx" style="font-size:15px">${s[2]}</span><span class="pill" style="background:${s[4]==='pw'?'rgba(185,238,79,.45)':'rgba(255,95,60,.15)'};color:${s[4]==='pw'?'#3d6310':'#d1401f'}">${s[3]}</span></div>`).join('')}
+ </div>
+ ${note(72,1250,600)}`;
+};
+
+/* ---------- 6. MULTI ---------- */
+SC.multi=t=>{
+ const PX=355,PY=440,SCL=.86;
+ const L=[{n:'7657050600146',o:'Impressora multifuncional',s:[[0,'perdendo','pl'],[2.0,'ganhando','pw']]},{n:'1602220600128',o:'Reparo de esgoto',s:[[0,'abre hoje','pa']]},{n:'1501820600192',o:'Equipamentos de cozinha',s:[[0,'em disputa','ph'],[3.2,'ganhando','pw']]},{n:'1604500600098',o:'Copo descartável',s:[[0,'em disputa','ph'],[4.2,'perdendo','pl']]}];
+ const inner=`<div style="display:flex;gap:8px;margin:2px 16px 10px">${['Hoje','Próximas','Encerradas'].map((x,i)=>`<span style="font-size:13px;padding:7px 12px;border-radius:999px;${i===0?'background:#f1ede4;color:#0b2219':'border:1px solid #24463a;color:#8fa699'}">${x}</span>`).join('')}</div>
+ <div style="margin:0 16px;display:flex;flex-direction:column;gap:9px">${L.map(l=>{let st=l.s[0];l.s.forEach(s=>{if(t>=s[0])st=s});return `<div class="panel" style="margin:0;padding:13px 14px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="mono" style="font-size:13px">${l.n}…</span><span class="pill ${st[2]}">${st[1]}</span></div><div style="font-size:14px;margin-top:6px;color:#cfd8cf">${l.o}</div></div>`}).join('')}</div>`;
+ const cnt=(v,a)=>Math.round(v*ease((t-a)/1));
+ const wins=1+(t>=3.2?1:0)-(t>=2.0?0:1)+(t>=2.0?0:0);
+ return `<div class="bg"></div>${topbar(N)}${title('Vários pregões','ao mesmo tempo',88)}
+ <div class="sub" style="top:340px;left:72px;width:880px">Todas as disputas do dia numa lista só, com o status de cada item <strong>atualizado sozinho.</strong></div>
+ <svg class="wires" width="1080" height="1350">${[0,1,2].map(i=>wire(280,560+i*170+44,PX+6,PY+300*SCL+i*60,t,.4)).join('')}</svg>
+ <div class="col-h" style="left:40px;top:520px">no seu painel</div>
+ ${card(40,560,'list','Capturados',`<span class="mono" style="font-size:22px;color:#0b2219">${cnt(74,.2)}</span> pregões`)}
+ ${card(40,730,'cal','Em disputa',`<span class="mono" style="font-size:22px;color:#0b2219">${cnt(4,.5)}</span> hoje`)}
+ ${card(40,900,'up','Ganhando',`<span class="mono" style="font-size:22px;color:#0b2219">${t>=3.2?2:t>=2.0?1:0}</span> itens agora`)}
+ ${phone(PX,PY,SCL,inner,t,'Meus leilões')}
+ <div class="col-h" style="left:800px;top:520px">você vê</div>
+ ${card(800,560,'live','Status ao vivo','perdendo, ganhando ou abre hoje','','out')}
+ ${card(800,730,'shield','Limite por item','cada item com o seu stop loss','','out')}
+ ${note(800,1250)}`;
+};
+
+/* ---------- 7. SEGURANCA ---------- */
+SC.seguranca=t=>{
+ const u=clamp((t-1.0)/1.6); const tokX=330+290*ease(u); const tokO=t<0.9?0:t<2.7?1:1-clamp((t-2.7)/.3);
+ const bounce=t>0.4&&t<1.2?Math.sin((t-0.4)/0.8*Math.PI)*-30:0;
+ const ok=t>2.8;
+ return `<div class="bg"></div>${topbar(N)}${title('Sua senha','fica com você')}
+ <div class="sub" style="top:340px;left:72px;width:880px">A senha e o certificado do Gov.br ficam no seu navegador. <strong>O Kairos recebe só uma sessão temporária.</strong></div>
+ <div style="position:absolute;left:72px;top:480px;width:380px;height:500px;border-radius:30px;background:#fbf8f2;border:2px solid #d8cfbf;box-shadow:0 20px 50px -30px rgba(11,34,25,.5);padding:26px">
+  <div style="display:flex;gap:8px"><i style="width:12px;height:12px;border-radius:50%;background:#e5ddcd"></i><i style="width:12px;height:12px;border-radius:50%;background:#e5ddcd"></i><i style="width:12px;height:12px;border-radius:50%;background:#e5ddcd"></i></div>
+  <div class="mono" style="font-size:16px;color:#56645b;margin-top:22px">seu navegador</div>
+  <div style="font-family:'Inter Display';font-weight:800;font-size:30px;margin-top:6px">gov.br</div>
+  <div style="margin-top:22px;font-size:15px;color:#56645b">Senha</div>
+  <div style="margin-top:6px;border:2px solid #d8cfbf;border-radius:12px;padding:12px 14px;font-size:26px;letter-spacing:6px;display:flex;justify-content:space-between;align-items:center;transform:translateX(${bounce*-0.3}px)">••••••••<span style="width:34px;height:34px">${ic('lock','#ff5f3c')}</span></div>
+  <div style="margin-top:20px;font-size:15px;color:#56645b">Certificado</div>
+  <div style="margin-top:6px;border:2px solid #d8cfbf;border-radius:12px;padding:12px 14px;font-size:18px;display:flex;justify-content:space-between">certificado.pfx<span style="width:30px;height:30px">${ic('lock','#ff5f3c')}</span></div>
+  <div class="mono" style="font-size:15px;color:#d1401f;margin-top:20px;opacity:${t>0.4?1:.3}">não sai daqui</div>
+ </div>
+ <svg class="wires" width="1080" height="1350">${wire(452,700,640,700,t,.5)}</svg>
+ <div style="position:absolute;z-index:3;left:${tokX}px;top:672px;background:#0b2219;color:#b9ee4f;border-radius:999px;padding:10px 18px;font-family:'DejaVu Sans Mono';font-size:17px;display:flex;gap:8px;align-items:center;opacity:${tokO};box-shadow:0 10px 24px -10px rgba(0,0,0,.5)"><span style="width:20px;height:20px">${ic('key','#b9ee4f')}</span>sessão</div>
+ <div class="sys" style="position:absolute;z-index:1;left:640px;top:480px;width:368px;height:500px;padding:26px">
+  <div class="logo" style="color:#f1ede4;font-size:32px">Kairos<b>.</b></div>
+  <div class="mono" style="font-size:14px;color:#8fa699;margin-top:6px">servidor</div>
+  <div class="panel" style="margin:22px 0 0">
+   <div class="k">SESSÃO TEMPORÁRIA</div>
+   <div style="font-size:16px;margin-top:8px;color:${ok?'#b9ee4f':'#8fa699'}">${ok?'Recebida: robô pronto':'Aguardando…'}</div></div>
+  <div class="panel" style="margin:12px 0 0"><div class="k">SENHA DO GOV.BR</div><div style="font-size:16px;margin-top:8px;color:#ff8a6d">Nunca recebida</div></div>
+  <div style="font-size:13px;color:#8fa699;margin-top:18px;line-height:1.4">Você liga e desliga o robô quando quiser, direto pelo celular.</div>
+ </div>
+ <div style="position:absolute;left:72px;top:1040px;width:936px;display:flex;gap:14px">
+  ${[['shield','Sem senha guardada'],['key','Só sessão temporária'],['pause','Você liga e desliga']].map((x,i)=>`<div class="card" style="position:relative;left:0;top:0;width:auto;flex:1;align-items:center;opacity:${0.3+0.7*ease((t-3.0-i*.25)/.4)}"><div class="ic">${ic(x[0])}</div><h4 style="font-size:19px">${x[1]}</h4></div>`).join('')}
+ </div>${note(72,1250,600)}`;
+};
+
+/* ---------- CTA ---------- */
+SC.cta=t=>{
+ const word='PREGÃO'; const typed=word.slice(0,Math.floor(clamp((t-0.6)/0.9)*word.length));
+ const sent=t>1.8; const dm=ease((t-2.4)/.4); const pdf=ease((t-3.0)/.4);
+ return `<div class="bg"></div>${topbar(N)}${title('Quer o','Kit do Pregão?')}
+ <div class="sub" style="top:340px;left:72px;width:600px;font-size:28px">Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong></div>
+ <div style="position:absolute;left:72px;top:470px;background:#ff5f3c;color:#0b2219;border-radius:28px;padding:26px 36px;font-family:'Inter Display';font-weight:900;font-size:64px;letter-spacing:-.03em;transform:scale(${1+0.025*Math.sin(t*5)});transform-origin:left center;box-shadow:0 26px 50px -24px rgba(255,95,60,.8)">Comenta PREGÃO</div>
+ <div style="position:absolute;left:72px;top:640px;width:520px;background:#fbf8f2;border:2px solid #d8cfbf;border-radius:999px;padding:16px 22px;display:flex;align-items:center;gap:14px;font-size:22px">
+   <div style="width:40px;height:40px;border-radius:50%;background:#e5ddcd"></div>
+   <span style="flex:1">${typed?`<b>${typed}</b>`:'<span style=\'color:#9a9384\'>Adicione um comentário…</span>'}<span style="opacity:${sent?0:blink(t*2)}">|</span></span>
+   <span style="color:${typed.length===word.length?'#2f6fde':'#b9b1a2'};font-weight:700;font-size:20px">Publicar</span></div>
+ <div style="position:absolute;left:400px;top:780px;width:608px;opacity:${dm};transform:translateY(${(1-dm)*20}px)">
+   <div class="mono" style="font-size:15px;color:#56645b;margin-bottom:10px">Direct · agora</div>
+   <div style="background:#0b2219;color:#f1ede4;border-radius:26px 26px 26px 8px;padding:22px 26px;font-size:26px;line-height:1.35">Aqui está o seu Kit do Pregão. Bom lance!</div>
+   <div style="margin-top:12px;background:#fbf8f2;border:2px solid #d8cfbf;border-radius:22px;padding:16px;display:flex;gap:16px;align-items:center;opacity:${pdf};transform:scale(${0.96+0.04*pdf})">
+     <div style="width:104px;height:134px;border-radius:12px;background:#0b2219;padding:12px;color:#f1ede4;font-family:'Inter Display';font-weight:800;font-size:18px;line-height:1.05">Kit do<br><span style="color:#ff5f3c">Pregão</span></div>
+     <div><div style="font-weight:700;font-size:26px">Kit-do-Pregao.pdf</div><div style="font-size:20px;color:#56645b;margin-top:4px">Checklist + calculadora</div></div></div>
+ </div>
+ <div style="position:absolute;left:72px;top:1160px;font-size:24px;color:#0b2219">E se quiser o robô: <b>teste grátis por 7 dias</b>, link na bio.</div>`;
+};
+
+/* ---------- ERROS: capa ---------- */
+const ERR=[
+ ['Ler só o objeto','do edital.','Termo de referência','não lido','lido: prazo de 30 dias, sem amostra','Leia o termo de referência e os anexos. Prazo de entrega, amostra e especificação ficam lá.'],
+ ['Certidão vencida','na habilitação.','CND federal','vencida','válida até 03/2027','Anote a validade de cada certidão e confira o SICAF antes de cada pregão.'],
+ ['Disputar sem','preço mínimo.','Preço mínimo','não definido','R$ 1.166,67','Some custo, frete e impostos. O menor valor que ainda dá lucro é o seu limite.'],
+ ['Sumir depois','dos lances.','Convocação do pregoeiro','sem resposta','respondida em 9 min','O pregoeiro chama pelo chat com prazo curto para proposta e documentos. Acompanhe até o fim.'],
+ ['Dar lance','na emoção.','Seu último lance','abaixo do custo','parou no limite','Ganhar abaixo do custo é prejuízo com contrato assinado. Pare no limite que você definiu.'],
+ ['Proposta fora','do modelo.','Marca e modelo','em branco','preenchidos conforme edital','Use o modelo pedido e informe marca, modelo e validade quando forem exigidos.'],
+ ['Esquecer o','benefício ME/EPP.','Enquadramento ME/EPP','não declarado','declarado na proposta','Declare o enquadramento ao cadastrar a proposta. Há itens exclusivos e desempate a favor de micro e pequenas empresas.']
+];
+SC.ecapa=t=>{
+ const i=Math.min(6,Math.floor(t/0.62)); const lt=t-i*0.62; const st=clamp(lt/0.3);
+ const done=t>4.4;
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:120px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">7 erros que<br>tiram você<br><span style="color:#ff5f3c">do pregão.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:600px;height:500px;border-radius:44px;background:${done?'#c9f26c':'#ff5f3c'};color:${done?'#0b2219':'#1a0f0a'};padding:44px 48px;box-shadow:0 40px 90px -30px ${done?'rgba(185,238,79,.45)':'rgba(255,95,60,.6)'}">
+  <div class="mono" style="font-size:24px;letter-spacing:.08em">${done?'CHECKLIST · 7 DE 7':'ERRO '+(i+1)+' DE 7'}</div>
+  <div style="font-family:'Inter Display';font-weight:800;font-size:82px;line-height:.98;letter-spacing:-.04em;margin-top:26px;position:relative;display:inline-block">${done?'Você evita<br>todos eles.':ERR[i][0]+'<br>'+ERR[i][1]}
+   ${done?'':`<div style="position:absolute;left:0;top:50%;height:8px;width:${st*100}%;background:#0b2219;border-radius:4px"></div>`}</div>
+  <div style="position:absolute;left:48px;right:48px;bottom:44px;display:flex;gap:10px">${ERR.map((e,k)=>`<div style="flex:1;height:12px;border-radius:6px;background:${done||k<=i?'#0b2219':'rgba(0,0,0,.15)'}"></div>`).join('')}</div>
+ </div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e confira os 7<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
+/* ---------- ERROS: interno ---------- */
+SC.erro=t=>{
+ const k=parseInt(P.get('e')); const e=ERR[k];
+ const sk=ease((t-0.5)/0.6); const fixd=t>2.2; const fx=ease((t-2.6)/0.5);
+ return `<div class="bg"></div>${topbar(N)}
+ <div class="mono" style="position:absolute;left:72px;top:150px;font-size:26px;color:#d1401f">erro ${k+1} de 7</div>
+ <div style="position:absolute;left:72px;top:196px;font-family:'Inter Display';font-weight:900;font-size:104px;line-height:.92;letter-spacing:-.045em">
+   <div style="position:relative;display:inline-block">${e[0]}<div style="position:absolute;left:0;top:52%;height:10px;width:${sk*100}%;background:#ff5f3c;border-radius:5px"></div></div><br>
+   <div style="position:relative;display:inline-block;color:#ff5f3c">${e[1]}<div style="position:absolute;left:0;top:52%;height:10px;width:${clamp((t-0.9)/0.6)*100}%;background:#0b2219;border-radius:5px"></div></div></div>
+ <div class="sys" style="position:absolute;left:72px;top:480px;width:936px;padding:30px 34px">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Inter Display';font-weight:700;font-size:26px">Antes do pregão</div><div class="live" style="font-size:15px"><i style="opacity:${blink(t)}"></i>conferindo</div></div>
+  <div class="row" style="margin-top:22px;padding:24px 26px;font-size:28px;border-color:${fixd?'rgba(185,238,79,.5)':'rgba(255,95,60,.5)'};transform:scale(${1+0.02*Math.sin(clamp((t-2.2)/.4)*Math.PI)})"><span class="tx">${e[2]}</span><span class="pill ${fixd?'pw':'pl'}" style="font-size:20px;padding:9px 16px">${fixd?e[4]:e[3]}</span></div>
+ </div>
+ <div style="position:absolute;right:40px;bottom:-70px;font-family:'Inter Display';font-weight:900;font-size:440px;line-height:1;color:#e6dece;letter-spacing:-.06em">0${k+1}</div>
+ <div class="fix" style="left:72px;right:72px;top:${790+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>como evitar</span>
+  <p>${e[5]}</p></div>
+ <div style="position:absolute;left:72px;top:1210px;font-size:22px;color:#56645b">Salve para conferir antes do próximo pregão.</div>`;
+};
+
+window.render=t=>{root.innerHTML=SC[S](t)};
+render(0);
+</script></body></html>

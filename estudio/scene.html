@@ -1,0 +1,179 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--paper:#f2ede3;--paper2:#e9e2d4;--forest:#0b2219;--forest2:#10291f;--coral:#ff5f3c;--lime:#b9ee4f;--ink2:#56645b;--line:#d8cfbf;--card:#fbf8f2}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden;background:var(--paper)}
+body{font-family:'Inter',sans-serif;color:var(--forest);position:relative}
+.grain{position:absolute;inset:0;background:
+ radial-gradient(90% 60% at 50% 72%,rgba(255,95,60,.10),rgba(255,95,60,0) 60%),
+ radial-gradient(70% 50% at 10% 0%,rgba(11,34,25,.06),rgba(11,34,25,0) 70%)}
+.top{position:absolute;left:72px;right:72px;top:60px;display:flex;justify-content:space-between;align-items:center;font-size:26px}
+.logo{font-family:'Inter Display';font-weight:800;font-size:38px;letter-spacing:-.03em}.logo b{color:var(--coral)}
+.count{font-family:'DejaVu Sans Mono',monospace;font-size:22px;color:var(--ink2);border:2px solid var(--line);border-radius:999px;padding:6px 16px}
+.title{position:absolute;left:72px;right:72px;top:136px;font-family:'Inter Display';font-weight:900;letter-spacing:-.045em;line-height:.9}
+.title .a{color:var(--forest)}.title .b{color:var(--coral)}
+.sub{position:absolute;left:72px;width:820px;font-size:30px;line-height:1.35;color:var(--ink2)}
+.sub strong{color:var(--forest);font-weight:700}
+/* phone */
+.phone{position:absolute;width:430px;height:880px;border-radius:66px;background:#0a0f0d;padding:14px;box-shadow:0 50px 90px -30px rgba(11,34,25,.55),0 0 0 2px #26302b inset}
+.screen{width:100%;height:100%;border-radius:54px;background:var(--forest);overflow:hidden;position:relative;color:#f1ede4}
+.island{position:absolute;left:50%;top:14px;width:120px;height:34px;margin-left:-60px;border-radius:20px;background:#000;z-index:5}
+.sb{display:flex;justify-content:space-between;padding:20px 34px 0;font-size:17px;font-weight:600}
+.apph{display:flex;justify-content:space-between;align-items:center;padding:30px 24px 12px}
+.apph .t{font-family:'Inter Display';font-weight:700;font-size:24px}
+.live{font-family:'DejaVu Sans Mono',monospace;font-size:13px;color:var(--lime);display:flex;align-items:center;gap:8px}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--lime);display:inline-block}
+.hero{margin:6px 16px;border-radius:24px;padding:20px 20px 18px;position:relative;transition:none}
+.hero .k{font-family:'DejaVu Sans Mono',monospace;font-size:13px;letter-spacing:.06em;opacity:.85}
+.hero .n{font-family:'Inter Display';font-weight:800;font-size:22px;margin-top:6px}
+.hero .v{font-family:'DejaVu Sans Mono',monospace;font-size:46px;margin-top:22px;letter-spacing:-.02em}
+.hero .s{font-size:14px;opacity:.8;margin-top:4px}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 16px}
+.stats div{background:var(--forest2);border:1px solid #1d3b2f;border-radius:16px;padding:12px 12px}
+.stats b{display:block;font-family:'DejaVu Sans Mono',monospace;font-size:20px;font-weight:400}
+.stats span{font-size:11.5px;color:#8fa699}
+.logt{display:flex;justify-content:space-between;margin:14px 22px 8px;font-size:15px;font-weight:700}
+.logt span{font-family:'DejaVu Sans Mono',monospace;font-size:12px;color:#8fa699;font-weight:400}
+.log{margin:0 16px;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;align-items:center;gap:10px;background:var(--forest2);border:1px solid #1d3b2f;border-radius:14px;padding:11px 12px;font-size:13.5px}
+.row .tm{font-family:'DejaVu Sans Mono',monospace;font-size:11.5px;color:#8fa699;width:62px}
+.row .tx{flex:1}
+.pill{font-family:'DejaVu Sans Mono',monospace;font-size:11px;padding:4px 9px;border-radius:999px}
+.pl{background:rgba(255,95,60,.18);color:#ff8a6d}
+.pw{background:rgba(185,238,79,.18);color:var(--lime)}
+.ph{background:rgba(241,237,228,.12);color:#cfd8cf}
+/* side cards */
+.col-h{position:absolute;font-family:'DejaVu Sans Mono',monospace;font-size:17px;color:var(--ink2)}
+.card{position:absolute;width:240px;background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 14px 30px -18px rgba(11,34,25,.35)}
+.card .ic{width:40px;height:40px;border-radius:12px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex:none}
+.card .ic svg{width:22px;height:22px}
+.card h4{font-family:'Inter Display';font-weight:800;font-size:21px;line-height:1.1;letter-spacing:-.01em}
+.card p{font-size:15px;color:var(--ink2);margin-top:4px;line-height:1.25}
+.card .cnt{margin-left:auto;font-family:'DejaVu Sans Mono',monospace;font-size:20px;color:var(--coral);align-self:center}
+.card.out{border-color:rgba(255,95,60,.45)}
+.rules{position:absolute;width:250px;background:transparent;border:2px dashed var(--line);border-radius:22px;padding:16px 18px}
+.rules h5{font-family:'DejaVu Sans Mono',monospace;font-weight:400;font-size:15px;color:var(--ink2);margin-bottom:10px}
+.rules li{list-style:none;font-size:15.5px;line-height:1.3;margin-bottom:8px;padding-left:22px;position:relative}
+.rules li:before{content:'';position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;border:3px solid var(--coral)}
+svg.wires{position:absolute;inset:0;pointer-events:none}
+.note{position:absolute;font-size:16px;color:var(--ink2)}
+.swipe{position:absolute;display:flex;align-items:center;gap:14px;background:var(--forest);color:var(--paper);font-family:'Inter Display';font-weight:700;font-size:28px;padding:18px 30px;border-radius:999px}
+.swipe .ch{display:flex;gap:2px}
+.toast{position:absolute;left:16px;right:16px;top:58px;background:rgba(241,237,228,.97);color:var(--forest);border-radius:22px;padding:14px 16px;display:flex;gap:12px;align-items:center;z-index:6;box-shadow:0 18px 30px -12px rgba(0,0,0,.5)}
+.toast .ap{width:38px;height:38px;border-radius:10px;background:var(--forest);color:var(--paper);font-family:'Inter Display';font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.toast .ap b{color:var(--coral)}
+.toast h6{font-size:15px;font-weight:700}.toast p{font-size:14px;color:#3b4a42}
+</style></head>
+<body><div class="grain"></div><div id="root"></div>
+<script>
+const SCENE = new URLSearchParams(location.search).get('s') || 'cover';
+const fmt = v => 'R$ ' + v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const ease = x => x<0?0:x>1?1:1-Math.pow(1-x,3);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const root = document.getElementById('root');
+
+const ICON = {
+ bid:'<svg viewBox="0 0 24 24" fill="none" stroke="#0b2219" stroke-width="2.2" stroke-linecap="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg>',
+ lim:'<svg viewBox="0 0 24 24" fill="none" stroke="#0b2219" stroke-width="2.2" stroke-linecap="round"><path d="M4 12h16"/><path d="M7 7v10M17 7v10"/></svg>',
+ var:'<svg viewBox="0 0 24 24" fill="none" stroke="#0b2219" stroke-width="2.2" stroke-linecap="round"><path d="M5 9h14M5 15h14"/><path d="M9 5l-2 4 2 4M15 11l2 4-2 4"/></svg>',
+ up:'<svg viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="2.4" stroke-linecap="round"><path d="M12 19V6M6 11l6-6 6 6"/></svg>',
+ hold:'<svg viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="2.4" stroke-linecap="round"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
+ bell:'<svg viewBox="0 0 24 24" fill="none" stroke="#ff5f3c" stroke-width="2.2" stroke-linecap="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>'
+};
+
+function phoneHTML(st){
+  const lose = st.status==='perdendo';
+  const heroBg = lose ? 'var(--coral)' : '#d7f58a';
+  const heroCol = lose ? '#1a0f0a' : '#0b2219';
+  return `<div class="screen"><div class="island"></div>
+  ${st.toast?`<div class="toast" style="transform:translateY(${st.toastY}px);opacity:${st.toastO}"><div class="ap">K<b>.</b></div><div><h6>Kairos · item 1</h6><p>${st.toast}</p></div></div>`:''}
+  <div class="sb"><span>08:53</span><span>5G ▮▮▮</span></div>
+  <div class="apph"><div class="t">Robô de lances</div><div class="live"><i style="opacity:${st.blink}"></i>ao vivo</div></div>
+  <div class="hero" style="background:${heroBg};color:${heroCol}">
+    <div class="k">Item 1 · ${st.status}</div>
+    <div class="n">Impressora multifuncional</div>
+    <div class="v" style="transform:scale(${st.pop});transform-origin:left center">${fmt(st.val)}</div>
+    <div class="s">${lose?'Melhor lance: '+fmt(st.best):'Você lidera o item'}</div>
+  </div>
+  <div class="stats"><div><b>${st.n}</b><span>lances hoje</span></div><div><b>1.250</b><span>seu limite</span></div><div><b>0,10</b><span>variação</span></div></div>
+  <div class="logt">Agora<span>log ao vivo</span></div>
+  <div class="log">${st.log.map(r=>`<div class="row" style="opacity:${r.o};transform:translateY(${(1-r.o)*-14}px)"><span class="tm">${r.t}</span><span class="tx">${r.x}</span><span class="pill ${r.c}">${r.p}</span></div>`).join('')}</div>
+  </div>`;
+}
+
+// timeline of the dispute shared by scenes (loop 6s)
+function dispute(t){
+  const steps=[
+   {at:0.0, val:1800.00, best:1289.90, status:'perdendo'},
+   {at:1.3, val:1289.80, best:1289.90, status:'ganhando', log:['08:53:02','Cobriu o lance','cobriu','pw']},
+   {at:2.6, val:1289.80, best:1279.90, status:'perdendo', log:['08:53:09','Concorrente baixou','alerta','pl']},
+   {at:3.6, val:1279.80, best:1279.90, status:'ganhando', log:['08:53:11','Cobriu o lance','cobriu','pw']},
+   {at:4.2, val:1279.80, best:1269.90, status:'perdendo', log:['08:53:18','Concorrente baixou','alerta','pl']},
+   {at:4.7, val:1269.80, best:1269.90, status:'ganhando', log:['08:53:18','Cobriu o lance','cobriu','pw']},
+  ];
+  let cur=steps[0], idx=0; steps.forEach((s,i)=>{ if(t>=s.at){cur=s;idx=i;} });
+  const since = t-cur.at;
+  const pop = idx>0 ? 1+0.08*Math.max(0,1-since/0.35) : 1;
+  const base=[{t:'08:52:51',x:'Monitoramento ligado',p:'ok',c:'ph',o:1},{t:'08:52:40',x:'Itens carregados',p:'ok',c:'ph',o:1}];
+  const logs0 = steps.slice(1).filter(s=>t>=s.at).map(s=>({t:s.log[0],x:s.log[1],p:s.log[2],c:s.log[3],o:ease((t-s.at)/0.35)})).reverse(); const logs=logs0.concat(base).slice(0,4);
+  const n = 10 + steps.slice(1).filter(s=>t>=s.at && s.log[2]==='cobriu').length;
+  const toastT = t-4.75;
+  return {val:cur.val,best:cur.best,status:cur.status,pop,log:logs,n,blink:(Math.floor(t*2)%2)?1:.25,
+    toast: toastT>0 && toastT<1.2 ? 'Ganhando: seu lance lidera, dentro do limite.' : '',
+    toastY: toastT<0.3 ? -40*(1-ease(toastT/0.3)) : toastT>0.9 ? -40*ease((toastT-0.9)/0.3) : 0,
+    toastO: toastT<0.3 ? ease(toastT/0.3) : toastT>0.9 ? 1-ease((toastT-0.9)/0.3) : 1};
+}
+
+function wire(x1,y1,x2,y2,prog,dot){
+  const mx=(x1+x2)/2; const d=`M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`;
+  return `<path d="${d}" stroke="#ff5f3c" stroke-opacity=".55" stroke-width="2.5" fill="none" stroke-dasharray="6 7" pathLength="100" style="stroke-dashoffset:${-dot*30}"/>
+  <path d="${d}" stroke="transparent" fill="none" id="p${x1}${y1}${x2}"/>`;
+}
+function dotOn(x1,y1,x2,y2,u){ // cubic bezier point
+  const mx=(x1+x2)/2; const P=[[x1,y1],[mx,y1],[mx,y2],[x2,y2]];
+  const a=(1-u)**3,b=3*u*(1-u)**2,c=3*u*u*(1-u),d=u**3;
+  return [a*P[0][0]+b*P[1][0]+c*P[2][0]+d*P[3][0], a*P[0][1]+b*P[1][1]+c*P[2][1]+d*P[3][1]];
+}
+
+window.render = function(t){
+  if(SCENE==='cover'){
+    const st=dispute(t);
+    const enter = 1; // static entry so loop is seamless
+    const sw = Math.sin(t*Math.PI*2/1.2);
+    root.innerHTML = `
+    <div class="top"><div class="logo">Kairos<b>.</b></div><div class="count">1/8</div></div>
+    <div class="title" style="font-size:118px"><div class="a">Como o robô</div><div class="a">decide cada</div><div class="b">lance.</div></div>
+    <div class="sub" style="top:500px;width:520px">O que acontece no seu pregão <strong>enquanto você está no trabalho.</strong></div>
+    <div class="phone" style="left:590px;top:470px;transform:rotate(4deg)">${phoneHTML(st)}</div>
+    <div class="swipe" style="left:72px;top:1150px">Arraste para ver<span class="ch">${[0,1,2].map(i=>`<svg width="22" height="22" viewBox="0 0 24 24" style="opacity:${.35+.65*clamp(Math.sin(t*5-i*.9)*.5+.5)}"><path d="M8 4l8 8-8 8" stroke="#ff5f3c" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>`).join('')}</span></div>
+    <div class="note" style="left:72px;top:1250px">Telas ilustrativas, com valores de exemplo.</div>`;
+  } else {
+    const st=dispute(t);
+    const PX=355, PY=440, PW=370, PH=757, SC=.86;
+    const L=[{y:590,ic:'bid',h:'Lance do concorrente',p:'lido a cada atualização'},{y:740,ic:'lim',h:'Seu limite',p:'stop loss por item'},{y:890,ic:'var',h:'Variação mínima',p:'a regra do edital'}];
+    const cover = steps => steps;
+    const nC = 10+ (t>=1.3)+(t>=3.6)+(t>=4.7), nH = 0, nA = 0+(t>=2.6)+(t>=4.2);
+    const R=[{y:590,ic:'up',h:'Cobre o lance',p:'até o seu limite',c:nC},{y:740,ic:'hold',h:'Para no limite',p:'nunca dá lance abaixo do stop loss',c:nH},{y:890,ic:'bell',h:'Avisa você',p:'quando algo muda',c:nA}];
+    const hi = (t>=1.3&&t<1.9)?0:(t>=3.6&&t<4.2)?0:(t>=4.7&&t<5.3)?0:(t>=2.6&&t<3.2)?2:(t>=4.2&&t<4.7)?2:-1;
+    let wires='',dots='';
+    L.forEach((c,i)=>{const x1=40+240,y1=c.y+44,x2=PX+6,y2=PY+(330+i*70)*SC; wires+=wire(x1,y1,x2,y2,1,t);
+      const u=((t*0.45+i*0.33)%1); const [dx,dy]=dotOn(x1,y1,x2,y2,u); dots+=`<circle cx="${dx}" cy="${dy}" r="6" fill="#ff5f3c"/>`;});
+    R.forEach((c,i)=>{const x1=PX+PW-6,y1=PY+(330+i*70)*SC,x2=800,y2=c.y+44; wires+=wire(x1,y1,x2,y2,1,t);
+      if(hi===i){const u=clamp(((t%1.3))/0.6); const [dx,dy]=dotOn(x1,y1,x2,y2,u); dots+=`<circle cx="${dx}" cy="${dy}" r="8" fill="#ff5f3c"/>`;}});
+    root.innerHTML = `
+    <div class="top"><div class="logo">Kairos<b>.</b></div><div class="count">2/8</div></div>
+    <div class="title" style="font-size:96px"><div class="a">Robô de</div><div class="b">lances</div></div>
+    <div class="sub" style="top:150px;left:540px;width:470px;font-size:25px">Lê cada lance da disputa, compara com o seu limite e <strong>decide sozinho o próximo passo.</strong></div>
+    <svg class="wires" width="1080" height="1350">${wires}${dots}</svg>
+    <div class="col-h" style="left:40px;top:548px">o que entra</div>
+    <div class="col-h" style="left:800px;top:548px">o que ele decide</div>
+    ${L.map(c=>`<div class="card" style="left:40px;top:${c.y}px"><div class="ic">${ICON[c.ic]}</div><div><h4>${c.h}</h4><p>${c.p}</p></div></div>`).join('')}
+    ${R.map((c,i)=>`<div class="card out" style="left:800px;top:${c.y}px;transform:scale(${hi===i?1.05:1});box-shadow:${hi===i?'0 18px 40px -14px rgba(255,95,60,.55)':''}"><div class="ic">${ICON[c.ic]}</div><div><h4>${c.h}</h4><p>${c.p}</p></div><div class="cnt">${c.c}</div></div>`).join('')}
+    <div class="rules" style="left:40px;top:1050px;width:240px"><h5>as regras dele</h5><ul><li>nunca passa do seu limite</li><li>respeita a variação do edital</li><li>cobre em milissegundos</li></ul></div>
+    <div class="phone" style="left:${PX}px;top:${PY}px;transform:scale(${SC});transform-origin:top left">${phoneHTML(st)}</div>
+    <div class="note" style="left:800px;top:1250px;width:240px">Telas ilustrativas, com valores de exemplo.</div>`;
+  }
+};
+render(0);
+</script></body></html>
