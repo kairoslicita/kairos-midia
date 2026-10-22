@@ -1,0 +1,21 @@
+id,tema,formato,persona,estagio,gancho,fonte,status
+I-01,Stop loss em 15 s,Reel,Individual,educação/demonstração,Até onde o robô pode ir? Você decide.,dúvida recorrente,planejado 09/11
+I-02,Documentos de habilitação e validades,Carrossel,Iniciante,educação,Certidão vencida tira você do pregão.,erro 2 do C2,planejado 10/11
+I-03,Configurando um pregão pelo celular,Reel (gravação real),Individual,demonstração,Configurei um pregão em 60 s pelo celular.,Reel 09/10 foi o melhor,aguardando gravação
+I-04,Teste grátis: o que avaliar,Carrossel,Fundo de funil,oferta,7 dias para testar um robô de lances. O que olhar?,post 15/10 reaproveitado,planejado 13/11
+I-05,Chat do pregoeiro e prazo de convocação,Reel,Pequeno fornecedor,educação,O pregoeiro chamou no chat. Você viu?,erro 4 do C2,checar norma
+I-06,Onde encontrar licitações grátis,Carrossel,Iniciante,descoberta,Onde achar licitações sem pagar nada.,plano 18/10,checar fontes
+I-07,Variação mínima entre lances,Carrossel,Pequeno fornecedor,educação,"Centavos, reais ou %?",prompt mestre V2,confirmar recurso
+I-08,Robô de lances é permitido?,Reel,Todas,objeção,Robô de lances é permitido? O que diz a regra hoje.,concorrentes (SEO),bloqueado até checagem jurídica
+I-09,Por que o Kairos existe (sem nome),Reel texto,Individual,autoridade,Eu trabalhava e perdia pregão. Então…,história de origem,planejado
+I-10,Desconto que vira prejuízo,Reel,Individual,educação,Ganhou o item. Perdeu dinheiro.,C3 erro comum,ideia
+I-11,Lance final às cegas,Reel,Pequeno fornecedor,educação,Você tem 5 minutos e não vê ninguém.,C4,ideia
+I-12,Checklist de 60 s antes da sessão,Reel,Iniciante,educação,Faltam 10 minutos para o pregão. Confere comigo.,Kit do Pregão,ideia
+I-13,Um dia de licitante (POV),Reel,Individual,identificação,"POV: 3 pregões, 1 reunião e o almoço frio.",POV V2,ideia
+I-14,Glossário do pregão em 6 termos,Carrossel,Iniciante,educação,6 palavras que todo licitante precisa entender.,personas,ideia
+I-15,Mitos do robô de lances,Carrossel,Todas,objeção,4 mitos sobre robô de lances.,C6,ideia
+I-16,Senha do Gov.br: o que fica com quem,Reel,Empresa,objeção,Sua senha do Gov.br sai do seu navegador?,C1 seguranca,ideia
+I-17,Quanto custa perder um item,Carrossel,Pequeno fornecedor,dor,Quanto você perdeu no último pregão que não acompanhou?,R4,ideia
+I-18,Kit Documentos (nova palavra-chave),Kit PDF + post,Iniciante,lead,Comenta DOCUMENTOS.,concorrente Magna (acervo),ideia
+I-19,Bastidor: o robô ligado num dia comum,Story/Reel,Individual,prova,Robô ligado. Agora é seguir o dia.,S4,ideia
+I-20,Collab: 3 erros na fase de lances,Reel collab,Iniciante,autoridade,(parceiro),CamaleonPro,aguardando parceiro

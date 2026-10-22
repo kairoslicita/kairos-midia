@@ -1,0 +1,206 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--forest:#0b2219;--coral:#ff5f3c;--lime:#b9ee4f;--mut:#8fa699}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b2219}
+body{font-family:'Inter',sans-serif;color:#f1ede4;position:relative}
+.mono{font-family:'DejaVu Sans Mono',monospace}
+.D{font-family:'Inter Display';font-weight:900;letter-spacing:-.045em;line-height:.92}
+.L{position:absolute;left:80px;right:80px}
+.phone{position:absolute;width:430px;height:880px;border-radius:66px;background:#0a0f0d;padding:14px;box-shadow:0 60px 120px -30px rgba(0,0,0,.7),0 0 0 2px #26302b inset;transform-origin:top left}
+.screen{width:100%;height:100%;border-radius:54px;background:#0e271d;overflow:hidden;position:relative;color:#f1ede4}
+.island{position:absolute;left:50%;top:14px;width:120px;height:34px;margin-left:-60px;border-radius:20px;background:#000;z-index:5}
+.row{display:flex;align-items:center;gap:10px;background:#123024;border:1px solid #24463a;border-radius:14px;padding:11px 12px;font-size:13.5px}
+.row .tm{font-family:'DejaVu Sans Mono';font-size:11.5px;color:var(--mut);width:62px}.row .tx{flex:1}
+.toast{position:absolute;background:rgba(241,237,228,.97);color:#0b2219;border-radius:30px;padding:20px 24px;display:flex;gap:16px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.toast .ap{width:58px;height:58px;border-radius:14px;background:#0b2219;color:#f2ede3;font-family:'Inter Display';font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.toast .ap b{color:var(--coral)}
+.toast h6{font-size:22px;font-weight:700}.toast p{font-size:21px;color:#3b4a42;margin-top:2px}
+.chip{position:absolute;left:80px;right:80px;border-radius:40px;background:#123024;border:2px solid #24463a;padding:34px 44px;display:flex;justify-content:space-between;align-items:center}
+.chip .k{font-size:40px;color:#cfd8cf}.chip .v{font-family:'DejaVu Sans Mono';font-size:76px;letter-spacing:-.04em}
+</style></head><body><div id="root"></div><div id="cap"></div>
+<script>
+const MODE=(location.hash||'#r2').slice(1);
+const root=document.getElementById('root'), capEl=document.getElementById('cap');
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const back=x=>{x=Math.max(0,Math.min(1,x));const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const fmt=v=>'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const bg=(c)=>`<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 50%,${c},rgba(0,0,0,0) 70%),#0b2219"></div>`;
+const logo=`<div style="position:absolute;left:80px;top:150px;font-family:'Inter Display';font-weight:800;font-size:42px;letter-spacing:-.03em">Kairos<b style="color:#ff5f3c">.</b></div>`;
+// cena com corte seco + leve "punch" de zoom no início
+const wrap=(lt,len,html,first)=>{const s=first?1:1.05-0.05*ease(lt/.22);const o=1;return `<div style="position:absolute;inset:0;opacity:${o};transform:scale(${s});transform-origin:50% 45%">${html}</div>`};
+// legenda palavra por palavra (estilo Reels)
+function caption(t,phr){
+  for(const p of phr){ if(t>=p[0]&&t<p[1]){
+    const ws=p[2].split(' '); const dur=(p[1]-p[0]); const per=dur/ws.length; const i=Math.min(ws.length-1,Math.floor((t-p[0])/per)); const lt=(t-p[0])-i*per;
+    let w=ws[i]; let hi=false; if(w.startsWith('*')){hi=true;w=w.slice(1)}
+    const sc=.82+.18*back(lt/.14);
+    return `<div style="position:absolute;left:0;right:0;top:1290px;text-align:center;transform:scale(${sc})"><span class="D" style="font-size:132px;letter-spacing:-.035em;color:${hi?'#ff5f3c':'#ffe94d'};-webkit-text-stroke:0;text-shadow:0 8px 0 rgba(0,0,0,.55),0 0 30px rgba(0,0,0,.6)">${w}</span></div>`;
+  }}
+  return '';
+}
+const note=(txt,o=1)=>`<div class="L" style="top:1215px;font-size:26px;color:#8fa699;opacity:${o}">${txt}</div>`;
+
+/* ================= R2 · PREÇO MÍNIMO (18,5 s) ================= */
+const SC2=[[0,2.4],[2.4,5.4],[5.4,8.4],[8.4,12.0],[12.0,15.0],[15.0,18.5]];
+const CAP2=[[0,2.4,'Esse lance parece bom... *mas dá *prejuízo.'],[2.4,5.4,'Some custo, frete, imposto e margem'],[5.4,8.4,'Esse é o seu *preço *mínimo.'],[8.4,12.0,'Coloque como limite no robô'],[12.0,15.0,'Ele *nunca passa desse valor.']];
+function a1(lt){
+  const st=ease((lt-1.0)/.25), sh=Math.sin(lt*70)*10*(1-clamp((lt-1.0)/.5))*(lt>1?1:0);
+  return bg('rgba(255,95,60,.18)')+logo+`
+  <div style="position:absolute;left:80px;right:80px;top:330px;height:760px;border-radius:52px;background:#123024;border:2px solid #24463a;padding:54px 56px;transform:translateX(${sh}px)">
+    <div class="mono" style="font-size:28px;color:#8fa699;letter-spacing:.08em">ITEM 1 · IMPRESSORA MULTIFUNCIONAL</div>
+    <div style="font-size:34px;color:#cfd8cf;margin-top:50px">seu lance</div>
+    <div class="mono" style="font-size:132px;letter-spacing:-.05em;color:#f1ede4;margin-top:6px">${fmt(1050)}</div>
+    <div class="mono" style="font-size:34px;color:#b9ee4f;margin-top:26px;opacity:${ease((lt-.35)/.3)}">▲ melhor lance da disputa</div>
+    <div style="position:absolute;right:30px;bottom:50px;transform:rotate(-8deg) scale(${.4+.6*st});opacity:${st};border:10px solid #ff5f3c;color:#ff5f3c;border-radius:24px;padding:12px 32px;font-family:'Inter Display';font-weight:900;font-size:96px;letter-spacing:-.03em;background:rgba(11,34,25,.9)">PREJUÍZO</div>
+  </div>`;
+}
+function a2(lt){
+  const items=[['Custo','R$ 900,00'],['Frete','R$ 80,00'],['Impostos','6%'],['Margem mínima','10%']];
+  return bg('rgba(185,238,79,.10)')+logo+items.map((it,i)=>{const e=back((lt-i*.62)/.3);const o=clamp((lt-i*.62)/.12);return `<div class="chip" style="top:${290+i*205}px;opacity:${o};transform:translateY(${(1-e)*80}px) scale(${.92+.08*e})"><span class="k">${it[0]}</span><span class="v" style="color:${i>1?'#ff8a6d':'#f1ede4'}">${it[1]}</span></div>`}).join('');
+}
+function a3(lt){
+  const v=1166.67*ease(lt/1.2), done=lt>1.2, p=ease((lt-1.2)/.3);
+  return bg('rgba(185,238,79,.22)')+logo+`
+  <div class="mono L" style="top:300px;font-size:38px;line-height:1.5;color:#cfd8cf;opacity:${ease(lt/.3)}">(900 + 80) ÷ (1 − 0,06 − 0,10)</div>
+  <div style="position:absolute;left:80px;right:80px;top:470px;height:560px;border-radius:52px;background:#c9f26c;color:#0b2219;padding:54px 56px;box-shadow:0 50px 110px -30px rgba(185,238,79,.5);transform:scale(${1+(done?.03*(1-p):0)})">
+    <div class="mono" style="font-size:30px;letter-spacing:.08em">PREÇO MÍNIMO</div>
+    <div class="mono" style="font-size:112px;letter-spacing:-.06em;margin-top:60px">${fmt(v)}</div>
+    <div class="D" style="position:absolute;left:56px;bottom:50px;font-size:54px;font-weight:800;letter-spacing:-.03em;opacity:${p}">abaixo disso, você perde.</div>
+  </div>`+note('Valores de exemplo.');
+}
+function a4(lt){
+  const full='R$ 1.166,67'; const n=Math.min(full.length,Math.floor(lt/.1)); const txt=full.slice(0,n); const tg=ease((lt-1.9)/.3);
+  const inner=`<div class="island"></div><div style="display:flex;justify-content:space-between;padding:20px 34px 0;font-size:17px;font-weight:600"><span>08:55</span><span>5G ▮▮▮</span></div>
+   <div style="padding:34px 24px 10px"><div style="font-family:'Inter Display';font-weight:700;font-size:25px">Item 1</div><div style="font-size:14px;color:#8fa699;margin-top:4px">Impressora multifuncional</div></div>
+   <div style="margin:14px 16px;border-radius:24px;padding:20px;background:#123024;border:2px solid ${lt<1.9?'#b9ee4f':'#24463a'}"><div class="mono" style="font-size:13px;color:#8fa699">LIMITE · STOP LOSS</div><div class="mono" style="font-size:38px;margin-top:12px;color:#f1ede4;white-space:nowrap">${txt}<span style="color:#b9ee4f;opacity:${Math.floor(lt*4)%2}">|</span></div></div>
+   <div style="margin:14px 16px;border-radius:24px;padding:20px;background:#123024;border:1px solid #24463a"><div class="mono" style="font-size:13px;color:#8fa699">VARIAÇÃO MÍNIMA</div><div class="mono" style="font-size:28px;margin-top:8px">R$ 0,10</div></div>
+   <div style="margin:26px 16px;border-radius:24px;padding:22px 24px;background:${tg>.5?'#b9ee4f':'#1b3a2d'};color:${tg>.5?'#0b2219':'#8fa699'};display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:22px"><span>Robô ${tg>.5?'ligado':'desligado'}</span><span style="width:62px;height:34px;border-radius:20px;background:${tg>.5?'#0b2219':'#35514a'};position:relative"><span style="position:absolute;top:4px;left:${4+tg*28}px;width:26px;height:26px;border-radius:50%;background:${tg>.5?'#b9ee4f':'#8fa699'}"></span></span></div>
+   <div style="margin:22px 22px 8px;font-size:15px;font-weight:700">Outros itens</div>
+   <div style="margin:0 16px;display:flex;flex-direction:column;gap:8px"><div class="row"><span class="tx">Item 2 · Monitor 24"</span><span class="mono" style="color:#b9ee4f;font-size:12px">limite definido</span></div><div class="row"><span class="tx">Item 3 · Teclado sem fio</span><span class="mono" style="color:#b9ee4f;font-size:12px">limite definido</span></div></div>`;
+  return bg('rgba(185,238,79,.12)')+`<div class="phone" style="left:${540-430*1.08/2}px;top:230px;transform:scale(1.08)"><div class="screen">${inner}</div></div>`;
+}
+function a5(lt){
+  const W=920,H=720,x0=80,y0=250; const lim=1166.67, top=1320, bot=1120; const Y=v=>y0+(top-v)/(top-bot)*H;
+  const pts=[1312.3,1301.0,1300.9,1289.9,1289.8,1279.9,1279.8]; const prog=clamp(lt/1.6)*(pts.length-1);
+  let path='',dots=''; for(let i=0;i<=Math.floor(prog);i++){const x=x0+60+i*(W-160)/(pts.length-1),y=Y(pts[i]);path+=(i?'L':'M')+x+','+y;dots+=`<circle cx="${x}" cy="${y}" r="11" fill="${i%2?'#ff5f3c':'#b9ee4f'}"/>`;}
+  const ex=x0+60+(prog>=pts.length-1?(pts.length-1):prog)*(W-160)/(pts.length-1); const pulse=1+.05*Math.sin(lt*12);
+  const stop=ease((lt-1.7)/.35);
+  return bg('rgba(255,95,60,.10)')+`
+  <svg width="1080" height="1920" style="position:absolute;inset:0">
+   <line x1="${x0}" x2="${x0+W}" y1="${Y(lim)}" y2="${Y(lim)}" stroke="#ff5f3c" stroke-width="5" stroke-dasharray="14 10"/>
+   <path d="${path}" stroke="#f1ede4" stroke-opacity=".6" stroke-width="4" fill="none"/>${dots}
+  </svg>
+  <div class="mono" style="position:absolute;left:${x0}px;top:${Y(lim)+22}px;font-size:34px;color:#ff8a6d">seu limite: ${fmt(lim)}</div>
+  <div class="D" style="position:absolute;left:${x0}px;right:${x0}px;top:${Y(lim)+110}px;font-size:84px;opacity:${stop};transform:scale(${.9+.1*stop})">O robô <span style="color:#b9ee4f">para aqui.</span></div>`+note('Valores de exemplo.');
+}
+function a6(lt){
+  const p=1+.03*Math.sin(lt*6), e=ease(lt/.3);
+  return bg('rgba(255,95,60,.22)')+`
+  <div class="L" style="top:230px;font-family:'Inter Display';font-weight:800;font-size:110px;letter-spacing:-.04em;opacity:${e}">Kairos<b style="color:#ff5f3c">.</b></div>
+  <div class="L D" style="top:420px;font-size:120px;opacity:${ease((lt-.15)/.3)}">Calculadora<br>do <span style="color:#b9ee4f">preço<br>mínimo.</span></div>
+  <div class="L" style="top:880px;font-size:40px;line-height:1.35;color:#cfd8cf;opacity:${ease((lt-.4)/.3)}">Mais o checklist do pregão.<br>Grátis, no seu Direct.</div>
+  <div style="position:absolute;left:80px;top:1100px;background:#ff5f3c;color:#0b2219;border-radius:34px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:84px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.6)/.3))});transform-origin:left center;opacity:${clamp((lt-.6)/.1)}">Comenta PREGÃO</div>
+  <div class="L" style="top:1330px;font-size:34px;color:#f1ede4;opacity:${ease((lt-1.2)/.3)}"><b>Teste o robô grátis por 7 dias</b> · link na bio</div>`;
+}
+
+/* ================= R3 · POV ESQUECEU O PREGÃO (18,5 s) ================= */
+const SC3=[[0,2.4],[2.4,4.6],[4.6,10.4],[10.4,13.4],[13.4,18.5]];
+const CAP3=[[0,2.4,'*POV: você esqueceu do pregão.'],[2.4,4.6,'O concorrente baixou o preço'],[4.6,7.4,'O robô cobre em *milissegundos'],[7.4,10.4,'Sempre acima do seu limite'],[10.4,13.4,'Você controla tudo pelo celular']];
+function b1(lt){
+  const nt=[['Compras.gov.br','Pregão encerra em 3 minutos','agora'],['Compras.gov.br','Item 1: você perdeu a liderança','agora'],['Compras.gov.br','Item 2: lance coberto','agora'],['Agenda','Reunião de equipe · 9h','9:00']];
+  return bg('rgba(255,95,60,.20)')+logo+nt.map((n,i)=>{const e=back((lt-.25-i*.3)/.3);const o=clamp((lt-.25-i*.3)/.1);return `<div class="toast" style="left:80px;right:80px;top:${290+i*210}px;opacity:${o};transform:translateY(${(1-e)*-90}px) scale(${.94+.06*e});${i==3?'background:rgba(241,237,228,.8)':''}"><div class="ap" style="${i==3?'background:#ff5f3c;color:#0b2219':''}">${i==3?'9':'K<b>.</b>'}</div><div style="flex:1"><h6>${n[0]}</h6><p>${n[1]}</p></div><span style="font-size:20px;color:#56645b">${n[2]}</span></div>`}).join('');
+}
+function b2(lt){
+  const st=[[0,1312.40],[.5,1301.00],[1.0,1289.90],[1.5,1279.90]]; let best=st[0][1],since=lt; st.forEach(s=>{if(lt>=s[0]){best=s[1];since=lt-s[0]}});
+  const flash=Math.max(0,1-since/.3), shake=flash>0?Math.sin(lt*90)*9*flash:0;
+  return bg('rgba(255,95,60,.28)')+`
+  <div style="position:absolute;left:80px;right:80px;top:300px;height:780px;border-radius:52px;background:#ff5f3c;color:#1a0f0a;padding:54px 56px;transform:translateX(${shake}px) scale(${1+flash*.02});box-shadow:0 50px 110px -30px rgba(255,95,60,.6)">
+    <div class="mono" style="font-size:30px;letter-spacing:.08em">ITEM 1 · PERDENDO</div>
+    <div class="D" style="font-weight:800;font-size:112px;margin-top:40px">Concorrente<br>baixou.</div>
+    <div style="position:absolute;left:56px;right:56px;bottom:54px"><div style="font-size:28px;opacity:.85">melhor lance</div><div class="mono" style="font-size:118px;letter-spacing:-.03em;transform:scale(${1+flash*.06});transform-origin:left bottom">${fmt(best)}</div></div>
+  </div>`;
+}
+function b3(lt){
+  const R=1.05, t0=.35; const comp=[1301.00,1289.90,1279.90,1268.80,1257.70]; let n=0,cp=1312.40,me=1312.30;
+  const fl=[]; comp.forEach((c,i)=>{const tc=t0+i*R; if(lt>=tc){cp=c} if(lt>=tc+.38){me=c-.10;n=i+1}});
+  const rows=[]; for(let i=0;i<n;i++){const s=41+i*6; rows.push([t0+i*R+.38,`08:59:${s}`,`Cobriu: ${fmt(comp[i]).replace('R$ ','R$ ')} → ${(comp[i]-.1).toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.')}`])}
+  const last=rows.slice(-4).reverse();
+  const flashRobot=Math.max(0,1-(lt-(t0+(n-1)*R+.38))/.3)*(n>0?1:0);
+  const inner=`<div class="island"></div><div style="display:flex;justify-content:space-between;padding:20px 34px 0;font-size:17px;font-weight:600"><span>08:59</span><span>5G ▮▮▮</span></div>
+   <div style="display:flex;justify-content:space-between;align-items:center;padding:28px 24px 10px"><div style="font-family:'Inter Display';font-weight:700;font-size:24px">Robô de lances</div><div class="mono" style="font-size:13px;color:#b9ee4f;opacity:${Math.floor(lt*3)%2?1:.4}">● ao vivo</div></div>
+   <div style="margin:6px 16px;border-radius:24px;padding:18px 20px;background:#123024;border:1px solid ${flashRobot>0?'#b9ee4f':'#24463a'}"><div class="mono" style="font-size:12px;color:#8fa699">SEU LANCE</div><div class="mono" style="font-size:42px;margin-top:8px;color:#b9ee4f;transform:scale(${1+flashRobot*.05});transform-origin:left">${fmt(me)}</div></div>
+   <div style="margin:8px 16px;border-radius:20px;padding:12px 20px;background:#2a1a14;border:1px solid #5a2e22"><div class="mono" style="font-size:12px;color:#ff8a6d">CONCORRENTE</div><div class="mono" style="font-size:28px;margin-top:4px;color:#ff8a6d">${fmt(cp)}</div></div>
+   <div style="display:flex;justify-content:space-between;margin:12px 24px 8px;font-size:15px;font-weight:700"><span>Log de atividades</span><span class="mono" style="color:#b9ee4f">${n} lances cobertos</span></div>
+   <div style="margin:0 16px;display:flex;flex-direction:column;gap:7px">${last.map((r,i)=>`<div class="row" style="opacity:${i==0?ease((lt-r[0])/.15):1}"><span class="tm">${r[1]}</span><span class="tx">${r[2]}</span></div>`).join('')}</div>
+   <div style="margin:16px 24px 8px;font-size:15px;font-weight:700">Seus itens</div>
+   <div style="margin:0 16px;display:flex;flex-direction:column;gap:7px"><div class="row"><span class="tx">Item 2 · Monitor 24"</span><span class="mono" style="color:#b9ee4f;font-size:12px">ganhando</span></div><div class="row"><span class="tx">Item 3 · Teclado sem fio</span><span class="mono" style="color:#b9ee4f;font-size:12px">ganhando</span></div></div>`;
+  return bg('rgba(185,238,79,.12)')+`<div class="phone" style="left:${540-430*1.05/2}px;top:230px;transform:scale(1.05)"><div class="screen">${inner}</div></div>`+note('Valores de exemplo.');
+}
+function b4(lt){
+  const n=ease((lt-.5)/.35);
+  return bg('rgba(185,238,79,.22)')+`
+  <div style="position:absolute;left:80px;right:80px;top:270px;height:640px;border-radius:52px;background:#c9f26c;color:#0b2219;padding:54px 56px;box-shadow:0 50px 110px -30px rgba(185,238,79,.5)">
+   <div class="mono" style="font-size:30px;letter-spacing:.08em">ITEM 1 · GANHANDO</div>
+   <div class="D" style="font-weight:800;font-size:116px;margin-top:34px;line-height:.96">O robô cobriu.<br>Você lidera.</div>
+   <div class="mono" style="position:absolute;left:56px;bottom:54px;font-size:104px;letter-spacing:-.03em">${fmt(1257.60)}</div></div>
+  <div class="toast" style="left:80px;right:80px;top:${960-(1-n)*40}px;opacity:${n}"><div class="ap">K<b>.</b></div><div><h6>Kairos · item 1</h6><p>Ganhando, dentro do seu limite.</p></div></div>`;
+}
+function b5(lt){
+  const p=1+.03*Math.sin(lt*6), e=ease(lt/.3);
+  return bg('rgba(255,95,60,.22)')+`
+  <div class="L" style="top:250px;font-family:'Inter Display';font-weight:800;font-size:110px;letter-spacing:-.04em;opacity:${e}">Kairos<b style="color:#ff5f3c">.</b></div>
+  <div class="L D" style="top:440px;font-size:112px;opacity:${ease((lt-.15)/.3)}">Robô de lances<br>para o<br><span style="color:#b9ee4f">Compras.gov.br.</span></div>
+  <div class="L" style="top:900px;font-size:38px;line-height:1.35;color:#cfd8cf;opacity:${ease((lt-.4)/.3)}">Você define o limite.<br>Ele dá os lances.</div>
+  <div style="position:absolute;left:80px;top:1110px;background:#ff5f3c;color:#0b2219;border-radius:34px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:84px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.6)/.3))});transform-origin:left center;opacity:${clamp((lt-.6)/.1)}">Comenta PREGÃO</div>
+  <div class="L" style="top:1330px;font-size:34px;color:#f1ede4;opacity:${ease((lt-1.2)/.3)}">Kit do Pregão grátis no Direct.<br><b>Teste o robô 7 dias grátis</b> · link na bio</div>`;
+}
+
+/* ================= R4 · ANÚNCIO "Perdeu por R$ 0,10?" (15,5 s) ================= */
+const tag=`<div style="position:absolute;left:80px;top:150px;display:flex;gap:14px;align-items:center"><span style="font-family:'Inter Display';font-weight:800;font-size:40px;letter-spacing:-.03em">Kairos<b style="color:#ff5f3c">.</b></span><span class="mono" style="font-size:24px;letter-spacing:.06em;color:#0b2219;background:#b9ee4f;border-radius:999px;padding:8px 18px">PREGÃO · COMPRAS.GOV.BR</span></div>`;
+// manchete: na cena 1 aparece inteira já no quadro 0; nas demais, palavras entram em 0,3 s
+function head(lt,html,size,top,instant){
+  if(instant) return `<div class="L D" style="top:${top}px;font-size:${size}px">${html}</div>`;
+  let i=0; const out=html.replace(/(<[^>]+>)|([^<\s]+)/g,(m,tg,w)=>{ if(tg) return tg; const e=back((lt-i*.05)/.22); i++; return `<span style="display:inline-block;opacity:${clamp((lt-(i-1)*.05)/.08)};transform:translateY(${(1-e)*40}px)">${w}</span>`;});
+  return `<div class="L D" style="top:${top}px;font-size:${size}px">${out}</div>`;
+}
+function c1(lt){
+  const sh=lt>.5&&lt<1.0?Math.sin(lt*80)*8*(1-(lt-.5)/.5):0; const g=ease((lt-.45)/.25);
+  return bg('rgba(255,95,60,.22)')+tag+head(lt,'Perdeu o item<br>por <span style="color:#ff5f3c">R$ 0,10?</span>',150,270,true)+`
+  <div style="position:absolute;left:80px;right:80px;top:700px;border-radius:48px;background:#123024;border:2px solid #24463a;padding:44px 48px;transform:translateX(${sh}px)">
+    <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">ITEM 1 · ENCERRADO</span><span class="mono" style="font-size:26px;color:#ff8a6d">● disputa fechada</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:40px;font-size:38px"><span>1º · Concorrente</span><span class="mono" style="font-size:52px">R$ 1.279,80</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:22px;font-size:38px;color:#ff8a6d;background:rgba(255,95,60,${.08+.14*g});border-radius:20px;padding:16px 18px;margin-left:-18px;margin-right:-18px"><span><b>2º · Você</b></span><span class="mono" style="font-size:52px">R$ 1.279,90</span></div>
+    <div class="mono" style="margin-top:30px;font-size:30px;color:#cfd8cf">diferença: <span style="color:#ff5f3c">R$ 0,10</span></div>
+  </div>`;
+}
+function c2(lt){
+  const left=Math.max(0,3-Math.floor(lt/.5)); const end=lt>=1.5; const e=ease((lt-1.5)/.2);
+  return bg('rgba(255,95,60,.28)')+tag+head(lt,'Ele cobriu.<br><span style="color:#ff5f3c">Você não viu.</span>',140,270,false)+`
+  <div style="position:absolute;left:80px;right:80px;top:720px;border-radius:48px;background:${end?'#ff5f3c':'#123024'};color:${end?'#1a0f0a':'#f1ede4'};border:2px solid ${end?'#ff5f3c':'#24463a'};padding:44px 48px;height:520px">
+    <div class="mono" style="font-size:26px;letter-spacing:.06em;opacity:.8">SALA DE DISPUTA · ITEM 1</div>
+    <div class="mono" style="font-size:${end?120:200}px;letter-spacing:-.05em;margin-top:40px;transform:scale(${end?.9+.1*e:1});transform-origin:left">${end?'ENCERRADO':'00:0'+left}</div>
+    <div style="font-size:34px;margin-top:24px;opacity:.9">${end?'O concorrente cobriu no último segundo.':'Você estava em outra aba.'}</div>
+  </div>`;
+}
+function c3(lt){
+  const inner=b3(lt).replace(bg('rgba(185,238,79,.12)'),'').replace(note('Valores de exemplo.'),'');
+  return bg('rgba(185,238,79,.14)')+tag+head(lt,'O robô cobre<br><span style="color:#b9ee4f">em milissegundos.</span>',100,270,false)+`<div style="position:absolute;inset:0;transform:translateY(300px) scale(.9);transform-origin:50% 0">${inner}</div>`+`<div class="L" style="top:1470px;font-size:26px;color:#8fa699">Sempre acima do limite que você definir. Valores de exemplo.</div>`;
+}
+function c4(lt){ return b4(lt).replace('top:270px','top:330px').replace(/(class="toast" style="left:80px;right:80px;top:)([\d.]+)px/,(m,a,v)=>a+(+v+100)+'px')+tag; }
+function c5(lt){
+  const p=1+.03*Math.sin(lt*6);
+  return bg('rgba(255,95,60,.24)')+tag+head(lt,'Quer o <span style="color:#b9ee4f">Kit do<br>Pregão</span> grátis?',130,270,false)+`
+  <div class="L" style="top:640px;font-size:44px;line-height:1.55;color:#f1ede4;opacity:${ease((lt-.35)/.3)}"><span style="color:#b9ee4f">✓</span> Checklist antes da disputa<br><span style="color:#b9ee4f">✓</span> Calculadora do preço mínimo</div>
+  <div style="position:absolute;left:80px;top:900px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:38px 54px;font-family:'Inter Display';font-weight:900;font-size:96px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.6)/.3))});transform-origin:left center;opacity:${clamp((lt-.6)/.1)}">Comenta PREGÃO</div>
+  <div class="L" style="top:1110px;font-size:36px;color:#cfd8cf;opacity:${ease((lt-.9)/.3)}">e eu te mando no Direct.</div>
+  <div class="L" style="top:1250px;font-size:34px;color:#f1ede4;opacity:${ease((lt-1.3)/.3)}"><b>Robô de lances Kairos</b> · teste 7 dias grátis no link da bio</div>`;
+}
+const SC4=[[0,2.3],[2.3,4.6],[4.6,9.6],[9.6,11.8],[11.8,15.5]];
+const CFG={r4:{SC:SC4,F:[c1,c2,c3,c4,c5],CAP:[],T:15.5},r2:{SC:SC2,F:[a1,a2,a3,a4,a5,a6],CAP:CAP2,T:18.5},r3:{SC:SC3,F:[b1,b2,b3,b4,b5],CAP:CAP3,T:18.5}}[MODE];
+window.DUR=CFG.T;
+window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],s[1]-s[0],CFG.F[i](t-s[0]),i==0)});root.innerHTML=h;capEl.innerHTML=caption(t,CFG.CAP);};
+render(0);
+</script></body></html>

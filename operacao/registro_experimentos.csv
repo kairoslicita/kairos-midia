@@ -1,0 +1,6 @@
+id,data,hipotese,formato,tema,gancho,publico,orcamento_rs,objetivo,dados,leitura,decisao,status
+EXP-001,2026-10-19,Capa escura com alerta animado prende mais que capa clara,Carrossel,Robô decide,Seu item está perdendo,orgânico,0,aprovação qualitativa,"Dono escolheu capa A; pessoas consultadas: ""melhora absurda""","Qualitativo, não métrico",Padrão de capa adotado,concluído
+EXP-002,2026-10-20,"""Comenta PREGÃO"" gera mais comentários que ""link na bio""",CTA,Kit do Pregão,Comenta PREGÃO,orgânico,0,comentários,C1: 2 comentários com alcance de 11,Amostra mínima,Manter e medir por 4 semanas,em análise
+EXP-003,2026-10-24,"Reel de dor com etiqueta do nicho no quadro 0 traz visita ao perfil ≤ R$ 0,60","Reel 15,5 s",Perder por centavos,"Perdeu o item por R$ 0,10?",Brasil 25-60 + Advantage+,39.93,Visitas ao perfil,,,,aguardando aprovação
+EXP-004,2026-10-29,Reel de utilidade (preço mínimo) traz visita mais qualificada que o de dor,"Reel 18,5 s",Preço mínimo,Esse lance parece bom… mas dá prejuízo.,igual EXP-003,39.93,Visitas ao perfil,,,,planejado
+EXP-005,2026-10-26,Postar às 10h em dia útil supera 13h e 22h (histórico),todos,-,-,orgânico,0,alcance nas primeiras 24 h,Histórico: 13h e 22h com alcance ≈ seguidores,,Postar às 10h; testar 18h em 2 peças de novembro,em análise

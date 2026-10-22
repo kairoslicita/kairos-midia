@@ -487,6 +487,100 @@ SC.mdica=t=>{
  <div style="position:absolute;left:72px;top:1220px;font-size:22px;color:#56645b">Salve para conferir antes do próximo pregão.</div>`;
 };
 
+
+/* ================= LOTE V2: CARROSSEL 5 · 3 PREGÕES NO MESMO HORÁRIO ================= */
+const PG3=[['Pregão 1','Impressora multifuncional'],['Pregão 2','Equipamentos de cozinha'],['Pregão 3','Copo descartável']];
+SC.c5capa=t=>{
+ const T=t%6; const hot=Math.floor(T/1.5)%3; const fl=1-clamp((T%1.5)/.35);
+ const rows=PG3.map((p,i)=>{const on=i===hot;const sec=59-Math.floor((T*7+i*13)%60);return `<div style="display:flex;align-items:center;justify-content:space-between;padding:20px 26px;border-radius:24px;margin-top:${i?14:0}px;background:${on?'#1a0f0a':'rgba(26,15,10,.12)'};color:${on?'#ff8a6d':'#1a0f0a'};transform:scale(${on?1+fl*.02:1})">
+   <div><div class="mono" style="font-size:20px;letter-spacing:.06em;opacity:.8">${p[0].toUpperCase()} · AGORA</div><div style="font-family:'Inter Display';font-weight:800;font-size:38px;letter-spacing:-.02em;margin-top:4px">${p[1]}</div></div>
+   <div style="text-align:right"><div class="mono" style="font-size:52px;letter-spacing:-.03em">00:${String(sec).padStart(2,'0')}</div><div class="mono" style="font-size:18px">${on?'novo lance do concorrente':'em disputa'}</div></div></div>`}).join('');
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:112px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">3 pregões<br>no mesmo horário.<br><span style="color:#ff5f3c">Você vê todos?</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:590px;height:520px;border-radius:44px;background:#ff5f3c;padding:40px 40px;box-shadow:0 40px 90px -30px rgba(255,95,60,.6)">${rows}</div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e organize os 3<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
+SC.c5abas=t=>{
+ const T=t%6; const cur=Math.floor(T/1.2)%3; const fx=ease((t-2.4)/.5);
+ const col=(i)=>{const on=i===cur;const x=72+i*318;return `<div style="position:absolute;left:${x}px;top:${on?470:490}px;width:300px;height:420px;border-radius:26px;background:${on?'#fbf8f2':'#efe8da'};border:3px solid ${on?'#ff5f3c':'#d8cfbf'};box-shadow:${on?'0 34px 60px -30px rgba(255,95,60,.55)':'0 20px 40px -32px rgba(11,34,25,.4)'};padding:22px 22px">
+  <div style="display:flex;gap:6px;align-items:center"><i style="width:10px;height:10px;border-radius:50%;background:#e0d7c6"></i><i style="width:10px;height:10px;border-radius:50%;background:#e0d7c6"></i><i style="width:10px;height:10px;border-radius:50%;background:#e0d7c6"></i></div>
+  <div class="mono" style="font-size:15px;color:#56645b;margin-top:14px">ABA ${i+1} · ${PG3[i][0].toUpperCase()}</div>
+  <div style="font-family:'Inter Display';font-weight:800;font-size:28px;line-height:1.05;margin-top:10px;height:60px">${PG3[i][1]}</div>
+  <div style="font-size:16px;color:#56645b;margin-top:22px">melhor lance</div>
+  <div class="mono" style="font-size:34px;color:${on?'#0b2219':'#d1401f'}">${fmt([1279.9,842.5,96.4][i]-(on?0:0.1*(1+(Math.floor(T*2.5)+i)%4)))}</div>
+  <div style="position:absolute;left:22px;right:22px;bottom:22px;border-radius:14px;padding:12px 14px;font-family:'DejaVu Sans Mono';font-size:17px;text-align:center;background:${on?'#0b2219':'rgba(255,95,60,.14)'};color:${on?'#b9ee4f':'#d1401f'}">${on?'você está aqui':'novo lance · sem ver'}</div></div>`};
+ return `<div class="bg"></div>${topbar(N)}${title('Três abas.','Um de você.')}
+ <div class="sub" style="top:345px;left:72px;width:900px">No Compras.gov.br, cada pregão é uma sala. <strong>Enquanto você olha uma, as outras continuam recebendo lance.</strong></div>
+ ${[0,1,2].map(col).join('')}
+ <div class="fix" style="left:72px;right:72px;top:${955+(1-fx)*30}px;opacity:${0.15+0.85*fx};padding:22px 30px">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>o problema</span>
+  <p style="font-size:29px;margin-top:10px">Trocar de aba custa segundos. Na disputa, segundos decidem quem fica em 1º.</p></div>`;
+};
+SC.c5itens=t=>{
+ const L=[['Pregão 1','Impressora multifuncional','R$ 1.166,67'],['Pregão 2','Equipamentos de cozinha','R$ 790,00'],['Pregão 3','Copo descartável (cx.)','R$ 88,40']];
+ const fx=ease((t-2.8)/.5);
+ return `<div class="bg"></div>${topbar(N)}
+ <div class="mono" style="position:absolute;left:72px;top:150px;font-size:26px;color:#d1401f">antes da sessão</div>
+ <div style="position:absolute;left:72px;top:196px;font-family:'Inter Display';font-weight:900;font-size:104px;line-height:.92;letter-spacing:-.045em">Um limite<br><span style="color:#ff5f3c">para cada item.</span></div>
+ <div class="sys" style="position:absolute;left:72px;top:450px;width:936px;padding:28px 32px 30px">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Inter Display';font-weight:700;font-size:26px">Stop loss por item</div><div class="live" style="font-size:15px"><i style="opacity:${blink(t)}"></i>3 pregões hoje</div></div>
+  ${L.map((r,i)=>{const a=ease((t-0.4-i*.55)/.4);const v=r[2].slice(0,Math.floor(clamp((t-0.5-i*.55)/.6)*r[2].length));return `<div class="row" style="margin-top:14px;padding:18px 22px;font-size:24px;opacity:${0.25+0.75*a};border-color:${a>.9?'rgba(185,238,79,.5)':'#1d3b2f'}"><span class="mono" style="width:120px;font-size:17px;color:#8fa699">${r[0].toUpperCase()}</span><span class="tx">${r[1]}</span><span class="mono" style="font-size:26px;color:#b9ee4f">${v||'—'}</span></div>`}).join('')}
+ </div>
+ <div class="fix" style="left:72px;right:72px;top:${905+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>na prática</span>
+  <p style="font-size:30px">Calcule o preço mínimo de cada item antes de a sessão abrir. Com 3 disputas ao mesmo tempo, não dá para fazer conta no meio dos lances.</p></div>
+ ${note(72,1262,700,'Valores de exemplo.')}`;
+};
+SC.c5multi=t=>SC.multi(t).replace(title('Vários pregões','ao mesmo tempo',88),title('Um login,','todas as disputas',96)).replace(/<div class="sub" style="top:340px;left:72px;width:880px">.*?<\/div>/,`<div class="sub" style="top:345px;left:72px;width:900px">No Kairos, os pregões do dia ficam numa lista só, <strong>com o status de cada item atualizado sozinho.</strong></div>`);
+SC.c5orbita=t=>SC.orbita(t).replace(title('Perdendo','virou ganhando'),title('Em cada sala,','o robô cobre.')).replace(/<div class="sub" style="top:340px;left:72px;width:880px">.*?<\/div>/,`<div class="sub" style="top:345px;left:72px;width:900px">Cada lance do concorrente é lido na hora, em todos os pregões ligados. <strong>O robô cobre em milissegundos e nunca passa do stop loss do item.</strong></div>`);
+SC.c5celular=t=>SC.monitor(t).replace(title('Liga e','segue o dia'),title('E você controla','pelo celular.',88)).replace(/<div class="sub" style="top:150px;left:600px;width:420px">.*?<\/div>/,`<div class="sub" style="top:345px;left:72px;width:900px">Liga, desliga e ajusta cada disputa pelo celular. <strong>O robô roda no servidor, sem computador ligado.</strong></div>`);
+
+/* ================= LOTE V2: CARROSSEL 6 · 5 PERGUNTAS ANTES DE TESTAR ================= */
+const FAQ=[
+ ['Preciso deixar o','computador ligado?','Não.','O robô roda no servidor.','Você configura, liga e desliga pelo celular. Pode fechar o notebook e seguir o dia.','srv'],
+ ['Ele pode dar lance','abaixo do meu limite?','Nunca.','O stop loss é seu.','Você define o limite de cada item. Se o concorrente descer abaixo dele, o robô para e não cobre.','shield'],
+ ['Minha senha do Gov.br','fica com vocês?','Não.','Ela fica no seu navegador.','Senha e certificado não saem do seu computador. O Kairos recebe só uma sessão temporária para operar.','lock'],
+ ['Dá para disputar','vários pregões?','Sim.','Um login, várias disputas.','Inclusive no mesmo dia. Cada item com o seu próprio stop loss, todos na mesma lista.','list'],
+ ['Tem fidelidade','ou cartão no teste?','Não.','7 dias grátis, sem cartão.','Sem cobrança automática no fim do teste. Se continuar: R$ 69,90 por mês, sem fidelidade.','cal']
+];
+SC.c6capa=t=>{
+ const i=Math.min(5,Math.floor(t/0.8)); const done=i>=5;
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:116px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">Robô de lances:<br>5 perguntas<br><span style="color:#ff5f3c">antes de testar.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:600px;height:500px;border-radius:44px;background:${done?'#c9f26c':'#ff5f3c'};color:${done?'#0b2219':'#1a0f0a'};padding:44px 48px;box-shadow:0 40px 90px -30px ${done?'rgba(185,238,79,.45)':'rgba(255,95,60,.6)'}">
+  <div class="mono" style="font-size:24px;letter-spacing:.08em">${done?'5 DE 5 · RESPONDIDAS':'PERGUNTA '+(i+1)+' DE 5'}</div>
+  <div style="font-family:'Inter Display';font-weight:800;font-size:74px;line-height:1;letter-spacing:-.04em;margin-top:26px">${done?'Respostas diretas,<br>sem letra miúda.':FAQ[i][0]+'<br>'+FAQ[i][1]}</div>
+  <div style="position:absolute;left:48px;right:48px;bottom:44px;display:flex;gap:10px">${FAQ.map((e,k)=>`<div style="flex:1;height:12px;border-radius:6px;background:${done||k<=i?(done?'#0b2219':'#1a0f0a'):'rgba(0,0,0,.15)'}"></div>`).join('')}</div>
+ </div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e veja as respostas<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
+const faqVis=(k,t)=>{
+ if(k===0){const on=t>1.2;const tg=ease((t-1.2)/.3);return `<div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start"><div class="row" style="font-size:20px;padding:14px 18px;width:330px"><span style="width:30px;height:30px">${ic('srv','#b9ee4f')}</span><span class="tx">Servidor Kairos</span><span class="pill pw">ativo</span></div><div class="row" style="font-size:20px;padding:14px 18px;width:330px;opacity:.6"><span class="tx">Seu notebook</span><span class="pill ph">desligado</span></div><div style="display:flex;align-items:center;gap:14px;margin-top:6px"><div style="width:64px;height:36px;border-radius:999px;background:${on?'#b9ee4f':'#2b4a3d'};position:relative"><div style="position:absolute;top:4px;left:${4+28*tg}px;width:28px;height:28px;border-radius:50%;background:${on?'#0b2219':'#8fa699'}"></div></div><span style="font-size:20px">Robô ligado pelo celular</span></div></div>`}
+ if(k===1){const v=1320-200*ease(clamp(t/2.4));const lim=1166.67;const stop=v<=lim+1;const y=x=>20+(1320-x)/200*200;let tr='';for(let j=0;j<=12;j++){const u=j/12*ease(clamp(t/2.4));const vv=1320-200*u;tr+=`<circle cx="${40+250*u}" cy="${y(Math.max(vv,lim))}" r="5" fill="#f1ede4" opacity=".35"/>`;}
+ return `<svg width="330" height="250">${tr}<line x1="0" x2="330" y1="${y(lim)}" y2="${y(lim)}" stroke="#ff5f3c" stroke-width="4" stroke-dasharray="10 8"/><circle cx="${40+250*ease(clamp(t/2.4))}" cy="${y(Math.max(v,lim))}" r="13" fill="${stop?'#ff5f3c':'#b9ee4f'}"/><text x="0" y="${y(lim)+34}" fill="#ff8a6d" font-family="DejaVu Sans Mono" font-size="20">stop loss ${fmt(lim)}</text><text x="0" y="22" fill="#8fa699" font-family="DejaVu Sans Mono" font-size="18">${stop?'parou: não cobre':'cobrindo'}</text></svg>`}
+ if(k===2){return `<div style="display:flex;flex-direction:column;gap:14px"><div class="row" style="font-size:20px;padding:14px 18px;width:330px"><span style="width:28px;height:28px">${ic('lock','#ff8a6d')}</span><span class="tx">Senha do Gov.br</span><span class="pill pl">fica com você</span></div><div class="row" style="font-size:20px;padding:14px 18px;width:330px"><span style="width:28px;height:28px">${ic('lock','#ff8a6d')}</span><span class="tx">Certificado</span><span class="pill pl">fica com você</span></div><div class="row" style="font-size:20px;padding:14px 18px;width:330px;opacity:${ease((t-1)/.4)}"><span style="width:28px;height:28px">${ic('key','#b9ee4f')}</span><span class="tx">Sessão temporária</span><span class="pill pw">Kairos</span></div></div>`}
+ if(k===3){return `<div style="display:flex;flex-direction:column;gap:12px">${PG3.map((p,i)=>`<div class="row" style="font-size:19px;padding:13px 16px;width:330px;opacity:${0.2+0.8*ease((t-0.4-i*.35)/.3)}"><span class="tx">${p[1]}</span><span class="pill ${i===1?'ph':'pw'}">${i===1?'em disputa':'ganhando'}</span></div>`).join('')}<div class="mono" style="font-size:17px;color:#8fa699;margin-top:4px">1 login · 3 disputas hoje</div></div>`}
+ const d=Math.min(7,1+Math.floor(clamp(t/2.4)*7));return `<div style="display:grid;grid-template-columns:repeat(7,40px);gap:8px">${[1,2,3,4,5,6,7].map(x=>`<div style="height:54px;border-radius:10px;background:${x<=d?'#b9ee4f':'#24463a'};color:#0b2219;font-family:'DejaVu Sans Mono';font-size:18px;display:flex;align-items:center;justify-content:center">${x}</div>`).join('')}</div><div class="mono" style="font-size:18px;color:#b9ee4f;margin-top:18px">grátis · sem cartão</div><div class="mono" style="font-size:16px;color:#8fa699;margin-top:8px">sem cobrança automática</div>`;
+};
+SC.faq=t=>{
+ const k=parseInt(P.get('q')); const e=FAQ[k]; const a=ease((t-0.6)/.35); const fx=ease((t-2.4)/.5);
+ return `<div class="bg"></div>${topbar(N)}
+ <div class="mono" style="position:absolute;left:72px;top:150px;font-size:26px;color:#d1401f">pergunta ${k+1} de 5</div>
+ <div style="position:absolute;left:72px;top:196px;font-family:'Inter Display';font-weight:900;font-size:88px;line-height:.94;letter-spacing:-.045em">${e[0]}<br><span style="color:#ff5f3c">${e[1]}</span></div>
+ <div class="sys" style="position:absolute;left:72px;top:450px;width:936px;height:400px;padding:34px 40px;display:flex;gap:30px">
+  <div style="flex:1"><div class="mono" style="font-size:18px;color:#8fa699;letter-spacing:.06em">RESPOSTA</div>
+   <div style="font-family:'Inter Display';font-weight:900;font-size:150px;letter-spacing:-.05em;line-height:1;margin-top:18px;color:#b9ee4f;opacity:${a};transform:scale(${.85+.15*a});transform-origin:left center">${e[2]}</div>
+   <div style="font-size:30px;margin-top:22px;color:#f1ede4;opacity:${ease((t-1)/.35)}">${e[3]}</div></div>
+  <div style="width:340px;padding-top:40px">${faqVis(k,t)}</div>
+ </div>
+ <div style="position:absolute;right:40px;bottom:-70px;font-family:'Inter Display';font-weight:900;font-size:440px;line-height:1;color:#e6dece;letter-spacing:-.06em">0${k+1}</div>
+ <div class="fix" style="left:72px;right:72px;top:${905+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>em detalhe</span>
+  <p style="font-size:30px">${e[4]}</p></div>
+ <div style="position:absolute;left:72px;top:1220px;font-size:22px;color:#56645b">Kairos · robô de lances para o Compras.gov.br</div>`;
+};
+SC.c6cta=t=>SC.cta(t).replace(title('Quer o','Kit do Pregão?'),title('Ficou alguma','dúvida?')).replace('Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong>','Comenta PREGÃO e receba <strong>o Kit do Pregão no Direct.</strong>');
+
 window.render=t=>{root.innerHTML=SC[S](t)};
 render(0);
 </script></body></html>

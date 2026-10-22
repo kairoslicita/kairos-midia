@@ -1,0 +1,76 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--paper:#f2ede3;--forest:#0b2219;--forest2:#10291f;--coral:#ff5f3c;--lime:#b9ee4f;--ink2:#56645b;--line:#d8cfbf;--mut:#8fa699}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden}
+body{font-family:'Inter',sans-serif;position:relative}
+.mono{font-family:'DejaVu Sans Mono',monospace}
+.disp{font-family:'Inter Display';letter-spacing:-.045em}
+.top{position:absolute;left:72px;right:72px;top:60px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Inter Display';font-weight:800;font-size:40px;letter-spacing:-.03em}.logo b{color:var(--coral)}
+.count{font-family:'DejaVu Sans Mono',monospace;font-size:22px;border-radius:999px;padding:6px 16px}
+.swipe{position:absolute;display:flex;align-items:center;gap:16px;font-family:'Inter Display';font-weight:700;font-size:30px;padding:20px 34px;border-radius:999px}
+</style></head><body><div id="root"></div>
+<script>
+const V = new URLSearchParams(location.search).get('v')||'a';
+const root=document.getElementById('root');
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const fmt=v=>'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const chev=(t,col)=>[0,1,2].map(i=>`<svg width="24" height="24" viewBox="0 0 24 24" style="opacity:${.3+.7*clamp(Math.sin(t*5-i*.9)*.5+.5)}"><path d="M8 4l8 8-8 8" stroke="${col}" stroke-width="3.4" fill="none" stroke-linecap="round"/></svg>`).join('');
+
+window.render=function(t){
+ if(V==='a'){
+  // dark, system alert card
+  const steps=[[0,1289.90],[0.9,1286.40],[1.7,1283.10],[2.5,1279.90]];
+  let best=steps[0][1],since=t; steps.forEach(s=>{if(t>=s[0]){best=s[1];since=t-s[0];}});
+  const win=t>=3.6; const wt=t-3.6;
+  const flash=t<3.6?Math.max(0,1-since/0.35):0;
+  const shake=(t>3.1&&t<3.6)?Math.sin(t*90)*6*(1-(t-3.1)/0.5):0;
+  const bar=win?1:clamp(1-t/3.6);
+  const blink=(Math.floor(t*2)%2)?1:.25;
+  const cardBg=win?'#c9f26c':'var(--coral)';
+  const ink=win?'#0b2219':'#1a0f0a';
+  const enter=ease(t/0.45);
+  root.innerHTML=`<div style="position:absolute;inset:0;background:radial-gradient(80% 55% at 50% 62%,${win?'rgba(185,238,79,.16)':'rgba(255,95,60,.22)'},rgba(0,0,0,0) 70%),#0b2219"></div>
+  <div class="top" style="color:#f1ede4"><div class="logo">Kairos<b>.</b></div><div style="display:flex;gap:18px;align-items:center"><span class="mono" style="font-size:20px;color:var(--lime);display:flex;gap:10px;align-items:center"><i style="width:12px;height:12px;border-radius:50%;background:var(--lime);opacity:${blink};display:inline-block"></i>ao vivo</span><div class="count" style="color:var(--mut);border:2px solid #24463a">1/8</div></div></div>
+  <div class="disp" style="position:absolute;left:72px;right:72px;top:150px;font-weight:900;font-size:112px;line-height:.92;color:#f1ede4">Seu item está<br>perdendo agora.</div>
+  <div class="disp" style="position:absolute;left:72px;top:385px;font-weight:900;font-size:112px;line-height:.92;color:var(--coral);opacity:${win?0.35:1}">E você em reunião.</div>
+  <div style="position:absolute;left:72px;right:72px;top:560px;height:560px;border-radius:44px;background:${cardBg};color:${ink};padding:44px 48px;transform:translate(${shake}px,${(1-enter)*40}px) scale(${1+flash*0.012});box-shadow:0 40px 90px -30px ${win?'rgba(185,238,79,.45)':'rgba(255,95,60,.6)'};overflow:hidden">
+    <div class="mono" style="font-size:24px;letter-spacing:.08em">${win?'ITEM 1 · GANHANDO':'ITEM 1 · PERDENDO'}</div>
+    <div class="disp" style="font-weight:800;font-size:84px;line-height:.98;margin-top:26px;letter-spacing:-.04em">${win?'O robô cobriu.<br>Você lidera.':'Cobrir item 1<br>com '+fmt(best-0.10)+'.'}</div>
+    <div style="position:absolute;left:48px;right:48px;bottom:44px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end">
+        <div class="mono" style="font-size:96px;letter-spacing:-.03em;transform:scale(${1+flash*0.06});transform-origin:left bottom">${win?fmt(1279.80):fmt(best)}</div>
+        <div style="font-size:22px;text-align:right;opacity:.85;line-height:1.3">${win?'dentro do<br>seu limite':'melhor lance<br>do concorrente'}</div>
+      </div>
+      <div style="margin-top:22px;height:10px;border-radius:6px;background:rgba(0,0,0,.14);overflow:hidden"><div style="height:100%;width:${bar*100}%;background:${ink};opacity:.7"></div></div>
+    </div>
+  </div>
+  <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">${win?'Arraste e veja como':'Arraste e veja o que acontece'}<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>
+  <div class="mono" style="position:absolute;right:72px;top:1196px;font-size:17px;color:var(--mut)">tela ilustrativa</div>`;
+ } else {
+  // light, orbit ring with R$ 0,10
+  const cnt=t<1.4? 1-(0.9*ease(t/1.4)) : 0.10;
+  const ring=(t*0.6)%1; const R=300, C=2*Math.PI*R;
+  const pulse=t>1.4&&t<1.9?Math.sin((t-1.4)/0.5*Math.PI)*0.04:0;
+  const sub=ease((t-1.5)/0.5);
+  root.innerHTML=`<div style="position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 55%,rgba(255,95,60,.12),rgba(0,0,0,0) 70%),var(--paper)"></div>
+  <div class="top" style="color:#0b2219"><div class="logo">Kairos<b>.</b></div><div class="count" style="color:var(--ink2);border:2px solid var(--line)">1/8</div></div>
+  <div class="disp" style="position:absolute;left:72px;right:72px;top:150px;font-weight:900;font-size:120px;line-height:.9;color:#0b2219">Perdeu o pregão<br>por centavos?</div>
+  <div style="position:absolute;left:${540-340}px;top:420px;width:680px;height:680px;border-radius:50%;background:#0b2219;transform:scale(${1+pulse});box-shadow:0 50px 100px -40px rgba(11,34,25,.6)">
+    <svg width="680" height="680" style="position:absolute;inset:0"><circle cx="340" cy="340" r="${R}" stroke="#1d3b2f" stroke-width="3" fill="none"/>
+      <circle cx="340" cy="340" r="${R-50}" stroke="#163428" stroke-width="2" fill="none"/>
+      <circle cx="340" cy="340" r="${R}" stroke="#b9ee4f" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="${C*0.62} ${C}" transform="rotate(${ring*360-90} 340 340)"/></svg>
+    <div class="mono" style="position:absolute;left:0;right:0;top:200px;text-align:center;color:var(--mut);font-size:26px">diferença para o 1º lugar</div>
+    <div class="mono" style="position:absolute;left:0;right:0;top:250px;text-align:center;color:var(--lime);font-size:170px;letter-spacing:-.04em">${cnt.toFixed(2).replace('.',',')}</div>
+    <div style="position:absolute;left:50%;top:470px;transform:translateX(-50%);background:rgba(255,95,60,.18);color:#ff8a6d;font-family:'DejaVu Sans Mono';font-size:24px;padding:8px 20px;border-radius:999px">perdendo</div>
+  </div>
+  <div class="disp" style="position:absolute;left:72px;right:72px;top:1120px;font-weight:900;font-size:76px;line-height:.95;color:var(--coral);opacity:${sub};transform:translateY(${(1-sub)*20}px)">Não foi preço. Foi tempo.</div>
+  <div class="swipe" style="left:72px;top:1220px;background:#0b2219;color:#f2ede3;padding:16px 28px;font-size:26px">Arraste<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>
+  <div class="mono" style="position:absolute;right:72px;top:1240px;font-size:17px;color:var(--ink2)">valores de exemplo</div>`;
+ }
+};
+render(0);
+</script></body></html>
