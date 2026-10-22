@@ -1,0 +1,65 @@
+KAIROS · MATERIAIS DA SEMANA 27 A 30/10/2026
+
+POR QUE TUDO É MANUAL NESTA SEMANA
+- A cota do Metricool de outubro já acabou (20 de 20 publicações; o story de 20/10 falhou com "account limit").
+- As três datas (27, 28 e 30/10) são em outubro, então os posts vão pelo app do Instagram. A cota volta em 1º/11.
+
+COMO POSTAR OS CARROSSÉIS ANIMADOS
+- Cada slide é um vídeo curto (4:5) com trilha original já embutida. No Instagram: + > Publicação > selecione vários > escolha os arquivos NA ORDEM do número no nome (c3_01, c3_02...).
+- Se o Instagram sugerir "transformar em Reel", recuse: publique como carrossel.
+- Não precisa adicionar música: a trilha é própria e já está em cada slide.
+- Publique às 10h. Depois: "Adicionar ao story".
+
+======================================================
+TER 27/10, 10h · CARROSSEL 3 "Preço mínimo em 4 passos" (c3_01 a c3_08)
+======================================================
+Até onde dá para baixar o lance sem pagar para vender?
+
+A conta do preço mínimo em 4 passos: custo, frete, impostos e margem. E o erro que come a sua margem sem você perceber (slide 6).
+
+Salve para usar antes do próximo pregão.
+Quer a calculadora pronta? Comenta PREGÃO que eu te mando o Kit do Pregão no Direct.
+
+Valores de exemplo. Confirme a alíquota do seu regime com o seu contador.
+
+#licitacoes #pregaoeletronico #comprasgovbr #licitacao #precominimo #fornecedor #mei #pequenasempresas
+
+======================================================
+QUA 28/10, 10h · REEL "Desligou o computador? O robô, não." (reel_desligou_computador.mp4)
+======================================================
+Desligou o computador? O robô, não.
+
+O robô de lances do Kairos roda no servidor: cobre o lance do concorrente em milissegundos, nunca abaixo do stop loss que você definiu, e acompanha vários pregões ao mesmo tempo. Você liga e desliga pelo celular.
+
+Comenta PREGÃO e receba o Kit do Pregão no Direct.
+Teste grátis por 7 dias, depois R$ 69,90/mês sem fidelidade. Link na bio.
+
+#robodelances #licitacoes #pregaoeletronico #comprasgovbr #licitacao #fornecedor
+
+-> Trilha original e efeitos já estão no vídeo: não adicione música.
+-> Capa: em "Editar capa", escolha o quadro de ~2 s ("Desligou o computador? O robô, não.").
+
+======================================================
+SEX 30/10, 10h · CARROSSEL 4 "Aberto ou aberto e fechado?" (c4_01 a c4_07)
+======================================================
+Aberto ou aberto e fechado? O modo de disputa muda a hora certa do seu lance.
+
+Arraste para entender:
+• onde ver o modo de disputa no edital
+• por que o modo aberto pode passar (e muito) dos 10 minutos
+• o fim aleatório do aberto e fechado
+• quem manda o lance final às cegas
+
+Regras do Compras.gov.br (IN SEGES/ME 73/2022). Confira sempre o edital do seu pregão.
+
+Salve para conferir antes da próxima disputa. E comenta PREGÃO que eu te mando o Kit do Pregão no Direct.
+
+#licitacoes #pregaoeletronico #comprasgovbr #lei14133 #licitacao #comprasnet #fornecedor #pequenasempresas
+
+======================================================
+MANYCHAT · UM GATILHO POR POST (2 minutos cada)
+======================================================
+Automação > Send A Link From Comments > a specific post or reel > escolha o post do dia.
+Palavras-chave: PREGÃO, PREGAO, pregão, pregao.
+Mensagem no Direct: "Aqui está o seu Kit do Pregão: checklist antes da disputa + calculadora do preço mínimo. Bom lance! 👇"
+Botão: "Baixar o Kit" -> https://github.com/kairoslicita/kairos-midia/blob/main/kit/Kit-do-Pregao.pdf
