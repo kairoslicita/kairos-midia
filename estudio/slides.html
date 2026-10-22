@@ -291,6 +291,202 @@ SC.erro=t=>{
  <div style="position:absolute;left:72px;top:1210px;font-size:22px;color:#56645b">Salve para conferir antes do próximo pregão.</div>`;
 };
 
+/* ================= SEMANA 27/10: PREÇO MÍNIMO ================= */
+const PM=[{k:'box',h:'Custo do produto',v:'R$ 900,00',d:'Preço de compra ou de fabricação, com embalagem.'},
+ {k:'truck',h:'Frete até o órgão',v:'R$ 80,00',d:'Entrega no endereço e no prazo do edital.'},
+ {k:'pct',h:'Impostos',v:'6% do preço',d:'Use a alíquota do seu regime tributário.'},
+ {k:'up',h:'Margem mínima',v:'10% do preço',d:'O lucro abaixo do qual não vale a pena vender.'}];
+const PASSO=[
+ ['Some o custo','do produto.','Custo é tudo o que você paga para ter o item pronto: compra, embalagem, garantia. Esqueceu um, o lucro some.'],
+ ['Coloque','o frete.','Entrega até o endereço do órgão, no prazo do edital. Município longe custa mais: cote antes da disputa.'],
+ ['Impostos e','margem em %.','Imposto incide sobre o preço de venda, não sobre o custo. A margem mínima também: pense em % do preço final.'],
+];
+SC.pmcapa=t=>{
+ const T=t%6; const v=T<3.6?1320-300*ease(T/3.6):1020; const lim=1166.67, be=980/0.94;
+ const tc=[lim,be].map(x=>{let a=0,b=3.6;for(let i=0;i<40;i++){const m=(a+b)/2;(1320-300*ease(m/3.6))>x?a=m:b=m}return a});
+ const st=v>=lim?0:v>=be?1:2; const since=st?T-tc[st-1]:9;
+ const flash=Math.max(0,1-since/0.4); const shake=since<0.6?Math.sin(T*90)*6*(1-since/0.6):0;
+ const mp=(v*0.94-980)/v; const pct=(mp*100).toFixed(1).replace('.',',').replace('-','−');
+ const bgc=['#c9f26c','#ffcf73','#ff5f3c'][st]; const lab=['SEU LANCE · ACIMA DO SEU MÍNIMO','SEU LANCE · ABAIXO DO SEU MÍNIMO','SEU LANCE · ABAIXO DO CUSTO'][st];
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:116px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">Até onde dá<br>para baixar?<br><span style="color:#ff5f3c">Faça a conta.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:590px;height:520px;border-radius:44px;background:${bgc};color:${st===2?'#1a0f0a':'#0b2219'};padding:44px 48px;transform:translateX(${shake}px) scale(${1+flash*.012});box-shadow:0 40px 90px -30px ${st===2?'rgba(255,95,60,.6)':'rgba(185,238,79,.4)'}">
+  <div class="mono" style="font-size:24px;letter-spacing:.08em">${lab}</div>
+  <div class="mono" style="font-size:118px;letter-spacing:-.04em;margin-top:30px;transform:scale(${1+flash*.05});transform-origin:left center">${fmt(v)}</div>
+  <div style="font-family:'Inter Display';font-weight:800;font-size:54px;letter-spacing:-.03em;margin-top:14px">${T>=3.6?'Ganhou. E pagou para vender.':'Margem: '+pct+'%'}</div>
+  <div style="position:absolute;left:48px;right:48px;bottom:44px">
+   <div style="position:relative;height:26px;font-family:'DejaVu Sans Mono';font-size:19px;opacity:.85"><span style="position:absolute;left:${(be-1000)/340*100}%;transform:translateX(-50%)">custo</span><span style="position:absolute;left:${(lim-1000)/340*100}%;transform:translateX(-50%)">seu mínimo</span></div>
+   <div style="margin-top:10px;height:12px;border-radius:6px;background:rgba(0,0,0,.15);position:relative"><div style="position:absolute;left:0;top:0;bottom:0;border-radius:6px;width:${clamp((v-1000)/340)*100}%;background:currentColor;opacity:.75"></div>${[be,lim].map(x=>`<div style="position:absolute;left:${(x-1000)/340*100}%;top:-10px;width:4px;height:32px;background:currentColor"></div>`).join('')}</div>
+  </div></div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">A conta em 4 passos<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>
+ <div class="mono" style="position:absolute;right:72px;top:1196px;font-size:17px;color:#8fa699">valores de exemplo</div>`;
+};
+const calc=(p,t)=>PM.map((r,i)=>{const cur=i===p||(p===2&&i===3),done=i<p,fut=i>p&&!cur; const a=cur?ease((t-0.8)/0.5):1;
+  const val=cur?r.v.slice(0,Math.floor(clamp((t-0.9)/0.9)*r.v.length)):r.v;
+  return `<div class="row" style="margin-top:12px;padding:18px 22px;font-size:26px;opacity:${fut?.28:1};border-color:${cur?'rgba(185,238,79,.6)':'#1d3b2f'};transform:scale(${cur?1+0.015*Math.sin(clamp((t-1.8)/.4)*Math.PI):1})">
+   <span style="width:34px;height:34px;flex:none">${ic(r.k,cur?'#b9ee4f':'#8fa699')}</span><span class="tx">${r.h}</span><span class="mono" style="font-size:26px;color:${cur?'#b9ee4f':fut?'#55705f':'#f1ede4'}">${fut?'—':(val||'')}${cur&&val.length<r.v.length?'<span style="opacity:'+blink(t*2)+'">|</span>':''}</span></div>`}).join('');
+SC.passo=t=>{
+ const k=parseInt(P.get('p')); const e=PASSO[k]; const fx=ease((t-2.2)/0.5);
+ return `<div class="bg"></div>${topbar(N)}
+ <div class="mono" style="position:absolute;left:72px;top:150px;font-size:26px;color:#d1401f">passo ${k+1} de 4</div>
+ <div style="position:absolute;left:72px;top:196px;font-family:'Inter Display';font-weight:900;font-size:104px;line-height:.92;letter-spacing:-.045em">${e[0]}<br><span style="color:#ff5f3c">${e[1]}</span></div>
+ <div class="sys" style="position:absolute;left:72px;top:450px;width:936px;padding:26px 30px 30px">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Inter Display';font-weight:700;font-size:26px">Calculadora do preço mínimo</div><div class="live" style="font-size:15px"><i style="opacity:${blink(t)}"></i>item 1</div></div>
+  ${calc(k,t)}</div>
+ <div style="position:absolute;right:40px;bottom:-70px;font-family:'Inter Display';font-weight:900;font-size:440px;line-height:1;color:#e6dece;letter-spacing:-.06em">0${k+1}</div>
+ <div class="fix" style="left:72px;right:72px;top:${905+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>na prática</span>
+  <p style="font-size:31px">${e[2]}</p></div>
+ ${note(72,1262,700,k===2?'Percentuais de exemplo. Confirme a alíquota com o seu contador.':'Valores de exemplo.')}`;
+};
+SC.pconta=t=>{
+ const a=ease((t-0.3)/0.5), r=ease((t-1.3)/0.5); const chk=[[2.4,'Impostos 6%','R$ 70,00'],[2.8,'Margem 10%','R$ 116,67'],[3.2,'Custo + frete','R$ 980,00']];
+ const ok=t>3.8; const pop=1+0.05*Math.sin(clamp((t-1.3)/.45)*Math.PI);
+ return `<div class="bg"></div>${topbar(N)}
+ <div class="mono" style="position:absolute;left:72px;top:150px;font-size:26px;color:#d1401f">passo 4 de 4</div>
+ <div style="position:absolute;left:72px;top:196px;font-family:'Inter Display';font-weight:900;font-size:104px;line-height:.92;letter-spacing:-.045em">Divida,<br><span style="color:#ff5f3c">não multiplique.</span></div>
+ <div class="sys" style="position:absolute;left:72px;top:450px;width:936px;height:400px;padding:34px 40px">
+  <div class="mono" style="font-size:20px;color:#8fa699;letter-spacing:.06em">PREÇO MÍNIMO = CUSTOS ÷ (1 − IMPOSTOS − MARGEM)</div>
+  <div class="mono" style="font-size:54px;margin-top:40px;opacity:${a};letter-spacing:-.02em">(900 + 80) ÷ (1 − 0,16)</div>
+  <div style="display:flex;align-items:baseline;gap:22px;margin-top:34px;opacity:${r}"><span class="mono" style="font-size:44px;color:#8fa699">=</span><span class="mono" style="font-size:96px;color:#b9ee4f;letter-spacing:-.03em;display:inline-block;transform:scale(${pop});transform-origin:left center">R$ 1.166,67</span></div>
+ </div>
+ <div class="fix" style="left:72px;right:72px;top:885px;padding:24px 30px">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>tira a prova</span>
+  ${chk.map(c=>`<div style="display:flex;justify-content:space-between;font-size:28px;margin-top:12px;opacity:${0.2+0.8*ease((t-c[0])/.3)}"><span>${c[1]}</span><span class="mono">${c[2]}</span></div>`).join('')}
+  <div style="display:flex;justify-content:space-between;font-size:28px;margin-top:12px;padding-top:12px;border-top:2px solid #d8cfbf;font-weight:700;opacity:${ok?1:.2}"><span>Total</span><span class="mono" style="color:${ok?'#3d6310':'inherit'}">R$ 1.166,67 ✓</span></div></div>
+ ${note(72,1262,700,'Valores de exemplo.')}`;
+};
+SC.perrado=t=>{
+ const L=ease((t-0.4)/0.5), R=ease((t-1.6)/0.5), w=ease((t-2.8)/0.5);
+ const col=(x,o,tag,cl,f,res,mg,good)=>`<div style="position:absolute;left:${x}px;top:470px;width:450px;opacity:${o};transform:translateY(${(1-o)*30}px)">
+  <div style="border-radius:30px;padding:30px 30px 34px;${good?'background:#0b2219;color:#f1ede4':'background:#fbf8f2;border:2px solid rgba(255,95,60,.5)'}">
+   <span class="pill" style="font-size:20px;padding:8px 16px;${good?'background:rgba(185,238,79,.2);color:#b9ee4f':'background:rgba(255,95,60,.15);color:#d1401f'}">${tag}</span>
+   <div style="font-size:24px;margin-top:22px;color:${good?'#8fa699':'#56645b'}">${cl}</div>
+   <div class="mono" style="font-size:38px;margin-top:10px">${f}</div>
+   <div class="mono" style="font-size:52px;margin-top:20px;letter-spacing:-.03em;color:${good?'#b9ee4f':'#d1401f'}">${res}</div>
+   <div style="font-size:24px;margin-top:26px;color:${good?'#cfd8cf':'#56645b'}">margem que sobra</div>
+   <div style="font-family:'Inter Display';font-weight:900;font-size:110px;letter-spacing:-.05em;line-height:1;margin-top:6px;color:${good?'#f1ede4':'#ff5f3c'};transform:scale(${1+0.06*Math.sin(clamp((t-2.8)/.5)*Math.PI)});transform-origin:left center">${mg}</div>
+  </div></div>`;
+ return `<div class="bg"></div>${topbar(N)}${title('O erro que','come a margem',96)}
+ <div class="sub" style="top:345px;left:72px;width:900px">Somar a porcentagem em cima do custo parece certo. <strong>Mas imposto e margem saem do preço de venda.</strong></div>
+ ${col(72,L,'jeito comum','custo + 16% por cima','980 × 1,16 =','R$ 1.136,80',w>0.5?'7,8%':'?',false)}
+ ${col(558,R,'jeito certo','custo ÷ (1 − 16%)','980 ÷ 0,84 =','R$ 1.166,67',w>0.5?'10%':'?',true)}
+ <div style="position:absolute;left:72px;top:1150px;width:936px;font-size:28px;line-height:1.35;opacity:${w}">No jeito comum, você acha que ganhou com 10% e <b>leva só 7,8%.</b></div>
+ ${note(72,1262,700,'Valores de exemplo: impostos 6% + margem 10%.')}`;
+};
+SC.plimite=t=>SC.limite(t).replace(title('Seu','limite'),title('Esse número','vira o seu limite',88)).replace(/<div class="sub" style="top:150px;left:470px;width:540px">.*?<\/div>/,`<div class="sub" style="top:345px;left:72px;width:900px">No Kairos, ele é o stop loss do item. <strong>O robô cobre o concorrente em milissegundos e nunca dá lance abaixo dele.</strong></div>`);
+SC.pcta=t=>SC.cta(t).replace('Checklist antes da disputa e calculadora do preço mínimo.','A calculadora do preço mínimo pronta, mais o checklist antes da disputa.');
+
+/* ================= SEMANA 30/10: MODOS DE DISPUTA ================= */
+SC.mcapa=t=>{
+ const T=t%6; const A=T<3; const lt=A?T:T-3;
+ let card;
+ if(A){ const bump=lt>1.3; const sec=bump?120-Math.floor((lt-1.3)*6):Math.max(0,108-Math.floor(lt*20)); const mm=String(Math.floor(sec/60)).padStart(2,'0'), ss=String(sec%60).padStart(2,'0');
+  const fl=bump?Math.max(0,1-(lt-1.3)/.4):0;
+  card=`<div class="mono" style="font-size:24px;letter-spacing:.08em">MODO ABERTO · ÚLTIMOS 2 MIN</div>
+   <div class="mono" style="font-size:170px;letter-spacing:-.05em;margin-top:28px;transform:scale(${1+fl*.06});transform-origin:left center">${mm}:${ss}</div>
+   <div style="font-family:'Inter Display';font-weight:800;font-size:56px;letter-spacing:-.03em;margin-top:10px;opacity:${bump?1:.0}">Novo lance: + 2 minutos.</div>`;
+ } else { const sc=lt<1.6; const r=n=>String(Math.floor((Math.sin(t*40+n)*.5+.5)*59)).padStart(2,'0');
+  card=`<div class="mono" style="font-size:24px;letter-spacing:.08em">MODO ABERTO E FECHADO · FIM ALEATÓRIO</div>
+   <div class="mono" style="font-size:170px;letter-spacing:-.05em;margin-top:28px">${sc?r(1)+':'+r(2):'00:00'}</div>
+   <div style="font-family:'Inter Display';font-weight:800;font-size:56px;letter-spacing:-.03em;margin-top:10px;display:flex;gap:16px;align-items:center;opacity:${sc?.0:1}"><span style="width:52px;height:52px">${ic('lock','#0b2219')}</span>Agora: lance final fechado.</div>`; }
+ const cbg=A?'#ff5f3c':'#c9f26c';
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:112px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">Aberto ou<br>aberto e fechado?<br><span style="color:#ff5f3c">Muda o seu lance.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:590px;height:520px;border-radius:44px;background:${cbg};color:${A?'#1a0f0a':'#0b2219'};padding:44px 48px;box-shadow:0 40px 90px -30px ${A?'rgba(255,95,60,.6)':'rgba(185,238,79,.45)'}">${card}
+  <div style="position:absolute;left:48px;right:48px;bottom:44px;display:flex;gap:10px"><div style="flex:1;height:12px;border-radius:6px;background:${A?'#1a0f0a':'rgba(0,0,0,.15)'}"></div><div style="flex:1;height:12px;border-radius:6px;background:${A?'rgba(0,0,0,.15)':'#0b2219'}"></div></div></div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e entenda os dois<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
+SC.medital=t=>{
+ const hl=clamp((t-1.0)/0.8); const c1=ease((t-2.2)/.4), c2=ease((t-2.6)/.4);
+ const ln=(w,o=1)=>`<div style="height:14px;border-radius:7px;background:#e5ddcd;width:${w}%;margin-top:16px;opacity:${o}"></div>`;
+ return `<div class="bg"></div>${topbar(N)}${title('Primeiro:','abra o edital.')}
+ <div class="sub" style="top:345px;left:72px;width:900px">O modo de disputa vem escrito no edital. <strong>Ele decide quanto tempo dura a disputa e quando vale o seu último lance.</strong></div>
+ <div style="position:absolute;left:72px;top:480px;width:470px;height:640px;border-radius:26px;background:#fbf8f2;border:2px solid #d8cfbf;box-shadow:0 30px 60px -36px rgba(11,34,25,.5);padding:34px 34px">
+  <div class="mono" style="font-size:16px;color:#56645b">EDITAL · PREGÃO ELETRÔNICO</div>
+  ${ln(90)}${ln(76)}${ln(84)}
+  <div class="mono" style="font-size:17px;color:#56645b;margin-top:34px">7. DA SESSÃO PÚBLICA</div>
+  ${ln(88)}${ln(70)}
+  <div style="position:relative;margin-top:22px;padding:10px 12px;font-size:23px;font-weight:700">
+   <div style="position:absolute;left:0;top:0;bottom:0;width:${hl*100}%;background:rgba(185,238,79,.75);border-radius:8px"></div>
+   <span style="position:relative">7.4 Modo de disputa: aberto e fechado.</span></div>
+  ${ln(82)}${ln(64)}${ln(78,.7)}${ln(55,.5)}
+ </div>
+ <svg class="wires" width="1080" height="1350">${wire(540,820,620,640,t,.5*c1)}${wire(540,820,620,900,t,.5*c2)}</svg>
+ <div class="card" style="left:620px;top:570px;width:388px;flex-direction:column;gap:8px;opacity:${0.2+0.8*c1}"><span class="pill" style="font-size:18px;padding:6px 14px;background:rgba(255,95,60,.15);color:#d1401f">aberto</span><h4 style="font-size:28px">Lances à vista de todos</h4><p style="font-size:19px">Prorroga enquanto houver lance no final.</p></div>
+ <div class="card out" style="left:620px;top:820px;width:388px;flex-direction:column;gap:8px;opacity:${0.2+0.8*c2}"><span class="pill" style="font-size:18px;padding:6px 14px;background:rgba(185,238,79,.45);color:#3d6310">aberto e fechado</span><h4 style="font-size:28px">Fase aberta + lance final sigiloso</h4><p style="font-size:19px">O fim da fase aberta é aleatório.</p></div>
+ <div style="position:absolute;left:72px;top:1180px;font-size:22px;color:#56645b">Lei 14.133/2021, art. 56. Regras do Compras.gov.br: IN SEGES/ME 73/2022.</div>`;
+};
+const tl=(x,y,w,segs,t)=>`<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:70px;display:flex;gap:6px">${segs.map(s=>`<div style="position:relative;flex:${s.f};border-radius:14px;background:${s.bg};overflow:hidden;opacity:${s.o??1}"><div style="position:absolute;left:0;top:0;bottom:0;width:${(s.p??0)*100}%;background:${s.fill||'rgba(241,237,228,.85)'}"></div><span class="mono" style="position:relative;display:block;text-align:center;line-height:70px;font-size:22px;color:${s.c||'#f1ede4'};mix-blend-mode:${s.mb||'normal'}">${s.l}</span></div>`).join('')}</div>`;
+SC.maberto=t=>{
+ const p0=clamp(t/1.6); const e1=t>1.75, p1=clamp((t-1.6)/0.9), e2=t>2.65, p2=clamp((t-2.5)/0.9), end=t>3.4;
+ const segs=[{f:5,l:'10 min',bg:'#24463a',p:p0,fill:'#2f5a49'}];
+ if(t>1.6) segs.push({f:1.3,l:'+2',bg:'#ff5f3c',p:0,c:'#1a0f0a',o:ease((t-1.6)/.2)});
+ if(t>2.5) segs.push({f:1.3,l:'+2',bg:'#ff5f3c',p:0,c:'#1a0f0a',o:ease((t-2.5)/.2)});
+ if(t>3.4) segs.push({f:1.3,l:'fim',bg:'#c9f26c',c:'#0b2219',o:ease((t-3.4)/.2)});
+ const ev=[[1.55,'lance com 1:12 restando','+2 min','pl'],[2.45,'lance na prorrogação','+2 min','pl'],[3.35,'2 minutos sem lance','encerrado','pw']];
+ const fx=ease((t-3.6)/.5);
+ return `<div class="bg"></div>${topbar(N)}${title('Modo aberto:','prorroga no fim.')}
+ <div class="sub" style="top:345px;left:72px;width:900px">Os lances aparecem para todos. A etapa dura 10 minutos e <strong>cada lance nos 2 minutos finais estica mais 2.</strong></div>
+ <div class="sys" style="position:absolute;left:72px;top:470px;width:936px;height:400px;padding:30px 34px">
+  <div style="display:flex;justify-content:space-between"><div style="font-family:'Inter Display';font-weight:700;font-size:26px">Etapa de lances</div><div class="live" style="font-size:15px"><i style="opacity:${blink(t)}"></i>${end?'encerrada':'ao vivo'}</div></div>
+  ${tl(34,90,868,segs,t)}
+  <div style="position:absolute;left:34px;right:34px;top:190px;display:flex;flex-direction:column;gap:10px">${ev.map(e=>`<div class="row" style="opacity:${t>=e[0]?ease((t-e[0])/.25):.15};font-size:20px;padding:12px 16px"><span class="tx">${e[1]}</span><span class="pill ${e[3]}" style="font-size:16px;padding:6px 12px">${e[2]}</span></div>`).join('')}</div>
+ </div>
+ <div class="fix" style="left:72px;right:72px;top:${905+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>o que isso muda</span>
+  <p style="font-size:30px">A disputa só acaba quando passam 2 minutos sem nenhum lance. Pode durar bem mais que 10 minutos: planeje estar disponível.</p></div>`;
+};
+SC.mfechado=t=>{
+ const p0=clamp(t/1.6); const fog=t>1.6&&t<3.2; const cut=t>=3.2; const cx=0.37;
+ const scr=n=>String(Math.floor((Math.sin(t*37+n)*.5+.5)*9.99));
+ const fx=ease((t-3.6)/.5);
+ return `<div class="bg"></div>${topbar(N)}${title('Aberto e fechado:','o fim é surpresa.',88)}
+ <div class="sub" style="top:345px;left:72px;width:900px">Primeiro, 15 minutos de lances abertos. Depois do aviso de fechamento iminente, <strong>a fase termina a qualquer momento em até 10 minutos.</strong></div>
+ <div class="sys" style="position:absolute;left:72px;top:470px;width:936px;height:400px;padding:30px 34px">
+  <div style="display:flex;justify-content:space-between"><div style="font-family:'Inter Display';font-weight:700;font-size:26px">Fase aberta</div><div class="live" style="font-size:15px;color:${cut?'#ff8a6d':'#b9ee4f'}"><i style="opacity:${blink(t)};background:${cut?'#ff5f3c':'#b9ee4f'}"></i>${cut?'encerrada':t>1.6?'fechamento iminente':'ao vivo'}</div></div>
+  <div style="position:absolute;left:34px;top:90px;width:868px;height:70px;display:flex;gap:6px">
+   <div style="flex:15;border-radius:14px;background:#24463a;position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:${p0*100}%;background:#2f5a49"></div><span class="mono" style="position:relative;display:block;text-align:center;line-height:70px;font-size:22px">15 min</span></div>
+   <div style="flex:10;border-radius:14px;background:repeating-linear-gradient(-45deg,#3a2a22,#3a2a22 12px,#4a3026 12px,#4a3026 24px);position:relative;overflow:hidden">
+    ${cut?`<div style="position:absolute;left:0;top:0;bottom:0;width:${cx*100}%;background:#ff5f3c"></div><div style="position:absolute;left:${cx*100}%;top:-6px;bottom:-6px;width:5px;background:#f1ede4"></div>`:fog?`<div style="position:absolute;left:0;top:0;bottom:0;width:${(Math.sin(t*9)*.5+.5)*100}%;background:rgba(255,95,60,.55)"></div>`:''}
+    <span class="mono" style="position:relative;display:block;text-align:center;line-height:70px;font-size:22px;color:#ffcf73">${cut?'':'até 10 min'}</span></div></div>
+  <div style="position:absolute;left:34px;right:34px;top:200px;display:flex;gap:16px">
+   <div style="flex:1;background:#10291f;border:1px solid #24463a;border-radius:18px;padding:18px 20px"><div class="mono" style="font-size:15px;color:#8fa699">QUANDO ACABA?</div><div class="mono" style="font-size:52px;margin-top:8px;color:${cut?'#ff8a6d':'#ffcf73'}">${cut?'agora':'0'+scr(1)+':'+String(Math.floor((Math.sin(t*23)*.5+.5)*5.99))+scr(3)}</div></div>
+   <div style="flex:1;background:#10291f;border:1px solid #24463a;border-radius:18px;padding:18px 20px"><div class="mono" style="font-size:15px;color:#8fa699">DEPOIS</div><div style="font-size:26px;margin-top:14px;display:flex;gap:12px;align-items:center;opacity:${cut?1:.35}"><span style="width:34px;height:34px">${ic('lock','#b9ee4f')}</span>lance final fechado</div></div>
+  </div></div>
+ <div class="fix" style="left:72px;right:72px;top:${905+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>o que isso muda</span>
+  <p style="font-size:30px">Ninguém sabe o segundo exato do fim. Deixar o melhor lance "para o final" é arriscado: a fase pode fechar antes.</p></div>`;
+};
+SC.mlance=t=>{
+ const B=[[1000,'1º'],[1040,'2º'],[1085,'3º'],[1120,'4º'],[1190,'5º']]; const band=ease((t-0.9)/.5); const lock=t>2.2;
+ const fx=ease((t-3.4)/.5);
+ return `<div class="bg"></div>${topbar(N)}${title('Depois: lance','final às cegas.')}
+ <div class="sub" style="top:345px;left:72px;width:900px">Quem tem a melhor oferta e quem está <strong>até 10% acima dela</strong> manda um lance final, sigiloso, em até 5 minutos.</div>
+ <div class="sys" style="position:absolute;left:72px;top:470px;width:936px;height:420px;padding:28px 34px">
+  <div style="display:flex;justify-content:space-between"><div style="font-family:'Inter Display';font-weight:700;font-size:26px">Classificação da fase aberta</div><div class="mono" style="font-size:16px;color:#8fa699">limite: ${fmt(1100)}</div></div>
+  ${B.map((b,i)=>{const inb=b[0]<=1100; const w=260+(b[0]-1000)*1.5; return `<div style="display:flex;align-items:center;gap:16px;margin-top:${i?12:22}px"><span class="mono" style="width:40px;font-size:20px;color:#8fa699">${b[1]}</span>
+   <div style="width:${w}px;height:46px;border-radius:12px;background:${inb&&band>.5?'#b9ee4f':'#24463a'};color:${inb&&band>.5?'#0b2219':'#cfd8cf'};display:flex;align-items:center;padding:0 16px;font-family:'DejaVu Sans Mono';font-size:20px;opacity:${inb?1:0.4+0.6*(1-band)}">${fmt(b[0])}</div>
+   ${inb?`<span style="width:30px;height:30px;opacity:${lock?ease((t-2.2-i*.15)/.25):0}">${ic('lock','#b9ee4f')}</span><span class="mono" style="font-size:16px;color:#b9ee4f;opacity:${lock?ease((t-2.2-i*.15)/.25):0}">lance final</span>`:`<span class="mono" style="font-size:16px;color:#8fa699;opacity:${band}">fora dos 10%</span>`}</div>`}).join('')}
+ </div>
+ <div class="fix" style="left:72px;right:72px;top:${920+(1-fx)*30}px;opacity:${0.15+0.85*fx};padding:22px 30px">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>bom saber</span>
+  <p style="font-size:27px;margin-top:12px">Você pode manter o último lance ou mandar um melhor. Se não houver 3 ofertas nessa faixa, entram as melhores seguintes, até completar 3.</p></div>
+ ${note(72,1262,700,'Valores de exemplo.')}`;
+};
+SC.mdica=t=>{
+ const T=[['list','Leia o modo de disputa no edital','antes de se cadastrar no pregão.'],['shield','Defina o preço mínimo de cada item','e não passe dele em nenhuma fase.'],['cal','Reserve o horário da sessão','prorrogações e a fase fechada pedem atenção.']];
+ const k=ease((t-2.6)/.5);
+ return `<div class="bg"></div>${topbar(N)}${title('Nos dois modos:','chegue com o número.',88)}
+ <div style="position:absolute;left:72px;top:360px;width:936px;display:flex;flex-direction:column;gap:18px">
+  ${T.map((x,i)=>{const a=ease((t-0.3-i*.45)/.4);return `<div class="card" style="position:relative;left:0;top:0;width:auto;padding:24px 26px;align-items:center;opacity:${0.15+0.85*a};transform:translateX(${(1-a)*30}px)"><div class="ic" style="width:60px;height:60px;border-radius:16px"><span style="width:32px;height:32px;display:block">${ic(x[0])}</span></div><div><h4 style="font-size:32px">${x[1]}</h4><p style="font-size:22px">${x[2]}</p></div><span class="mono" style="margin-left:auto;font-size:30px;color:#ff5f3c">0${i+1}</span></div>`}).join('')}
+ </div>
+ <div class="sys" style="position:absolute;left:72px;top:890px;width:936px;padding:30px 34px;opacity:${0.2+0.8*k};transform:translateY(${(1-k)*24}px)">
+  <div style="display:flex;gap:18px;align-items:center"><div class="logo" style="color:#f1ede4;font-size:34px">Kairos<b>.</b></div><div class="live" style="font-size:15px"><i style="opacity:${blink(t)}"></i>robô ligado</div></div>
+  <div style="font-size:27px;line-height:1.38;margin-top:14px;color:#cfd8cf">Na fase de lances abertos, o robô cobre o concorrente <b style="color:#b9ee4f">em milissegundos</b> e nunca passa do seu stop loss. Roda no servidor, sem computador ligado.</div></div>
+ <div style="position:absolute;left:72px;top:1220px;font-size:22px;color:#56645b">Salve para conferir antes do próximo pregão.</div>`;
+};
+
 window.render=t=>{root.innerHTML=SC[S](t)};
 render(0);
 </script></body></html>

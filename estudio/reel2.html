@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--paper:#f2ede3;--forest:#0b2219;--forest2:#10291f;--coral:#ff5f3c;--lime:#b9ee4f;--mut:#8fa699}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b2219}
+body{font-family:'Inter',sans-serif;color:#f1ede4;position:relative}
+.mono{font-family:'DejaVu Sans Mono',monospace}
+.D{font-family:'Inter Display';font-weight:900;letter-spacing:-.045em;line-height:.92}
+.L{position:absolute;left:80px;right:80px}
+.row{display:flex;align-items:center;gap:14px;background:#123024;border:1px solid #24463a;border-radius:20px;padding:20px 24px;font-size:30px}
+.row .tm{font-family:'DejaVu Sans Mono';font-size:22px;color:var(--mut);width:150px}.row .tx{flex:1}
+.pill{font-family:'DejaVu Sans Mono';font-size:22px;padding:8px 16px;border-radius:999px;white-space:nowrap}
+.pl{background:rgba(255,95,60,.18);color:#ff8a6d}.pw{background:rgba(185,238,79,.18);color:var(--lime)}.ph{background:rgba(241,237,228,.12);color:#cfd8cf}
+.toast{position:absolute;background:rgba(241,237,228,.97);color:#0b2219;border-radius:30px;padding:20px 24px;display:flex;gap:16px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.toast .ap{width:58px;height:58px;border-radius:14px;background:#0b2219;color:#f2ede3;font-family:'Inter Display';font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.toast .ap b{color:var(--coral)}
+.toast h6{font-size:22px;font-weight:700}.toast p{font-size:24px;color:#3b4a42;margin-top:2px}
+</style></head><body><div id="root"></div>
+<script>
+const root=document.getElementById('root');
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const fmt=v=>'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const blink=t=>(Math.floor(t*2)%2)?1:.25;
+const SC=[[0,3.2],[3.2,7.0],[7.0,11.0],[11.0,14.6],[14.6,17.4],[17.4,21.5]];
+const wrap=(lt,len,html)=>{const a=ease(lt/.3), o=lt>len-.2?1-clamp((lt-(len-.2))/.2):1;return `<div style="position:absolute;inset:0;opacity:${a*o};transform:translateY(${(1-a)*50}px)">${html}</div>`};
+const bg=(c)=>`<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 55%,${c},rgba(0,0,0,0) 70%),#0b2219"></div>`;
+const logo=`<div style="position:absolute;left:80px;top:150px;font-family:'Inter Display';font-weight:800;font-size:42px;letter-spacing:-.03em">Kairos<b style="color:#ff5f3c">.</b></div>`;
+const wireP=(x1,y1,x2,y2)=>{const my=(y1+y2)/2;return `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`};
+const wire=(x1,y1,x2,y2,t,op=.6,col='#ff5f3c')=>`<path d="${wireP(x1,y1,x2,y2)}" stroke="${col}" stroke-opacity="${op}" stroke-width="4" fill="none" stroke-dasharray="10 10" style="stroke-dashoffset:${-t*50}"/>`;
+const laptop=(x,y,w,off,lab)=>{const h=w*.62;const sy=off<=0?1:off>=1?0.012:1-off*0.988;const glow=off>=1?0:1;
+ return `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px">
+  <div style="width:${w}px;height:${h}px;border-radius:22px;background:#1a2a24;border:6px solid #2b3f37;position:relative;overflow:hidden">
+   <div style="position:absolute;left:0;right:0;top:50%;height:${h*sy}px;margin-top:${-h*sy/2}px;background:${off>=1?'#f1ede4':'#1d4a37'};opacity:${off>=1?Math.max(0,1-(off-1)*3):1};${off<1?'background:linear-gradient(160deg,#245c43,#123024)':''}"></div>
+   ${off<=0?`<div class="mono" style="position:absolute;left:24px;top:22px;font-size:${w*.045}px;color:#b9ee4f">compras.gov.br</div>`:''}
+  </div>
+  <div style="width:${w*1.16}px;margin-left:${-w*.08}px;height:${w*.05}px;border-radius:0 0 18px 18px;background:#2b3f37"></div>
+  ${lab?`<div class="mono" style="text-align:center;margin-top:16px;font-size:${w*.06}px;color:#ff8a6d">${lab}</div>`:''}</div>`};
+
+function s1(lt){ // hook
+  const off=clamp((lt-0.45)/0.25)+(lt>0.7?clamp((lt-0.7)/0.4):0);
+  const b=ease((lt-1.15)/.3);
+  return bg('rgba(255,95,60,.14)')+logo+`
+  <div class="L D" style="top:300px;font-size:140px">Desligou o<br>computador?</div>
+  <div class="L D" style="top:590px;font-size:140px;color:#ff5f3c;opacity:${b};transform:scale(${0.9+0.1*b});transform-origin:left center">O robô, não.</div>
+  ${laptop(240,880,600,off,lt>0.75?'desligado · 09:00':'')}
+  <div class="L" style="top:1420px;font-size:40px;color:#cfd8cf;opacity:${ease((lt-1.6)/.3)}">E o pregão continua rodando.</div>`;
+}
+function s2(lt){ // notificações
+  const N=[[0.5,'Disputa aberta','Item 3: cadeira giratória'],[1.3,'Disputa aberta','Item 7: papel A4'],[2.1,'Disputa aberta','Item 2: toner para impressora']];
+  return bg('rgba(255,95,60,.2)')+`
+  <div class="L D" style="top:250px;font-size:126px">9h: três pregões<br><span style="color:#ff5f3c">abriram juntos.</span></div>
+  ${N.map((n,i)=>{const a=ease((lt-n[0])/.3);return `<div class="toast" style="left:80px;right:80px;top:${640+i*190+(1-a)*-50}px;opacity:${a}"><div class="ap">K<b>.</b></div><div style="flex:1"><h6>Compras.gov.br · ${n[1]}</h6><p>${n[2]}</p></div><span class="mono" style="font-size:20px;color:#56645b">agora</span></div>`}).join('')}
+  <div class="L" style="top:1260px;font-size:42px;color:#cfd8cf;opacity:${ease((lt-2.8)/.3)}">E você já está na rua.</div>`;
+}
+function s3(lt){ // servidor
+  const items=[['Item 3','cadeira giratória',1.2],['Item 7','papel A4',1.9],['Item 2','toner',2.6]];
+  const pos=[[110,1180],[390,1300],[670,1180]];
+  let wires=''; items.forEach((it,i)=>{wires+=wire(540,860,pos[i][0]+150,pos[i][1],lt,.7,lt>=it[2]?'#b9ee4f':'#ff5f3c')});
+  return bg('rgba(185,238,79,.12)')+`
+  <div class="L D" style="top:250px;font-size:126px">Ele roda<br><span style="color:#b9ee4f">no servidor.</span></div>
+  <svg width="1080" height="1920" style="position:absolute;inset:0">${wires}</svg>
+  <div style="position:absolute;left:290px;top:560px;width:500px;height:300px;border-radius:36px;background:#10291f;border:2px solid #24463a;padding:30px 34px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)">
+   <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Inter Display';font-weight:800;font-size:40px">Kairos<b style="color:#ff5f3c">.</b></div><span class="mono" style="font-size:22px;color:#b9ee4f">● ligado</span></div>
+   ${[0,1,2].map(k=>`<div style="margin-top:${k?14:26}px;height:46px;border-radius:12px;background:#0b2219;border:1px solid #24463a;display:flex;align-items:center;gap:12px;padding:0 16px">${[0,1,2].map(j=>`<i style="width:12px;height:12px;border-radius:50%;background:#b9ee4f;opacity:${(Math.sin(lt*14+k*2+j*1.7)>0)?1:.2};display:inline-block"></i>`).join('')}<span class="mono" style="font-size:18px;color:#8fa699;margin-left:auto">servidor</span></div>`).join('')}
+  </div>
+  ${items.map((it,i)=>{const w=lt>=it[2];const f=w?Math.max(0,1-(lt-it[2])/.4):0;return `<div style="position:absolute;left:${pos[i][0]}px;top:${pos[i][1]}px;width:300px;border-radius:24px;background:${w?'#c9f26c':'#10291f'};color:${w?'#0b2219':'#f1ede4'};border:2px solid ${w?'#c9f26c':'rgba(255,95,60,.6)'};padding:20px 22px;transform:scale(${1+f*.06})"><div class="mono" style="font-size:20px;opacity:.8">${it[0]}</div><div style="font-weight:700;font-size:26px;margin-top:4px">${it[1]}</div><div class="mono" style="font-size:22px;margin-top:10px;color:${w?'#0b2219':'#ff8a6d'}">${w?'ganhando':'perdendo'}</div></div>`}).join('')}
+  <div class="L" style="top:1540px;font-size:36px;color:#cfd8cf;display:flex;gap:18px;align-items:center"><span style="display:inline-block;width:20px;height:20px;border-radius:50%;background:#ff5f3c"></span>Seu computador: desligado.</div>
+  <div class="L mono" style="top:1640px;font-size:24px;color:#8fa699">Telas ilustrativas.</div>`;
+}
+function s4(lt){ // lances rápidos
+  const R=[[0.2,'concorrente',452.30,'pl'],[0.5,'robô cobriu',452.20,'pw'],[1.0,'concorrente',449.90,'pl'],[1.3,'robô cobriu',449.80,'pw'],[1.8,'concorrente',445.00,'pl'],[2.1,'robô cobriu',444.90,'pw'],[2.6,'concorrente',441.50,'pl'],[2.9,'robô cobriu',441.40,'pw']];
+  const vis=R.filter(r=>lt>=r[0]); const last=vis.length?vis[vis.length-1]:null; const flash=last?Math.max(0,1-(lt-last[0])/.25):0;
+  return bg(`rgba(${last&&last[3]==='pw'?'185,238,79':'255,95,60'},${.14+flash*.12})`)+`
+  <div class="L D" style="top:220px;font-size:96px">Baixou o lance?<br><span style="color:#b9ee4f">Ele cobre em<br>milissegundos.</span></div>
+  <div class="L" style="top:580px;display:flex;justify-content:space-between;align-items:center;background:#10291f;border:2px dashed rgba(255,95,60,.7);border-radius:22px;padding:22px 26px"><span style="font-size:30px">Seu stop loss</span><span class="mono" style="font-size:40px;color:#ff8a6d">${fmt(430)}</span></div>
+  <div class="L" style="top:730px;display:flex;flex-direction:column;gap:14px">${vis.slice(-6).reverse().map((r,i)=>`<div class="row" style="opacity:${i===0?ease((lt-r[0])/.12):1-i*.12};${i===0?'transform:scale('+(1+flash*.03)+')':''}"><span class="tx">${r[1]}</span><span class="mono" style="font-size:34px">${fmt(r[2])}</span><span class="pill ${r[3]}">${r[3]==='pw'?'você lidera':'perdendo'}</span></div>`).join('')}</div>
+  <div class="L mono" style="top:1640px;font-size:24px;color:#8fa699">Valores de exemplo.</div>`;
+}
+function s5(lt){ // liga e desliga
+  const on=lt>0.4; const k=ease((lt-0.4)/.25); const n=ease((lt-1.0)/.35);
+  return bg(`rgba(185,238,79,${on?.22:.08})`)+`
+  <div class="L D" style="top:250px;font-size:126px">Você liga e<br>desliga <span style="color:#b9ee4f">pelo<br>celular.</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:760px;border-radius:52px;background:${on?'#c9f26c':'#10291f'};color:${on?'#0b2219':'#f1ede4'};padding:54px 56px;box-shadow:0 50px 110px -30px rgba(185,238,79,${on?.5:0})">
+   <div style="display:flex;align-items:center;gap:36px"><div style="width:220px;height:120px;border-radius:999px;background:${on?'#0b2219':'#2b4a3d'};position:relative;flex:none"><div style="position:absolute;top:12px;left:${12+100*k}px;width:96px;height:96px;border-radius:50%;background:${on?'#b9ee4f':'#8fa699'}"></div></div>
+   <div><div class="D" style="font-weight:800;font-size:76px">${on?'Robô ligado':'Robô desligado'}</div><div style="font-size:30px;margin-top:10px;opacity:.8">vários pregões, um stop loss por item</div></div></div></div>
+  <div class="toast" style="left:80px;right:80px;top:${1150-(1-n)*40}px;opacity:${n}"><div class="ap">K<b>.</b></div><div><h6>Kairos · regra fixa</h6><p>Nunca dá lance abaixo do seu stop loss.</p></div></div>`;
+}
+function s6(lt){
+  const p=1+0.025*Math.sin(lt*5);
+  return bg('rgba(255,95,60,.18)')+`
+  <div class="L" style="top:300px;font-family:'Inter Display';font-weight:800;font-size:120px;letter-spacing:-.04em">Kairos<b style="color:#ff5f3c">.</b></div>
+  <div class="L D" style="top:490px;font-size:104px">Robô de lances<br>para o<br><span style="color:#b9ee4f">Compras.gov.br.</span></div>
+  <div class="L" style="top:900px;font-size:36px;line-height:1.35;color:#cfd8cf">Roda no servidor, sem computador ligado.<br>Você acompanha pelo celular.</div>
+  <div style="position:absolute;left:80px;top:1110px;background:#ff5f3c;color:#0b2219;border-radius:30px;padding:28px 40px;font-family:'Inter Display';font-weight:900;font-size:66px;letter-spacing:-.03em;transform:scale(${p});transform-origin:left center">Comenta PREGÃO</div>
+  <div class="L" style="top:1270px;font-size:32px;color:#cfd8cf">e receba o Kit do Pregão no Direct.</div>
+  <div class="L" style="top:1360px;font-size:32px;color:#f1ede4"><b>Teste grátis por 7 dias</b> · link na bio</div>`;
+}
+const F=[s1,s2,s3,s4,s5,s6];
+window.render=t=>{let h='';SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],s[1]-s[0],F[i](t-s[0]))});root.innerHTML=h;};
+render(0);
+</script></body></html>
