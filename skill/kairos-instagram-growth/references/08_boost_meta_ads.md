@@ -29,12 +29,16 @@ Alcance ou visualizações sozinhos não são objetivo: não trazem cliente.
 - Nacional, não estadual: o produto é digital e o Compras.gov.br é federal.
 
 ## Criativos elegíveis
+- **Área segura 4:5:** Reel impulsionado também aparece no feed recortado em 4:5. Tudo que importa precisa ficar entre y=285 e y=1635 (no modo `r6` do estúdio, a função `safe()` já faz isso).
+- **CTA alinhado ao objetivo:** com objetivo "visitas ao perfil", o pedido principal é **seguir/ver o perfil**; "Comenta PREGÃO" fica como secundário.
+- **Regra de disputa correta:** se o anúncio mostra a disputa, ela precisa bater com a norma (ex.: modo aberto prorroga 2 min a cada lance nos 2 min finais, IN 73/2022 art. 23). O público é licitante e percebe o erro.
+- **Dias úteis:** rodar testes de seg a sex (o público trabalha com pregão em dia útil e o teste fica comparável).
 - Reels com **trilha original** (não usar música da biblioteca do app em post que vai ser impulsionado: algumas faixas bloqueiam o Boost).
 - Gancho completo no quadro 0; 12-16 s; legenda na tela; sem enquetes ou figurinhas interativas.
 - Sem promessa de resultado ("ganhe licitações"), sem preço em destaque no anúncio.
 
 ## Plano experimental (ciclo de 30 dias)
-- **Teste 1** (até R$ 40 de custo total): R$ 8,90/dia × 4 dias ≈ R$ 35,60 + impostos ≈ R$ 39,93.
+- **Teste 1** (até R$ 40 de custo total): R$ 8,90/dia × 4 dias úteis ≈ R$ 35,60 + impostos ≈ R$ 39,93. Ciclo 1: Reel V2-R6, 26 a 29/10.
 - **Teste 2** (até R$ 40): mesma estrutura, outra peça/hipótese, **depois** do teste 1 (não em paralelo).
 - **Reserva** (até R$ 70): só para reforçar o vencedor com evidência. Sem evidência, **não gastar**.
 

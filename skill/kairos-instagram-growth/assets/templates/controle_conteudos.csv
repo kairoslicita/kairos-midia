@@ -6,7 +6,8 @@ C2,7 erros que tiram você do pregão,Carrossel 9,midia/2026-10-23_carrossel_7er
 C3,Preço mínimo em 4 passos,Carrossel 8,midia/2026-10-27_carrossel_preco_minimo,2026-10-22,aprovado,,manual,,,não,,,,,,,
 R2D,"Desligou o computador? O robô, não.","Reel 21,5 s",midia/2026-10-28_reel_desligou,2026-10-22,aprovado,,manual,,,não,,,,,,,
 C4,Aberto ou aberto e fechado?,Carrossel 7,midia/2026-10-30_carrossel_modos_disputa,2026-10-22,aprovado,,manual,,,não,,,,,,,
-V2-R4,"Perdeu o item por R$ 0,10? (anúncio)","Reel 15,5 s",midia/lote_v2_reels/reel_anuncio_perdeu_010.mp4,2026-10-22,aguardando aprovação,,manual,,,Teste 1,,,,,,,Quadro 0 com gancho completo
+V2-R4,"Perdeu o item por R$ 0,10? (anúncio)","Reel 15,5 s",midia/lote_v2_reels/reel_anuncio_perdeu_010.mp4,2026-10-22,substituído por V2-R6,,manual,,,Teste 1,,,,,,,Erro: modo aberto prorroga 2 min; não encerra no último segundo
+V2-R6,"Perdeu o item por R$ 0,10? (anúncio corrigido)",Reel 16 s,midia/lote_v2_reels/reel_anuncio_v2_perdeu_010.mp4,2026-10-22,aguardando aprovação,,manual,,,Teste 1,,,,,,,Regra do modo aberto (IN 73/2022 art. 23); CTA Siga + Kit; conteúdo dentro da área 4:5 do feed
 V2-R2,Esse lance parece bom… mas dá prejuízo.,"Reel 18,5 s",midia/lote_v2_reels/reel_preco_minimo.mp4,2026-10-22,aguardando aprovação,,manual,,,Teste 2,,,,,,,
 V2-R3,POV: você esqueceu do pregão.,"Reel 18,5 s",midia/lote_v2_reels/reel_pov_pregao.mp4,2026-10-22,aguardando aprovação,,Metricool,,,não,,,,,,,"Corrigido: ""controla tudo pelo celular"""
 V2-C5,3 pregões no mesmo horário,Carrossel 7,midia/lote_v2_carrossel5_tres_pregoes,2026-10-22,aguardando aprovação,,Metricool,,,não,,,,,,,

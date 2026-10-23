@@ -11,7 +11,36 @@ Regras de produção:
 
 ---
 
-## Reel 1 · V2-R4 "Perdeu o item por R$ 0,10?" (variante para anúncio)
+## Reel 1 · V2-R6 "Perdeu o item por R$ 0,10?" (versão final para o Boost, substitui o R4)
+Arquivo `reel_anuncio_v2_perdeu_010.mp4`, 16 s. Data: sex 23/10, 10h. Boost B-01 de 26 a 29/10.
+- **O que mudou em relação ao R4:**
+  - A cena 2 agora segue a regra do modo aberto: com 1:12 restando, o concorrente dá lance, a disputa ganha +2 min, você não cobre e ela encerra.
+  - CTA principal "Siga o Kairos", com "Comenta PREGÃO" como secundário.
+  - Todo o conteúdo fica dentro da área 4:5 do feed.
+- **Storyboard:**
+
+| Tempo | Cena |
+|---|---|
+| 0-2,3 s | Placar: 2º lugar por R$ 0,10 |
+| 2,3-5,2 s | "Ele cobriu. Você tinha 2 minutos." Cronômetro 01:12 → lance do concorrente (+2 min) → 02:00 correndo → ENCERRADO; rodapé citando a IN 73/2022 |
+| 5,2-9,8 s | Celular com o robô cobrindo |
+| 9,8-11,9 s | "O robô cobriu. Você lidera." |
+| 11,9-16 s | "Pare de perder por centavos." Siga o Kairos / Comenta PREGÃO / teste 7 dias |
+
+- **Legenda:**
+```
+Perdeu o item por R$ 0,10? No modo aberto, cada lance nos 2 minutos finais prorroga a disputa. Se você não cobre a tempo, ela encerra sem você.
+
+O robô do Kairos cobre o lance do concorrente em milissegundos, sempre acima do limite que você definiu. Roda no servidor, e você controla tudo pelo celular.
+
+Siga o @kairoslicitacao para mais dicas de pregão. Comenta PREGÃO e receba o Kit do Pregão no Direct.
+Teste grátis por 7 dias, sem cartão. Link na bio.
+
+Valores de exemplo.
+#pregaoeletronico #licitacoes #comprasgovbr #robodelances #licitacao #fornecedor
+```
+
+## (Histórico) V2-R4, substituído pelo R6
 Arquivo `reel_anuncio_perdeu_010.mp4`, 15,5 s. Data proposta: sex 23/10, 10h. Criativo do Boost B-01.
 
 - **Objetivo:** descoberta paga (visitas ao perfil). Persona: licitante individual e pequeno fornecedor.

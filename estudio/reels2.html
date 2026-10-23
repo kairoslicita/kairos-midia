@@ -199,7 +199,51 @@ function c5(lt){
   <div class="L" style="top:1250px;font-size:34px;color:#f1ede4;opacity:${ease((lt-1.3)/.3)}"><b>Robô de lances Kairos</b> · teste 7 dias grátis no link da bio</div>`;
 }
 const SC4=[[0,2.3],[2.3,4.6],[4.6,9.6],[9.6,11.8],[11.8,15.5]];
-const CFG={r4:{SC:SC4,F:[c1,c2,c3,c4,c5],CAP:[],T:15.5},r2:{SC:SC2,F:[a1,a2,a3,a4,a5,a6],CAP:CAP2,T:18.5},r3:{SC:SC3,F:[b1,b2,b3,b4,b5],CAP:CAP3,T:18.5}}[MODE];
+
+/* ================= R5 · BOOST SEGURO 4:5 (feed corta y<285 e y>1635; grade 3:4 corta y<240) ================= */
+const safe=(html)=>`<div style="position:absolute;inset:0;transform:translateY(180px) scale(.86);transform-origin:50% 150px">${html}</div>`;
+const nobg=(h,c)=>h.replace(bg(c),'');
+function e1(lt){ return bg('rgba(255,95,60,.22)')+safe(nobg(c1(lt),'rgba(255,95,60,.22)')); }
+function e2(lt){ return bg('rgba(255,95,60,.28)')+safe(nobg(c2(lt),'rgba(255,95,60,.28)')); }
+function e3(lt){
+  const ph=b3(lt).replace(bg('rgba(185,238,79,.12)'),'').replace(note('Valores de exemplo.'),'').replace(/class="phone" style="left:[\d.]+px;top:230px;transform:scale\(1\.05\)"/,`class="phone" style="left:${540-430*1.36/2}px;top:0px;transform:scale(1.36)"`);
+  return bg('rgba(185,238,79,.16)')+safe(tag+head(lt,'O robô cobre<br><span style="color:#b9ee4f">em milissegundos.</span>',100,270,false))+
+   `<div style="position:absolute;left:0;right:0;top:640px;height:840px;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent);mask-image:linear-gradient(to bottom,#000 82%,transparent)">${ph}</div>`+
+   `<div class="L" style="top:1488px;font-size:26px;color:#8fa699">Sempre acima do limite que você definir. Valores de exemplo.</div>`;
+}
+function e4(lt){ return bg('rgba(185,238,79,.22)')+safe(nobg(c4(lt),'rgba(185,238,79,.22)')); }
+function e5(lt){
+  const h=nobg(c5(lt),'rgba(255,95,60,.24)').replace(/<b>Robô de lances Kairos<\/b> · teste 7 dias grátis no link da bio/,'<b>Siga @kairoslicitacao</b> · dicas de pregão toda semana<br><span style="color:#8fa699">Robô de lances Kairos · teste 7 dias grátis no link da bio</span>');
+  return bg('rgba(255,95,60,.24)')+safe(h);
+}
+
+
+/* ================= R6 · ANÚNCIO FINAL: regra do modo aberto correta (IN 73/2022 art. 23) + CTA de seguir + área segura 4:5 ================= */
+function d2(lt){
+  let sec, ev=lt>=0.55, end=lt>=2.45;
+  if(!ev) sec=72-Math.floor(lt*8); else if(!end) sec=Math.max(0,120-Math.floor((lt-0.55)/1.9*120)); else sec=0;
+  const mm=String(Math.floor(sec/60)).padStart(2,'0'), ss=String(sec%60).padStart(2,'0');
+  const fl=ev&&!end?Math.max(0,1-(lt-0.55)/.35):0; const e=ease((lt-2.45)/.2);
+  return tag+head(lt,'Ele cobriu.<br><span style="color:#ff5f3c">Você tinha 2 minutos.</span>',96,270,false)+`
+  <div style="position:absolute;left:80px;right:80px;top:640px;border-radius:48px;background:${end?'#ff5f3c':'#123024'};color:${end?'#1a0f0a':'#f1ede4'};border:2px solid ${end?'#ff5f3c':'#24463a'};padding:44px 48px;height:600px;transform:scale(${1+fl*.015})">
+    <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;letter-spacing:.06em;opacity:.85">MODO ABERTO · ITEM 1</span><span class="mono" style="font-size:26px;opacity:.85">${end?'encerrado':'ao vivo'}</span></div>
+    <div class="mono" style="font-size:${end?118:190}px;letter-spacing:-.05em;margin-top:34px;transform:scale(${end?.9+.1*e:1});transform-origin:left">${end?'ENCERRADO':mm+':'+ss}</div>
+    <div class="row" style="margin-top:26px;font-size:28px;padding:18px 22px;background:${end?'rgba(0,0,0,.12)':'#2a1a14'};border-color:${end?'transparent':'#5a2e22'};color:${end?'#1a0f0a':'#ff8a6d'};opacity:${ev?1:.25}"><span class="tx">Concorrente: R$ 1.279,80</span><span class="mono" style="font-size:24px">+2 min</span></div>
+    <div style="font-size:32px;margin-top:26px">${end?'2 minutos sem lance seu. Você estava em reunião.':ev?'Lance nos 2 minutos finais: prorroga.':'Falta 1 minuto. Você está em 1º.'}</div>
+  </div><div class="L" style="top:1290px;font-size:26px;color:#8fa699">Modo aberto: lance nos 2 min finais prorroga a disputa (IN 73/2022).</div>`;
+}
+function d5(lt){
+  const p=1+.03*Math.sin(lt*6);
+  return tag+head(lt,'Pare de perder<br><span style="color:#ff5f3c">por centavos.</span>',130,270,false)+`
+  <div class="L" style="top:600px;font-size:42px;line-height:1.5;color:#f1ede4;opacity:${ease((lt-.35)/.3)}"><span style="color:#b9ee4f">✓</span> Dicas de pregão toda semana<br><span style="color:#b9ee4f">✓</span> Kit do Pregão grátis no Direct</div>
+  <div style="position:absolute;left:80px;top:860px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:84px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.6)/.3))});transform-origin:left center;opacity:${clamp((lt-.6)/.1)}">Siga o Kairos</div>
+  <div style="position:absolute;left:80px;top:1070px;border:3px solid #f1ede4;color:#f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;letter-spacing:-.02em;opacity:${ease((lt-1.0)/.3)}">Comenta PREGÃO</div>
+  <div class="L" style="top:1250px;font-size:32px;color:#cfd8cf;opacity:${ease((lt-1.4)/.3)}"><b style="color:#f1ede4">Robô de lances Kairos</b> · teste 7 dias grátis, link na bio</div>`;
+}
+function f2(lt){ return bg('rgba(255,95,60,.28)')+safe(d2(lt)); }
+function f5(lt){ return bg('rgba(255,95,60,.24)')+safe(d5(lt)); }
+const SC6=[[0,2.3],[2.3,5.2],[5.2,9.8],[9.8,11.9],[11.9,16]];
+const CFG={r6:{SC:SC6,F:[e1,f2,e3,e4,f5],CAP:[],T:16},r5:{SC:SC4,F:[e1,e2,e3,e4,e5],CAP:[],T:15.5},r4:{SC:SC4,F:[c1,c2,c3,c4,c5],CAP:[],T:15.5},r2:{SC:SC2,F:[a1,a2,a3,a4,a5,a6],CAP:CAP2,T:18.5},r3:{SC:SC3,F:[b1,b2,b3,b4,b5],CAP:CAP3,T:18.5}}[MODE];
 window.DUR=CFG.T;
 window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],s[1]-s[0],CFG.F[i](t-s[0]),i==0)});root.innerHTML=h;capEl.innerHTML=caption(t,CFG.CAP);};
 render(0);

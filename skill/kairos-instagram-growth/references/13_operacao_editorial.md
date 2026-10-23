@@ -13,6 +13,9 @@ planejado → em criação → (aguardando materiais) → em revisão → aguard
 | Seg 08h54 | Claude (tarefa agendada) | Relatório semanal + proposta de Boost |
 | Diário (20-30 min) | Dono | Comentários úteis em perfis do nicho, respostas, Stories |
 
+## Stories (sempre lembrados)
+Stories não usam a cota do Metricool: o dono posta. Todo dia com Story no calendário precisa de um lembrete das 10h05 com o texto exato e as figurinhas. Juntar no mesmo lembrete do post do dia; criar lembrete só de Story quando não houver post.
+
 ## Cota do Metricool (plano grátis)
 20 publicações por mês, zera no dia 1º. Antes de agendar, contar as já publicadas e agendadas no mês (`getScheduledPosts` + posts publicados). Stories não vão para o Metricool. Sem cota: entregar arquivos + legendas para publicação manual e dizer isso claramente.
 

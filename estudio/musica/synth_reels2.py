@@ -46,3 +46,6 @@ build('musica/trilhas/reel_r3.wav',18.5,[2.4,4.6,10.4,13.4],4.6,124,
 cov4=[4.6+(.35+i*1.05+.38)*1 for i in range(5)]
 build('musica/trilhas/reel_r4.wav',15.5,[2.3,4.6,9.6,11.8],4.6,124,ticks=cov4,alerts=[2.3,2.8,3.3],stamps=[.5,3.8],coins=[10.1,12.4])
 print('ok')
+# R6 (anúncio final): virada em 5.2 (robô), alerta no lance do concorrente (2.85), carimbo no encerramento (4.75)
+cov6=[5.2+.35+.38+i*1.05 for i in range(4)]
+build('musica/trilhas/reel_r6.wav',16.0,[2.3,5.2,9.8,11.9],5.2,124,ticks=cov6,alerts=[2.85,3.5,4.1],stamps=[.5,4.75],coins=[10.3,12.5])

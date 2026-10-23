@@ -14,10 +14,10 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 ## Aguardando aprovação (pedido de 22/10/2026)
 | # | Item | O que muda | Custo |
 |---|---|---|---|
-| A1 | Lote V2: Reels R4 (anúncio R$ 0,10), R2 (preço mínimo), R3 (POV); Carrosséis C5 (3 pregões) e C6 (5 perguntas) | Entram no calendário de 23/10 a 06/11 | 0 |
+| A1 | Lote V2: Reels **R6** (anúncio R$ 0,10 corrigido; substitui o R4), R2 (preço mínimo), R3 (POV); Carrosséis C5 (3 pregões) e C6 (5 perguntas) | Entram no calendário de 23/10 a 06/11 | 0 |
 | A2 | Remarcar C2 "7 erros" de 23/10 para 26/10 e postar R4 em 23/10 | Ordem do calendário | 0 |
-| A3 | Boost B-01 (R4), 24-27/10, R$ 8,90/dia, visitas ao perfil, pelo Safari | Primeiro gasto | ≈ R$ 39,93 |
-| A4 | Boost B-02 (R2), 29/10-01/11, mesmas regras, só se B-01 não indicar erro grave | Segundo gasto | ≈ R$ 39,93 |
+| A3 | Boost B-01 (R6), 26-29/10 (dias úteis), R$ 8,90/dia, visitas ao perfil, pelo Safari | Primeiro gasto | ≈ R$ 39,93 |
+| A4 | Boost B-02 (R2), 03-06/11, mesmas regras, só se B-01 não indicar erro grave | Segundo gasto | ≈ R$ 39,93 |
 | A5 | Reserva B-RES até R$ 69,87, só com evidência (regras em `08`) | Terceiro gasto | ≤ R$ 69,87 |
 | A6 | Perfil: nome "Kairos \| Robô de Lances", bio (opção A ou B), link com UTM, 4 destaques, 3 fixados | Mudança de perfil | 0 |
 | A7 | Política de respostas de comentários e Direct (`06`) | Atendimento | 0 |

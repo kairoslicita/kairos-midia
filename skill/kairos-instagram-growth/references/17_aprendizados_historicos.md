@@ -13,3 +13,5 @@ Formato: data · o que aconteceu · aprendizado · regra que virou.
 - 22/10 · Sugestão de localização do Instagram mostrava a cidade do dono · risco de identificação · nunca marcar local.
 - 22/10 · Impulsionar pelo app do iPhone soma 30% da Apple; impostos de ~12,15% desde jan/2026 · custo real maior que o valor diário · Boost só pelo Safari e planejar com imposto incluso.
 - 22/10 · Wording "você só acompanha pelo celular" contradiz o produto · tudo é operável pelo celular · usar "controla".
+- 22/10 · Auditoria do criativo de Boost: o V2-R4 mostrava a disputa "encerrando no último segundo", o que contradiz a prorrogação de 2 min do modo aberto (IN 73/2022 art. 23) e o nosso próprio C4 · licitante percebe erro de regra · conferir a norma em toda cena de disputa (V2-R6 corrigido).
+- 22/10 · Reel impulsionado aparece no feed em 4:5 e o CTA "comenta" não casa com o objetivo "visitas ao perfil" · área segura 285-1635 e CTA principal "Siga" em criativo de Boost.
