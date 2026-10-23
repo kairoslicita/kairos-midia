@@ -19,7 +19,7 @@ Atualizado: 22/10/2026 21h15 (Claude). Leia isto antes de qualquer execução. M
 | seg 26/10 | dono | Ativar Boost B-01 (V2-R6) pelo Safari, R$ 8,90/dia, 26 a 29/10 | aguardando aprovação (A3) · lembrete criado |
 | seg 26/10 10h | dono | Carrossel 2 "7 erros" (remarcado) | aprovado / aguardando A2 |
 | 27, 28, 30/10 10h | dono | C3, Reel desligou, C4 (pacote da semana) | aprovado |
-| qui 29/10 10h | dono | Reel V2-R2 preço mínimo; Boost B-02 se B-01 ok | aguardando aprovação |
+| qui 29/10 10h | dono | Reel V2-R2 preço mínimo (Boost B-02 de 03 a 06/11, se B-01 ok) | aguardando aprovação · lembrete criado |
 | 03, 04, 06/11 | Claude (Metricool) | C5, Reel POV, C6 | aguardando aprovação |
 
 ## Decisões vigentes
