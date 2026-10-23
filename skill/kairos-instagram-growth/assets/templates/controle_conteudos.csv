@@ -2,13 +2,13 @@ id,titulo,formato,arquivos,criado_em,status,publicado_em,publicacao,post_url,man
 P-0812,12 posts institucionais (08 a 18/10),misto,-,2026-10-08,concluído,2026-10-08 a 18,Metricool,-,-,não,8-27 por post,18-61,0-1,0-5,0,0,Diagnóstico: anúncio demais
 C1,Como o robô decide cada lance,Carrossel 8,midia/2026-10-20_carrossel_robo,2026-10-19,publicado,2026-10-20 10:08,Metricool,https://www.instagram.com/p/Det5o9zjkYV/,sim,não,11,48,1,1,2,0,Alcance ≈ seguidores
 R1,Reunião às 9h. Pregão também.,"Reel 21,5 s",midia/2026-10-21_reel/reel_reuniao_pregao.mp4,2026-10-19,publicado,2026-10-22 ~18:55,manual,-,sim (22/10),avaliar,,,,,,,"Diz ""acompanha pelo celular""; não reusar essa frase"
-C2,7 erros que tiram você do pregão,Carrossel 9,midia/2026-10-23_carrossel_7erros,2026-10-19,aprovado,,manual,,,não,,,,,,,Remarcado para 26/10
+C2,7 erros que tiram você do pregão,Carrossel 9,midia/2026-10-23_carrossel_7erros,2026-10-19,"aprovado (26/10, manual)",,manual,,,não,,,,,,,Remarcado para 26/10
 C3,Preço mínimo em 4 passos,Carrossel 8,midia/2026-10-27_carrossel_preco_minimo,2026-10-22,aprovado,,manual,,,não,,,,,,,
 R2D,"Desligou o computador? O robô, não.","Reel 21,5 s",midia/2026-10-28_reel_desligou,2026-10-22,aprovado,,manual,,,não,,,,,,,
 C4,Aberto ou aberto e fechado?,Carrossel 7,midia/2026-10-30_carrossel_modos_disputa,2026-10-22,aprovado,,manual,,,não,,,,,,,
 V2-R4,"Perdeu o item por R$ 0,10? (anúncio)","Reel 15,5 s",midia/lote_v2_reels/reel_anuncio_perdeu_010.mp4,2026-10-22,substituído por V2-R6,,manual,,,Teste 1,,,,,,,Erro: modo aberto prorroga 2 min; não encerra no último segundo
-V2-R6,"Perdeu o item por R$ 0,10? (anúncio corrigido)",Reel 16 s,midia/lote_v2_reels/reel_anuncio_v2_perdeu_010.mp4,2026-10-22,aguardando aprovação,,manual,,,Teste 1,,,,,,,Regra do modo aberto (IN 73/2022 art. 23); CTA Siga + Kit; conteúdo dentro da área 4:5 do feed
-V2-R2,Esse lance parece bom… mas dá prejuízo.,"Reel 18,5 s",midia/lote_v2_reels/reel_preco_minimo.mp4,2026-10-22,aguardando aprovação,,manual,,,Teste 2,,,,,,,
-V2-R3,POV: você esqueceu do pregão.,"Reel 18,5 s",midia/lote_v2_reels/reel_pov_pregao.mp4,2026-10-22,aguardando aprovação,,Metricool,,,não,,,,,,,"Corrigido: ""controla tudo pelo celular"""
-V2-C5,3 pregões no mesmo horário,Carrossel 7,midia/lote_v2_carrossel5_tres_pregoes,2026-10-22,aguardando aprovação,,Metricool,,,não,,,,,,,
-V2-C6,5 perguntas antes de testar,Carrossel 7,midia/lote_v2_carrossel6_cinco_perguntas,2026-10-22,aguardando aprovação,,Metricool,,,talvez (Mensagens),,,,,,,Fixar no perfil; confirmar preço antes de publicar
+V2-R6,"Perdeu o item por R$ 0,10? (anúncio corrigido)",Reel 16 s,midia/lote_v2_reels/reel_anuncio_v2_perdeu_010.mp4,2026-10-22,aprovado,,manual,,,Teste 1,,,,,,,Regra do modo aberto (IN 73/2022 art. 23); CTA Siga + Kit; conteúdo dentro da área 4:5 do feed
+V2-R2,Esse lance parece bom… mas dá prejuízo.,"Reel 18,5 s",midia/lote_v2_reels/reel_preco_minimo.mp4,2026-10-22,aprovado,,manual,,,Teste 2,,,,,,,
+V2-R3,POV: você esqueceu do pregão.,"Reel 18,5 s",midia/lote_v2_reels/reel_pov_pregao.mp4,2026-10-22,agendado,,Metricool,,,não,,,,,,,"Corrigido: ""controla tudo pelo celular"" · Metricool id 403716411 (04/11 10h)"
+V2-C5,3 pregões no mesmo horário,Carrossel 7,midia/lote_v2_carrossel5_tres_pregoes,2026-10-22,agendado,,Metricool,,,não,,,,,,,Metricool id 403716334 (03/11 10h)
+V2-C6,5 perguntas antes de testar,Carrossel 7,midia/lote_v2_carrossel6_cinco_perguntas,2026-10-22,agendado,,Metricool,,,talvez (Mensagens),,,,,,,Fixar no perfil; confirmar preço antes de publicar · Metricool id 403716463 (06/11 10h)
