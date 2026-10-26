@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 22/10/2026 22h20 (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 25/10/2026 23h (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 13 (21/10). Meta: 75 até 12/11 (ampliada: 100).
@@ -10,13 +10,14 @@ Atualizado: 22/10/2026 22h20 (Claude). Leia isto antes de qualquer execução. M
 
 ## Publicado recentemente
 - 20/10: Carrossel 1 "Como o robô decide" (Metricool)
-- 22/10 ~18h55: Reel "Reunião às 9h" (manual; ManyChat criado)
+- 22/10 ~18h55: Reel "Reunião às 9h" (manual; ManyChat criado) · alcance 8, tempo médio 6,4 s
+- 23/10 20h45: Reel V2-R6 (manual, fora das 10h) · 25/10: alcance 8, 19 views, 1 salvo, 1 envio, 0 comentários, tempo médio 11,3 s de 16 s (≈ 2x o Reel anterior)
 
 ## Próximas ações
 | Quando | Quem | O quê | Status |
 |---|---|---|---|
 | sex 23/10 10h | dono | Postar Reel **V2-R6** (versão corrigida do R$ 0,10) + ManyChat + Story S5 | aprovado · lembrete criado |
-| seg 26/10 | dono | Ativar Boost B-01 (V2-R6) pelo Safari, R$ 8,90/dia, 26 a 29/10 | aprovado · lembrete criado |
+| seg 26/10 cedo (~8h) | dono | Ativar Boost B-01 (V2-R6) pelo Safari, R$ 8,90/dia, 26 a 29/10; não ativar na noite de 25/10 | aprovado · confirmado 25/10 |
 | seg 26/10 10h | dono | Carrossel 2 "7 erros" (remarcado) | aprovado · lembrete criado |
 | 27, 28, 30/10 10h | dono | C3, Reel desligou, C4 (pacote da semana) | aprovado |
 | qui 29/10 10h | dono | Reel V2-R2 preço mínimo (Boost B-02 de 03 a 06/11 precisa de nova aprovação) | aprovado · lembrete criado |
