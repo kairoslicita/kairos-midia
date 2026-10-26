@@ -1,12 +1,12 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 26/10/2026 09h (Claude, relatório semanal). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 26/10/2026 11h35 (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 13 (24/10; −1 na semana 19-25). Meta: 75 até 12/11 (ampliada: 100).
 - Semana 19-25/10: 3 peças, alcance somado 35 (vs 66), views 158 (vs 335), interações 16 (vs 49), contas engajadas 15 (vs 29). Alcance por peça ~9 (≈ seguidores).
 - Melhor retenção: R6 (16 s) view rate 50%, ~71% assistido; R1 (21,5 s) 25%, ~30%.
 - Metricool devolve horário em UTC: subtrair 3 h.
-- Gasto de Boost no ciclo: R$ 0 de R$ 150.
+- Gasto de Boost no ciclo: B-01 ativo desde 26/10 11h30 (R$ 44 de mídia, ≈ R$ 49,40 com impostos) de R$ 150.
 - Cota do Metricool: outubro 20/20 (esgotada, conferido em 22/10) · novembro 3/20 agendados (03, 04 e 06/11), plano de 11 posts (sobra 9).
 - Lembretes das 10h05 com post + Story: 23, 26, 27, 28, 29 e 30/10. 03, 04 e 06/11 também criados. Demais dias de novembro: a pauta de quinta cria após aprovação.
 
