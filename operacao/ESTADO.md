@@ -1,23 +1,27 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 25/10/2026 23h (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 26/10/2026 09h (Claude, relatório semanal). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
-- Seguidores: 13 (21/10). Meta: 75 até 12/11 (ampliada: 100).
-- Alcance por post: 9-27. Melhor Reel orgânico: demonstração real de 09/10.
+- Seguidores: 13 (24/10; −1 na semana 19-25). Meta: 75 até 12/11 (ampliada: 100).
+- Semana 19-25/10: 3 peças, alcance somado 35 (vs 66), views 158 (vs 335), interações 16 (vs 49), contas engajadas 15 (vs 29). Alcance por peça ~9 (≈ seguidores).
+- Melhor retenção: R6 (16 s) view rate 50%, ~71% assistido; R1 (21,5 s) 25%, ~30%.
+- Metricool devolve horário em UTC: subtrair 3 h.
 - Gasto de Boost no ciclo: R$ 0 de R$ 150.
 - Cota do Metricool: outubro 20/20 (esgotada, conferido em 22/10) · novembro 3/20 agendados (03, 04 e 06/11), plano de 11 posts (sobra 9).
 - Lembretes das 10h05 com post + Story: 23, 26, 27, 28, 29 e 30/10. 03, 04 e 06/11 também criados. Demais dias de novembro: a pauta de quinta cria após aprovação.
 
 ## Publicado recentemente
 - 20/10: Carrossel 1 "Como o robô decide" (Metricool)
-- 22/10 ~18h55: Reel "Reunião às 9h" (manual; ManyChat criado) · alcance 8, tempo médio 6,4 s
-- 23/10 20h45: Reel V2-R6 (manual, fora das 10h) · 25/10: alcance 8, 19 views, 1 salvo, 1 envio, 0 comentários, tempo médio 11,3 s de 16 s (≈ 2x o Reel anterior)
+- 22/10 18h54: Reel "Reunião às 9h" (manual; ManyChat criado) · alcance 8, 21 views, tempo médio 6,4 s
+- 23/10 17h45: Reel V2-R6 (manual, fora das 10h) · alcance 8, 19 views, 1 salvo, 1 envio, 0 comentários, 11,3 s de 16 s
 
 ## Próximas ações
 | Quando | Quem | O quê | Status |
 |---|---|---|---|
 | sex 23/10 10h | dono | Postar Reel **V2-R6** (versão corrigida do R$ 0,10) + ManyChat + Story S5 | aprovado · lembrete criado |
-| seg 26/10 cedo (~8h) | dono | Ativar Boost B-01 (V2-R6) pelo Safari, R$ 8,90/dia, 26 a 29/10; não ativar na noite de 25/10 | aprovado · confirmado 25/10 |
+| seg 26/10 cedo (~8h) | dono | Ativar Boost B-01 (V2-R6) pelo Safari, R$ 8,90/dia, 26 a 29/10 + mandar print da ativação | aprovado · ativação sem confirmação (08h56) |
+| qua 28/10 ~9h | dono → Claude | Print do anúncio (gasto, visitas, frequência) para a regra de parada | planejado |
+| sex 30/10 18h | Claude | Leitura do B-01 e decisão do pedido A4 (B-02) | planejado |
 | seg 26/10 10h | dono | Carrossel 2 "7 erros" (remarcado) | aprovado · lembrete criado |
 | 27, 28, 30/10 10h | dono | C3, Reel desligou, C4 (pacote da semana) | aprovado |
 | qui 29/10 10h | dono | Reel V2-R2 preço mínimo (Boost B-02 de 03 a 06/11 precisa de nova aprovação) | aprovado · lembrete criado |
