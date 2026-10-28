@@ -1,0 +1,240 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--forest:#0b2219;--coral:#ff5f3c;--lime:#b9ee4f;--mut:#8fa699}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b2219}
+body{font-family:'Inter',sans-serif;color:#f1ede4;position:relative}
+.mono{font-family:'DejaVu Sans Mono',monospace}
+.D{font-family:'Inter Display';font-weight:900;letter-spacing:-.045em;line-height:.92}
+.L{position:absolute;left:80px;right:80px}
+.phone{position:absolute;width:430px;height:880px;border-radius:66px;background:#0a0f0d;padding:14px;box-shadow:0 60px 120px -30px rgba(0,0,0,.7),0 0 0 2px #26302b inset;transform-origin:top left}
+.screen{width:100%;height:100%;border-radius:54px;background:#0e271d;overflow:hidden;position:relative;color:#f1ede4}
+.island{position:absolute;left:50%;top:14px;width:120px;height:34px;margin-left:-60px;border-radius:20px;background:#000;z-index:5}
+.row{display:flex;align-items:center;gap:10px;background:#123024;border:1px solid #24463a;border-radius:14px;padding:11px 12px;font-size:13.5px}
+.row .tm{font-family:'DejaVu Sans Mono';font-size:11.5px;color:var(--mut);width:62px}.row .tx{flex:1}
+.toast{position:absolute;background:rgba(241,237,228,.97);color:#0b2219;border-radius:30px;padding:20px 24px;display:flex;gap:16px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.toast .ap{width:58px;height:58px;border-radius:14px;background:#0b2219;color:#f2ede3;font-family:'Inter Display';font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.toast .ap b{color:var(--coral)}
+.toast h6{font-size:22px;font-weight:700}.toast p{font-size:21px;color:#3b4a42;margin-top:2px}
+.card{position:absolute;left:80px;right:80px;border-radius:48px;background:#123024;border:2px solid #24463a;padding:44px 48px}
+.k{font-size:13px;color:#8fa699;font-family:'DejaVu Sans Mono';letter-spacing:.04em}
+.box{margin:10px 16px;border-radius:20px;padding:14px 18px;background:#123024;border:1px solid #24463a}
+.stamp{position:absolute;transform-origin:center;border:10px solid #ff5f3c;color:#ff5f3c;border-radius:24px;padding:10px 28px;font-family:'Inter Display';font-weight:900;letter-spacing:-.03em;background:rgba(11,34,25,.92)}
+</style></head><body><div id="root"></div>
+<script>
+const MODE=(location.hash||'#r7').slice(1);
+const root=document.getElementById('root');
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const back=x=>{x=Math.max(0,Math.min(1,x));const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const fmt=v=>'R$ '+(+v).toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const bg=(c)=>`<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 50%,${c},rgba(0,0,0,0) 70%),#0b2219"></div>`;
+const LIME='#b9ee4f', CORAL='#ff5f3c';
+const tag=(t,c)=>`<div style="position:absolute;left:80px;top:150px;display:flex;gap:14px;align-items:center"><span style="font-family:'Inter Display';font-weight:800;font-size:40px;letter-spacing:-.03em">Kairos<b style="color:#ff5f3c">.</b></span><span class="mono" style="font-size:23px;letter-spacing:.05em;color:#0b2219;background:${c||LIME};border-radius:999px;padding:8px 18px">${t}</span></div>`;
+const wrap=(lt,html,first)=>{const s=first?1:1.05-0.05*ease(lt/.22);return `<div style="position:absolute;inset:0;transform:scale(${s});transform-origin:50% 45%">${html}</div>`};
+function head(lt,html,size,top,instant){
+  if(instant) return `<div class="L D" style="top:${top}px;font-size:${size}px">${html}</div>`;
+  let i=0; const out=html.replace(/(<[^>]+>)|([^<\s]+)/g,(m,tg,w)=>{ if(tg) return tg; const e=back((lt-i*.05)/.22); i++; return `<span style="display:inline-block;opacity:${clamp((lt-(i-1)*.05)/.08)};transform:translateY(${(1-e)*40}px)">${w}</span>`;});
+  return `<div class="L D" style="top:${top}px;font-size:${size}px">${out}</div>`;
+}
+const note=(txt,top=1470,o=1)=>`<div class="L" style="top:${top}px;font-size:26px;line-height:1.4;color:#8fa699;opacity:${o}">${txt}</div>`;
+const sb=tm=>`<div class="island"></div><div style="display:flex;justify-content:space-between;padding:20px 34px 0;font-size:17px;font-weight:600"><span>${tm}</span><span>5G ▮▮▮</span></div>`;
+const phone=(inner,top,sc)=>`<div class="phone" style="left:${540-430*sc/2}px;top:${top}px;transform:scale(${sc})"><div class="screen">${inner}</div></div>`;
+const ttl=(a,b,c)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:28px 24px 8px"><div><div style="font-family:'Inter Display';font-weight:700;font-size:24px">${a}</div>${b?`<div style="font-size:13.5px;color:#8fa699;margin-top:4px">${b}</div>`:''}</div>${c||''}</div>`;
+const pill=(t,c,bgc)=>`<span class="mono" style="font-size:11.5px;color:${c};background:${bgc||'transparent'};border-radius:999px;padding:${bgc?'4px 9px':'0'}">${t}</span>`;
+const fin=(lt,d)=>`opacity:${clamp((lt-d)/.15)};transform:translateY(${(1-ease((lt-d)/.3))*16}px)`;
+// área segura do feed 4:5 (Boost)
+const safe=(html)=>`<div style="position:absolute;inset:0;transform:translateY(180px) scale(.86);transform-origin:50% 150px">${html}</div>`;
+
+/* ---------- telas reutilizáveis ---------- */
+function cfgScreen(lt,tm,stopTxt,item){
+  const n=Math.min(stopTxt.length,Math.floor(lt/.09)); const tg=ease((lt-1.55)/.3);
+  return sb(tm)+ttl(item[0],item[1],pill('DISPUTA HOJE · 09:00','#0b2219',LIME))+`
+   <div class="box" style="border:2px solid ${lt<1.55?LIME:'#24463a'};padding:18px 20px;margin-top:14px"><div class="k">STOP LOSS · SEU LIMITE</div><div class="mono" style="font-size:36px;margin-top:10px;white-space:nowrap">${stopTxt.slice(0,n)}<span style="color:${LIME};opacity:${Math.floor(lt*4)%2}">|</span></div></div>
+   <div class="box"><div class="k">VARIAÇÃO MÍNIMA</div><div class="mono" style="font-size:26px;margin-top:6px">R$ 0,10</div></div>
+   <div style="margin:22px 16px;border-radius:24px;padding:22px 24px;background:${tg>.5?LIME:'#1b3a2d'};color:${tg>.5?'#0b2219':'#8fa699'};display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:22px"><span>Robô ${tg>.5?'ligado':'desligado'}</span><span style="width:62px;height:34px;border-radius:20px;background:${tg>.5?'#0b2219':'#35514a'};position:relative"><span style="position:absolute;top:4px;left:${4+tg*28}px;width:26px;height:26px;border-radius:50%;background:${tg>.5?LIME:'#8fa699'}"></span></span></div>
+   <div style="margin:10px 24px;font-size:14px;color:#8fa699;line-height:1.45">Roda no servidor. Pode bloquear o celular.</div>`;
+}
+function roboScreen(lt,o){
+  const {t0,R,comp,stop,me0,cp0,tm}=o; let cp=cp0, me=me0, n=0, rows=[], lastT=-9, blocked=false;
+  comp.forEach((c,i)=>{const tc=t0+i*R; if(lt>=tc){cp=c} if(lt>=tc+.3){ const s=`${tm}:${String(31+i*7).padStart(2,'0')}`;
+    if(c-0.1>=stop-1e-9){me=c-0.1;n++;rows.push([tc+.3,s,`Cobriu: ${fmt(c)} → ${fmt(c-0.1)}`,'#f1ede4'])}
+    else {blocked=true;rows.push([tc+.3,s,'Não cobriu: abaixo do stop loss','#ff8a6d'])}
+    lastT=tc+.3 }});
+  const fl=Math.max(0,1-(lt-lastT)/.3)*(rows.length?1:0); const win=me<cp-1e-9;
+  const st=blocked?pill('NO SEU LIMITE','#ff8a6d'):win?pill('● GANHANDO',LIME):pill('● PERDENDO','#ff8a6d');
+  const last=rows.slice(-4).reverse();
+  return sb(tm)+ttl('Robô de lances','Item 1 · disputa ao vivo',st)+`
+   <div class="box" style="border:1px solid ${fl>0&&!blocked?LIME:'#24463a'};padding:16px 20px"><div class="k">SEU LANCE</div><div class="mono" style="font-size:40px;margin-top:6px;color:${LIME};transform:scale(${1+fl*.05});transform-origin:left">${fmt(me)}</div></div>
+   <div class="box" style="background:#2a1a14;border-color:#5a2e22;padding:12px 20px"><div class="k" style="color:#ff8a6d">CONCORRENTE</div><div class="mono" style="font-size:26px;margin-top:4px;color:#ff8a6d">${fmt(cp)}</div></div>
+   <div class="box" style="border:2px dashed ${blocked?CORAL:'#3c5a4e'};display:flex;justify-content:space-between;align-items:center;padding:12px 20px"><span class="k">STOP LOSS</span><span class="mono" style="font-size:20px">${fmt(stop)}</span></div>
+   <div style="display:flex;justify-content:space-between;margin:14px 24px 8px;font-size:15px;font-weight:700"><span>Log de atividades</span><span class="mono" style="color:${LIME};font-size:13px">${n} cobertos</span></div>
+   <div style="margin:0 16px;display:flex;flex-direction:column;gap:7px">${last.map((r,i)=>`<div class="row" style="opacity:${i==0?ease((lt-r[0])/.15):1};color:${r[3]}"><span class="tm">${r[1]}</span><span class="tx">${r[2]}</span></div>`).join('')}</div>`;
+}
+
+/* ================= R7 · "Sua primeira dispensa ou pregão" (33 s) ================= */
+const STEPS=[['1','Marcas','pesquise antes de ofertar'],['2','Documentos','validades à vista'],['3','Disputa','o robô no dia'],['4','Informação','tudo num só lugar']];
+function g1(lt){
+  const pr=clamp(lt/2.6);
+  return bg('rgba(185,238,79,.16)')+tag('DISPENSA · PREGÃO · COMPRAS.GOV.BR')+head(lt,'Sua primeira<br>dispensa ou pregão,<br><span style="color:#b9ee4f">com ajuda desde<br>o começo.</span>',90,270,true)+
+  `<div style="position:absolute;left:118px;top:808px;width:4px;height:${4*132-60}px;background:#24463a"></div><div style="position:absolute;left:118px;top:808px;width:4px;height:${(4*132-60)*pr}px;background:${LIME}"></div>`+
+  STEPS.map((s,i)=>{const on=pr*4>i+.2;return `<div style="position:absolute;left:80px;right:80px;top:${780+i*132}px;display:flex;align-items:center;gap:30px"><span style="width:80px;height:80px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:40px;background:${on?LIME:'#123024'};color:${on?'#0b2219':'#8fa699'};border:2px solid ${on?LIME:'#24463a'}">${s[0]}</span><span style="font-size:46px;font-weight:700">${s[1]}</span><span style="font-size:32px;color:#8fa699">· ${s[2]}</span></div>`}).join('');
+}
+const step=(n,l)=>tag(`${n}/4 · ${l}`);
+function g2(lt){
+  const fab=[['Fabricante A','modelo LX-30','R$ 1.180,00'],['Fabricante B','modelo PX-41','R$ 1.240,00'],['Fabricante C','modelo DM-22','R$ 1.315,00']]; const pick=lt>=2.7, pe=ease((lt-2.7)/.3);
+  const inner=sb('19:40')+ttl('Pesquisa de preços','Item 1 · Impressora laser')+`<div style="margin:6px 24px 10px;font-size:14px;color:#8fa699">Fabricantes e preço de referência</div>`+
+   fab.map((f,i)=>`<div class="box" style="${fin(lt,.4+i*.35)};border:2px solid ${pick&&i==1?LIME:'#24463a'};display:flex;justify-content:space-between;align-items:center;padding:16px 18px"><div><div style="font-size:17px;font-weight:700">${f[0]}</div><div style="font-size:13.5px;color:#8fa699;margin-top:3px">${f[1]}</div></div><div style="text-align:right"><div class="mono" style="font-size:16px">${f[2]}</div>${pick&&i==1?`<div class="mono" style="font-size:11.5px;color:#0b2219;background:${LIME};border-radius:999px;padding:3px 8px;margin-top:6px;opacity:${pe}">escolhida</div>`:''}</div></div>`).join('')+
+   `<div style="margin:18px 24px 0;font-size:14px;color:#8fa699;line-height:1.45">Compare antes de ofertar.</div>`;
+  return bg('rgba(185,238,79,.12)')+step(1,'MARCAS')+head(lt,'Escolha a marca<br><span style="color:#b9ee4f">antes de ofertar.</span>',100,270,false)+phone(inner,500,1.06)+
+   `<div style="position:absolute;right:60px;top:${1060}px;width:330px;border-radius:30px;background:#f2ede3;color:#0b2219;padding:24px 26px;transform:rotate(3deg) scale(${.9+.1*back((lt-1.6)/.3)});opacity:${clamp((lt-1.6)/.12)};box-shadow:0 30px 60px -20px rgba(0,0,0,.6)"><div class="mono" style="font-size:16px;letter-spacing:.05em">O EDITAL PEDE</div><div style="font-size:26px;font-weight:700;margin-top:10px;line-height:1.35">frente e verso ${pick?'<span style="color:#2f7d1e">✓</span>':''}<br>30 páginas/min ${pick?'<span style="color:#2f7d1e">✓</span>':''}</div></div>`+
+   note('Ex.: três fabricantes com preço de referência. Você confere o edital<br>e oferta a marca certa. Valores de exemplo.',1490);
+}
+function g3(lt){
+  const ren=lt>=3.0, re=ease((lt-3.0)/.3);
+  const docs=[['CND Federal','válida até 12/12',LIME],['CRF · FGTS',ren?'renovada · válida até 27/11':'vence em 3 dias',ren?LIME:CORAL],['CNDT Trabalhista','válida até 03/01',LIME],['Contrato social','em dia',LIME]];
+  const inner=sb('19:42')+ttl('Documentos','Validade de cada um')+docs.map((d,i)=>{const warn=i==1&&!ren;return `<div class="box" style="${fin(lt,.35+i*.25)};border:2px solid ${warn?CORAL:i==1&&ren?LIME:'#24463a'};display:flex;justify-content:space-between;align-items:center;padding:16px 18px;transform:scale(${warn?1+.02*Math.sin(lt*9):1})"><span style="font-size:17px;font-weight:700">${d[0]}</span><span class="mono" style="font-size:12.5px;color:${d[2]}">${d[1]}</span></div>`}).join('')+
+   `<div style="margin:22px 16px;border-radius:22px;padding:18px 22px;background:#1b3a2d;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:18px;${fin(lt,1.6)}"><span>Baixar tudo em ZIP</span><span class="mono" style="color:${LIME}">↓ .zip</span></div>`;
+  return bg('rgba(255,95,60,.12)')+step(2,'DOCUMENTOS')+head(lt,'Nenhum documento<br><span style="color:#b9ee4f">vencido no dia.</span>',100,270,false)+phone(inner,500,1.06)+
+   note('Ex.: o FGTS vence em 3 dias e você renova antes da disputa.<br>Datas de exemplo.',1490);
+}
+function g4(lt){
+  const A=2.6; const inner=lt<A?cfgScreen(lt,'08:51','R$ 1.250,00',['Item 1','Impressora laser · disputa hoje']):roboScreen(lt-A,{t0:.25,R:1.0,comp:[1301.00,1289.90,1279.90,1268.80],stop:1250,me0:1312.30,cp0:1312.40,tm:'08:59'});
+  return bg('rgba(185,238,79,.16)')+step(3,'DISPUTA')+head(lt,'No dia da disputa,<br><span style="color:#b9ee4f">o robô cobre em<br>milissegundos.</span>',92,270,false)+phone(inner,590,1.0)+
+   note('Configurado no dia da disputa. Cobre só acima do seu stop loss.<br>Roda no servidor e você opera pelo celular. Valores de exemplo.',1490);
+}
+function g5(lt){
+  const L=[['Dispensa 90012/2026','abre hoje · 14h','#f2ede3','#24463a'],['Pregão 15/2026','● ganhando',LIME,'#24463a'],['Pregão 22/2026','● perdendo','#ff8a6d','#5a2e22']];
+  const inner=sb('09:30')+ttl('Meus leilões','Hoje · 3 disputas')+L.map((l,i)=>`<div class="box" style="${fin(lt,.35+i*.3)};border-color:${l[3]};display:flex;justify-content:space-between;align-items:center;padding:16px 18px"><span style="font-size:16px;font-weight:700">${l[0]}</span><span class="mono" style="font-size:12.5px;color:${l[2]}">${l[1]}</span></div>`).join('')+
+   `<div style="margin:16px 24px 8px;font-size:15px;font-weight:700;${fin(lt,1.4)}">Itens da compra · Pregão 15</div>
+   <div style="margin:0 16px;display:flex;flex-direction:column;gap:7px;${fin(lt,1.6)}"><div class="row"><span class="tx">Item 1 · Impressora laser</span>${pill('ganhando',LIME)}</div><div class="row"><span class="tx">Item 2 · Monitor 24"</span>${pill('ganhando',LIME)}</div></div>
+   <div style="margin:16px 24px 8px;font-size:15px;font-weight:700;${fin(lt,2.0)}">Log de atividades</div>
+   <div style="margin:0 16px;display:flex;flex-direction:column;gap:7px;${fin(lt,2.2)}"><div class="row"><span class="tm">09:01:12</span><span class="tx">Cobriu: R$ 1.268,80 → R$ 1.268,70</span></div><div class="row"><span class="tm">08:59:52</span><span class="tx">Robô ligado · item 1</span></div></div>`;
+  return bg('rgba(185,238,79,.12)')+step(4,'INFORMAÇÃO')+head(lt,'Tudo da disputa<br><span style="color:#b9ee4f">em um só lugar.</span>',100,270,false)+phone(inner,500,1.06)+
+   note('Ex.: três disputas no mesmo dia, cada uma com status, itens e histórico.<br>Valores de exemplo.',1490);
+}
+function g6(lt,boost){
+  const p=1+.03*Math.sin(lt*6);
+  const main=boost?'Siga o Kairos':'Comenta PREGÃO', sec=boost?'Comenta PREGÃO':'';
+  return bg('rgba(255,95,60,.22)')+tag('DISPENSA · PREGÃO · COMPRAS.GOV.BR')+head(lt,'Do preparo<br>à disputa,<br><span style="color:#b9ee4f">com você.</span>',130,270,false)+`
+  <div class="L" style="top:680px;font-size:40px;line-height:1.45;color:#cfd8cf;opacity:${ease((lt-.35)/.3)}">Do primeiro edital ao último lance,<br>tudo controlado pelo celular.</div>
+  <div style="position:absolute;left:80px;top:880px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.6)/.3))});transform-origin:left center;opacity:${clamp((lt-.6)/.1)}">${main}</div>`+
+  (boost?`<div style="position:absolute;left:80px;top:1090px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;opacity:${ease((lt-1.0)/.3)}">${sec}</div>`
+        :`<div class="L" style="top:1095px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.9)/.3)}">e receba o Kit do Pregão no Direct.</div>`)+
+  `<div class="L" style="top:1260px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.3)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
+}
+const SC7=[[0,3.2],[3.2,9.0],[9.0,14.6],[14.6,21.8],[21.8,27.0],[27.0,33.0]];
+
+/* ================= R8 · "Perdi por 1 centavo" (18,4 s, com loop) ================= */
+function h1(lt){
+  const sh=lt>.5&&lt<1.0?Math.sin(lt*80)*8*(1-(lt-.5)/.5):0; const g=ease((lt-.45)/.25);
+  return bg('rgba(255,95,60,.22)')+tag('PREGÃO · COMPRAS.GOV.BR')+head(lt,'Você perdeu<br>o pregão por<br><span style="color:#ff5f3c">R$ 0,01.</span>',150,270,true)+`
+  <div class="card" style="top:790px;transform:translateX(${sh}px)">
+    <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">ITEM 1 · ENCERRADO</span><span class="mono" style="font-size:26px;color:#ff8a6d">● fechada</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:40px;font-size:38px"><span>1º · Concorrente</span><span class="mono" style="font-size:52px">R$ 1.279,89</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:22px;font-size:38px;color:#ff8a6d;background:rgba(255,95,60,${.10+.14*g});border-radius:20px;padding:16px 18px;margin-left:-18px;margin-right:-18px"><span><b>2º · Você</b></span><span class="mono" style="font-size:52px">R$ 1.279,90</span></div>
+    <div class="mono" style="margin-top:30px;font-size:30px;color:#cfd8cf">diferença: <span style="color:#ff5f3c">R$ 0,01</span></div>
+  </div>`+note('Simulação com valores ilustrativos.',1330);
+}
+function h2(lt){
+  const T0=4.0; const sec=Math.max(0,5-Math.floor(lt/(T0/5))); const end=lt>=T0; const e=ease((lt-T0)/.2);
+  const typ='1.279,88'; const n=Math.min(typ.length,Math.max(0,Math.floor((lt-1.2)/.33)));
+  return bg('rgba(255,95,60,.28)')+tag('SIMULAÇÃO · MODO ABERTO')+head(lt,'O lance<br><span style="color:#ff5f3c">no dedo.</span>',150,270,false)+`
+  <div class="card" style="top:630px;height:690px;background:${end?'#ff5f3c':'#123024'};color:${end?'#1a0f0a':'#f1ede4'};border-color:${end?'#ff5f3c':'#24463a'}">
+    <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;letter-spacing:.06em;opacity:.85">SALA DE DISPUTA · ITEM 1</span><span class="mono" style="font-size:26px;opacity:.85">${end?'encerrada':'ao vivo'}</span></div>
+    <div class="mono" style="font-size:${end?118:190}px;letter-spacing:-.05em;margin-top:30px;transform:scale(${end?.9+.1*e:1});transform-origin:left">${end?'ENCERRADO':'00:0'+sec}</div>
+    <div class="row" style="margin-top:22px;font-size:28px;padding:16px 22px;background:${end?'rgba(0,0,0,.12)':'#2a1a14'};border-color:${end?'transparent':'#5a2e22'};color:${end?'#1a0f0a':'#ff8a6d'}"><span class="tx">1º · Concorrente</span><span class="mono" style="font-size:28px">R$ 1.279,89</span></div>
+    <div class="row" style="margin-top:12px;font-size:28px;padding:16px 22px;background:${end?'rgba(0,0,0,.12)':'#1b3a2d'};border-color:transparent;color:inherit"><span class="tx">Seu lance</span><span class="mono" style="font-size:28px">R$ ${end?typ:typ.slice(0,n)}<span style="opacity:${end?0:Math.floor(lt*4)%2}">|</span></span></div>
+    <div style="font-size:32px;margin-top:24px">${end?'Lance não registrado: a disputa encerrou.':'Você digita. O tempo corre.'}</div>
+  </div>`+note('Modo aberto: a disputa encerra após 2 minutos sem lances. Simulação.',1370);
+}
+function h3(lt){
+  const two=lt>=1.05;
+  return `<div style="position:absolute;inset:0;background:#0b2219"></div>`+
+  `<div class="L D" style="top:420px;font-size:150px">Seu dedo:<br><span style="color:#ff5f3c">segundos.</span></div>`+
+  (two?`<div class="L D" style="top:860px;font-size:136px;transform:scale(${.9+.1*back((lt-1.05)/.25)});transform-origin:left">O robô do Kairos:<br><span style="color:#b9ee4f">milissegundos.</span></div>`:'');
+}
+function h4(lt){
+  const inner=roboScreen(lt,{t0:.3,R:.85,comp:[1279.89,1268.80,1257.70,1249.00],stop:1250,me0:1279.90,cp0:1290.00,tm:'09:02'});
+  return bg('rgba(185,238,79,.16)')+tag('SIMULAÇÃO · VALORES ILUSTRATIVOS')+head(lt,'Cobre em milissegundos.<br><span style="color:#b9ee4f">Nunca abaixo<br>do seu stop loss.</span>',84,270,false)+phone(inner,650,.96)+
+   note('Roda no servidor. Você opera pelo celular.<br>O robô é configurado no dia da disputa. Simulação.',1500);
+}
+function h5(lt,boost){
+  const p=1+.03*Math.sin(lt*6); const L=3.8, fo=clamp((lt-(L-.6))/.25), lp=clamp((lt-(L-.3))/.18);
+  const main=boost?'Siga o Kairos':'Comenta PREGÃO';
+  const ci=tag('PREGÃO · COMPRAS.GOV.BR')+head(lt,'Marque quem<br>ainda dá lance<br><span style="color:#ff5f3c">no dedo.</span>',130,270,false)+`
+  <div style="position:absolute;left:80px;top:740px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.4)/.3))});transform-origin:left center;opacity:${clamp((lt-.4)/.1)}">${main}</div>`+
+  (boost?`<div style="position:absolute;left:80px;top:950px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;opacity:${ease((lt-.8)/.3)}">Comenta PREGÃO</div>`
+        :`<div class="L" style="top:955px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.8)/.3)}">e receba o Kit do Pregão no Direct.</div>`)+
+  `<div class="L" style="top:1120px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.1)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
+  const cta=bg('rgba(255,95,60,.24)')+(boost?safe(ci):ci);
+  const loop=boost?bg('rgba(255,95,60,.22)')+safe(h1(0).replace(bg('rgba(255,95,60,.22)'),'')):h1(0);
+  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${loop}</div>`:'');
+}
+const SC8=[[0,2.4],[2.4,7.0],[7.0,9.4],[9.4,14.6],[14.6,18.4]];
+
+/* ================= R9 · "3 erros na primeira dispensa" (29,6 s) ================= */
+const ERR=[['1','Marca','sem checar o edital'],['2','Documento','vencido'],['3','Lance','sem tempo na disputa']];
+function k1(lt){
+  return bg('rgba(255,95,60,.20)')+tag('DISPENSA · COMPRAS.GOV.BR')+head(lt,'<span style="color:#ff5f3c">3 erros</span> que<br>fazem iniciante<br>perder a primeira<br>dispensa.',112,270,true)+
+  ERR.map((s,i)=>`<div style="position:absolute;left:80px;right:80px;top:${800+i*150}px;display:flex;align-items:center;gap:30px;background:#123024;border:2px solid #24463a;border-radius:34px;padding:22px 30px"><span style="width:70px;height:70px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:36px;background:#2a1a14;color:#ff8a6d;border:2px solid #5a2e22">${s[0]}</span><span style="font-size:44px;font-weight:700">${s[1]}</span><span style="font-size:32px;color:#8fa699">· ${s[2]}</span></div>`).join('');
+}
+const etag=(n,l)=>tag(`ERRO ${n} · ${l}`,'#ff8a6d');
+function k2(lt){
+  const st=ease((lt-1.9)/.25), sh=lt>1.9&&lt<2.4?Math.sin(lt*80)*8*(1-(lt-1.9)/.5):0;
+  return bg('rgba(255,95,60,.18)')+etag(1,'MARCA')+head(lt,'Marca escolhida<br><span style="color:#ff5f3c">sem checar<br>o edital.</span>',112,270,false)+`
+  <div class="card" style="top:720px;transform:translateX(${sh}px)">
+    <div class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">SUA PROPOSTA · ITEM 1</div>
+    <div style="font-size:40px;font-weight:700;margin-top:26px">Impressora laser</div><div style="font-size:32px;color:#cfd8cf;margin-top:6px">Fabricante A · modelo LX-20</div>
+    <div class="row" style="margin-top:30px;font-size:30px;padding:16px 22px;${fin(lt,.6)}"><span class="tx">Edital pede: frente e verso</span><span style="color:${LIME}">✓</span></div>
+    <div class="row" style="margin-top:12px;font-size:30px;padding:16px 22px;background:#2a1a14;border-color:#5a2e22;color:#ff8a6d;${fin(lt,1.1)}"><span class="tx">Modelo ofertado: só frente</span><span>✗</span></div>
+    <div class="stamp" style="right:20px;bottom:-95px;font-size:74px;transform:rotate(-7deg) scale(${.4+.6*st});opacity:${st}">RECUSADA</div>
+  </div>`+note('Exemplo ilustrativo. A proposta pode ser recusada<br>se o item não atende ao edital.',1400);
+}
+function k3(lt){
+  const st=ease((lt-1.7)/.25);
+  const docs=[['CND Federal','válida','#b9ee4f'],['CRF · FGTS','venceu ontem','#ff8a6d'],['CNDT Trabalhista','válida','#b9ee4f']];
+  return bg('rgba(255,95,60,.20)')+etag(2,'DOCUMENTO')+head(lt,'Documento<br><span style="color:#ff5f3c">vencido.</span>',150,270,false)+`
+  <div class="card" style="top:640px">
+    <div class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">HABILITAÇÃO · DISPENSA 90012/2026</div>
+    ${docs.map((d,i)=>`<div class="row" style="margin-top:${i?12:30}px;font-size:32px;padding:20px 22px;${i==1?'background:#2a1a14;border-color:#5a2e22;':''}${fin(lt,.4+i*.3)}"><span class="tx">${d[0]}</span><span class="mono" style="font-size:24px;color:${d[2]}">${d[1]}</span></div>`).join('')}
+    <div style="font-size:36px;margin-top:34px;font-weight:700;opacity:${st}">Pode custar a sua habilitação.</div>
+  </div>`+note('Datas de exemplo.',1400);
+}
+function k4(lt){
+  const nt=[['Agenda','Reunião com cliente · 10h','10:00'],['Compras.gov.br','Item 1: você perdeu a 1ª posição','10:41'],['Compras.gov.br','Item 1: novo lance do concorrente','10:42'],['Compras.gov.br','Disputa encerrada · você ficou em 2º','10:44']];
+  return bg('rgba(255,95,60,.24)')+etag(3,'LANCE')+head(lt,'Sem tempo<br><span style="color:#ff5f3c">para o lance.</span>',140,270,false)+
+  nt.map((n,i)=>{const d=.45+i*.75, e=back((lt-d)/.3), o=clamp((lt-d)/.1);return `<div class="toast" style="left:80px;right:80px;top:${640+i*190}px;opacity:${o};transform:translateY(${(1-e)*-70}px) scale(${.94+.06*e});${i==3?'background:#ff5f3c':''}"><div class="ap" style="${i==0?'background:#8fa699;color:#0b2219':''}">${i==0?'10':'K<b>.</b>'}</div><div style="flex:1"><h6>${n[0]}</h6><p style="${i==3?'color:#1a0f0a;font-weight:700':''}">${n[1]}</p></div><span style="font-size:20px;color:#56645b">${n[2]}</span></div>`}).join('')+
+  note('Você estava trabalhando quando o lance decisivo veio. Exemplo ilustrativo.',1450);
+}
+function k5(lt){
+  const F=[['Marca','Pesquise fabricantes e preços<br>antes de ofertar.'],['Documento','Validades à vista,<br>tudo em ZIP.'],['Lance','No dia, o robô cobre em ms,<br>só acima do seu stop loss.'],['Informação','Disputas, itens e histórico<br>em um só lugar.']];
+  return bg('rgba(185,238,79,.18)')+tag('DISPENSA · COMPRAS.GOV.BR')+head(lt,'O Kairos ajuda<br>do preparo<br><span style="color:#b9ee4f">à disputa.</span>',112,270,false)+
+  F.map((f,i)=>{const d=.7+i*1.45, on=lt>=d+.35, e=back((lt-d)/.3);return `<div style="position:absolute;left:80px;right:80px;top:${640+i*196}px;display:flex;gap:26px;align-items:center;background:${on?'#123024':'#0f2a20'};border:2px solid ${on?LIME:'#24463a'};border-radius:34px;padding:22px 28px;opacity:${clamp((lt-d)/.12)};transform:translateX(${(1-e)*60}px)"><span style="width:70px;height:70px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:38px;background:${on?LIME:'#2a1a14'};color:${on?'#0b2219':'#ff8a6d'}">${on?'✓':'✗'}</span><div><div style="font-size:38px;font-weight:800">${f[0]}</div><div style="font-size:29px;color:#cfd8cf;margin-top:6px;line-height:1.3">${f[1]}</div></div></div>`}).join('')+
+  note('Tudo operável pelo celular. O robô é configurado no dia da disputa.',1460);
+}
+function k6(lt,boost){
+  const p=1+.03*Math.sin(lt*6); const main=boost?'Siga o Kairos':'Comenta PREGÃO';
+  return bg('rgba(255,95,60,.22)')+tag('DISPENSA · COMPRAS.GOV.BR')+head(lt,'Sua primeira<br>dispensa,<br><span style="color:#b9ee4f">mais preparada.</span>',122,270,false)+`
+  <div style="position:absolute;left:80px;top:740px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.5)/.3))});transform-origin:left center;opacity:${clamp((lt-.5)/.1)}">${main}</div>`+
+  (boost?`<div style="position:absolute;left:80px;top:950px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;opacity:${ease((lt-.9)/.3)}">Comenta PREGÃO</div>`
+        :`<div class="L" style="top:955px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.9)/.3)}">e receba o Kit do Pregão no Direct.</div>`)+
+  `<div class="L" style="top:1120px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.2)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
+}
+const SC9=[[0,3.0],[3.0,7.6],[7.6,12.0],[12.0,16.6],[16.6,24.4],[24.4,29.6]];
+
+/* ---------- modos ---------- */
+const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
+const CFG={
+ r7:{SC:SC7,F:[g1,g2,g3,g4,g5,lt=>g6(lt,false)],T:33.0},
+ r7b:{SC:SC7,F:[g1,g2,g3,g4,g5,g6].map(B),T:33.0},
+ r8:{SC:SC8,F:[h1,h2,h3,h4,lt=>h5(lt,false)],T:18.4},
+ r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
+ r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
+ r9b:{SC:SC9,F:[k1,k2,k3,k4,k5,k6].map(B),T:29.6},
+}[MODE];
+window.DUR=CFG.T;
+window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2))});root.innerHTML=h;};
+render(0);
+</script></body></html>

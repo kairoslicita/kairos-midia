@@ -1,6 +1,6 @@
 # 01 · Contexto do Kairos (fatos confirmados pelo dono)
 
-Atualizado: 22/10/2026. Antes de publicar preço ou oferta, conferir se ainda vale.
+Atualizado: 28/10/2026. Antes de publicar preço ou oferta, conferir se ainda vale.
 
 ## Marca e contatos públicos
 - Kairos — robô de lances e gestão de disputas para fornecedores no **Compras.gov.br (ComprasNet)**. Só funciona no ComprasNet (não BLL, Portal de Compras Públicas etc.). Atende pregões e também dispensas.
@@ -15,7 +15,9 @@ Atualizado: 22/10/2026. Antes de publicar preço ou oferta, conferir se ainda va
 - **Tudo é operável pelo celular**: robô, configuração e gestão. Nunca escrever que o usuário "só acompanha" pelo celular.
 - Segurança: senha e certificado do Gov.br ficam no navegador do cliente; o Kairos recebe só uma sessão temporária.
 - Recursos já mostrados em peças aprovadas: stop loss por item, log de atividades, "Meus leilões" (lista do dia com status perdendo/ganhando/abre hoje), Órbita (itens da compra), monitoramento ligado/desligado, vários pregões.
-- **A confirmar com o dono antes de demonstrar como recurso real:** variação mínima automática em centavos/reais/percentual, disputa por grupo, lance individual manual, Painel do Dia, documentos/validades/ZIP, pesquisa de preços e fabricantes.
+- **Confirmados pelo dono em 28/10/2026:** pesquisa de preços e fabricantes (ajuda a escolher marca/item antes de ofertar) e documentos com validades + download em ZIP. Escrever: o Kairos *pesquisa*; quem *confere o edital* é o fornecedor. Não prometer aviso automático de vencimento sem confirmar.
+- **Robô só é configurado no dia da disputa** (limite e variação); antes disso a disputa só fica carregada. Estratégia comum: ligar o robô 2-3 min antes do fim.
+- **A confirmar com o dono antes de demonstrar como recurso real:** variação mínima automática em centavos/reais/percentual, disputa por grupo, lance individual manual, Painel do Dia.
 - **Não anunciar:** Kairos Copiloto (em desenvolvimento). "Acompanhamento pelo chat" pode aparecer só como "em breve".
 
 ## Posicionamento e tom

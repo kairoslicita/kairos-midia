@@ -19,6 +19,7 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 | A5 | Reserva B-RES até R$ 69,87, só com evidência (regras em `08`) | Terceiro gasto | ≤ R$ 69,87 |
 | A6 | Perfil: nome "Kairos \| Robô de Lances", bio (opção A ou B), link com UTM, 4 destaques, 3 fixados | Mudança de perfil | 0 |
 | A7 | Política de respostas de comentários e Direct (`06`) | Atendimento | 0 |
+| A8 | Lote V3: Reels R7, R8, R9 + variantes Boost (`operacao/lote_v3/LOTE_V3_REELS.md`) | Publicação | 0 (cota Metricool) |
 
 ## Campanhas
 Ver `operacao/controle_boost.csv`.

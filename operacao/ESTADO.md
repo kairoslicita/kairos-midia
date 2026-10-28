@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 26/10/2026 11h35 (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 28/10/2026 21h (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 13 (24/10; −1 na semana 19-25). Meta: 75 até 12/11 (ampliada: 100).
@@ -26,6 +26,7 @@ Atualizado: 26/10/2026 11h35 (Claude). Leia isto antes de qualquer execução. M
 | 27, 28, 30/10 10h | dono | C3, Reel desligou, C4 (pacote da semana) | aprovado |
 | qui 29/10 10h | dono | Reel V2-R2 preço mínimo (Boost B-02 de 03 a 06/11 precisa de nova aprovação) | aprovado · lembrete criado |
 | 03, 04, 06/11 10h | Metricool | C5, Reel POV, C6 | agendado · lembretes criados |
+| 28/10 | dono | Aprovar lote V3 (R7 primeira dispensa ou pregão, R8 perdi por 1 centavo, R9 3 erros) + variantes Boost · `operacao/lote_v3/LOTE_V3_REELS.md` | aguardando aprovação |
 
 ## Decisões vigentes
 - Padrão visual aprovado = piso (`references/02`). Boost só pelo Safari (taxa Apple). Impostos de ~12,15% inclusos no teto.
@@ -33,6 +34,6 @@ Atualizado: 26/10/2026 11h35 (Claude). Leia isto antes de qualquer execução. M
 - Postar às 10h em dia útil. Sem localização, rosto ou voz.
 
 ## Pendências e bloqueios
-- Aprovações pendentes: A4 (B-02), A5 (reserva), A6 (perfil), A7 (respostas).
+- Aprovações pendentes: A4 (B-02), A5 (reserva), A6 (perfil), A7 (respostas), A8 (lote V3).
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.
