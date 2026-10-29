@@ -76,10 +76,22 @@ function roboScreen(lt,o){
 /* ================= R7 · "Sua primeira dispensa ou pregão" (33 s) ================= */
 const STEPS=[['1','Marcas','pesquise antes de ofertar'],['2','Documentos','validades à vista'],['3','Disputa','o robô no dia'],['4','Informação','tudo num só lugar']];
 function g1(lt){
-  const pr=clamp(lt/2.6);
-  return bg('rgba(185,238,79,.16)')+tag('DISPENSA · PREGÃO · COMPRAS.GOV.BR')+head(lt,'Sua primeira<br>dispensa ou pregão,<br><span style="color:#b9ee4f">com ajuda desde<br>o começo.</span>',90,270,true)+
-  `<div style="position:absolute;left:118px;top:808px;width:4px;height:${4*132-60}px;background:#24463a"></div><div style="position:absolute;left:118px;top:808px;width:4px;height:${(4*132-60)*pr}px;background:${LIME}"></div>`+
-  STEPS.map((s,i)=>{const on=pr*4>i+.2;return `<div style="position:absolute;left:80px;right:80px;top:${780+i*132}px;display:flex;align-items:center;gap:30px"><span style="width:80px;height:80px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:40px;background:${on?LIME:'#123024'};color:${on?'#0b2219':'#8fa699'};border:2px solid ${on?LIME:'#24463a'}">${s[0]}</span><span style="font-size:46px;font-weight:700">${s[1]}</span><span style="font-size:32px;color:#8fa699">· ${s[2]}</span></div>`}).join('');
+  // gancho: fundo coral (quebra o padrão do feed), frase inteira no quadro 0 e ranking em que "Você" sobe do 4º ao 1º
+  const pz=1.05-0.05*ease(lt/.35);
+  const up=ease((lt-.55)/.8), won=lt>=1.45, st=ease((lt-1.45)/.22), sh=lt>1.45&&lt<1.9?Math.sin(lt*85)*7*(1-(lt-1.45)/.45):0;
+  const val=1320.00-(1320.00-1279.80)*up;
+  const others=[['Fornecedor A','R$ 1.289,90'],['Fornecedor B','R$ 1.301,00'],['Fornecedor C','R$ 1.312,40']];
+  const H=118, y0=0;
+  const rows=others.map((o,i)=>`<div style="position:absolute;left:36px;right:36px;top:${y0+(i+up)*H}px;height:100px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;border-radius:24px;background:#123024;font-size:38px;color:#cfd8cf"><span><b class="mono" style="color:#8fa699;margin-right:18px">${i+1+(up>.5?1:0)}º</b>${o[0]}</span><span class="mono" style="font-size:38px">${o[1]}</span></div>`).join('')+
+   `<div style="position:absolute;left:36px;right:36px;top:${y0+(3-3*up)*H}px;height:100px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;border-radius:24px;background:${won?LIME:'#2a1a14'};color:${won?'#0b2219':'#ff8a6d'};font-size:40px;font-weight:800;box-shadow:0 20px 40px -10px rgba(0,0,0,.5);transform:scale(${1+.04*Math.sin(up*Math.PI)})"><span><b class="mono" style="margin-right:18px">${up>.5?1:4}º</b>Você</span><span class="mono" style="font-size:40px">${fmt(val)}</span></div>`;
+  return `<div style="position:absolute;inset:0;background:radial-gradient(70% 40% at 50% 30%,#ff7a5c,rgba(0,0,0,0) 70%),#ff5f3c"></div>`+
+  `<div style="position:absolute;inset:0;transform:scale(${pz}) translateX(${sh}px);transform-origin:50% 40%">`+
+  `<div style="position:absolute;left:80px;top:150px;display:flex;gap:14px;align-items:center"><span style="font-family:'Inter Display';font-weight:800;font-size:40px;letter-spacing:-.03em;color:#0b2219">Kairos<b style="color:#f2ede3">.</b></span><span class="mono" style="font-size:23px;letter-spacing:.05em;color:#b9ee4f;background:#0b2219;border-radius:999px;padding:8px 18px">DISPENSA · PREGÃO · COMPRAS.GOV.BR</span></div>`+
+  `<div class="L" style="top:262px;font-size:54px;font-weight:700;color:#1a0f0a;letter-spacing:-.01em">Como o Kairos pode te ajudar a</div>`+
+  `<div class="L D" style="top:345px;font-size:156px;color:#0b2219">ganhar sua<br>primeira<br><span style="color:#f2ede3">licitação.</span></div>`+
+  `<div style="position:absolute;left:44px;right:44px;top:860px;height:${4*H+70}px;border-radius:44px;background:#0b2219;box-shadow:0 50px 100px -30px rgba(0,0,0,.55)"><div class="mono" style="position:absolute;left:66px;top:22px;font-size:22px;letter-spacing:.06em;color:#8fa699">ITEM 1 · CLASSIFICAÇÃO AO VIVO</div><div style="position:absolute;left:0;right:0;top:66px">${rows}</div></div>`+
+  `<div class="stamp" style="right:70px;top:780px;font-size:70px;border-color:#b9ee4f;color:#b9ee4f;background:#0b2219;transform:rotate(-6deg) scale(${.4+.6*st});opacity:${st}">1º LUGAR</div>`+
+  `<div class="L" style="top:1440px;font-size:24px;color:#1a0f0a;opacity:.75">Exemplo ilustrativo. O Kairos ajuda; o resultado depende da disputa.</div></div>`;
 }
 const step=(n,l)=>tag(`${n}/4 · ${l}`);
 function g2(lt){
@@ -88,8 +100,8 @@ function g2(lt){
    fab.map((f,i)=>`<div class="box" style="${fin(lt,.4+i*.35)};border:2px solid ${pick&&i==1?LIME:'#24463a'};display:flex;justify-content:space-between;align-items:center;padding:16px 18px"><div><div style="font-size:17px;font-weight:700">${f[0]}</div><div style="font-size:13.5px;color:#8fa699;margin-top:3px">${f[1]}</div></div><div style="text-align:right"><div class="mono" style="font-size:16px">${f[2]}</div>${pick&&i==1?`<div class="mono" style="font-size:11.5px;color:#0b2219;background:${LIME};border-radius:999px;padding:3px 8px;margin-top:6px;opacity:${pe}">escolhida</div>`:''}</div></div>`).join('')+
    `<div style="margin:18px 24px 0;font-size:14px;color:#8fa699;line-height:1.45">Compare antes de ofertar.</div>`;
   return bg('rgba(185,238,79,.12)')+step(1,'MARCAS')+head(lt,'Escolha a marca<br><span style="color:#b9ee4f">antes de ofertar.</span>',100,270,false)+phone(inner,500,1.06)+
-   `<div style="position:absolute;right:60px;top:${1060}px;width:330px;border-radius:30px;background:#f2ede3;color:#0b2219;padding:24px 26px;transform:rotate(3deg) scale(${.9+.1*back((lt-1.6)/.3)});opacity:${clamp((lt-1.6)/.12)};box-shadow:0 30px 60px -20px rgba(0,0,0,.6)"><div class="mono" style="font-size:16px;letter-spacing:.05em">O EDITAL PEDE</div><div style="font-size:26px;font-weight:700;margin-top:10px;line-height:1.35">frente e verso ${pick?'<span style="color:#2f7d1e">✓</span>':''}<br>30 páginas/min ${pick?'<span style="color:#2f7d1e">✓</span>':''}</div></div>`+
-   note('Ex.: três fabricantes com preço de referência. Você confere o edital<br>e oferta a marca certa. Valores de exemplo.',1490);
+   `<div style="position:absolute;left:70px;right:70px;top:1150px;border-radius:30px;background:#f2ede3;color:#0b2219;padding:26px 30px;transform:rotate(-1.5deg) scale(${.92+.08*back((lt-1.5)/.3)});opacity:${clamp((lt-1.5)/.12)};box-shadow:0 30px 60px -20px rgba(0,0,0,.6)"><div class="mono" style="font-size:19px;letter-spacing:.05em;color:#56645b">TRECHO DO EDITAL · ITEM 1</div><div style="font-size:31px;font-weight:700;margin-top:10px;line-height:1.3">Impressora laser, frente e verso,<br>mínimo de 30 páginas por minuto.</div><div style="margin-top:16px;border-radius:18px;padding:12px 18px;font-size:27px;font-weight:800;background:${pick?'#b9ee4f':'#e3dccd'};color:#0b2219">${pick?'✓ Fabricante B atende. É essa que você oferta.':'Qual fabricante atende?'}</div></div>`+
+   note('Ex.: o Kairos mostra fabricantes e preços; você compara com o edital<br>e oferta o modelo que atende. Valores de exemplo.',1490);
 }
 function g3(lt){
   const ren=lt>=3.0, re=ease((lt-3.0)/.3);
@@ -177,8 +189,15 @@ const SC8=[[0,2.4],[2.4,7.0],[7.0,9.4],[9.4,14.6],[14.6,18.4]];
 /* ================= R9 · "3 erros na primeira dispensa" (29,6 s) ================= */
 const ERR=[['1','Marca','sem checar o edital'],['2','Documento','vencido'],['3','Lance','sem tempo na disputa']];
 function k1(lt){
-  return bg('rgba(255,95,60,.20)')+tag('DISPENSA · COMPRAS.GOV.BR')+head(lt,'<span style="color:#ff5f3c">3 erros</span> que<br>fazem iniciante<br>perder a primeira<br>dispensa.',112,270,true)+
-  ERR.map((s,i)=>`<div style="position:absolute;left:80px;right:80px;top:${800+i*150}px;display:flex;align-items:center;gap:30px;background:#123024;border:2px solid #24463a;border-radius:34px;padding:22px 30px"><span style="width:70px;height:70px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:36px;background:#2a1a14;color:#ff8a6d;border:2px solid #5a2e22">${s[0]}</span><span style="font-size:44px;font-weight:700">${s[1]}</span><span style="font-size:32px;color:#8fa699">· ${s[2]}</span></div>`).join('');
+  // gancho: fundo coral, frase inteira no quadro 0; três ✗ batem nos erros em sequência, com tremida
+  const pz=1.05-0.05*ease(lt/.35); const hits=[.35,.85,1.35];
+  let sh=0; hits.forEach(h=>{if(lt>h&&lt<h+.3)sh=Math.sin(lt*90)*8*(1-(lt-h)/.3)});
+  return `<div style="position:absolute;inset:0;background:radial-gradient(70% 40% at 50% 30%,#ff7a5c,rgba(0,0,0,0) 70%),#ff5f3c"></div>`+
+  `<div style="position:absolute;inset:0;transform:scale(${pz}) translateX(${sh}px);transform-origin:50% 40%">`+
+  `<div style="position:absolute;left:80px;top:150px;display:flex;gap:14px;align-items:center"><span style="font-family:'Inter Display';font-weight:800;font-size:40px;letter-spacing:-.03em;color:#0b2219">Kairos<b style="color:#f2ede3">.</b></span><span class="mono" style="font-size:23px;letter-spacing:.05em;color:#b9ee4f;background:#0b2219;border-radius:999px;padding:8px 18px">DISPENSA · COMPRAS.GOV.BR</span></div>`+
+  `<div class="L D" style="top:270px;font-size:120px;color:#0b2219"><span style="color:#f2ede3">3 erros</span> que<br>fazem iniciante<br>perder a primeira<br>dispensa.</div>`+
+  ERR.map((e,i)=>{const h=hits[i], st=ease((lt-h)/.18), on=lt>=h;return `<div style="position:absolute;left:60px;right:60px;top:${800+i*170}px;display:flex;align-items:center;gap:30px;background:#0b2219;border-radius:36px;padding:26px 32px;box-shadow:0 30px 60px -25px rgba(0,0,0,.55)"><span style="width:78px;height:78px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:40px;background:${on?'#ff5f3c':'#123024'};color:${on?'#0b2219':'#8fa699'}">${e[0]}</span><span style="font-size:48px;font-weight:800">${e[1]}</span><span style="font-size:32px;color:#8fa699">· ${e[2]}</span><span style="position:absolute;right:34px;font-family:'Inter Display';font-weight:900;font-size:96px;color:#ff5f3c;transform:scale(${2.2-1.2*st}) rotate(-8deg);opacity:${st}">✗</span></div>`}).join('')+
+  `<div class="L" style="top:1330px;font-size:40px;font-weight:800;color:#0b2219;opacity:${ease((lt-1.9)/.3)}">Você comete algum deles?</div></div>`;
 }
 const etag=(n,l)=>tag(`ERRO ${n} · ${l}`,'#ff8a6d');
 function k2(lt){

@@ -19,12 +19,12 @@ Limite de texto adotado: o Kairos **pesquisa** fabricantes e preços; quem **con
 - **Arquivo:** `reel_r7_primeira_dispensa_ou_pregao.mp4` · 1080x1920 · 33 s · trilha original `reel_r7.wav` (118 BPM, virada em 3,2 s).
 - **Objetivo:** demonstração para iniciante (salvamentos e visitas ao perfil). **Persona:** quem vai disputar a primeira dispensa ou pregão no ComprasNet.
 - **Hipótese:** mostrar o caminho completo, com um exemplo concreto por etapa, convence o iniciante de que não vai estar sozinho, sem virar lista de funções.
-- **Capa:** quadro 0 (gancho inteiro + trilha 1-2-3-4).
+- **Capa:** quadro 0 (gancho coral + classificação).
 
 | Tempo | Cena | Texto na tela | Exemplo prático |
 |---|---|---|---|
-| 0-3,2 s | Gancho | Sua primeira dispensa ou pregão, com ajuda desde o começo. | Trilha 1 Marcas · 2 Documentos · 3 Disputa · 4 Informação acendendo |
-| 3,2-9,0 s | 1/4 Marcas | Escolha a marca antes de ofertar. | Tela "Pesquisa de preços": 3 fabricantes com preço de referência; o fornecedor escolhe o que atende ao cartão "O edital pede: frente e verso, 30 páginas/min" |
+| 0-3,2 s | Gancho (v2, 28/10 21h) | Como o Kairos pode te ajudar a ganhar sua primeira licitação. | Fundo coral (quebra o feed). Classificação ao vivo: "Você" sobe do 4º ao 1º em 1,4 s, com tremida e carimbo "1º LUGAR". Rodapé: "Exemplo ilustrativo. O Kairos ajuda; o resultado depende da disputa." |
+| 3,2-9,0 s | 1/4 Marcas | Escolha a marca antes de ofertar. | Tela "Pesquisa de preços": 3 fabricantes com preço de referência. Cartão "Trecho do edital · item 1: impressora laser, frente e verso, mínimo de 30 páginas por minuto" → "Fabricante B atende. É essa que você oferta." |
 | 9,0-14,6 s | 2/4 Documentos | Nenhum documento vencido no dia. | Tela "Documentos": FGTS "vence em 3 dias" (coral) vira "renovada"; botão "Baixar tudo em ZIP" |
 | 14,6-21,8 s | 3/4 Disputa | No dia da disputa, o robô cobre em milissegundos. | Tela "Disputa hoje · 09:00": digita o stop loss, liga o robô; depois cobre 4 lances com log. Nota: configurado no dia, só acima do stop loss, servidor, celular |
 | 21,8-27,0 s | 4/4 Informação | Tudo da disputa em um só lugar. | "Meus leilões": dispensa abre hoje 14h, pregão ganhando, pregão perdendo; itens; log |
@@ -86,7 +86,7 @@ Simulação com valores ilustrativos.
 
 | Tempo | Cena | Texto na tela | Representação |
 |---|---|---|---|
-| 0-3,0 s | Gancho | 3 erros que fazem iniciante perder a primeira dispensa. | 1 Marca · 2 Documento · 3 Lance |
+| 0-3,0 s | Gancho (v2, 28/10 21h) | 3 erros que fazem iniciante perder a primeira dispensa. | Fundo coral; três ✗ batem nos erros (0,35 / 0,85 / 1,35 s) com tremida e carimbo sonoro; "Você comete algum deles?" |
 | 3,0-7,6 s | Erro 1 | Marca escolhida sem checar o edital. | Proposta: "Edital pede: frente e verso ✓" × "Modelo ofertado: só frente ✗" → carimbo RECUSADA |
 | 7,6-12,0 s | Erro 2 | Documento vencido. | Habilitação: CRF FGTS "venceu ontem" → "Pode custar a sua habilitação." |
 | 12,0-16,6 s | Erro 3 | Sem tempo para o lance. | Notificações: reunião 10h → perdeu a 1ª posição → novo lance → "Disputa encerrada · você ficou em 2º" (sem cronômetro, para não depender da regra de tempo da dispensa) |
