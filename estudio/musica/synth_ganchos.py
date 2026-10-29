@@ -1,0 +1,5 @@
+exec(open('musica/synth_reels3.py').read().split('# R7 (33 s)')[0])
+build('musica/trilhas/reel_p1.wav',3.3,[],2.0,124,alerts=[.55,1.35],coins=[1.4])
+build('musica/trilhas/reel_p2.wav',3.3,[.9],2.0,124,stamps=[.05,1.45],ticks=[2.2])
+build('musica/trilhas/reel_p3.wav',3.3,[.2,.45,.7],2.0,124,stamps=[1.6],ticks=[.2,.45,.7])
+print('ok')

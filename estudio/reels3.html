@@ -243,6 +243,42 @@ function k6(lt,boost){
 }
 const SC9=[[0,3.0],[3.0,7.6],[7.6,12.0],[12.0,16.6],[16.6,24.4],[24.4,29.6]];
 
+
+/* ================= PROPOSTAS DE GANCHO (3,3 s) para o R7 ================= */
+// P1 · POV tela de bloqueio (começo no meio da ação)
+function p1(lt){
+  const vib=(t0)=>lt>t0&&lt<t0+.35?Math.sin(lt*120)*6*(1-(lt-t0)/.35):0; const sh=vib(.55)+vib(1.35);
+  const N=[[-1,'Agenda','Disputa do item 1 · hoje 10h','09:58','#8fa699','#0b2219','10'],[.55,'Kairos','Robô cobriu: R$ 1.289,90 → R$ 1.289,80','10:41','#0b2219','#f2ede3','K'],[1.35,'Compras.gov.br','Item 1: você está em 1º lugar','10:42','#b9ee4f','#0b2219','✓']];
+  const notes=N.filter(n=>lt>=n[0]).reverse().map((n,i)=>{const e=back((lt-n[0])/.3);const big=n[1]=='Compras.gov.br';return `<div style="position:absolute;left:46px;right:46px;top:${880+i*(big?0:0)+i*190}px;transform:translateY(${(1-e)*-120}px) scale(${.92+.08*e});opacity:${clamp((lt-n[0])/.1)};background:${big?'#b9ee4f':'rgba(242,237,227,.93)'};color:#0b2219;border-radius:40px;padding:28px 30px;display:flex;gap:22px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)"><span style="width:80px;height:80px;border-radius:20px;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:36px;background:${n[4]};color:${n[5]}">${n[6]}</span><div style="flex:1"><div style="font-size:29px;font-weight:800">${n[1]}</div><div style="font-size:${big?34:28}px;margin-top:4px;font-weight:${big?800:500}">${n[2]}</div></div><span style="font-size:24px;color:#3b4a42;align-self:flex-start">${n[3]}</span></div>`}).join('');
+  return `<div style="position:absolute;inset:0;background:radial-gradient(90% 55% at 30% 20%,#2c5a45,rgba(0,0,0,0) 70%),radial-gradient(80% 50% at 90% 90%,#5a2e22,rgba(0,0,0,0) 70%),#06130e"></div>`+
+  `<div style="position:absolute;inset:0;transform:translateX(${sh}px)">`+
+  `<div style="position:absolute;left:0;right:0;top:470px;text-align:center;font-size:40px;font-weight:600;color:#cfd8cf">quarta-feira, 4 de novembro</div>`+
+  `<div style="position:absolute;left:0;right:0;top:515px;text-align:center;font-family:'Inter Display';font-weight:700;font-size:250px;letter-spacing:-.04em;color:#f2ede3">10:42</div>`+notes+`</div>`+
+  `<div style="position:absolute;left:60px;right:60px;top:150px;background:#0b2219;border-radius:30px;padding:26px 32px"><div class="D" style="font-size:76px;line-height:.98">POV: a notificação que<br><span style="color:#b9ee4f">todo iniciante quer.</span></div></div>`+
+  `<div class="L" style="top:1520px;font-size:24px;color:#8fa699;text-align:center">Exemplo ilustrativo.</div>`;
+}
+// P2 · contraria a crença (lacuna de curiosidade)
+function p2(lt){
+  const sk=ease((lt-.9)/.35), rv=back((lt-1.45)/.3), ro=clamp((lt-1.45)/.1);
+  const hh=h2(2.5); const blurCard=`<div style="position:absolute;inset:0;filter:blur(9px);opacity:.3;transform:scale(1.2);transform-origin:50% 60%">${hh.slice(hh.indexOf('<div class="card"'))}</div>`;
+  return bg('rgba(255,95,60,.18)')+blurCard+tag('DISPENSA · PREGÃO · COMPRAS.GOV.BR')+
+  `<div class="L D" style="top:330px;font-size:148px">Você não<br>perde a<br>licitação</div>`+
+  `<div class="L D" style="top:780px;font-size:148px;color:#cfd8cf;position:absolute"><span style="position:relative">só no lance.<span style="position:absolute;left:-10px;top:52%;height:22px;width:${sk*104}%;background:#ff5f3c;border-radius:12px;transform:rotate(-3deg)"></span></span></div>`+
+  `<div class="L D" style="top:1010px;font-size:150px;color:#b9ee4f;opacity:${ro};transform:translateY(${(1-rv)*60}px) scale(${.9+.1*rv});transform-origin:left">Perde antes.</div>`+
+  `<div class="L" style="top:1250px;font-size:40px;color:#f1ede4;opacity:${ease((lt-2.2)/.3)}">O que acontece antes da disputa →</div>`;
+}
+// P3 · lista numerada + item escondido
+function p3(lt){
+  const T=[['1','Marca','pesquisar antes de ofertar'],['2','Documentos','nada vencido no dia'],['3','?',''],['4','Informação','tudo num só lugar']];
+  const tiles=T.map((t,i)=>{const d=-.3+i*.25, e=back((lt-d)/.28), o=clamp((lt-d)/.08); const x=80+(i%2)*480, y=760+Math.floor(i/2)*420; const lock=i==2; const pulse=lock?1+.04*Math.sin(lt*10):1; const shk=lock&&lt>1.6&&lt<2.0?Math.sin(lt*90)*8:0;
+    return `<div style="position:absolute;left:${x}px;top:${y}px;width:440px;height:400px;border-radius:44px;background:${lock?'#ff5f3c':'#123024'};border:2px solid ${lock?'#ff5f3c':'#24463a'};padding:40px;opacity:${o};transform:translateX(${shk}px) scale(${(.7+.3*e)*pulse});box-shadow:0 30px 60px -25px rgba(0,0,0,.6)">
+      <div class="D" style="font-size:130px;color:${lock?'#0b2219':'#b9ee4f'}">${t[0]}</div>
+      ${lock?`<div class="D" style="position:absolute;right:40px;bottom:40px;font-size:230px;color:#0b2219;line-height:.8">?</div><div style="position:absolute;left:40px;bottom:46px;font-size:34px;font-weight:800;color:#0b2219">muda tudo</div>`
+            :`<div style="position:absolute;left:40px;bottom:40px"><div style="font-size:48px;font-weight:800">${t[1]}</div><div style="font-size:28px;color:#8fa699;margin-top:6px">${t[2]}</div></div>`}</div>`}).join('');
+  return bg('rgba(185,238,79,.14)')+tag('DISPENSA · PREGÃO · COMPRAS.GOV.BR')+
+  `<div class="L D" style="top:260px;font-size:110px">Sua primeira<br>licitação em<br><span style="color:#b9ee4f">4 passos.</span></div>`+
+  `<div class="L D" style="top:600px;font-size:84px;color:#ff5f3c">O 3º muda tudo.</div>`+tiles;
+}
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
@@ -252,6 +288,7 @@ const CFG={
  r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
  r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
  r9b:{SC:SC9,F:[k1,k2,k3,k4,k5,k6].map(B),T:29.6},
+ p1:{SC:[[0,3.3]],F:[p1],T:3.3},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},
 }[MODE];
 window.DUR=CFG.T;
 window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2))});root.innerHTML=h;};
