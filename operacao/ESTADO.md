@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 28/10/2026 21h (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 29/10/2026 (Claude, pauta de quinta). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 13 (24/10; −1 na semana 19-25). Meta: 75 até 12/11 (ampliada: 100).
@@ -7,7 +7,7 @@ Atualizado: 28/10/2026 21h (Claude). Leia isto antes de qualquer execução. Má
 - Melhor retenção: R6 (16 s) view rate 50%, ~71% assistido; R1 (21,5 s) 25%, ~30%.
 - Metricool devolve horário em UTC: subtrair 3 h.
 - Gasto de Boost no ciclo: B-01 ativo desde 26/10 11h30 (R$ 44 de mídia, ≈ R$ 49,40 com impostos) de R$ 150.
-- Cota do Metricool: outubro 20/20 (esgotada, conferido em 22/10) · novembro 3/20 agendados (03, 04 e 06/11), plano de 11 posts (sobra 9).
+- Cota do Metricool: outubro 20/20 (esgotada, conferido em 22/10) · novembro 3/20 agendados (03, 04 e 06/11; conferido em 29/10) + R8 proposto para 05/11 = 4/20 se aprovado.
 - Lembretes das 10h05 com post + Story: 23, 26, 27, 28, 29 e 30/10. 03, 04 e 06/11 também criados. Demais dias de novembro: a pauta de quinta cria após aprovação.
 
 ## Publicado recentemente
@@ -26,6 +26,7 @@ Atualizado: 28/10/2026 21h (Claude). Leia isto antes de qualquer execução. Má
 | 27, 28, 30/10 10h | dono | C3, Reel desligou, C4 (pacote da semana) | aprovado |
 | qui 29/10 10h | dono | Reel V2-R2 preço mínimo (Boost B-02 de 03 a 06/11 precisa de nova aprovação) | aprovado · lembrete criado |
 | 03, 04, 06/11 10h | Metricool | C5, Reel POV, C6 | agendado · lembretes criados |
+| qui 05/11 10h | Metricool (após aprovação) | V3-R8 "Perdi por 1 centavo" · `midia/LEIA-ME_semana_03a06-11.txt` | aguardando aprovação ("Aprova a semana?" enviado 29/10) · lembrete 10h05 só após aprovação |
 | 28/10 | dono | Aprovar lote V3 (R7 primeira dispensa ou pregão, R8 perdi por 1 centavo, R9 3 erros) + variantes Boost · `operacao/lote_v3/LOTE_V3_REELS.md` | aguardando aprovação |
 
 ## Decisões vigentes
@@ -34,6 +35,7 @@ Atualizado: 28/10/2026 21h (Claude). Leia isto antes de qualquer execução. Má
 - Postar às 10h em dia útil. Sem localização, rosto ou voz.
 
 ## Pendências e bloqueios
-- Aprovações pendentes: A4 (B-02), A5 (reserva), A6 (perfil), A7 (respostas), A8 (lote V3).
+- Aprovações pendentes: A4 (B-02), A5 (reserva), A6 (perfil), A7 (respostas), A8 (lote V3), A9 (semana 03-06/11 = R8 em 05/11).
+- Teto de novembro: B-02 (≈ R$ 39,93) + B-RES (≤ R$ 69,87) = R$ 109,80 de R$ 150.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.
