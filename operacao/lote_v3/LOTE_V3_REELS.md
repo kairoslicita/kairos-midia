@@ -19,11 +19,11 @@ Limite de texto adotado: o Kairos **pesquisa** fabricantes e preços; quem **con
 - **Arquivo:** `reel_r7_primeira_dispensa_ou_pregao.mp4` · 1080x1920 · 33 s · trilha original `reel_r7.wav` (118 BPM, virada em 3,2 s).
 - **Objetivo:** demonstração para iniciante (salvamentos e visitas ao perfil). **Persona:** quem vai disputar a primeira dispensa ou pregão no ComprasNet.
 - **Hipótese:** mostrar o caminho completo, com um exemplo concreto por etapa, convence o iniciante de que não vai estar sozinho, sem virar lista de funções.
-- **Capa:** quadro 0 (gancho coral + classificação).
+- **Capa:** quadro 0 (frase + tela de bloqueio com a 1ª notificação).
 
 | Tempo | Cena | Texto na tela | Exemplo prático |
 |---|---|---|---|
-| 0-3,2 s | Gancho (v2, 28/10 21h) | Como o Kairos pode te ajudar a ganhar sua primeira licitação. | Fundo coral (quebra o feed). Classificação ao vivo: "Você" sobe do 4º ao 1º em 1,4 s, com tremida e carimbo "1º LUGAR". Rodapé: "Exemplo ilustrativo. O Kairos ajuda; o resultado depende da disputa." |
+| 0-3,2 s | Gancho (v3 · P4, escolhido pelo dono em 28/10 22h28) | Como o Kairos pode ajudar você a ganhar sua licitação. | POV da tela de bloqueio às 10:42; notificações caem com vibração: "Kairos · Disputa de hoje carregada · item 1 às 10h" → "Kairos · Robô cobriu: R$ 1.289,90 → R$ 1.289,80" → "Compras.gov.br · Item 1: você está em 1º lugar" (verde). Rodapé "Exemplo ilustrativo." |
 | 3,2-9,0 s | 1/4 Marcas | Escolha a marca antes de ofertar. | Tela "Pesquisa de preços": 3 fabricantes com preço de referência. Cartão "Trecho do edital · item 1: impressora laser, frente e verso, mínimo de 30 páginas por minuto" → "Fabricante B atende. É essa que você oferta." |
 | 9,0-14,6 s | 2/4 Documentos | Nenhum documento vencido no dia. | Tela "Documentos": FGTS "vence em 3 dias" (coral) vira "renovada"; botão "Baixar tudo em ZIP" |
 | 14,6-21,8 s | 3/4 Disputa | No dia da disputa, o robô cobre em milissegundos. | Tela "Disputa hoje · 09:00": digita o stop loss, liga o robô; depois cobre 4 lances com log. Nota: configurado no dia, só acima do stop loss, servidor, celular |

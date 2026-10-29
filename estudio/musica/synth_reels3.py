@@ -40,7 +40,7 @@ def build(name,T,cuts,drop,bpm,ticks=(),stamps=(),coins=(),alerts=()):
 # R7 (33 s): drop após o gancho (3.2); tiques nas linhas que entram; robô cobre a partir de 14.6+2.6
 cov7=[14.6+2.6+.25+.3+i*1.0 for i in range(4)]
 build('musica/trilhas/reel_r7.wav',33.0,[3.2,9.0,14.6,21.8,27.0],3.2,118,
-      ticks=[.6,.8,1.0,1.2]+[3.6,3.95,4.3]+[9.35,9.6,9.85,10.1]+cov7+[22.15,22.45,22.75],stamps=[1.45],coins=[5.9,12.0,28.0],alerts=[11.8])
+      ticks=[3.6,3.95,4.3]+[9.35,9.6,9.85,10.1]+cov7+[22.15,22.45,22.75],stamps=[],coins=[1.45,5.9,12.0,28.0],alerts=[.6,1.4,11.8])
 # R8 (18.4 s): carimbo no ENCERRADO (6.4) e nos cortes secos (7.0, 8.05); drop no robô (9.4)
 cov8=[9.4+.3+.3+i*.85 for i in range(3)]
 build('musica/trilhas/reel_r8.wav',18.4,[2.4,9.4,14.6],9.4,128,

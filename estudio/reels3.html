@@ -321,8 +321,8 @@ function p5(lt){
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
- r7:{SC:SC7,F:[g1,g2,g3,g4,g5,lt=>g6(lt,false)],T:33.0},
- r7b:{SC:SC7,F:[g1,g2,g3,g4,g5,g6].map(B),T:33.0},
+ r7:{SC:SC7,F:[p4,g2,g3,g4,g5,lt=>g6(lt,false)],T:33.0},
+ r7b:{SC:SC7,F:[p4,g2,g3,g4,g5,g6].map(B),T:33.0},
  r8:{SC:SC8,F:[h1,h2,h3,h4,lt=>h5(lt,false)],T:18.4},
  r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
  r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
