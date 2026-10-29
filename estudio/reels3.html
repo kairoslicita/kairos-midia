@@ -279,6 +279,19 @@ function p3(lt){
   `<div class="L D" style="top:260px;font-size:110px">Sua primeira<br>licitação em<br><span style="color:#b9ee4f">4 passos.</span></div>`+
   `<div class="L D" style="top:600px;font-size:84px;color:#ff5f3c">O 3º muda tudo.</div>`+tiles;
 }
+
+// P4 · POV da tela de bloqueio com a frase do dono; as notificações mostram como o Kairos ajuda
+function p4(lt){
+  const vib=(t0)=>lt>t0&&lt<t0+.35?Math.sin(lt*120)*7*(1-(lt-t0)/.35):0; const sh=vib(.6)+vib(1.4);
+  const N=[[-1,'Kairos','Disputa de hoje carregada · item 1 às 10h','09:30','#0b2219','#f2ede3','K',0],[.6,'Kairos','Robô cobriu: R$ 1.289,90 → R$ 1.289,80','10:41','#0b2219','#f2ede3','K',0],[1.4,'Compras.gov.br','Item 1: você está em 1º lugar','10:42','#0b2219','#b9ee4f','✓',1]];
+  const notes=N.filter(n=>lt>=n[0]).reverse().map((n,i)=>{const e=back((lt-n[0])/.3);const big=n[7];return `<div style="position:absolute;left:46px;right:46px;top:${930+i*205}px;transform:translateY(${(1-e)*-130}px) scale(${.92+.08*e});opacity:${clamp((lt-n[0])/.1)};background:${big?'#b9ee4f':'rgba(242,237,227,.94)'};color:#0b2219;border-radius:42px;padding:30px 32px;display:flex;gap:24px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)"><span style="width:86px;height:86px;border-radius:22px;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:38px;background:${n[4]};color:${n[5]}">${n[6]}</span><div style="flex:1"><div style="font-size:30px;font-weight:800">${n[1]}</div><div style="font-size:${big?36:30}px;margin-top:4px;font-weight:${big?800:500}">${n[2]}</div></div><span style="font-size:24px;color:#3b4a42;align-self:flex-start">${n[3]}</span></div>`}).join('');
+  return `<div style="position:absolute;inset:0;background:radial-gradient(90% 55% at 30% 25%,#2c5a45,rgba(0,0,0,0) 70%),radial-gradient(80% 50% at 90% 95%,#5a2e22,rgba(0,0,0,0) 70%),#06130e"></div>`+
+  `<div style="position:absolute;inset:0;transform:translateX(${sh}px)">`+
+  `<div style="position:absolute;left:0;right:0;top:560px;text-align:center;font-size:38px;font-weight:600;color:#cfd8cf">quarta-feira, 4 de novembro</div>`+
+  `<div style="position:absolute;left:0;right:0;top:600px;text-align:center;font-family:'Inter Display';font-weight:700;font-size:230px;letter-spacing:-.04em;color:#f2ede3">10:42</div>`+notes+`</div>`+
+  `<div style="position:absolute;left:56px;right:56px;top:150px;background:#0b2219;border:2px solid #24463a;border-radius:34px;padding:30px 34px"><div class="D" style="font-size:78px;line-height:.98">Como o Kairos pode<br>ajudar você a <span style="color:#b9ee4f">ganhar<br>sua licitação.</span></div></div>`+
+  `<div class="L" style="top:1560px;font-size:24px;color:#8fa699;text-align:center">Exemplo ilustrativo.</div>`;
+}
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
@@ -288,7 +301,7 @@ const CFG={
  r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
  r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
  r9b:{SC:SC9,F:[k1,k2,k3,k4,k5,k6].map(B),T:29.6},
- p1:{SC:[[0,3.3]],F:[p1],T:3.3},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},
+ p1:{SC:[[0,3.3]],F:[p1],T:3.3},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},
 }[MODE];
 window.DUR=CFG.T;
 window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2))});root.innerHTML=h;};
