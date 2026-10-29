@@ -1,0 +1,12 @@
+LOTE V3 · 3 Reels · AGUARDANDO APROVAÇÃO (não publicar nem agendar)
+
+Briefings, storyboards, legendas completas e notas: operacao/lote_v3/LOTE_V3_REELS.md
+
+R7  reel_r7_primeira_dispensa_ou_pregao.mp4   33 s   capa: quadro 0 (capa_r7.png)
+R8  reel_r8_perdi_por_1_centavo.mp4           18,4 s capa: quadro 0 (capa_r8.png) · loop
+R9  reel_r9_3_erros_primeira_dispensa.mp4     29,6 s capa: quadro 0 (capa_r9.png)
+
+Variantes Boost (área 4:5, CTA "Siga o Kairos" + "Comenta PREGÃO"):
+reel_r7b_boost_... · reel_r8b_boost_... (recomendada) · reel_r9b_boost_...
+
+Ao publicar: sem música do app, sem localização, capa = quadro 0, ManyChat PREGÃO/PREGAO/pregão/pregao, repost no Story.
