@@ -292,6 +292,32 @@ function p4(lt){
   `<div style="position:absolute;left:56px;right:56px;top:150px;background:#0b2219;border:2px solid #24463a;border-radius:34px;padding:30px 34px"><div class="D" style="font-size:78px;line-height:.98">Como o Kairos pode<br>ajudar você a <span style="color:#b9ee4f">ganhar<br>sua licitação.</span></div></div>`+
   `<div class="L" style="top:1560px;font-size:24px;color:#8fa699;text-align:center">Exemplo ilustrativo.</div>`;
 }
+
+// P5 · "gancho duplo": o texto diz (título + legenda palavra a palavra) e a imagem prova (robô cobrindo ao vivo + miniaturas de prova)
+function capw(t,phr,top){
+  for(const p of phr){ if(t>=p[0]&&t<p[1]){
+    const ws=p[2].split(' '); const per=(p[1]-p[0])/ws.length; const i=Math.min(ws.length-1,Math.floor((t-p[0])/per)); const lt=(t-p[0])-i*per;
+    let w=ws[i]; let hi=false; if(w.startsWith('*')){hi=true;w=w.slice(1)}
+    return `<div style="position:absolute;left:0;right:0;top:${top}px;text-align:center;transform:scale(${.82+.18*back(lt/.12)})"><span class="D" style="font-size:118px;letter-spacing:-.035em;color:${hi?'#b9ee4f':'#ffe94d'};text-shadow:0 8px 0 rgba(0,0,0,.6),0 0 30px rgba(0,0,0,.7)">${w}</span></div>`;
+  }} return '';
+}
+function p5(lt){
+  const comp=[1301.00,1289.90,1279.90,1268.80];
+  const inner=roboScreen(lt+0.05,{t0:.15,R:.75,comp,stop:1250,me0:1312.30,cp0:1312.40,tm:'10:41'});
+  const n=comp.filter((c,i)=>lt>=.15+i*.75+.3).length;
+  const pts=[1312.4,1312.3,1301.0,1300.9,1289.9,1289.8,1279.9,1279.8,1268.8,1268.7]; const k=Math.min(pts.length,2+2*n);
+  const X=i=>18+i*29, Y=v=>20+(1315-v)/(1315-1265)*150;
+  const poly=pts.slice(0,k).map((v,i)=>`${X(i)},${Y(v)}`).join(' ');
+  const dots=pts.slice(0,k).map((v,i)=>`<circle cx="${X(i)}" cy="${Y(v)}" r="6" fill="${i%2?'#b9ee4f':'#ff5f3c'}"/>`).join('');
+  let cp=1312.40, me=1312.30, lastC=-9; comp.forEach((c,i)=>{const tc=.15+i*.75-.05; if(lt>=tc)cp=c; if(lt>=tc+.3){me=c-.1;lastC=tc+.3}}); const pos=me<cp-1e-9?1:2; const pe=1+.08*Math.max(0,1-(lt-lastC)/.25);
+  return bg('rgba(185,238,79,.14)')+
+  `<div style="position:absolute;left:60px;right:60px;top:150px;text-align:center;font-family:'Inter';font-weight:800;font-size:54px;line-height:1.15;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.6)">Como o Kairos pode ajudar você<br>a <span style="color:#b9ee4f">ganhar sua licitação</span></div>`+
+  `<div style="position:absolute;left:160px;top:310px;width:360px;height:210px;border-radius:22px;background:#0e271d;border:2px solid #24463a;overflow:hidden"><svg width="360" height="210"><polyline points="${poly}" fill="none" stroke="#f1ede4" stroke-opacity=".7" stroke-width="4"/>${dots}</svg><div class="mono" style="position:absolute;left:14px;bottom:10px;font-size:20px;color:#b9ee4f">${n} lances cobertos</div></div>`+
+  `<div style="position:absolute;left:560px;top:310px;width:360px;height:210px;border-radius:22px;background:${pos==1?'#b9ee4f':'#0e271d'};color:${pos==1?'#0b2219':'#f1ede4'};border:2px solid ${pos==1?'#b9ee4f':'#24463a'};transform:scale(${pe})"><div class="mono" style="position:absolute;left:18px;top:14px;font-size:20px;opacity:.8">ITEM 1 · POSIÇÃO</div><div class="D" style="position:absolute;left:18px;bottom:16px;font-size:120px">${pos}º</div><div style="position:absolute;right:18px;bottom:28px;font-size:30px;font-weight:800">${pos==1?'você lidera':'cobrindo…'}</div></div>`+
+  phone(inner,560,1.0)+
+  capw(lt,[[0,3.3,'Isso é o *robô cobrindo o lance *por você.']],1250)+
+  `<div class="L" style="top:1470px;font-size:24px;color:#8fa699;text-align:center">Valores de exemplo.</div>`;
+}
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
@@ -301,7 +327,7 @@ const CFG={
  r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
  r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
  r9b:{SC:SC9,F:[k1,k2,k3,k4,k5,k6].map(B),T:29.6},
- p1:{SC:[[0,3.3]],F:[p1],T:3.3},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},
+ p1:{SC:[[0,3.3]],F:[p1],T:3.3},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},p5:{SC:[[0,3.3]],F:[p5],T:3.3},
 }[MODE];
 window.DUR=CFG.T;
 window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2))});root.innerHTML=h;};

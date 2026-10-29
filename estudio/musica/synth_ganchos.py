@@ -4,3 +4,4 @@ build('musica/trilhas/reel_p2.wav',3.3,[.9],2.0,124,stamps=[.05,1.45],ticks=[2.2
 build('musica/trilhas/reel_p3.wav',3.3,[.2,.45,.7],2.0,124,stamps=[1.6],ticks=[.2,.45,.7])
 print('ok')
 build('musica/trilhas/reel_p4.wav',3.3,[],2.0,124,alerts=[.6,1.4],coins=[1.45])
+build('musica/trilhas/reel_p5.wav',3.3,[],2.0,124,ticks=[.4,1.15,1.9,2.65],alerts=[.1,.85,1.6,2.35])
