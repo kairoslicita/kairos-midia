@@ -6,3 +6,4 @@ print('ok')
 # R10 opção A (tomada contínua): virada em 8.6 ("O robô, não.")
 build('musica/trilhas/reel_a.wav',20.0,[2.8,6.0,8.6,11.4,12.57,16.57],8.6,124,
       ticks=[2.9+i*.3 for i in range(7)],stamps=[6.0,8.6],coins=[9.6,14.3,17.1],alerts=[6.3,6.8,7.3,7.8])
+build('musica/trilhas/reel_h.wav',3.6,[2.05],2.05,124,alerts=[.35,1.05],coins=[1.1],stamps=[2.05])
