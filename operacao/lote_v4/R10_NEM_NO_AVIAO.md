@@ -1,0 +1,43 @@
+# V4-R10 · "O Kairos não te abandona. Nem no avião." (gravação real em voo, 30/10/2026)
+
+Status: **aguardando aprovação**. Arquivo: `midia/lote_v4_voo/reel_r10_nem_no_aviao.mp4` · 20 s · capa `capa_r10.png` (quadro 0).
+Cenas: `estudio/voo.html` · quadros reais: `estudio/voo/extrair.sh` · trilha: `estudio/musica/synth_voo.py` (124 BPM, virada em 11,6 s) · render: `python3 filmvoo.py r10 <saída> 20`.
+
+## Por que pode viralizar
+- Prova real, não animação: o dono num voo, a disputa ao vivo, a conexão falhando e o robô seguindo no servidor.
+- Formato POV (o gancho que o dono escolheu no R7) + contraste "O Wi-Fi do avião falhou. / O robô, não." (mesma estrutura do "Desligou o computador? O robô, não.").
+- Fecha voltando às nuvens do quadro 0 (loop) e pede envio ("manda pra quem...").
+
+## Storyboard
+| Tempo | Texto na tela | Imagem (real) |
+|---|---|---|
+| 0-2,8 s | POV: o pregão começou e você está no avião. · ● GRAVAÇÃO REAL · EM VOO | Nuvens pela janela (câmera traseira) |
+| 2,8-5,0 s | Wi-Fi do avião. Kairos aberto. | Celular na mão, no assento (Painel do Kairos) |
+| 5,0-8,9 s | Defini meu limite pelo celular. → Salvo no servidor. | Tela: stop loss digitado (11000) → log "Configuração salva no servidor" |
+| 8,9-11,6 s | O Wi-Fi do avião falhou. (glitch + ícone de Wi-Fi cortado) | Tela: "Atualização indisponível · Confira a conexão" |
+| 11,6-14,8 s | O robô, não. · Roda no servidor e cobre só acima do seu stop loss. | Tela: órbita "perdendo" → "ganhando" + selo "ITEM 1 · GANHANDO" |
+| 14,8-16,0 s | No meio do voo: | Cartão real "Todos os itens ganhando · Nenhuma ação necessária agora." |
+| 16,0-20,0 s | O Kairos não te abandona. Nem no avião. · Comenta PREGÃO · Teste 7 dias grátis, sem cartão | Nuvens desfocadas; volta ao quadro 0 (loop) |
+
+## Sigilo e fatos (conferidos)
+- Desfocados: número da compra, descrição do item, botão flutuante do iPhone. Cortados: trechos com nome do órgão; o cartão final é um quadro parado (a tela rolava e mostraria o número da compra). Sem rosto, mapa de voo, cartão de embarque ou localização.
+- Texto da tela "falhou" corresponde ao aviso real do Kairos ("Atualização indisponível · Confira a conexão"). "Ganhando" é o status do item naquele momento, não o resultado final da compra.
+- Robô: roda no servidor, cobre só acima do stop loss, controlado pelo celular.
+
+## Legenda
+```
+POV: o pregão começou e você está no avião.
+
+Gravação real em voo: o limite definido pelo celular, o Wi-Fi do avião falhou e o robô seguiu no servidor até ficar em 1º no item.
+
+O Kairos roda no servidor e cobre só acima do stop loss que você define. Você controla tudo pelo celular, de onde estiver.
+
+Manda pra quem não larga o notebook em dia de pregão.
+Comenta PREGÃO e receba o Kit do Pregão no Direct. Teste 7 dias grátis, sem cartão. Link na bio.
+
+Dados da compra ocultados.
+#pregaoeletronico #licitacoes #comprasgovbr #robodelances #licitacao #fornecedor
+```
+
+## Boost
+Melhor candidato a Boost até agora (prova real + gancho POV). A variante 4:5 com "Siga o Kairos" ainda não foi feita: as manchetes ficam no topo (y 150) e seriam cortadas no feed. Fazer se o dono quiser impulsionar.

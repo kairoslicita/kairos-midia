@@ -1,0 +1,94 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- R10 · "O Kairos não te abandona. Nem no avião." Gravação real em voo (30/10/2026). Quadros em voo/<trecho>/NNNN.jpg (gerar com voo/extrair.sh). -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b2219}
+body{font-family:'Inter',sans-serif;color:#f1ede4;position:relative}
+.mono{font-family:'DejaVu Sans Mono',monospace}
+.D{font-family:'Inter Display';font-weight:900;letter-spacing:-.045em;line-height:.94}
+.L{position:absolute;left:80px;right:80px}
+.box{position:absolute;left:56px;right:56px;background:#0b2219;border:2px solid #24463a;border-radius:34px;padding:30px 34px;box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.phone{position:absolute;border-radius:62px;background:#0a0f0d;padding:12px;box-shadow:0 60px 120px -30px rgba(0,0,0,.75),0 0 0 2px #26302b inset}
+.phone .scr{border-radius:50px;overflow:hidden;position:relative;background:#f2ede3}
+.phone img{display:block;width:100%}
+</style></head><body><div id="root"></div>
+<script>
+const MODE=(location.hash||'#r10').slice(1);
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const back=x=>{x=Math.max(0,Math.min(1,x));const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const LIME='#b9ee4f', CORAL='#ff5f3c';
+const fr=(dir,lt,n,speed=1)=>`voo/${dir}/${String(Math.min(n,Math.max(1,Math.floor(lt*30*speed)+1))).padStart(4,'0')}.jpg`;
+const full=(src,z=1)=>`<img src="${src}" style="position:absolute;inset:0;width:1080px;height:1920px;object-fit:cover;transform:scale(${z});transform-origin:50% 45%">`;
+const shade=(a=.55)=>`<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,19,14,${a}) 0%,rgba(6,19,14,0) 38%,rgba(6,19,14,0) 70%,rgba(6,19,14,${a*.8}) 100%)"></div>`;
+const rec=`<div style="display:flex;align-items:center;gap:12px;margin-top:18px;font-size:24px;font-weight:700;color:#cfd8cf" class="mono"><span style="width:16px;height:16px;border-radius:50%;background:#ff3b30"></span>GRAVAÇÃO REAL · EM VOO</div>`;
+function head(lt,html,size,top,instant,extra=''){
+  if(instant) return `<div class="L D" style="top:${top}px;font-size:${size}px;${extra}">${html}</div>`;
+  let i=0; const out=html.replace(/(<[^>]+>)|([^<\s]+)/g,(m,tg,w)=>{ if(tg) return tg; const e=back((lt-i*.05)/.22); i++; return `<span style="display:inline-block;opacity:${clamp((lt-(i-1)*.05)/.08)};transform:translateY(${(1-e)*40}px)">${w}</span>`;});
+  return `<div class="L D" style="top:${top}px;font-size:${size}px;${extra}">${out}</div>`;
+}
+const phone=(src,w,top,inner='')=>`<div class="phone" style="left:${540-(w+24)/2}px;top:${top}px;width:${w+24}px"><div class="scr"><img src="${src}">${inner}</div></div>`;
+const wrap=(lt,html,first)=>{const s=first?1:1.05-0.05*ease(lt/.22);return `<div style="position:absolute;inset:0;transform:scale(${s});transform-origin:50% 45%">${html}</div>`};
+
+// 1 · gancho: nuvens reais + frase inteira no quadro 0
+function v1(lt){
+  return full(fr('nuvens',lt,86),1+.05*lt/2.8)+shade(.7)+
+  `<div class="box" style="top:150px"><div class="D" style="font-size:80px">POV: o pregão começou<br>e você está <span style="color:${LIME}">no avião.</span></div>${rec}</div>`;
+}
+// 2 · celular na mão, no assento
+function v2(lt){
+  return full(fr('assento',lt,70),1.04)+shade(.75)+
+  `<div class="box" style="top:150px"><div class="D" style="font-size:92px">Wi-Fi do avião.<br><span style="color:${LIME}">Kairos aberto.</span></div></div>`;
+}
+// 3 · stop loss digitado → salvo no servidor
+function v3(lt){
+  const A=2.5, a=lt<A; const src=a?fr('s3a',lt,75):fr('s3b',lt-A,42);
+  return `<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 55%,rgba(185,238,79,.16),rgba(0,0,0,0) 70%),#0b2219"></div>`+
+  (a?head(lt,'Defini meu limite<br><span style="color:#b9ee4f">pelo celular.</span>',100,150,false):head(lt-A,'Salvo no<br><span style="color:#b9ee4f">servidor.</span>',120,150,false))+
+  phone(src,540,440);
+}
+// 4 · a conexão do avião falha
+function v4(lt){
+  const j=Math.sin(lt*53)*6+Math.sin(lt*91)*4, g=lt%0.5<0.09;
+  return `<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 55%,rgba(255,95,60,.26),rgba(0,0,0,0) 70%),#0b2219"></div>`+
+  `<div class="L D" style="top:150px;font-size:118px;transform:translateX(${g?j*2:0}px);text-shadow:${g?'6px 0 #ff5f3c,-6px 0 #b9ee4f':'none'}">O Wi-Fi do avião<br><span style="color:${CORAL}">falhou.</span></div>`+
+  `<div style="position:absolute;left:0;right:0;top:${440}px;transform:translateX(${j*.5}px)">${phone(fr('s4',lt,102,1.26),540,0)}</div>`+
+  `<div style="position:absolute;right:70px;top:300px;width:120px;height:120px;border-radius:50%;background:#ff5f3c;display:flex;align-items:center;justify-content:center;opacity:${Math.floor(lt*4)%2?1:.55}"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#0b2219" stroke-width="2.4" stroke-linecap="round"><path d="M2 8.5a15 15 0 0 1 20 0"/><path d="M5 12a10 10 0 0 1 14 0"/><path d="M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/><path d="M3 3l18 18"/></svg></div>`;
+}
+// 5 · o robô seguiu no servidor: perdendo → ganhando
+function v5(lt){
+  const on=lt>=0.9, e=back((lt-0.9)/.3);
+  return `<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 55%,rgba(185,238,79,.22),rgba(0,0,0,0) 70%),#0b2219"></div>`+
+  head(lt,'O robô, <span style="color:#b9ee4f">não.</span>',150,150,false)+
+  `<div class="L" style="top:330px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.3)/.3)}">Roda no servidor e cobre só acima do seu stop loss.</div>`+
+  phone(fr('s5',lt,96),540,440)+
+  (on?`<div style="position:absolute;right:60px;top:560px;background:${LIME};color:#0b2219;border-radius:24px;padding:18px 26px;font-weight:900;font-size:36px;font-family:'Inter Display';transform:scale(${.6+.4*e}) rotate(-4deg);opacity:${clamp((lt-.9)/.1)};box-shadow:0 20px 40px -10px rgba(0,0,0,.5)">ITEM 1 · GANHANDO</div>`:'')+
+  `<div class="L" style="top:1650px;font-size:24px;color:#8fa699;text-align:center">Dados da compra ocultados.</div>`;
+}
+// 6 · "Nenhuma ação necessária agora." (zoom no cartão real)
+function v6(lt){
+  const z=1.25+.05*lt;
+  return `<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 50%,rgba(255,95,60,.22),rgba(0,0,0,0) 70%),#0b2219"></div>`+
+  head(lt,'No meio do voo:',96,150,false)+
+  `<div style="position:absolute;left:40px;right:40px;top:380px;height:760px;border-radius:48px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(255,95,60,.5)"><img src="voo/s5b/0001.jpg" style="position:absolute;left:50%;top:0;width:${840*z}px;transform:translate(-50%,${-262*z}px)"></div>`+
+  `<div class="L" style="top:1180px;font-size:40px;color:#f1ede4;opacity:${ease((lt-.4)/.3)}">Tela real do Kairos, gravada no voo.</div>`;
+}
+// 7 · CTA + volta ao gancho (loop)
+function v7(lt,boost){
+  const p=1+.03*Math.sin(lt*6), L=4.0, fo=clamp((lt-(L-.6))/.25), lp=clamp((lt-(L-.3))/.18);
+  const main=boost?'Siga o Kairos':'Comenta PREGÃO';
+  const cta=`<div style="position:absolute;inset:0;filter:blur(14px) brightness(.45);transform:scale(1.1)">${full(fr('nuvens',2.8,86))}</div>`+
+  head(lt,'O Kairos não<br>te abandona.<br><span style="color:#b9ee4f">Nem no avião.</span>',124,170,false)+
+  `<div style="position:absolute;left:80px;top:640px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.5)/.3))});transform-origin:left center;opacity:${clamp((lt-.5)/.1)}">${main}</div>`+
+  (boost?`<div style="position:absolute;left:80px;top:850px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;opacity:${ease((lt-.9)/.3)}">Comenta PREGÃO</div>`
+        :`<div class="L" style="top:855px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.9)/.3)}">e receba o Kit do Pregão no Direct.</div>`)+
+  `<div class="L" style="top:1010px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.2)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
+  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${v1(0)}</div>`:'');
+}
+const SC=[[0,2.8],[2.8,5.0],[5.0,8.9],[8.9,11.6],[11.6,14.8],[14.8,16.0],[16.0,20.0]];
+const CFG={r10:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,false)],T:20},r10b:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,true)],T:20}}[MODE];
+window.DUR=CFG.T;
+window.render=t=>{let h='';SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||i==1)});document.getElementById('root').innerHTML=h;};
+render(0);
+</script></body></html>
