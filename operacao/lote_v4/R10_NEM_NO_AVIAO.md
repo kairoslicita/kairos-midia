@@ -28,7 +28,7 @@ Cenas: `estudio/voo.html` · quadros reais: `estudio/voo/extrair.sh` · trilha: 
 ```
 POV: o pregão começou e você está no avião.
 
-Gravação real em voo: o limite definido pelo celular, o Wi-Fi do avião falhou e o robô seguiu no servidor até ficar em 1º no item.
+Gravação real em voo: defini o limite pelo Wi-Fi do avião, a conexão do avião oscilou e o robô seguiu no servidor até ficar em 1º no item.
 
 O Kairos roda no servidor e cobre só acima do stop loss que você define. Você controla tudo pelo celular, de onde estiver.
 
@@ -47,3 +47,5 @@ Melhor candidato a Boost até agora (prova real + gancho POV). A variante 4:5 co
 - Janelinha à direita com a gravação de tela do mesmo voo ("TELA DO CELULAR · MESMO VOO"): limite → salvo no servidor → Confira a conexão → perdendo/ganhando → Nenhuma ação necessária. Descrição do item e número da compra desfocados.
 - Revelação: "Tudo isso daqui de cima." sobre as nuvens; CTA; loop ao quadro 0.
 - Variante Boost ainda não feita (manchete no topo seria cortada no 4:5).
+
+- 30/10 14h34: texto "O Wi-Fi do avião falhou" trocado por "A conexão do avião oscilou." (o Kairos usa o Wi-Fi do avião; a tela real mostra "Confira a conexão"). Legenda ajustada.
