@@ -1,49 +1,54 @@
-KAIROS · MATERIAIS DA SEMANA 03 A 06/11/2026
-Status: AGUARDANDO APROVAÇÃO (só o R8 de 05/11 é novo; C5, POV e C6 já estão aprovados e agendados)
+KAIROS · MATERIAIS DA SEMANA 03 A 06/11/2026 (versão 2, 30/10)
+Status: AGUARDANDO APROVAÇÃO. Mudança pedida pelo dono: o Reel V3-R7 entra nesta semana. Novembro = só os 20 posts do Metricool.
 
 RESUMO
-| Dia | Hora | Peça | Arquivo | Publicação |
+| Dia | Hora | Peça | Arquivo | Metricool |
 |---|---|---|---|---|
-| seg 02/11 | -    | Finados: sem post | - | - |
-| ter 03/11 | 10h  | Carrossel C5 "3 pregões no mesmo horário" | midia/lote_v2_carrossel5_tres_pregoes (c5_01 a c5_07) | Metricool (agendado, id 403716334) |
-| qua 04/11 | 10h  | Reel R3 "POV: você esqueceu do pregão." | midia/lote_v2_reels/reel_pov_pregao.mp4 | Metricool (agendado, id 403716411) |
-| qui 05/11 | 10h  | Reel V3-R8 "Perdi por 1 centavo" (NOVO NA SEMANA) | midia/lote_v3_reels/reel_r8_perdi_por_1_centavo.mp4 | Metricool após "aprovado" (cota 4/20) |
-| sex 06/11 | 10h  | Carrossel C6 "5 perguntas antes de testar" (fixar no perfil) | midia/lote_v2_carrossel6_cinco_perguntas (c6_01 a c6_07) | Metricool (agendado, id 403716463) |
+| seg 02/11 | -   | Finados: sem post | - | - |
+| ter 03/11 | 10h | Carrossel C5 "3 pregões no mesmo horário" | midia/lote_v2_carrossel5_tres_pregoes (c5_01 a c5_07) | já agendado (id 403716334) · post 1/20 |
+| qua 04/11 | 10h | Reel V3-R7 "Primeira dispensa ou pregão" (NOVO) | midia/lote_v3_reels/reel_r7_primeira_dispensa_ou_pregao.mp4 | agendar após "aprovado" · post 2/20 |
+| qui 05/11 | 10h | Reel R3 "POV: você esqueceu do pregão." | midia/lote_v2_reels/reel_pov_pregao.mp4 | já agendado para 04/11 → mover para 05/11 após "aprovado" · post 3/20 |
+| sex 06/11 | 10h | Carrossel C6 "5 perguntas antes de testar" (fixar no perfil) | midia/lote_v2_carrossel6_cinco_perguntas (c6_01 a c6_07) | já agendado (id 403716463) · post 4/20 |
 
-Cota do Metricool em novembro: 3 agendados + 1 (R8) = 4 de 20. Stories não usam a cota.
+Por que o R7 vai na quarta (04/11): a tela de bloqueio do gancho mostra "quarta-feira, 4 de novembro, 10:42". Postado no mesmo dia, o POV fica coerente. O R3 POV troca para quinta.
+O R8 "Perdi por 1 centavo" vai para seg 09/11 (próxima pauta).
 
 ======================================================
-QUI 05/11, 10h · REEL V3-R8 "Perdi por 1 centavo" (18,4 s, loop)
+QUA 04/11, 10h · REEL V3-R7 "Sua primeira dispensa ou pregão" (33 s)
 ======================================================
-Perder por R$ 0,01 dói. Marque aquele colega de licitação que ainda dá lance no dedo.
+Sua primeira dispensa ou pregão no Compras.gov.br não precisa começar no escuro.
 
-O robô do Kairos cobre em milissegundos, só acima do seu stop loss. Roda no servidor e você controla pelo celular.
+Antes de ofertar: pesquise fabricantes e preços do item e confira o que o edital pede.
+Antes da disputa: seus documentos com a validade à vista, tudo em ZIP.
+No dia da disputa: você define o stop loss e o robô cobre os lances em milissegundos, só acima do seu limite. Roda no servidor, e você controla tudo pelo celular.
+Durante e depois: disputas, itens e histórico em um só lugar.
 
-Comenta PREGÃO e receba o Kit do Pregão no Direct. Teste 7 dias grátis, sem cartão. Link na bio.
+Comenta PREGÃO e receba o Kit do Pregão no Direct.
+Teste o Kairos grátis por 7 dias, sem cartão. Link na bio.
 
-Simulação com valores ilustrativos.
-#pregaoeletronico #licitacoes #comprasgovbr #robodelances #licitacao
+Valores e datas de exemplo.
+#dispensaeletronica #pregaoeletronico #licitacoes #comprasgovbr #licitacao #fornecedor
 
--> Capa: quadro 0 ("Você perdeu o pregão por R$ 0,01.") · capa_r8.png
--> Trilha original já no vídeo: não adicione música do app. Sem localização.
--> Story 10h05: repost do Reel + texto "Marca aqui quem ainda dá lance no dedo 👇" + figurinha de menção vazia.
+-> Capa: quadro 0 (frase + tela de bloqueio) · midia/lote_v3_reels/capa_r7.png
+-> Trilha original já no vídeo. Sem música do app, sem localização.
+-> Story 10h05: repost + "Primeira licitação? Salva esse." + caixa de perguntas "Qual sua dúvida da primeira disputa?".
 
 ======================================================
 JÁ AGENDADOS (só conferir às 10h05 e fazer ManyChat + Story)
 ======================================================
 TER 03/11 · C5 "3 pregões no mesmo horário. Você vê todos?"
--> Story: repost do carrossel + "Resultado da enquete de sexta: ..." (use o resultado da enquete S1 de 30/10).
+-> Story: repost do carrossel + resultado da enquete S1 de 30/10.
 
-QUA 04/11 · R3 "POV: você esqueceu do pregão."
--> Story S2: repost + caixa de perguntas "Qual sua maior dificuldade numa disputa?".
+QUI 05/11 · R3 "POV: você esqueceu do pregão." (sai da quarta)
+-> Story S2: repost + caixa "Qual sua maior dificuldade numa disputa?".
 
 SEX 06/11 · C6 "Robô de lances: 5 perguntas antes de testar."
--> Fixar no perfil depois de publicado (Perfil > post > ... > Fixar).
--> Slide 6 cita R$ 69,90/mês sem fidelidade e teste de 7 dias sem cartão. Se o preço mudou, avise até quarta para eu trocar o slide.
+-> Fixar no perfil depois de publicado.
+-> Slide 6 cita R$ 69,90/mês sem fidelidade e teste de 7 dias sem cartão. Confirme o preço.
 -> Story: repost + caixa "Ficou alguma dúvida sobre o robô?".
 
 ======================================================
-MANYCHAT · UM GATILHO POR POST (2 minutos cada, todos os 4 posts)
+MANYCHAT · UM GATILHO POR POST (2 minutos cada, os 4 posts)
 ======================================================
 Automação > Send A Link From Comments > a specific post or reel > escolha o post do dia.
 Palavras-chave: PREGÃO, PREGAO, pregão, pregao.
@@ -51,7 +56,22 @@ Mensagem no Direct: "Aqui está o seu Kit do Pregão: checklist antes da disputa
 Botão: "Baixar o Kit" -> https://github.com/kairoslicita/kairos-midia/blob/main/kit/Kit-do-Pregao.pdf
 
 ======================================================
+NOVEMBRO · 20 POSTS DO METRICOOL (nada manual)
+======================================================
+Sem post em 02/11 (Finados) e 20/11 (Consciência Negra). Mix: 10 Reels + 9 carrosséis + 1 reserva.
+ 1 ter 03 C5 3 pregões (pronto)            11 ter 17 C9 Mitos do robô de lances
+ 2 qua 04 R7 Primeira dispensa (pronto)    12 qua 18 R12 Robô de lances é permitido?
+ 3 qui 05 R3 POV (pronto)                  13 qui 19 C10 Variação mínima (dono confirma o recurso)
+ 4 sex 06 C6 5 perguntas (pronto)          14 seg 23 R13 Lance final às cegas
+ 5 seg 09 R8 Perdi por 1 centavo (pronto)  15 ter 24 C11 Onde encontrar licitações grátis
+ 6 ter 10 C7 Documentos e validades        16 qua 25 R14 Checklist de 60 s antes da sessão
+ 7 qua 11 R9 3 erros (pronto)              17 qui 26 C12 Glossário do pregão
+ 8 qui 12 R10 Pregão pelo celular (gravação do dono; sem ela, R11)  18 sex 27 R15 Um dia de licitante (POV)
+ 9 sex 13 C8 Teste grátis: o que avaliar   19 seg 30 C13 Quanto custa perder um item
+10 seg 16 R11 Stop loss em 15 s            20 reserva (republicar falha ou oportunidade)
+Cada semana segue para aprovação na pauta de quinta. Hoje: aprovar só a semana 03-06/11.
+
+======================================================
 BOOST (não ativar sem aprovação)
 ======================================================
-B-02 (pedido A4): Reel R2 "Esse lance parece bom… mas dá prejuízo.", 03 a 06/11, visitas ao perfil, mesmo público do B-01, R$ 8,90/dia (≈ R$ 39,93 com impostos), só pelo Safari.
-Decisão na sexta 30/10 18h, depois da leitura do B-01. Para isso: mande o print do anúncio B-01 (gasto, visitas ao perfil, frequência).
+B-02 (A4): Reel R2 "Esse lance parece bom… mas dá prejuízo.", 03 a 06/11, visitas ao perfil, R$ 8,90/dia (≈ R$ 39,93 com impostos), só pelo Safari. Decisão hoje 18h, após o print do B-01.
