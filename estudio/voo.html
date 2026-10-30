@@ -86,9 +86,43 @@ function v7(lt,boost){
   `<div class="L" style="top:1010px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.2)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
   return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${v1(0)}</div>`:'');
 }
+
+/* ===== R10 · opção A: tomada contínua (assento → janela) + janelinha com a gravação de tela do mesmo voo ===== */
+const TN=497;
+const tom=t=>`voo/tomada/${String(Math.min(TN,Math.max(1,Math.floor(t*30)+1))).padStart(4,'0')}.jpg`;
+function inset(src,lt,glitch){
+  const e=back(lt/.3), j=glitch?Math.sin(lt*53)*6:0;
+  return `<div style="position:absolute;right:46px;top:430px;width:420px;transform:translateX(${j}px) scale(${.85+.15*e});transform-origin:top right;opacity:${clamp(lt/.12)}"><div class="phone" style="position:relative;left:0;top:0;width:420px;padding:10px;border-radius:52px"><div class="scr" style="border-radius:42px"><img src="${src}"></div></div><div class="mono" style="margin-top:12px;text-align:center;font-size:20px;color:#f1ede4;text-shadow:0 2px 8px rgba(0,0,0,.8)">TELA DO CELULAR · MESMO VOO</div></div>`;
+}
+const hbox=(html,size=84)=>`<div class="box" style="top:150px"><div class="D" style="font-size:${size}px">${html}</div></div>`;
+function A(t,boost){
+  const T1=2.8,T2=6.0,T3=8.6,T4=11.4,T5=12.57,T6=16.57,END=20;
+  let h='';
+  if(t<T6){
+    const z=1+.03*Math.sin(t*.4);
+    h+=full(tom(t),z)+shade(.6);
+    if(t<T1) h+=`<div class="box" style="top:150px"><div class="D" style="font-size:80px">POV: o pregão começou<br>e você está <span style="color:${LIME}">no avião.</span></div>${rec}</div>`;
+    else if(t<T2){const lt=t-T1, a=lt<2.0; h+=hbox(a?`Defini meu limite<br><span style="color:${LIME}">pelo celular.</span>`:`Salvo no<br><span style="color:${LIME}">servidor.</span>`)+inset(a?fr('s3a',lt*1.25,75):fr('s3b',lt-2.0,42),a?lt:lt-2.0,false);}
+    else if(t<T3){const lt=t-T2, g=lt%0.5<0.09; h+=`<div class="box" style="top:150px;border-color:${CORAL}"><div class="D" style="font-size:84px;transform:translateX(${g?8:0}px);text-shadow:${g?'5px 0 #ff5f3c,-5px 0 #b9ee4f':'none'}">O Wi-Fi do avião<br><span style="color:${CORAL}">falhou.</span></div></div>`+inset(fr('s4',lt,102,1.3),lt,true);}
+    else if(t<T4){const lt=t-T3, on=lt>=1.0, e=back((lt-1.0)/.3); h+=hbox(`O robô, <span style="color:${LIME}">não.</span>`,110)+`<div class="L" style="top:340px;font-size:32px;color:#f1ede4;text-shadow:0 2px 10px rgba(0,0,0,.9);left:80px">Roda no servidor. Cobre só acima do stop loss.</div>`+inset(fr('s5',lt*1.15,96),lt,false)+(on?`<div style="position:absolute;right:60px;top:600px;background:${LIME};color:#0b2219;border-radius:24px;padding:16px 24px;font-weight:900;font-size:34px;font-family:'Inter Display';transform:scale(${.6+.4*e}) rotate(-4deg);opacity:${clamp((lt-1.0)/.1)};box-shadow:0 20px 40px -10px rgba(0,0,0,.5)">ITEM 1 · GANHANDO</div>`:'');}
+    else if(t<T5){const lt=t-T4; h+=hbox(`Nenhuma ação<br><span style="color:${LIME}">necessária.</span>`)+inset('voo/s5b/0001.jpg',lt,false);}
+    else {const lt=t-T5, w=ease((lt-1.6)/.4); h+=`<div class="L D" style="top:${300}px;font-size:120px;opacity:${w};text-shadow:0 6px 30px rgba(0,0,0,.7)">Tudo isso<br><span style="color:${LIME}">daqui de cima.</span></div>`;}
+    if(t>=10.0&&t<T5) h+=`<div class="mono" style="position:absolute;left:70px;bottom:330px;background:rgba(11,34,25,.85);border-radius:999px;padding:10px 20px;font-size:26px;color:#f1ede4">▶▶ 7x</div>`;
+    h+=`<div class="L" style="top:1650px;font-size:22px;color:#cfd8cf;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,.9)">Gravação real em voo · dados da compra ocultados</div>`;
+    return h;
+  }
+  const lt=t-T6, p=1+.03*Math.sin(lt*6), L=END-T6, fo=clamp((lt-(L-.6))/.25), lp=clamp((lt-(L-.3))/.18);
+  const main=boost?'Siga o Kairos':'Comenta PREGÃO';
+  const cta=`<div style="position:absolute;inset:0;filter:blur(14px) brightness(.45);transform:scale(1.1)">${full(tom(T6-.05))}</div>`+
+  head(lt,'O Kairos não<br>te abandona.<br><span style="color:#b9ee4f">Nem no avião.</span>',124,170,false)+
+  `<div style="position:absolute;left:80px;top:640px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.5)/.3))});transform-origin:left center;opacity:${clamp((lt-.5)/.1)}">${main}</div>`+
+  (boost?`<div style="position:absolute;left:80px;top:850px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;opacity:${ease((lt-.9)/.3)}">Comenta PREGÃO</div>`:`<div class="L" style="top:855px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.9)/.3)}">e receba o Kit do Pregão no Direct.</div>`)+
+  `<div class="L" style="top:1010px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.2)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
+  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${A(0,boost)}</div>`:'');
+}
 const SC=[[0,2.8],[2.8,5.0],[5.0,8.9],[8.9,11.6],[11.6,14.8],[14.8,16.0],[16.0,20.0]];
-const CFG={r10:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,false)],T:20},r10b:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,true)],T:20}}[MODE];
+const CFG={a:{T:20},ab:{T:20},r10:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,false)],T:20},r10b:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,true)],T:20}}[MODE];
 window.DUR=CFG.T;
-window.render=t=>{let h='';SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||i==1)});document.getElementById('root').innerHTML=h;};
+window.render=t=>{if(MODE.startsWith('a')){document.getElementById('root').innerHTML=A(t,MODE=='ab');return;}let h='';SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||i==1)});document.getElementById('root').innerHTML=h;};
 render(0);
 </script></body></html>

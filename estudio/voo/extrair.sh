@@ -13,7 +13,7 @@ seg s3b 14.0 1.4 ""
 # S4: "Confira a conexão" (oculta o número da compra)
 seg s4 18.0 3.4 "split=2[p][q];[q]crop=620:420:40:280,boxblur=30[r];[p][r]overlay=40:280,"
 # S5: órbita perdendo → ganhando (oculta a descrição do item) · S5b: "Nenhuma ação necessária agora"
-seg s5 26.0 3.2 "split=2[p][q];[q]crop=360:230:90:730,boxblur=30[r];[p][r]overlay=90:730,"
+seg s5 26.0 3.2 "split=3[p][q][u];[q]crop=360:230:90:730,boxblur=30[r];[u]crop=270:830:370:1640,boxblur=28[v];[p][r]overlay=90:730[pr];[pr][v]overlay=370:1640,"
 # cartão parado (a tela rola logo depois e mostraria o número da compra): um quadro só
 rm -rf s5b; mkdir -p s5b; ffmpeg -v error -y -ss 29.42 -i "$SCR" -frames:v 1 -vf "scale=840:-2" -q:v 2 s5b/0001.jpg
 # nuvens: visor da câmera (sem a interface), recortado para 9:16

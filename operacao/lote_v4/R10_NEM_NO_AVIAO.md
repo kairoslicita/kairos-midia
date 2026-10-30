@@ -1,6 +1,6 @@
 # V4-R10 · "O Kairos não te abandona. Nem no avião." (gravação real em voo, 30/10/2026)
 
-Status: **aguardando aprovação**. Arquivo: `midia/lote_v4_voo/reel_r10_nem_no_aviao.mp4` · 20 s · capa `capa_r10.png` (quadro 0).
+Status: **aguardando aprovação** · **versão vigente: v2 (opção A, tomada contínua)** `midia/lote_v4_voo/reel_r10_nem_no_aviao_v2.mp4` (modo `voo.html#a`, fundo `voo/tomada.sh`, trilha `reel_a.wav`). v1 (com cortes) substituída: não publicar — a descrição do item ficava legível na tabela. Arquivo v1: `midia/lote_v4_voo/reel_r10_nem_no_aviao.mp4` · 20 s · capa `capa_r10.png` (quadro 0).
 Cenas: `estudio/voo.html` · quadros reais: `estudio/voo/extrair.sh` · trilha: `estudio/musica/synth_voo.py` (124 BPM, virada em 11,6 s) · render: `python3 filmvoo.py r10 <saída> 20`.
 
 ## Por que pode viralizar
@@ -41,3 +41,9 @@ Dados da compra ocultados.
 
 ## Boost
 Melhor candidato a Boost até agora (prova real + gancho POV). A variante 4:5 com "Siga o Kairos" ainda não foi feita: as manchetes ficam no topo (y 150) e seriam cortadas no feed. Fazer se o dono quiser impulsionar.
+
+## v2 · opção A (30/10, 13h14 "pode sim")
+- Fundo: a tomada da câmera no assento, contínua (10→30 s a 2x, 30→48 s a 7x com selo "▶▶ 7x", 48→52,8 s a 1,2x virando para a janela). Desfoque leve na tela do celular filmado (nome do órgão e número da compra ilegíveis).
+- Janelinha à direita com a gravação de tela do mesmo voo ("TELA DO CELULAR · MESMO VOO"): limite → salvo no servidor → Confira a conexão → perdendo/ganhando → Nenhuma ação necessária. Descrição do item e número da compra desfocados.
+- Revelação: "Tudo isso daqui de cima." sobre as nuvens; CTA; loop ao quadro 0.
+- Variante Boost ainda não feita (manchete no topo seria cortada no 4:5).

@@ -12,5 +12,5 @@ with sync_playwright() as pw:
         pg.evaluate(f"render({i/fps})"); pg.evaluate("Promise.all(Array.from(document.images).map(i=>i.decode().catch(()=>0)))"); pg.screenshot(path=str(f))
     b.close()
 pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
-subprocess.run(["ffmpeg","-v","error","-y","-framerate","30","-i",str(fr/"%04d.png"),"-i",str(p/"musica"/"trilhas"/f"reel_{mode.rstrip('b')}.wav"),"-c:v","libx264","-preset","slow","-crf","17","-pix_fmt","yuv420p","-c:a","aac","-b:a","192k","-shortest","-movflags","+faststart",out],check=True)
+subprocess.run(["ffmpeg","-v","error","-y","-framerate","30","-i",str(fr/"%04d.png"),"-i",str(p/"musica"/"trilhas"/f"reel_{mode}.wav"),"-c:v","libx264","-preset","slow","-crf","17","-pix_fmt","yuv420p","-c:a","aac","-b:a","192k","-shortest","-movflags","+faststart",out],check=True)
 shutil.rmtree(fr); print("done",out)
