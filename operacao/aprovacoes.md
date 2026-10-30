@@ -17,7 +17,7 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 ## Aguardando aprovação (pedido de 22/10/2026)
 | # | Item | O que muda | Custo |
 |---|---|---|---|
-| A4 | Boost B-02 (R2), 03-06/11, mesmas regras, só se B-01 não indicar erro grave | Segundo gasto | ≈ R$ 39,93 |
+| A4 | Boost B-02 (revisado 30/10, escolha do dono): Reel V3-R7b, 04/11 ~11h a 06/11, R$ 11/dia, visitas ao perfil, mesmo público do B-01, Safari | Segundo gasto | ≈ R$ 37,01 |
 | A5 | Reserva B-RES até R$ 69,87, só com evidência (regras em `08`) | Terceiro gasto | ≤ R$ 69,87 |
 | A6 | Perfil: nome "Kairos \| Robô de Lances", bio (opção A ou B), link com UTM, 4 destaques, 3 fixados | Mudança de perfil | 0 |
 | A7 | Política de respostas de comentários e Direct (`06`) | Atendimento | 0 |

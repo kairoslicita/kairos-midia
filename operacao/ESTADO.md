@@ -37,6 +37,7 @@ Atualizado: 30/10/2026 (Claude, redistribuição de novembro). Leia isto antes d
 
 ## Pendências e bloqueios
 - Aprovações pendentes: A4 (B-02), A5 (reserva), A6 (perfil), A7 (respostas), A8 (lote V3), A9 (semana 03-06/11: R7 em 04/11, POV em 05/11).
-- Teto de novembro: B-02 (≈ R$ 39,93) + B-RES (≤ R$ 69,87) = R$ 109,80 de R$ 150.
+- B-02 trocado para o R7 (versão r7b publicada em 04/11), R$ 11/dia × 3 dias úteis ≈ R$ 37,01 · aguardando aprovação.
+- Teto de novembro: B-02 (≈ R$ 37,01) + B-RES (≤ R$ 69,87) = R$ 106,88 de R$ 150.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.

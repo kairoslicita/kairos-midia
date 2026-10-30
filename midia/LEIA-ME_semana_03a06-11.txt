@@ -6,7 +6,7 @@ RESUMO
 |---|---|---|---|---|
 | seg 02/11 | -   | Finados: sem post | - | - |
 | ter 03/11 | 10h | Carrossel C5 "3 pregões no mesmo horário" | midia/lote_v2_carrossel5_tres_pregoes (c5_01 a c5_07) | já agendado (id 403716334) · post 1/20 |
-| qua 04/11 | 10h | Reel V3-R7 "Primeira dispensa ou pregão" (NOVO) | midia/lote_v3_reels/reel_r7_primeira_dispensa_ou_pregao.mp4 | agendar após "aprovado" · post 2/20 |
+| qua 04/11 | 10h | Reel V3-R7 "Primeira dispensa ou pregão" (NOVO, versão Boost 4:5) | midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao.mp4 | agendar após "aprovado" · post 2/20 |
 | qui 05/11 | 10h | Reel R3 "POV: você esqueceu do pregão." | midia/lote_v2_reels/reel_pov_pregao.mp4 | já agendado para 04/11 → mover para 05/11 após "aprovado" · post 3/20 |
 | sex 06/11 | 10h | Carrossel C6 "5 perguntas antes de testar" (fixar no perfil) | midia/lote_v2_carrossel6_cinco_perguntas (c6_01 a c6_07) | já agendado (id 403716463) · post 4/20 |
 
@@ -23,6 +23,7 @@ Antes da disputa: seus documentos com a validade à vista, tudo em ZIP.
 No dia da disputa: você define o stop loss e o robô cobre os lances em milissegundos, só acima do seu limite. Roda no servidor, e você controla tudo pelo celular.
 Durante e depois: disputas, itens e histórico em um só lugar.
 
+Siga o Kairos para mais dicas de licitação.
 Comenta PREGÃO e receba o Kit do Pregão no Direct.
 Teste o Kairos grátis por 7 dias, sem cartão. Link na bio.
 
@@ -74,4 +75,5 @@ Cada semana segue para aprovação na pauta de quinta. Hoje: aprovar só a seman
 ======================================================
 BOOST (não ativar sem aprovação)
 ======================================================
-B-02 (A4): Reel R2 "Esse lance parece bom… mas dá prejuízo.", 03 a 06/11, visitas ao perfil, R$ 8,90/dia (≈ R$ 39,93 com impostos), só pelo Safari. Decisão hoje 18h, após o print do B-01.
+B-02 (A4 revisado): Reel R7 (versão r7b, a mesma publicada em 04/11), visitas ao perfil, 04/11 ~11h a 06/11, R$ 11/dia × 3 dias úteis (R$ 33 + impostos ≈ R$ 37,01), mesmo público do B-01, só pelo Safari.
+Por que publicar a r7b: o Boost impulsiona o próprio post (ManyChat continua funcionando) e no feed o Reel é recortado em 4:5; na versão normal o gancho fica fora do recorte.
