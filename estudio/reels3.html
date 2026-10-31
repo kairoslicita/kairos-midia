@@ -318,6 +318,18 @@ function p5(lt){
   capw(lt,[[0,3.3,'Isso é o *robô cobrindo o lance *por você.']],1250)+
   `<div class="L" style="top:1470px;font-size:24px;color:#8fa699;text-align:center">Valores de exemplo.</div>`;
 }
+
+// Q1 · R9 com os erros escondidos (sugestão da avaliadora): quadro 0 = título + 3 cartões trancados; cada cena abre o seu
+function q1(lt,open){
+  open=open||0; const pz=1.05-0.05*ease(lt/.35);
+  const shk=(i)=>{const h=[.5,.9,1.3][i];return lt>h&&lt<h+.25?Math.sin(lt*90)*6*(1-(lt-h)/.25):0};
+  return `<div style="position:absolute;inset:0;background:radial-gradient(70% 40% at 50% 30%,#ff7a5c,rgba(0,0,0,0) 70%),#ff5f3c"></div>`+
+  `<div style="position:absolute;inset:0;transform:scale(${pz});transform-origin:50% 40%">`+
+  `<div style="position:absolute;left:80px;top:150px;display:flex;gap:14px;align-items:center"><span style="font-family:'Inter Display';font-weight:800;font-size:40px;letter-spacing:-.03em;color:#0b2219">Kairos<b style="color:#f2ede3">.</b></span><span class="mono" style="font-size:23px;letter-spacing:.05em;color:#b9ee4f;background:#0b2219;border-radius:999px;padding:8px 18px">DISPENSA · COMPRAS.GOV.BR</span></div>`+
+  `<div class="L D" style="top:270px;font-size:120px;color:#0b2219"><span style="color:#f2ede3">3 erros</span> que<br>fazem iniciante<br>perder a primeira<br>dispensa.</div>`+
+  ERR.map((e,i)=>{const op=i<open;return `<div style="position:absolute;left:60px;right:60px;top:${800+i*170}px;display:flex;align-items:center;gap:30px;background:#0b2219;border-radius:36px;padding:26px 32px;box-shadow:0 30px 60px -25px rgba(0,0,0,.55);transform:translateX(${shk(i)}px)"><span style="width:78px;height:78px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:40px;background:${op?'#ff5f3c':'#123024'};color:${op?'#0b2219':'#8fa699'}">${e[0]}</span>${op?`<span style="font-size:48px;font-weight:800">${e[1]}</span><span style="font-size:32px;color:#8fa699">· ${e[2]}</span>`:`<span style="flex:1;height:44px;border-radius:14px;background:repeating-linear-gradient(90deg,#24463a 0 26px,#1b3a2d 26px 34px);filter:blur(1.5px)"></span><span style="font-size:52px">🔒</span>`}</div>`}).join('')+
+  `<div class="L" style="top:1330px;font-size:42px;font-weight:800;color:#0b2219;opacity:${ease((lt-1.6)/.3)}">Você comete algum deles?</div></div>`;
+}
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
@@ -327,7 +339,7 @@ const CFG={
  r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
  r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
  r9b:{SC:SC9,F:[k1,k2,k3,k4,k5,k6].map(B),T:29.6},
- p1:{SC:[[0,3.3]],F:[p1],T:3.3},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},p5:{SC:[[0,3.3]],F:[p5],T:3.3},
+ p1:{SC:[[0,3.3]],F:[p1],T:3.3},q1:{SC:[[0,3.0],[3.0,4.2]],F:[lt=>q1(lt,0),lt=>q1(1.9,1)],T:4.2},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},p5:{SC:[[0,3.3]],F:[p5],T:3.3},
 }[MODE];
 window.DUR=CFG.T;
 window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2))});root.innerHTML=h;};
