@@ -142,3 +142,6 @@ Comenta PREGÃO e receba o Kit do Pregão no Direct. Teste 7 dias grátis, sem c
 Exemplos ilustrativos.
 #dispensaeletronica #licitacoes #comprasgovbr #licitacao #fornecedor #pregaoeletronico
 ```
+
+## V3-R9 v3 (31/10 07h) · versão vigente — ritmo de leitura
+`reel_r9_3_erros_primeira_dispensa_v3.mp4` e `reel_r9b_boost_3_erros_primeira_dispensa_v3.mp4` (30,3 s, modos `#r9w`/`#r9wb`, trilha `reel_r9w.wav`). Sem "Comenta n" por cena (só no CTA); virada só com títulos (✓ Marca · ✓ Documento · ✓ Lance · ✓ Informação); cenas de erro mais lentas.

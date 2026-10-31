@@ -52,3 +52,6 @@ print('ok')
 # R9 v2 (31,4 s): cadeados; destravas em 3.0/8.2/13.2; virada 18.4
 build('musica/trilhas/reel_r9v.wav',31.4,[3.0,3.6,8.2,8.8,13.2,13.8,18.4,26.2],18.4,120,
       ticks=[.5,.9,1.3,3.6+.4,3.6+.7,3.6+1.0],stamps=[3.3,8.5,13.5,3.6+1.9,8.8+1.7],coins=[18.4+.7+.35+i*1.45 for i in range(4)]+[26.6],alerts=[13.8+.45+i*.75 for i in range(4)])
+# R9 v3 (leitura): 30,3 s
+build('musica/trilhas/reel_r9w.wav',30.3,[3.4,4.1,9.1,9.8,14.2,14.9,19.7,24.7],19.7,116,
+      ticks=[.5,.9,1.3,4.1+.8,4.1+1.5],stamps=[3.7,9.4,14.5,4.1+2.5,9.8+1.7],coins=[19.7+1.5+i*.8 for i in range(3)]+[25.1],alerts=[14.9+.5+i*.9 for i in range(4)])

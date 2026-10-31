@@ -52,3 +52,6 @@ Melhor candidato a Boost até agora (prova real + gancho POV). A variante 4:5 co
 
 ## v3 (30/10 15h30) · versão vigente
 `midia/lote_v4_voo/reel_r10_nem_no_aviao_v3.mp4` (21,3 s, modo `voo.html#h`, trilha `reel_h.wav`). Gancho 0-4,1 s nas nuvens: POV (0 s) → notificação "Robô cobriu: R$ 11.355 → R$ 11.345" (0,9 s) → "Item 1: você está em 1º lugar" (2,0 s, verde) → chicote para o assento (3,8 s). Depois segue a v2 a partir de "Defini meu limite". Loop volta às nuvens. Pendente: dono confirmar se o Kairos envia essas notificações no celular.
+
+## v4 (31/10 07h) · versão vigente — ritmo de leitura
+`midia/lote_v4_voo/reel_r10_nem_no_aviao_v4.mp4` (25,8 s, modo `voo.html#h2`, trilha `reel_h2.wav`). Cada texto fica ≥ (palavras ÷ 3) + 1 s: limite 2,8 s, salvo 2 s, oscilou 3 s, "O robô, não" 3,4 s, "Nenhuma ação necessária" 2,5 s, CTA 4 s. Fundo desacelerado (selo "▶▶ acelerado" no trecho rápido).

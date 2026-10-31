@@ -11,3 +11,6 @@ build('musica/trilhas/reel_h.wav',4.5,[3.0],3.0,124,alerts=[.9],coins=[.95],stam
 # R10 v3: gancho nas nuvens (0-4,1 s) + A deslocado em +1,3 s
 build('musica/trilhas/reel_h.wav',21.3,[4.1,7.3,9.9,12.7,13.87,17.87],9.9,124,
       ticks=[4.2+i*.3 for i in range(7)],stamps=[4.1,7.3,9.9],coins=[2.05,10.9,15.6,18.4],alerts=[.9,7.6,8.1,8.6,9.1])
+# R10 v4 (leitura): 25,8 s
+build('musica/trilhas/reel_h2.wav',25.8,[4.1,8.9,11.9,15.3,17.8,21.8],11.9,120,
+      ticks=[4.3+i*.4 for i in range(6)],stamps=[4.1,8.9,11.9],coins=[2.05,13.4,19.8,23.8],alerts=[.9,9.3,9.9,10.5,11.1])

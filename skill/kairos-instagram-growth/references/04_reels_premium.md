@@ -40,4 +40,5 @@ Padrão: **sem voz**. O dono não pode usar a própria voz e não há locução 
 - Depois de publicar: dono cria a automação do ManyChat para o post e compartilha no Story.
 
 ## Validação mínima
+Tempo de leitura: cada texto principal fica na tela pelo menos (palavras ÷ 3) + 1 s; nunca manchete e detalhe entrando juntos; no máximo 2 camadas de texto por cena.
 Quadro 0 com gancho completo · nada na área dos botões · texto lido em 1 s por cena · números coerentes entre cenas · fato do produto conferido · nota "valores de exemplo" quando houver valores · CTA único e claro.

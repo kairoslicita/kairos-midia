@@ -107,7 +107,7 @@ function A(t,boost){
     else if(t<T4){const lt=t-T3, on=lt>=1.0, e=back((lt-1.0)/.3); h+=hbox(`O robô, <span style="color:${LIME}">não.</span>`,110)+`<div class="L" style="top:340px;font-size:32px;color:#f1ede4;text-shadow:0 2px 10px rgba(0,0,0,.9);left:80px">Roda no servidor. Cobre só acima do stop loss.</div>`+inset(fr('s5',lt*1.15,96),lt,false)+(on?`<div style="position:absolute;right:60px;top:600px;background:${LIME};color:#0b2219;border-radius:24px;padding:16px 24px;font-weight:900;font-size:34px;font-family:'Inter Display';transform:scale(${.6+.4*e}) rotate(-4deg);opacity:${clamp((lt-1.0)/.1)};box-shadow:0 20px 40px -10px rgba(0,0,0,.5)">ITEM 1 · GANHANDO</div>`:'');}
     else if(t<T5){const lt=t-T4; h+=hbox(`Nenhuma ação<br><span style="color:${LIME}">necessária.</span>`)+inset('voo/s5b/0001.jpg',lt,false);}
     else {const lt=t-T5, w=ease((lt-1.6)/.4); h+=`<div class="L D" style="top:${300}px;font-size:120px;opacity:${w};text-shadow:0 6px 30px rgba(0,0,0,.7)">Tudo isso<br><span style="color:${LIME}">daqui de cima.</span></div>`;}
-    if(t>=10.0&&t<T5) h+=`<div class="mono" style="position:absolute;left:70px;bottom:330px;background:rgba(11,34,25,.85);border-radius:999px;padding:10px 20px;font-size:26px;color:#f1ede4">▶▶ 7x</div>`;
+    if(t>=10.0&&t<T5) h+=`<div class="mono" style="position:absolute;left:70px;bottom:330px;background:rgba(11,34,25,.85);border-radius:999px;padding:10px 20px;font-size:26px;color:#f1ede4">▶▶ acelerado</div>`;
     h+=`<div class="L" style="top:1650px;font-size:22px;color:#cfd8cf;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,.9)">Gravação real em voo · dados da compra ocultados</div>`;
     return h;
   }
@@ -118,7 +118,7 @@ function A(t,boost){
   `<div style="position:absolute;left:80px;top:640px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.5)/.3))});transform-origin:left center;opacity:${clamp((lt-.5)/.1)}">${main}</div>`+
   (boost?`<div style="position:absolute;left:80px;top:850px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;opacity:${ease((lt-.9)/.3)}">Comenta PREGÃO</div>`:`<div class="L" style="top:855px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.9)/.3)}">e receba o Kit do Pregão no Direct.</div>`)+
   `<div class="L" style="top:1010px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.2)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
-  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${MODE=='h'?H(0):A(0,boost)}</div>`:'');
+  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${MODE.startsWith('h')?H(0):A(0,boost)}</div>`:'');
 }
 
 /* ===== Proposta de gancho (0-2,4 s): começa nas nuvens + notificações reais caindo + chicote para o assento ===== */
@@ -131,9 +131,13 @@ function H(t){
   const seat=wp>0?`<div style="position:absolute;inset:0;transform:translateX(${(1-wp)*1080}px);filter:blur(${(1-wp)*18}px)">${full(tom(0))}</div>`:'';
   return sky+seat+`<div class="box" style="top:150px"><div class="D" style="font-size:80px">POV: o pregão começou<br>e você está <span style="color:${LIME}">no avião.</span></div>${rec}</div>`;
 }
+
+// leitura: tempo novo → tempo do A original (cada texto fica mais tempo na tela)
+const NB=[0,2.8,7.6,10.6,14.0,16.5,20.5,24.5], OB=[0,2.8,6.0,8.6,11.4,12.57,16.57,20];
+const slow=t=>{for(let i=1;i<NB.length;i++){if(t<=NB[i]){const f=(t-NB[i-1])/(NB[i]-NB[i-1]);return OB[i-1]+f*(OB[i]-OB[i-1]);}}return 20-1e-3;};
 const SC=[[0,2.8],[2.8,5.0],[5.0,8.9],[8.9,11.6],[11.6,14.8],[14.8,16.0],[16.0,20.0]];
-const CFG={h:{T:21.3},a:{T:20},ab:{T:20},r10:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,false)],T:20},r10b:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,true)],T:20}}[MODE];
+const CFG={h2:{T:25.8},h2b:{T:25.8},h:{T:21.3},a:{T:20},ab:{T:20},r10:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,false)],T:20},r10b:{F:[v1,v2,v3,v4,v5,v6,lt=>v7(lt,true)],T:20}}[MODE];
 window.DUR=CFG.T;
-window.render=t=>{if(MODE=='h'){document.getElementById('root').innerHTML=t<4.1?H(t):A(t-4.1+2.8,false);return;}if(MODE.startsWith('a')){document.getElementById('root').innerHTML=A(t,MODE=='ab');return;}let h='';SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||i==1)});document.getElementById('root').innerHTML=h;};
+window.render=t=>{if(MODE=='h2'){document.getElementById('root').innerHTML=t<4.1?H(t):A(slow(t-4.1+2.8),false);return;}if(MODE=='h2b'){document.getElementById('root').innerHTML=t<4.1?H(t):A(slow(t-4.1+2.8),true);return;}if(MODE=='h'){document.getElementById('root').innerHTML=t<4.1?H(t):A(t-4.1+2.8,false);return;}if(MODE.startsWith('a')){document.getElementById('root').innerHTML=A(t,MODE=='ab');return;}let h='';SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||i==1)});document.getElementById('root').innerHTML=h;};
 render(0);
 </script></body></html>
