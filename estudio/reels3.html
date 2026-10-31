@@ -199,7 +199,7 @@ function k1(lt){
   ERR.map((e,i)=>{const h=hits[i], st=ease((lt-h)/.18), on=lt>=h;return `<div style="position:absolute;left:60px;right:60px;top:${800+i*170}px;display:flex;align-items:center;gap:30px;background:#0b2219;border-radius:36px;padding:26px 32px;box-shadow:0 30px 60px -25px rgba(0,0,0,.55)"><span style="width:78px;height:78px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:40px;background:${on?'#ff5f3c':'#123024'};color:${on?'#0b2219':'#8fa699'}">${e[0]}</span><span style="font-size:48px;font-weight:800">${e[1]}</span><span style="font-size:32px;color:#8fa699">· ${e[2]}</span><span style="position:absolute;right:34px;font-family:'Inter Display';font-weight:900;font-size:96px;color:#ff5f3c;transform:scale(${2.2-1.2*st}) rotate(-8deg);opacity:${st}">✗</span></div>`}).join('')+
   `<div class="L" style="top:1330px;font-size:40px;font-weight:800;color:#0b2219;opacity:${ease((lt-1.9)/.3)}">Você comete algum deles?</div></div>`;
 }
-const etag=(n,l)=>tag(`ERRO ${n} · ${l}`,'#ff8a6d');
+const etag=(n,l)=>tag(`ERRO ${n}/3 · ${l}`,'#ff8a6d')+`<div style="position:absolute;right:80px;top:162px;display:flex;gap:10px">${[1,2,3].map(i=>`<span style="width:${i==n?44:16}px;height:16px;border-radius:999px;background:${i<=n?'#ff5f3c':'#24463a'}"></span>`).join('')}</div>`;
 function k2(lt){
   const st=ease((lt-1.9)/.25), sh=lt>1.9&&lt<2.4?Math.sin(lt*80)*8*(1-(lt-1.9)/.5):0;
   return bg('rgba(255,95,60,.18)')+etag(1,'MARCA')+head(lt,'Marca escolhida<br><span style="color:#ff5f3c">sem checar<br>o edital.</span>',112,270,false)+`
@@ -330,6 +330,25 @@ function q1(lt,open){
   ERR.map((e,i)=>{const op=i<open;return `<div style="position:absolute;left:60px;right:60px;top:${800+i*170}px;display:flex;align-items:center;gap:30px;background:#0b2219;border-radius:36px;padding:26px 32px;box-shadow:0 30px 60px -25px rgba(0,0,0,.55);transform:translateX(${shk(i)}px)"><span style="width:78px;height:78px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:40px;background:${op?'#ff5f3c':'#123024'};color:${op?'#0b2219':'#8fa699'}">${e[0]}</span>${op?`<span style="font-size:48px;font-weight:800">${e[1]}</span><span style="font-size:32px;color:#8fa699">· ${e[2]}</span>`:`<span style="flex:1;height:44px;border-radius:14px;background:repeating-linear-gradient(90deg,#24463a 0 26px,#1b3a2d 26px 34px);filter:blur(1.5px)"></span><span style="font-size:52px">🔒</span>`}</div>`}).join('')+
   `<div class="L" style="top:1330px;font-size:42px;font-weight:800;color:#0b2219;opacity:${ease((lt-1.6)/.3)}">Você comete algum deles?</div></div>`;
 }
+
+/* ===== R9 v2: cadeados + destrava por cena + "Comenta 1/2/3" + loop ===== */
+function U(n){return lt=>{const on=lt>=.3, f=Math.max(0,1-(lt-.3)/.3);
+  let h=q1(1.9,on?n:n-1);
+  const y=800+(n-1)*170;
+  return h+`<div style="position:absolute;left:60px;right:60px;top:${y}px;height:130px;border-radius:36px;box-shadow:0 0 0 ${6+f*14}px rgba(185,238,79,${f*.9});transform:scale(${1+f*.04});pointer-events:none"></div>`;}}
+const ask=(lt,dur,n)=>{const o=ease((lt-(dur-1.5))/.25);return o>0?`<div style="position:absolute;left:80px;right:80px;top:1560px;display:flex;justify-content:center;opacity:${o};transform:translateY(${(1-o)*30}px)"><span style="background:#f2ede3;color:#0b2219;border-radius:999px;padding:18px 34px;font-size:38px;font-weight:800">Já cometeu esse? Comenta <span style="background:#ff5f3c;border-radius:12px;padding:2px 14px">${n}</span></span></div>`:''};
+function k6v(lt,boost){
+  const p=1+.03*Math.sin(lt*6), L=5.2, fo=clamp((lt-(L-.6))/.25), lp=clamp((lt-(L-.3))/.18);
+  const cta=bg('rgba(255,95,60,.22)')+tag('DISPENSA · COMPRAS.GOV.BR')+head(lt,'Qual você<br>já cometeu?',130,270,false)+
+  `<div style="position:absolute;left:80px;top:560px;display:flex;gap:24px;opacity:${clamp((lt-.4)/.1)}">${[1,2,3].map((n,i)=>`<span style="width:150px;height:150px;border-radius:36px;background:#ff5f3c;color:#0b2219;display:flex;align-items:center;justify-content:center;font-family:'Inter Display';font-weight:900;font-size:96px;transform:scale(${back((lt-.4-i*.12)/.3)})">${n}</span>`).join('')}</div>`+
+  `<div class="L" style="top:750px;font-size:40px;font-weight:800;color:#f1ede4;opacity:${ease((lt-.8)/.3)}">Comenta o número.</div>`+
+  (boost?`<div style="position:absolute;left:80px;top:860px;background:#b9ee4f;color:#0b2219;border-radius:30px;padding:24px 40px;font-family:'Inter Display';font-weight:900;font-size:66px;transform:scale(${p})">Siga o Kairos</div>`:'')+
+  `<div style="position:absolute;left:80px;top:${boost?1040:880}px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:50px;opacity:${ease((lt-1.2)/.3)}">Comenta PREGÃO · Kit no Direct</div>`+
+  `<div class="L" style="top:${boost?1190:1040}px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.5)/.3)}"><b>Teste 7 dias grátis, sem cartão</b> · link na bio</div>`;
+  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${q1(0,0)}</div>`:'');
+}
+const SC9v=[[0,3.0],[3.0,3.6],[3.6,8.2],[8.2,8.8],[8.8,13.2],[13.2,13.8],[13.8,18.4],[18.4,26.2],[26.2,31.4]];
+const F9v=(b)=>[lt=>q1(lt,0),U(1),lt=>k2(lt)+ask(lt,4.6,1),U(2),lt=>k3(lt)+ask(lt,4.4,2),U(3),lt=>k4(lt)+ask(lt,4.6,3),k5,lt=>k6v(lt,b)];
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
@@ -337,11 +356,13 @@ const CFG={
  r7b:{SC:SC7,F:[p4,g2,g3,g4,g5,g6].map(B),T:33.0},
  r8:{SC:SC8,F:[h1,h2,h3,h4,lt=>h5(lt,false)],T:18.4},
  r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
+ r9v:{SC:SC9v,F:F9v(false),T:31.4},
+ r9vb:{SC:SC9v,F:F9v(true).map(f=>(lt)=>{const h=f(lt);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)}),T:31.4},
  r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
  r9b:{SC:SC9,F:[k1,k2,k3,k4,k5,k6].map(B),T:29.6},
  p1:{SC:[[0,3.3]],F:[p1],T:3.3},q1:{SC:[[0,3.0],[3.0,4.2]],F:[lt=>q1(lt,0),lt=>q1(1.9,1)],T:4.2},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},p5:{SC:[[0,3.3]],F:[p5],T:3.3},
 }[MODE];
 window.DUR=CFG.T;
-window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2))});root.innerHTML=h;};
+window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2)||(MODE.startsWith('r9v')&&(i==1||i==3||i==5)))});root.innerHTML=h;};
 render(0);
 </script></body></html>

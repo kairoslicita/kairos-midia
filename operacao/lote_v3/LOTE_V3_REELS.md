@@ -118,3 +118,27 @@ Exemplos ilustrativos.
 - ManyChat por post (PREGÃO, PREGAO, pregão, pregao) e repost no Story.
 - Cota do Metricool em novembro: 3/20 usados; estes 3 Reels cabem (ficariam 6/20).
 - Sem preço, sem promessa de vitória ou lucro. Valores, datas e marcas são de exemplo ("Fabricante A/B/C").
+
+## V3-R9 v2 (30/10 23h) · versão vigente
+Arquivos: `midia/lote_v3_reels/reel_r9_3_erros_primeira_dispensa_v2.mp4` (31,4 s) e `reel_r9b_boost_3_erros_primeira_dispensa_v2.mp4` (área 4:5, CTA "Siga o Kairos"). Modos `reels3.html#r9v` / `#r9vb`, trilha `reel_r9v.wav`.
+- Gancho com os 3 erros trancados (cadeados) + "Você comete algum deles?" (sugestão da avaliadora).
+- Cada cena de erro começa com o cartão destravando (3,0 / 8,2 / 13,2 s); contador "ERRO n/3" com pontos de progresso.
+- Fim de cada erro: "Já cometeu esse? Comenta 1/2/3". CTA: "Qual você já cometeu? 1 2 3 · Comenta o número" + "Comenta PREGÃO · Kit no Direct" + teste 7 dias.
+- Loop: últimos 0,3 s voltam aos cadeados do quadro 0.
+- ManyChat: além de PREGÃO/PREGAO/pregão/pregao, opcional criar gatilho para "1", "2", "3" (resposta: "Boa! O Kairos ajuda exatamente nisso. Quer o Kit do Pregão? Comenta PREGÃO.").
+
+Legenda v2:
+```
+3 erros que fazem iniciante perder a primeira dispensa. Qual deles você já cometeu? Comenta 1, 2 ou 3 👇
+
+1. Ofertar uma marca sem checar o que o edital pede.
+2. Deixar um documento vencer ou atrasar o envio.
+3. Não ter tempo para o lance na hora da disputa.
+
+O Kairos ajuda do preparo à disputa: pesquisa de fabricantes e preços, documentos com a validade à vista e, no dia da disputa, o robô que cobre em milissegundos, só acima do seu stop loss. Tudo pelo celular.
+
+Comenta PREGÃO e receba o Kit do Pregão no Direct. Teste 7 dias grátis, sem cartão. Link na bio.
+
+Exemplos ilustrativos.
+#dispensaeletronica #licitacoes #comprasgovbr #licitacao #fornecedor #pregaoeletronico
+```
