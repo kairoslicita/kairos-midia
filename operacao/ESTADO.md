@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 30/10/2026 (Claude, redistribuição de novembro). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 01/11/2026 11h40 (Claude, inventário de pendentes). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 13 (24/10; −1 na semana 19-25). Meta: 75 até 12/11 (ampliada: 100).
@@ -11,6 +11,8 @@ Atualizado: 30/10/2026 (Claude, redistribuição de novembro). Leia isto antes d
 - Lembretes das 10h05 com post + Story: 23, 26, 27, 28, 29 e 30/10. 03, 04 e 06/11 também criados. Demais dias de novembro: a pauta de quinta cria após aprovação.
 
 ## Publicado recentemente
+- 28/10 22h29: Reel "Desligou o computador?" (manual)
+- **Não publicados (conferido no Metricool em 01/11):** C2 7 erros, C3 preço mínimo, R2 preço mínimo, C4 modos de disputa → aprovados, aguardando nova data (pacote de 01/11).
 - 20/10: Carrossel 1 "Como o robô decide" (Metricool)
 - 22/10 18h54: Reel "Reunião às 9h" (manual; ManyChat criado) · alcance 8, 21 views, tempo médio 6,4 s
 - 23/10 17h45: Reel V2-R6 (manual, fora das 10h) · alcance 8, 19 views, 1 salvo, 1 envio, 0 comentários, 11,3 s de 16 s
