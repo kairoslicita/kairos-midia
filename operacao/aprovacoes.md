@@ -14,6 +14,7 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 | 30/10/2026 | Regra de novembro: publicar só os 20 posts do Metricool (sem manual) | dono | Calendário redistribuído |
 | 26/10/2026 11h27 | B-01 revisado: R$ 44 de mídia (R$ 11/dia × 4 dias), ≈ R$ 49,40 com impostos | dono (tocou em Boost reel) | Acima dos R$ 39,93 do A3; dono propôs e confirmou ao ativar |
 | 01/11/2026 13h02 | Lote V5 (C2, C3, C4, R2 com ganchos novos) + R9 v3 (+ Boost) + R10 v4 (avião) | dono | Aguardam data; agendar depois do ajuste do R8 |
+| 01/11/2026 13h26 | R8 v2 ("manual" + ritmo de leitura, + Boost) | dono ("Perfeito!") | Aguarda data |
 
 ## Aguardando aprovação (pedido de 22/10/2026)
 | # | Item | O que muda | Custo |

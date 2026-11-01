@@ -12,6 +12,7 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 | 22/10/2026 | Teto de mídia R$ 150/mês, sujeito a aprovação de cada gasto | dono | Prompt mestre V2 |
 | 22/10/2026 22h16 | A1 lote V2 (R6, R2, R3, C5, C6) · A2 ordem do calendário (R6 em 23/10, C2 em 26/10) · A3 Boost B-01 (R6, 26-29/10, R$ 8,90/dia, ≈ R$ 39,93) | dono ("Aprovado") | C5, R3 e C6 agendados no Metricool (3 de 20 em novembro) |
 | 01/11/2026 13h02 | Lote V5 (C2, C3, C4, R2 com ganchos novos) + R9 v3 (+ Boost) + R10 v4 (avião) | dono | Aguardam data; agendar depois do ajuste do R8 |
+| 01/11/2026 13h26 | R8 v2 ("manual" + ritmo de leitura, + Boost) | dono ("Perfeito!") | Aguarda data |
 
 ## Aguardando aprovação (pedido de 22/10/2026)
 | # | Item | O que muda | Custo |
