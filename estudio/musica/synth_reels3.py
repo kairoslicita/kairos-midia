@@ -58,3 +58,7 @@ build('musica/trilhas/reel_r9w.wav',30.3,[3.4,4.1,9.1,9.8,14.2,14.9,19.7,24.7],1
 # R2 v2 (25 s): contagem 3-2-1 e carimbo −R$ 55 em 5.8; virada no mínimo (13.0)
 build('musica/trilhas/reel_r2n.wav',25.0,[4.0,7.5,13.0,17.0,21.0],13.0,116,
       ticks=[4.0,4.6,5.2,7.8,8.8,9.8],stamps=[5.8,10.8],coins=[14.0,19.3,21.6],alerts=[.2])
+# R8 v2 (22,8 s, "manual"): ENCERRADO em 7.2; corte seco 9.0 e 10.3; drop no robô 12.6
+cov8n=[12.6+.3+.3+i*.85 for i in range(3)]
+build('musica/trilhas/reel_r8n.wav',22.8,[3.2,12.6,18.0],12.6,128,
+      ticks=[3.2+1.2+i*.33 for i in range(8)]+cov8n,stamps=[.5,7.2,9.0,10.3],coins=[18.8],alerts=[3.2+i*.8 for i in range(5)]+[12.6+.3+3*.85+.3])

@@ -152,7 +152,7 @@ function h1(lt){
 function h2(lt){
   const T0=4.0; const sec=Math.max(0,5-Math.floor(lt/(T0/5))); const end=lt>=T0; const e=ease((lt-T0)/.2);
   const typ='1.279,88'; const n=Math.min(typ.length,Math.max(0,Math.floor((lt-1.2)/.33)));
-  return bg('rgba(255,95,60,.28)')+tag('SIMULAÇÃO · MODO ABERTO')+head(lt,'O lance<br><span style="color:#ff5f3c">no dedo.</span>',150,270,false)+`
+  return bg('rgba(255,95,60,.28)')+tag('SIMULAÇÃO · MODO ABERTO')+head(lt,'O lance<br><span style="color:#ff5f3c">manual.</span>',150,270,false)+`
   <div class="card" style="top:630px;height:690px;background:${end?'#ff5f3c':'#123024'};color:${end?'#1a0f0a':'#f1ede4'};border-color:${end?'#ff5f3c':'#24463a'}">
     <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;letter-spacing:.06em;opacity:.85">SALA DE DISPUTA · ITEM 1</span><span class="mono" style="font-size:26px;opacity:.85">${end?'encerrada':'ao vivo'}</span></div>
     <div class="mono" style="font-size:${end?118:190}px;letter-spacing:-.05em;margin-top:30px;transform:scale(${end?.9+.1*e:1});transform-origin:left">${end?'ENCERRADO':'00:0'+sec}</div>
@@ -162,10 +162,10 @@ function h2(lt){
   </div>`+note('Modo aberto: a disputa encerra após 2 minutos sem lances. Simulação.',1370);
 }
 function h3(lt){
-  const two=lt>=1.05;
+  const two=lt>=1.3;
   return `<div style="position:absolute;inset:0;background:#0b2219"></div>`+
-  `<div class="L D" style="top:420px;font-size:150px">Seu dedo:<br><span style="color:#ff5f3c">segundos.</span></div>`+
-  (two?`<div class="L D" style="top:860px;font-size:136px;transform:scale(${.9+.1*back((lt-1.05)/.25)});transform-origin:left">O robô do Kairos:<br><span style="color:#b9ee4f">milissegundos.</span></div>`:'');
+  `<div class="L D" style="top:420px;font-size:128px">Lance manual:<br><span style="color:#ff5f3c">segundos.</span></div>`+
+  (two?`<div class="L D" style="top:860px;font-size:116px;transform:scale(${.9+.1*back((lt-1.3)/.25)});transform-origin:left">Robô do Kairos:<br><span style="color:#b9ee4f">milissegundos.</span></div>`:'');
 }
 function h4(lt){
   const inner=roboScreen(lt,{t0:.3,R:.85,comp:[1279.89,1268.80,1257.70,1249.00],stop:1250,me0:1279.90,cp0:1290.00,tm:'09:02'});
@@ -173,9 +173,9 @@ function h4(lt){
    note('Roda no servidor. Você opera pelo celular.<br>O robô é configurado no dia da disputa. Simulação.',1500);
 }
 function h5(lt,boost){
-  const p=1+.03*Math.sin(lt*6); const L=3.8, fo=clamp((lt-(L-.6))/.25), lp=clamp((lt-(L-.3))/.18);
+  const p=1+.03*Math.sin(lt*6); const L=4.8, fo=clamp((lt-(L-.6))/.25), lp=clamp((lt-(L-.3))/.18);
   const main=boost?'Siga o Kairos':'Comenta PREGÃO';
-  const ci=tag('PREGÃO · COMPRAS.GOV.BR')+head(lt,'Marque quem<br>ainda dá lance<br><span style="color:#ff5f3c">no dedo.</span>',130,270,false)+`
+  const ci=tag('PREGÃO · COMPRAS.GOV.BR')+head(lt,'Marque quem<br>ainda disputa<br><span style="color:#ff5f3c">no manual.</span>',130,270,false)+`
   <div style="position:absolute;left:80px;top:740px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.4)/.3))});transform-origin:left center;opacity:${clamp((lt-.4)/.1)}">${main}</div>`+
   (boost?`<div style="position:absolute;left:80px;top:950px;border:3px solid #f1ede4;border-radius:30px;padding:20px 34px;font-family:'Inter Display';font-weight:800;font-size:54px;opacity:${ease((lt-.8)/.3)}">Comenta PREGÃO</div>`
         :`<div class="L" style="top:955px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-.8)/.3)}">e receba o Kit do Pregão no Direct.</div>`)+
@@ -184,7 +184,7 @@ function h5(lt,boost){
   const loop=boost?bg('rgba(255,95,60,.22)')+safe(h1(0).replace(bg('rgba(255,95,60,.22)'),'')):h1(0);
   return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${loop}</div>`:'');
 }
-const SC8=[[0,2.4],[2.4,7.0],[7.0,9.4],[9.4,14.6],[14.6,18.4]];
+const SC8=[[0,3.2],[3.2,9.0],[9.0,12.6],[12.6,18.0],[18.0,22.8]];
 
 /* ================= R9 · "3 erros na primeira dispensa" (29,6 s) ================= */
 const ERR=[['1','Marca','sem checar o edital'],['2','Documento','vencido'],['3','Lance','sem tempo na disputa']];
@@ -422,8 +422,8 @@ const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:abso
 const CFG={
  r7:{SC:SC7,F:[p4,g2,g3,g4,g5,lt=>g6(lt,false)],T:33.0},
  r7b:{SC:SC7,F:[p4,g2,g3,g4,g5,g6].map(B),T:33.0},
- r8:{SC:SC8,F:[h1,h2,h3,h4,lt=>h5(lt,false)],T:18.4},
- r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:18.4},
+ r8:{SC:SC8,F:[h1,h2,h3,h4,lt=>h5(lt,false)],T:22.8},
+ r8b:{SC:SC8,F:[h1,h2,h3,h4].map(B).concat([lt=>h5(lt,true)]),T:22.8},
  r9w:{SC:SC9w,F:F9w(false),T:30.3},
  r9wb:{SC:SC9w,F:F9w(true).map(f=>(lt)=>{const h=f(lt);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)}),T:30.3},
  r9v:{SC:SC9v,F:F9v(false),T:31.4},

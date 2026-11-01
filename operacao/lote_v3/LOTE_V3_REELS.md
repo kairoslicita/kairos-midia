@@ -145,3 +145,6 @@ Exemplos ilustrativos.
 
 ## V3-R9 v3 (31/10 07h) · versão vigente — ritmo de leitura
 `reel_r9_3_erros_primeira_dispensa_v3.mp4` e `reel_r9b_boost_3_erros_primeira_dispensa_v3.mp4` (30,3 s, modos `#r9w`/`#r9wb`, trilha `reel_r9w.wav`). Sem "Comenta n" por cena (só no CTA); virada só com títulos (✓ Marca · ✓ Documento · ✓ Lance · ✓ Informação); cenas de erro mais lentas.
+
+## V3-R8 v2 (01/11 13h) · versão vigente
+"dedo" trocado por "manual" (opção A aprovada): "O lance manual." / "Lance manual: segundos. Robô do Kairos: milissegundos." / "Marque quem ainda disputa no manual." Ritmo de leitura aplicado (22,8 s). Arquivos em `midia/aprovados_aguardando_data/reel_r8_perdi_por_1_centavo/`.
