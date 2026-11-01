@@ -1,8 +1,9 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 01/11/2026 13h05 (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 01/11/2026 14h35 (Claude, leitura do B-01). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
-- Seguidores: 13 (24/10; −1 na semana 19-25). Meta: 75 até 12/11 (ampliada: 100).
+- Seguidores: 71 (30/10; eram 13 em 24/10). Meta: 75 até 12/11 (ampliada: 100).
+- B-01 (R6, 26-30/10, R$ 44): 1.000 alcançados, 1.382 views, 459 plays de 3 s, 66 visitas, 20 seguidores atribuídos, 7 salvos, 4 envios, 3 comentários.
 - Semana 19-25/10: 3 peças, alcance somado 35 (vs 66), views 158 (vs 335), interações 16 (vs 49), contas engajadas 15 (vs 29). Alcance por peça ~9 (≈ seguidores).
 - Melhor retenção: R6 (16 s) view rate 50%, ~71% assistido; R1 (21,5 s) 25%, ~30%.
 - Metricool devolve horário em UTC: subtrair 3 h.
