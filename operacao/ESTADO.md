@@ -47,3 +47,23 @@ C2 7 erros (v5) · C3 preço mínimo (v5) · C4 modos de disputa (v5) · Reel R2
 - Teto de novembro: B-02 (≈ R$ 37,01) + B-RES (≤ R$ 69,87) = R$ 106,88 de R$ 150.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.
+
+## Calendário de novembro executado (01/11 17h20, aprovado pelo dono 01/11)
+Metricool (11/20 da cota, todos 10h, autoPublish):
+| Dia | Peça | id Metricool |
+|---|---|---|
+| ter 03 | C5 3 pregões | 403716334 |
+| qua 04 | C4 modos de disputa (lote V5) | 413202617 |
+| qui 05 | R9 v3 3 erros | 413203685 |
+| sex 06 | C6 5 perguntas (fixar) | 403716463 |
+| seg 09 | C2 7 erros (lote V5) | 413203771 |
+| ter 10 | R3 POV esqueceu do pregão | 413202225 |
+| qua 11 | C3 preço mínimo (lote V5) | 413203874 |
+| qui 12 | R7b primeira dispensa | 413202171 |
+| sex 13 | R2 v5 ganhou e pagou para vender | 413203917 |
+| seg 16 | R8 v2 1 centavo | 413203967 |
+| seg 23 | R10 v4 avião | 413204015 |
+Ordem: do menos para o mais provável de viralizar (pedido do dono). Livres: 9 posts (17-20/11 e 24-30/11) via pauta de quinta.
+Boosts (o DONO ativa no Safari; Claude lembra às 10h05): B-02 R6 re-boost 03→05/11 ≈R$37 · B-03 R7 12→16/11 ≈R$37 · B-04 R10 23→26/11 ≈R$49 · reserva R8 ≤R$27 (decidir 16/11). Total ≤ R$150.
+Lembretes 10h05 criados/atualizados: 03, 04, 05, 06, 09, 10, 11, 12, 13, 16, 23/11.
+Pendências: versão Boost 4:5 do R10 e trocar a mídia do post 413204015 antes de 20/11; confirmar se o Kairos manda notificação no celular (gancho do R10); se a reserva for para o R8, trocar a mídia do post 16/11 pela boost v2 antes das 10h.
