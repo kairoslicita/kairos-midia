@@ -581,6 +581,45 @@ SC.faq=t=>{
 };
 SC.c6cta=t=>SC.cta(t).replace(title('Quer o','Kit do Pregão?'),title('Ficou alguma','dúvida?')).replace('Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong>','Comenta PREGÃO e receba <strong>o Kit do Pregão no Direct.</strong>');
 
+
+/* ---------- CAPAS NOVAS (01/11): curiosidade no quadro 0 ---------- */
+const lockRow=(n,on,y,w,h,pulse,t)=>`<div style="position:absolute;left:${72+((n-1)%2)*((w+20))}px;top:${y}px;width:${w}px;height:${h}px;border-radius:26px;background:${on?'#ff5f3c':'#123024'};border:2px solid ${pulse?'#ff5f3c':'#24463a'};display:flex;align-items:center;gap:18px;padding:0 24px;transform:scale(${pulse?1+.035*Math.sin(t*7):1})"><span style="font-family:'Inter Display';font-weight:900;font-size:44px;color:${pulse?'#ff5f3c':'#8fa699'};width:34px">${n}</span><span style="flex:1;height:22px;border-radius:8px;background:repeating-linear-gradient(90deg,#24463a 0 20px,#1b3a2d 20px 27px);filter:blur(1px)"></span><span style="font-size:34px">🔒</span></div>`;
+SC.e2capa=t=>{
+ const rows=[1,2,3,4,5,6,7].map(n=>{const col=(n-1)%2, r=Math.floor((n-1)/2);const x=72+col*478, y=640+r*118;const pulse=n==4;const sh=(n==4&&t>1.0&&t<1.3)?Math.sin(t*90)*6:0;
+  return `<div style="position:absolute;left:${x+sh}px;top:${y}px;width:458px;height:98px;border-radius:26px;background:#123024;border:2px solid ${pulse?'#ff5f3c':'#24463a'};display:flex;align-items:center;gap:16px;padding:0 22px;transform:scale(${pulse?1+.03*Math.sin(t*7):1});box-shadow:${pulse?'0 0 0 6px rgba(255,95,60,.18)':'none'}"><span style="font-family:'Inter Display';font-weight:900;font-size:42px;color:${pulse?'#ff5f3c':'#8fa699'};width:30px">${n}</span><span style="flex:1;height:20px;border-radius:8px;background:repeating-linear-gradient(90deg,#24463a 0 18px,#1b3a2d 18px 25px);filter:blur(1px)"></span><span style="font-size:30px">🔒</span></div>`}).join('');
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:112px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">7 erros que<br>tiram você<br><span style="color:#ff5f3c">do pregão.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:510px;font-size:40px;font-weight:800;color:#f1ede4">O <span style="color:#ff5f3c">4º</span> acontece depois que você ganha.</div>
+ ${rows}
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e destrave os 7<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
+SC.p3capa=t=>{
+ const q=1+.05*Math.sin(t*5);
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:104px;line-height:.92;letter-spacing:-.045em;color:#f1ede4">Você venceu<br>por <span style="color:#b9ee4f">R$ 1.050.</span></div>
+ <div style="position:absolute;left:72px;top:400px;font-family:'Inter Display';font-weight:900;font-size:74px;line-height:.98;letter-spacing:-.04em;color:#ff5f3c">Lucrou ou pagou<br>para vender?</div>
+ <div style="position:absolute;left:72px;right:72px;top:640px;height:430px;border-radius:44px;background:#123024;border:2px solid #24463a;padding:40px 46px">
+  <div class="mono" style="font-size:24px;color:#8fa699;letter-spacing:.06em">ITEM 1 · RESULTADO DA VENDA</div>
+  <div style="display:flex;justify-content:space-between;margin-top:30px;font-size:34px;color:#cfd8cf"><span>Lance vencedor</span><span class="mono" style="color:#f1ede4">R$ 1.050,00</span></div>
+  <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:34px;color:#cfd8cf"><span>Custo + frete</span><span class="mono" style="color:#f1ede4">R$ 1.000,00</span></div>
+  <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:34px;color:#cfd8cf"><span>Imposto (10%)</span><span class="mono" style="color:#f1ede4">?</span></div>
+  <div style="position:absolute;left:46px;right:46px;bottom:36px;display:flex;justify-content:space-between;align-items:center;border-top:2px dashed #24463a;padding-top:22px"><span style="font-size:38px;font-weight:800;color:#f1ede4">Sobrou</span><span style="font-family:'Inter Display';font-weight:900;font-size:96px;color:#ffe94d;transform:scale(${q});display:inline-block">R$ ?</span></div>
+ </div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">A resposta está no slide 5<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>
+ <div class="mono" style="position:absolute;right:72px;top:1196px;font-size:18px;color:#8fa699">valores de exemplo</div>`;
+};
+SC.m4capa=t=>{
+ const T=1.6, z=t<T; const sec=Math.max(0,Math.ceil((T-t)/T*5)); const plus=ease((t-T)/.25); const bl=Math.floor(t*3)%2;
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:112px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">O tempo acabou.<br><span style="color:#b9ee4f">A disputa, não.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:470px;height:560px;border-radius:44px;background:${z?'#123024':'#c9f26c'};color:${z?'#f1ede4':'#0b2219'};border:2px solid ${z?'#24463a':'#c9f26c'};padding:44px 48px">
+  <div class="mono" style="font-size:24px;letter-spacing:.06em;opacity:.85">MODO ABERTO · ITEM 1</div>
+  <div class="mono" style="font-size:180px;letter-spacing:-.05em;margin-top:24px;line-height:1">${z?'00:0'+sec:'00:00'}</div>
+  <div style="position:absolute;left:48px;top:300px;background:#ff5f3c;color:#0b2219;border-radius:24px;padding:10px 26px;font-family:'Inter Display';font-weight:900;font-size:84px;opacity:${plus};transform:scale(${.6+.4*plus});transform-origin:left center">+2:00</div>
+  <div style="position:absolute;left:48px;bottom:44px;font-size:36px;font-weight:700">${z?'Últimos segundos…':'Teve lance nos 2 minutos finais. <br>Prorrogou.'}</div>
+ </div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e entenda por quê<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
 window.render=t=>{root.innerHTML=SC[S](t)};
 render(0);
 </script></body></html>

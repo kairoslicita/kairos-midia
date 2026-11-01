@@ -360,6 +360,17 @@ function k5s(lt){
 function k6w(lt,boost){return k6v(lt*(5.2/5.6),boost);}
 const SC9w=[[0,3.4],[3.4,4.1],[4.1,9.1],[9.1,9.8],[9.8,14.2],[14.2,14.9],[14.9,19.7],[19.7,24.7],[24.7,30.3]];
 const F9w=(b)=>[lt=>q1(lt,0),U(1),lt=>k2(lt*.75),U(2),k3,U(3),lt=>k4(lt*.85),k5s,lt=>k6w(lt,b)];
+
+// R2 novo · gancho "Você ganhou o pregão. E pagou para vender."
+function n2(lt){
+  const e=1, vib=lt<.35?Math.sin(lt*120)*7*(1-lt/.35):0;
+  return `<div style="position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 40%,rgba(255,95,60,.25),rgba(0,0,0,0) 70%),#0b2219"></div>`+tag('PREGÃO · COMPRAS.GOV.BR')+
+  `<div class="L D" style="top:270px;font-size:128px">Você ganhou<br>o pregão.</div>`+
+  `<div class="L D" style="top:540px;font-size:128px;color:#ff5f3c">E pagou<br>para vender.</div>`+
+  `<div style="position:absolute;left:56px;right:56px;top:900px;transform:translateX(${vib}px) translateY(${(1-e)*-120}px) scale(${.92+.08*e});opacity:1;background:#b9ee4f;color:#0b2219;border-radius:42px;padding:30px 34px;display:flex;gap:24px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)"><span style="width:90px;height:90px;border-radius:24px;flex:none;display:flex;align-items:center;justify-content:center;font-size:44px;background:#0b2219;color:#b9ee4f;font-weight:900">✓</span><div style="flex:1"><div style="font-size:30px;font-weight:800">Compras.gov.br</div><div style="font-size:40px;margin-top:4px;font-weight:900">Item 1: você venceu · R$ 1.050,00</div></div></div>`+
+  `<div class="L" style="top:1180px;font-size:44px;font-weight:800;color:#f1ede4;opacity:${ease((lt-1.6)/.3)}">Lucrou ou perdeu? <span style="color:#ffe94d">Quanto?</span></div>`+
+  note('Valores de exemplo.',1500);
+}
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
@@ -373,7 +384,7 @@ const CFG={
  r9vb:{SC:SC9v,F:F9v(true).map(f=>(lt)=>{const h=f(lt);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)}),T:31.4},
  r9:{SC:SC9,F:[k1,k2,k3,k4,k5,lt=>k6(lt,false)],T:29.6},
  r9b:{SC:SC9,F:[k1,k2,k3,k4,k5,k6].map(B),T:29.6},
- p1:{SC:[[0,3.3]],F:[p1],T:3.3},q1:{SC:[[0,3.0],[3.0,4.2]],F:[lt=>q1(lt,0),lt=>q1(1.9,1)],T:4.2},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},p5:{SC:[[0,3.3]],F:[p5],T:3.3},
+ p1:{SC:[[0,3.3]],F:[p1],T:3.3},n2:{SC:[[0,4]],F:[n2],T:4},q1:{SC:[[0,3.0],[3.0,4.2]],F:[lt=>q1(lt,0),lt=>q1(1.9,1)],T:4.2},p2:{SC:[[0,3.3]],F:[p2],T:3.3},p3:{SC:[[0,3.3]],F:[p3],T:3.3},p4:{SC:[[0,3.3]],F:[p4],T:3.3},p5:{SC:[[0,3.3]],F:[p5],T:3.3},
 }[MODE];
 window.DUR=CFG.T;
 window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],CFG.F[i](t-s[0]),i==0||(MODE.startsWith('r8')&&i==2)||((MODE.startsWith('r9v')||MODE.startsWith('r9w'))&&(i==1||i==3||i==5)))});root.innerHTML=h;};
