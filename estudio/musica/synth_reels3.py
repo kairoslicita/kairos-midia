@@ -55,3 +55,6 @@ build('musica/trilhas/reel_r9v.wav',31.4,[3.0,3.6,8.2,8.8,13.2,13.8,18.4,26.2],1
 # R9 v3 (leitura): 30,3 s
 build('musica/trilhas/reel_r9w.wav',30.3,[3.4,4.1,9.1,9.8,14.2,14.9,19.7,24.7],19.7,116,
       ticks=[.5,.9,1.3,4.1+.8,4.1+1.5],stamps=[3.7,9.4,14.5,4.1+2.5,9.8+1.7],coins=[19.7+1.5+i*.8 for i in range(3)]+[25.1],alerts=[14.9+.5+i*.9 for i in range(4)])
+# R2 v2 (25 s): contagem 3-2-1 e carimbo −R$ 55 em 5.8; virada no mínimo (13.0)
+build('musica/trilhas/reel_r2n.wav',25.0,[4.0,7.5,13.0,17.0,21.0],13.0,116,
+      ticks=[4.0,4.6,5.2,7.8,8.8,9.8],stamps=[5.8,10.8],coins=[14.0,19.3,21.6],alerts=[.2])

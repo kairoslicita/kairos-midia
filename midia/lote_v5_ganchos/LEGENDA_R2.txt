@@ -1,0 +1,15 @@
+0-4 s gancho + notificação "Item 1: você venceu · R$ 1.050,00" + "Lucrou ou perdeu? Quanto?" · 4-7,5 s contagem 3-2-1 → carimbo −R$ 55 · 7,5-13 s a conta, uma linha por vez · 13-17 s "Com 10% de margem, seu mínimo era R$ 1.250" · 17-21 s stop loss: "O robô para aqui." · 21-25 s CTA + loop. Capa: quadro 0.
+
+Postar os vídeos na ordem do número. Sem música do app, sem localização.
+
+--- LEGENDA ---
+Você ganhou o pregão. E pagou para vender.
+
+Venceu por R$ 1.050, com R$ 1.000 de custo e frete e 10% de imposto: sobraram −R$ 55. Com 10% de margem, o mínimo era R$ 1.250.
+
+Antes da disputa, faça a conta: custo ÷ (1 − impostos − margem). Esse é o seu preço mínimo, e é ele que vira o stop loss do robô.
+
+Você sabe o seu? Comenta PREGÃO que eu te mando a calculadora pronta no Direct.
+
+Valores de exemplo. Confirme a alíquota do seu regime com o contador.
+#licitacoes #pregaoeletronico #comprasgovbr #precominimo #licitacao #mei
