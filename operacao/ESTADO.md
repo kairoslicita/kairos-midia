@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 01/11/2026 13h (Claude, lote V5). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 01/11/2026 13h05 (Claude). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 13 (24/10; −1 na semana 19-25). Meta: 75 até 12/11 (ampliada: 100).
@@ -37,8 +37,11 @@ Atualizado: 01/11/2026 13h (Claude, lote V5). Leia isto antes de qualquer execu�
 - Stories e ManyChat por post ficam com o dono. CTA padrão: Comenta PREGÃO → Kit.
 - Postar às 10h em dia útil. Sem localização, rosto ou voz.
 
+## Aprovados aguardando data (01/11 13h02) · `midia/aprovados_aguardando_data/`
+C2 7 erros (v5) · C3 preço mínimo (v5) · C4 modos de disputa (v5) · Reel R2 preço mínimo (v5) · Reel R9 3 erros (v3 + Boost) · Reel R10 avião (v4). Agendamento só depois das ponderações do dono sobre o R8.
+
 ## Pendências e bloqueios
-- Aprovações pendentes: A4 (B-02), A5 (reserva), A6 (perfil), A7 (respostas), A8 (lote V3), A9 (semana 03-06/11: R7 em 04/11, POV em 05/11).
+- Aprovações pendentes: A4 (B-02), A5 (reserva), A6 (perfil), A7 (respostas), A8 (R8; R7 agendado, R9 aprovado), A9 (semana 03-06/11: R7 em 04/11, POV em 05/11).
 - B-02 trocado para o R7 (versão r7b publicada em 04/11), R$ 11/dia × 3 dias úteis ≈ R$ 37,01 · aguardando aprovação.
 - Teto de novembro: B-02 (≈ R$ 37,01) + B-RES (≤ R$ 69,87) = R$ 106,88 de R$ 150.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).

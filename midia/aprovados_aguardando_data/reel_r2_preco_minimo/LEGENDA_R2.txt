@@ -1,3 +1,5 @@
+STATUS: APROVADO em 01/11 13h02 (aguardando data).
+
 0-4 s gancho + notificação "Item 1: você venceu · R$ 1.050,00" + "Lucrou ou perdeu? Quanto?" · 4-7,5 s contagem 3-2-1 → carimbo −R$ 55 · 7,5-13 s a conta, uma linha por vez · 13-17 s "Com 10% de margem, seu mínimo era R$ 1.250" · 17-21 s stop loss: "O robô para aqui." · 21-25 s CTA + loop. Capa: quadro 0.
 
 Postar os vídeos na ordem do número. Sem música do app, sem localização.
