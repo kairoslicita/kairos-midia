@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 02/11/2026 (Claude, relatório semanal 26/10-01/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 05/11/2026 09h (Claude, pauta de quinta: semana 09-13/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 71 (31/10; 15 em 25/10, 13 em 24/10). Meta: 75 até 12/11 (ampliada: 100).
@@ -8,7 +8,7 @@ Atualizado: 02/11/2026 (Claude, relatório semanal 26/10-01/11). Leia isto antes
 - Retenção: R6 (16 s) VR 50%, 9,0 s (~56%) · R2D Desligou (21,5 s, 28/10 19h29) VR 41%, 6,5 s (~30%), alcance 127 · R1 (21,5 s) VR 25%, ~30%.
 - Metricool devolve horário em UTC: subtrair 3 h.
 - Gasto de Boost: outubro R$ 49,40 (B-01, fechado). Novembro comprometido: B-02 37,01 + B-03 37,01 + B-04 49,35 = R$ 123,37; reserva ajustada para ≤ R$ 26,63 (R$ 27 estourava o teto).
-- Cota do Metricool novembro: 11/20 agendados (conferido 02/11: 03, 04, 05, 06/11 pendentes no Metricool). Dono (30/10): novembro só com os 20 do Metricool, nada manual.
+- Cota do Metricool novembro: 11/20 (conferido 05/11 08h59: 03 e 04/11 publicados; 05, 06, 09, 10, 11, 12, 13, 16, 23/11 pendentes). Livres: 9. Dono (30/10): novembro só com os 20 do Metricool, nada manual.
 
 ## Semana 02-08/11
 | Quando | Quem | O quê | Status |
@@ -19,8 +19,13 @@ Atualizado: 02/11/2026 (Claude, relatório semanal 26/10-01/11). Leia isto antes
 | qua 04 ~18h | dono | Print do B-02 (gasto, frequência, visitas) → regra de parada | pedido 02/11 |
 | qui 05 10h | Metricool | R9 v3 3 erros | agendado |
 | sex 06 10h | Metricool + dono | C6 5 perguntas (fixar) + print final do B-02 | agendado |
-| qui 05 | Claude | Pauta de quinta: 9 posts livres (17-20 e 24-30/11) | planejado |
+| qui 05 | Claude | Pauta de quinta: LEIA-ME 09-13/11 + R7b com data 12/11 | aguardando aprovação |
 | até 08/11 | dono | Print do painel profissional: visitas ao perfil e % não seguidores (26/10-01/11) | pedido 02/11 |
+
+## Semana 09-13/11 (LEIA-ME `midia/LEIA-ME_semana_09a13-11.txt`)
+seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Safari ~11h) · sex 13 R2. Todos agendados 10h.
+05/11: R7b re-renderizado com "quinta-feira, 12 de novembro" na tela de bloqueio (agendado mostra 4/11): `midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4` + `capa_r7_1211.png`. Trocar mídia do post 413202171 só após "aprovado".
+Próxima pauta (12/11): 3 livres de 17-19/11 (propostas C9 mitos, R12 é permitido?, C10 variação mínima).
 
 ## Decisões vigentes
 - Padrão visual aprovado = piso (`references/02`). Boost só pelo Safari (taxa Apple). Impostos de ~12,15% inclusos no teto.

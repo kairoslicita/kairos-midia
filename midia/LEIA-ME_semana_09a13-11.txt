@@ -1,0 +1,58 @@
+KAIROS · MATERIAIS DA SEMANA 09 A 13/11/2026 (pauta de quinta, 05/11)
+Status: os 5 posts já estão AGENDADOS no Metricool (aprovados pelo dono em 01/11, conferido 05/11 08h59).
+Novo nesta pauta: R7b re-renderizado com a data da tela de bloqueio "quinta-feira, 12 de novembro" (a versão agendada mostra "quarta-feira, 4 de novembro"). Troca da mídia no Metricool AGUARDANDO APROVAÇÃO.
+
+RESUMO
+| Dia | Hora | Peça | Arquivo no repo | Metricool |
+|---|---|---|---|---|
+| seg 09/11 | 10h | Carrossel C2 "7 erros que tiram você do pregão" (9 slides, cadeados) | midia/aprovados_aguardando_data/carrossel_c2_7_erros (c2_01 a c2_09) | agendado · id 413203771 |
+| ter 10/11 | 10h | Reel R3 "POV: você esqueceu do pregão." (18,5 s) | midia/lote_v2_reels/reel_pov_pregao.mp4 | agendado · id 413202225 · capa em 1,2 s |
+| qua 11/11 | 10h | Carrossel C3 "Lucrou ou pagou para vender?" (8 slides) | midia/aprovados_aguardando_data/carrossel_c3_preco_minimo (c3_01 a c3_08) | agendado · id 413203874 |
+| qui 12/11 | 10h | Reel R7b "Sua primeira dispensa ou pregão" (33 s, versão Boost 4:5) | midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4 (NOVA, data 12/11) | agendado · id 413202171 · trocar mídia após "aprovado" |
+| sex 13/11 | 10h | Reel R2 "Você ganhou o pregão. E pagou para vender." (25 s) | midia/aprovados_aguardando_data/reel_r2_preco_minimo/reel_r2_ganhou_e_pagou_para_vender.mp4 | agendado · id 413203917 |
+Cota do Metricool em novembro: 11/20 (2 publicados + 9 agendados). Livres: 9.
+Ordem da semana: do menos para o mais provável de viralizar (regra do dono). Legendas: as que estão no Metricool (cópias nos LEGENDA.txt de cada pasta).
+
+======================================================
+TODOS OS DIAS ÀS 10h05 (dono, ~5 min)
+======================================================
+1. Confirmar que o post saiu no perfil (Metricool às vezes atrasa alguns minutos).
+2. ManyChat: Automação > Send A Link From Comments > a specific post or reel > post do dia.
+   Palavras-chave: PREGÃO, PREGAO, pregão, pregao.
+   Mensagem: "Aqui está o seu Kit do Pregão: checklist antes da disputa + calculadora do preço mínimo. Bom lance! 👇"
+   Botão: "Baixar o Kit" -> https://github.com/kairoslicita/kairos-midia/blob/main/kit/Kit-do-Pregao.pdf
+3. Story de repost (abaixo).
+4. Responder os comentários da primeira hora (curto, sem preço em público; dúvida comercial vai para o Direct).
+
+======================================================
+STORY POR DIA (repost + figurinha)
+======================================================
+SEG 09 · C2 7 erros -> repost + enquete "Qual erro já te tirou de um pregão?" (Documento vencido / Proposta fora do edital / Perdi no lance).
+TER 10 · R3 POV -> repost + "Marca quem já esqueceu de um pregão 👇" + figurinha de menção vazia.
+QUA 11 · C3 preço mínimo -> repost + teste "Venceu por R$ 1.050 com custo de R$ 1.000. Lucrou?" (Sim / Não). Resposta certa: Não (-R$ 55, slide 5).
+QUI 12 · R7b primeira dispensa -> repost + "Primeira licitação? Salva esse." + caixa "Qual sua dúvida da primeira disputa?".
+SEX 13 · R2 ganhou e pagou -> repost + "Você sabe o seu preço mínimo?" (Sei / Nunca calculei) + link do Kit.
+
+======================================================
+BOOST B-03 (já aprovado em 01/11 · só o dono ativa, só pelo Safari)
+======================================================
+Post: R7b de qui 12/11 · objetivo Visitas ao perfil · mesmo público do B-01 · R$ 11/dia × 3 dias a partir de 12/11 ~11h · ≈ R$ 37,01 com impostos.
+Por que Safari: no app do iPhone a Apple cobra 30% a mais.
+Regra de parada: com ≥ R$ 15 gastos, parar se 0 visitas ou frequência > 2,5.
+Vitória: ≥ 1 seguidor a cada R$ 10 e visita ≤ R$ 0,60.
+Print do anúncio em 16/11 (gasto, alcance, visitas, seguidores, frequência) -> decide a reserva do R8 (≤ R$ 26,63).
+Novembro: B-02 R$ 37,01 + B-03 R$ 37,01 + B-04 R$ 49,35 = R$ 123,37 + reserva ≤ R$ 26,63 = teto R$ 150.
+
+======================================================
+O QUE MUDOU NO R7b (por que trocar a mídia)
+======================================================
+O gancho é um POV da tela de bloqueio. A versão agendada foi feita para 04/11 e mostra "quarta-feira, 4 de novembro, 10:42".
+Postada em 12/11 e impulsionada, a data errada fica visível no quadro 0 e na capa.
+Nova versão: mesma peça, mesma trilha, mesma duração (33 s), só a data -> "quinta-feira, 12 de novembro".
+Após "aprovado", eu troco a mídia do post 413202171 (sem mexer na legenda, na hora nem na cota).
+
+======================================================
+PRÓXIMA PAUTA (qui 12/11)
+======================================================
+Semana 16-20/11: seg 16 R8 v2 (já agendado) + 3 posts livres (ter 17, qua 18, qui 19; 20/11 é feriado).
+Proposta de temas (do calendário): C9 "5 mitos sobre robô de lances" · R12 "Robô de lances é permitido?" (com fonte normativa) · C10 "Variação mínima entre lances" (precisa do dono confirmar o recurso).
