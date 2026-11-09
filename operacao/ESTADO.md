@@ -1,30 +1,22 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 05/11/2026 09h (Claude, pauta de quinta: semana 09-13/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 09/11/2026 (Claude, relatório semanal 02-08/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
-- Seguidores: 71 (31/10; 15 em 25/10, 13 em 24/10). Meta: 75 até 12/11 (ampliada: 100).
-- Semana 26/10-01/11 (relatório 02/11): +56 seguidores; alcance soma diária 1.294 (vs 37), views 1.785 (vs 163), contas engajadas 39 (vs 15), interações 5 (vs 19); 1 peça publicada (vs 3). 20 dos 56 seguidores atribuídos ao B-01; 36 sem atribuição.
-- B-01 (R6, 26-30/10, R$ 44 ≈ R$ 49,40 c/ impostos): 1.000 alcançados, 66 visitas (R$ 0,67/visita, acima da meta de R$ 0,60), 20 seguidores (R$ 2,20/seguidor, 5x melhor que a meta). Frequência: sem dado. Metricool não lê o Boost (IGRE14-20 vazios): leitura só por print.
-- Retenção: R6 (16 s) VR 50%, 9,0 s (~56%) · R2D Desligou (21,5 s, 28/10 19h29) VR 41%, 6,5 s (~30%), alcance 127 · R1 (21,5 s) VR 25%, ~30%.
+- Seguidores: 113 (07/11; 72 em 02/11, 71 em 31/10, 13 em 24/10). Metas 75 e 100 de 12/11 batidas em 07/11. Meta proposta: 150 até 30/11.
+- Semana 02-08/11 (relatório 09/11; 08/11 sem dado no Metricool): +41 seguidores (vs +56); alcance soma diária 1.965 (vs 1.296); views 2.962 (vs 1.788); contas engajadas 48 (vs 39); interações 26 (vs 7); 4 peças, todas agendadas e publicadas às 10h (vs 1). Ganhos 03-06/11: 6, 14, 10, 7 (janela do B-02, sem print).
+- Posts da semana: C5 alcance 32 · C4 33 (88 views) · R9 21 (VR 53%, 14,3 s ≈ 48% de 29,6 s) · C6 16. 0 comentários nos 4.
+- Retenção: R6 (16 s) ~56-58% · R9 (29,6 s, lista numerada) ~48% · R2D/R1 (21,5 s) ~30-35%.
+- B-01: 20 seguidores com R$ 44 (≈ R$ 2,20/seguidor). B-02: sem print; Metricool sugere que rodou 03-06/11 (talvez 1 dia a mais). Metricool não lê Boost (IGRE14-20 e IGPO17-26 vazios).
 - Metricool devolve horário em UTC: subtrair 3 h.
-- Gasto de Boost: outubro R$ 49,40 (B-01, fechado). Novembro comprometido: B-02 37,01 + B-03 37,01 + B-04 49,35 = R$ 123,37; reserva ajustada para ≤ R$ 26,63 (R$ 27 estourava o teto).
-- Cota do Metricool novembro: 11/20 (conferido 05/11 08h59: 03 e 04/11 publicados; 05, 06, 09, 10, 11, 12, 13, 16, 23/11 pendentes). Livres: 9. Dono (30/10): novembro só com os 20 do Metricool, nada manual.
+- Gasto de Boost: outubro R$ 49,40 (fechado). Novembro: B-02 previsto R$ 37,01 (não confirmado; se rodou 4 dias ≈ 49,35) + B-03 37,01 + B-04 49,35 = R$ 123,37 comprometidos; reserva ≤ R$ 26,63 (≤ 14,29 se o B-02 rodou 4 dias).
+- Cota do Metricool novembro: 11/20 (03-06/11 publicados; 09, 10, 11, 12, 13, 16, 23/11 pendentes, conferido 09/11). Livres: 9.
 
-## Semana 02-08/11
-| Quando | Quem | O quê | Status |
-|---|---|---|---|
-| ter 03 10h | Metricool | C5 3 pregões | agendado |
-| ter 03 ~11h | dono | Ativar B-02 (re-boost R6) no Safari, R$ 11/dia até 05/11 + print da ativação | aprovado 01/11 |
-| qua 04 10h | Metricool | C4 modos de disputa (v5) | agendado |
-| qua 04 ~18h | dono | Print do B-02 (gasto, frequência, visitas) → regra de parada | pedido 02/11 |
-| qui 05 10h | Metricool | R9 v3 3 erros | agendado |
-| sex 06 10h | Metricool + dono | C6 5 perguntas (fixar) + print final do B-02 | agendado |
-| qui 05 | Claude | Pauta de quinta: LEIA-ME 09-13/11 + R7b com data 12/11 | aguardando aprovação |
-| até 08/11 | dono | Print do painel profissional: visitas ao perfil e % não seguidores (26/10-01/11) | pedido 02/11 |
+## Semana 02-08/11 (fechada)
+C5, C4 v5, R9 v3 e C6 publicados pelo Metricool às 10h. Pendentes do dono: print final do B-02 e print do painel profissional (visitas ao perfil, % não seguidores) de 26/10-01/11 e 02-08/11.
 
 ## Semana 09-13/11 (LEIA-ME `midia/LEIA-ME_semana_09a13-11.txt`)
 seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Safari ~11h) · sex 13 R2. Todos agendados 10h.
-05/11: R7b re-renderizado com "quinta-feira, 12 de novembro" na tela de bloqueio (agendado mostra 4/11): `midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4` + `capa_r7_1211.png`. Trocar mídia do post 413202171 só após "aprovado".
+05/11: R7b re-renderizado com "quinta-feira, 12 de novembro" na tela de bloqueio (agendado mostra 4/11): `midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4` + `capa_r7_1211.png`. Trocar mídia do post 413202171 só após "aprovado" (A10, pedida de novo 09/11; prazo qua 11/11). Sem A10, B-03 não deve rodar.
 Próxima pauta (12/11): 3 livres de 17-19/11 (propostas C9 mitos, R12 é permitido?, C10 variação mínima).
 
 ## Decisões vigentes
@@ -36,7 +28,8 @@ Próxima pauta (12/11): 3 livres de 17-19/11 (propostas C9 mitos, R12 é permiti
 C2 7 erros (v5) · C3 preço mínimo (v5) · C4 modos de disputa (v5) · Reel R2 preço mínimo (v5) · Reel R9 3 erros (v3 + Boost) · Reel R10 avião (v4) · Reel R8 (v2, aprovado 13h26). Próximo passo: propor datas e agendar.
 
 ## Pendências e bloqueios
-- Aprovações pendentes: A5 (reserva), A6 (perfil), A7 (respostas). A4/A9 superadas pelo calendário aprovado em 01/11.
+- Aprovações pendentes: A10 (mídia R7b, prazo 11/11), A5 (reserva), A6 (perfil), A7 (respostas).
+- Dono, até ter 10/11: print final do B-02 (gasto total, dias, frequência, visitas, seguidores). A4/A9 superadas pelo calendário aprovado em 01/11.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.
 
