@@ -9,7 +9,7 @@ Atualizado: 12/11/2026 09h (Claude, pauta da semana 16-20/11). Leia isto antes d
 - B-01: 20 seguidores com R$ 44 (≈ R$ 2,20/seguidor). B-02: sem print; Metricool sugere que rodou 03-06/11 (talvez 1 dia a mais). Metricool não lê Boost (IGRE14-20 e IGPO17-26 vazios).
 - Metricool devolve horário em UTC: subtrair 3 h.
 - Gasto de Boost: outubro R$ 49,40 (fechado). Novembro: B-02 previsto R$ 37,01 (não confirmado; se rodou 4 dias ≈ 49,35) + B-03 37,01 + B-04 49,35 = R$ 123,37 comprometidos; reserva ≤ R$ 26,63 (≤ 14,29 se o B-02 rodou 4 dias).
-- Cota do Metricool novembro: 13/20 em 12/11 (era 11/20 (conferido 12/11 09h: 03, 04, 05, 06, 09, 10, 11/11 publicados; 12, 13, 16, 23/11 pendentes). Livres: 9. Com A11: 14/20, livres 6 (24-30/11).
+- Cota do Metricool novembro: 13/20 (12/11: 8 publicados até 12/11; pendentes 13, 16, 17, 19 e 23/11). Livres: 7 (24-30/11).
 
 ## Semana 02-08/11 (fechada)
 C5, C4 v5, R9 v3 e C6 publicados pelo Metricool às 10h. Pendentes do dono: print final do B-02 e print do painel profissional (visitas ao perfil, % não seguidores) de 26/10-01/11 e 02-08/11.
