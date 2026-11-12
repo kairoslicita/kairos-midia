@@ -1,0 +1,12 @@
+KAIROS · SEMANA 16 A 20/11/2026 (aprovada pelo dono em 12/11; tudo AGENDADO no Metricool, 10h, autoPublish)
+
+| Dia | Peça | Arquivo | Metricool |
+|---|---|---|---|
+| seg 16/11 | Reel R8 v2 "Perder por R$ 0,01 dói" | midia/aprovados_aguardando_data/reel_r8_perdi_por_1_centavo | id 413203967 |
+| ter 17/11 | Reel V6-A "17:59:57. A dispensa fecha às 18:00:00." (17,8 s) | midia/2026-11-17_reel_dispensa_175957 | id 425698133 · capa quadro 0 |
+| qui 19/11 | Reel V6-B "Você liderou por 5h59. E perdeu no último minuto." (19,2 s) | midia/2026-11-19_reel_dispensa_liderou_5h59 | id 425698250 · capa quadro 0 |
+Qua 18 sem post. Sex 20 feriado. Cota de novembro: 13/20. Legendas: LEGENDA.txt de cada pasta (iguais às do Metricool).
+
+LEMBRETES 10h05 (criados): seg 16, ter 17, qui 19. Em cada um: conferir o post, criar o ManyChat (PREGÃO, PREGAO, pregão, pregao; botão "Baixar o Kit" -> https://github.com/kairoslicita/kairos-midia/blob/main/kit/Kit-do-Pregao.pdf), repostar no Story e responder comentários.
+STORIES: seg 16 enquete "Já perdeu item por centavos?" · ter 17 enquete "Já perdeu dispensa nos últimos segundos?" · qui 19 "Manda pra quem disputa dispensa" + caixa "Qual foi a sua pior dispensa?".
+BOOST: nada novo. Reserva (≤ R$ 26,63) decide-se seg 16 com o print do B-03; candidato novo: V6-A.

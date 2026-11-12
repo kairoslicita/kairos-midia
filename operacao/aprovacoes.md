@@ -15,6 +15,7 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 | 26/10/2026 11h27 | B-01 revisado: R$ 44 de mídia (R$ 11/dia × 4 dias), ≈ R$ 49,40 com impostos | dono (tocou em Boost reel) | Acima dos R$ 39,93 do A3; dono propôs e confirmou ao ativar |
 | 01/11/2026 13h02 | Lote V5 (C2, C3, C4, R2 com ganchos novos) + R9 v3 (+ Boost) + R10 v4 (avião) | dono | Aguardam data; agendar depois do ajuste do R8 |
 | 01/11/2026 13h26 | R8 v2 ("manual" + ritmo de leitura, + Boost) | dono ("Perfeito!") | Aguarda data |
+| 12/11/2026 10h36 | Semana 16-20/11: Reels V6-A "17:59:57" (17/11) e V6-B "Liderou por 5h59" (19/11); roteiros, ganchos A1/B3 e fatos (dispensa, robô até o último segundo) | dono ("Aprovo") | Agendados no Metricool (ids 425698133 e 425698250); C9, R12, C10, D1, D2 reprovados |
 
 ## Aguardando aprovação (pedido de 22/10/2026)
 | # | Item | O que muda | Custo |
@@ -25,7 +26,6 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 | A7 | Política de respostas de comentários e Direct (`06`) | Atendimento | 0 |
 | A9 | Semana 03-06/11 (v2, 30/10): V3-R7 em 04/11 10h via Metricool; POV movido de 04 para 05/11; C5 e C6 mantidos; lembretes 10h05 de 04 e 05/11 | Publicação | 0 (cota 4/20) |
 | A10 | Trocar a mídia do R7b agendado para 12/11 (id 413202171) pela versão com data "quinta-feira, 12 de novembro" (pedido 05/11) | Correção de data no gancho | 0 (não usa cota) |
-| A11 | Semana 16-20/11 v2 (12/11; C9, R12 e C10 reprovados): Reel "Você decide o lance #1" (17/11) e #2 (19/11), 10h via Metricool + lembretes 10h05 | Publicação | 0 (cota 13/20) |
 | A8 | Lote V3: Reels R7, R8, R9 + variantes Boost (`operacao/lote_v3/LOTE_V3_REELS.md`) | Publicação | 0 (cota Metricool) |
 
 ## Campanhas

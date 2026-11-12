@@ -9,7 +9,7 @@ Atualizado: 12/11/2026 09h (Claude, pauta da semana 16-20/11). Leia isto antes d
 - B-01: 20 seguidores com R$ 44 (≈ R$ 2,20/seguidor). B-02: sem print; Metricool sugere que rodou 03-06/11 (talvez 1 dia a mais). Metricool não lê Boost (IGRE14-20 e IGPO17-26 vazios).
 - Metricool devolve horário em UTC: subtrair 3 h.
 - Gasto de Boost: outubro R$ 49,40 (fechado). Novembro: B-02 previsto R$ 37,01 (não confirmado; se rodou 4 dias ≈ 49,35) + B-03 37,01 + B-04 49,35 = R$ 123,37 comprometidos; reserva ≤ R$ 26,63 (≤ 14,29 se o B-02 rodou 4 dias).
-- Cota do Metricool novembro: 11/20 (conferido 12/11 09h: 03, 04, 05, 06, 09, 10, 11/11 publicados; 12, 13, 16, 23/11 pendentes). Livres: 9. Com A11: 14/20, livres 6 (24-30/11).
+- Cota do Metricool novembro: 13/20 em 12/11 (era 11/20 (conferido 12/11 09h: 03, 04, 05, 06, 09, 10, 11/11 publicados; 12, 13, 16, 23/11 pendentes). Livres: 9. Com A11: 14/20, livres 6 (24-30/11).
 
 ## Semana 02-08/11 (fechada)
 C5, C4 v5, R9 v3 e C6 publicados pelo Metricool às 10h. Pendentes do dono: print final do B-02 e print do painel profissional (visitas ao perfil, % não seguidores) de 26/10-01/11 e 02-08/11.
@@ -19,12 +19,10 @@ seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Saf
 05/11: R7b re-renderizado com "quinta-feira, 12 de novembro" na tela de bloqueio (agendado mostra 4/11): `midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4` + `capa_r7_1211.png`. Trocar mídia do post 413202171 só após "aprovado" (A10, pedida de novo 09/11; prazo qua 11/11). Sem A10, B-03 não deve rodar.
 12/11 09h: R7b ainda com a mídia antiga (data 4/11) no post 413202171; A10 não aprovada até a pauta.
 
-## Semana 16-20/11 · em replanejamento (12/11)
-Dono reprovou C9, R12, C10 e também a série "Você decide o lance" (D1, D2): quer Reels melhores, com pesquisa e roteiro aprovado ANTES de renderizar. Só o R8 v2 (seg 16) está agendado.
-Direção do dono: o Kairos rende mais quando "o tempo termina e ele ganha". Pesquisa aponta dispensa eletrônica (IN 67/2021: 6 a 10 h, encerra no horário, sem prorrogação). Briefing com 3 conceitos em `operacao/lote_v6/BRIEFING_DISPENSA_TEMPO_ACABA.md`, aguardando escolha e confirmação dos fatos do produto.
-12/11: dono aprovou roteiros A e B e os fatos (dispensa; robô até o último segundo). Ganchos A1 e B3 aprovados. Renderizados: `midia/2026-11-17_reel_dispensa_175957` (17,8 s) e `midia/2026-11-19_reel_dispensa_liderou_5h59` (19,2 s), com LEGENDA.txt. Aguardam aprovação final para agendar (ter 17 e qui 19, 10h; cota iria a 13/20). Experimento de abertura com IA (Flow) feito em 12/11 e descartado: cena ruim (tela verde chroma, relógio incoerente). V6-A segue só na versão de estúdio.
-Recurso novo: Google Flow, 3 contas, 150 créditos/dia sem uso (dono gera; Claude manda o prompt); regras em `references/04`.
-Regra nova: peça nova só é renderizada depois de roteiro aprovado.
+## Semana 16-20/11 · aprovada e agendada (12/11) · LEIA-ME `midia/LEIA-ME_semana_16a20-11.txt`
+seg 16 R8 v2 (id 413203967) · ter 17 V6-A "17:59:57" (id 425698133) · qui 19 V6-B "Liderou por 5h59" (id 425698250) · qua 18 sem post · sex 20 feriado. Lembretes 10h05 criados para 16, 17 e 19. Reprovados e fora de uso: C9, R12, C10, D1, D2.
+Regras do dono (12/11): pesquisar contexto e benchmark; mandar roteiro e quadro 0 como imagem ANTES de renderizar; direção que funciona = dispensa eletrônica, "o tempo acaba e o robô cobre".
+Estoque: dono quer peças prontas além da semana, com abertura no Google Flow (3 contas, 150 créditos/dia; 1º teste descartado, ver `17`). Próximo passo: roteiros + prompts detalhados para aprovação.
 Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
 
 ## Decisões vigentes
@@ -36,7 +34,7 @@ Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 
 C2 7 erros (v5) · C3 preço mínimo (v5) · C4 modos de disputa (v5) · Reel R2 preço mínimo (v5) · Reel R9 3 erros (v3 + Boost) · Reel R10 avião (v4) · Reel R8 (v2, aprovado 13h26). Próximo passo: propor datas e agendar.
 
 ## Pendências e bloqueios
-- Aprovações pendentes: A11 v2 (semana 16-20/11, série Você decide o lance), A10 (mídia R7b, venceu 11/11), A5 (reserva), A6 (perfil), A7 (respostas).
+- Aprovações pendentes: A5 (reserva), A6 (perfil), A7 (respostas).
 - Dono, até ter 10/11: print final do B-02 (gasto total, dias, frequência, visitas, seguidores). A4/A9 superadas pelo calendário aprovado em 01/11.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.
