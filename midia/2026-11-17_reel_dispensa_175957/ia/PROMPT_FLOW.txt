@@ -1,0 +1,8 @@
+Experimento de abertura com IA (Google Flow), só os 3 primeiros segundos do Reel A. Gerar em 9:16, 4 a 6 s, 2 ou 3 variações.
+
+PROMPT (inglês, costuma render melhor):
+Vertical 9:16 cinematic close-up, shallow depth of field. A hand holding a smartphone over a dark wooden office desk at dusk, the phone screen glowing soft green but out of focus and unreadable. In the blurred background, a round analog wall clock whose red second hand sweeps the last three seconds toward 12, about to mark 6 o'clock. Moody low-key lighting, deep forest-green shadows with a warm coral-orange rim light from a window. Slow push-in camera move, tense atmosphere. No faces, no people other than the hand, no text, no logos, no captions, no on-screen UI.
+
+Negativo (se o Flow tiver o campo): text, letters, numbers on screen, logo, watermark, face.
+
+Depois: enviar o melhor arquivo no chat. O texto do gancho e o relógio 17:59:57 entram por cima, no estúdio.

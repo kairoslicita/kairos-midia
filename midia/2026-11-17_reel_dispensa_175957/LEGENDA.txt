@@ -1,0 +1,10 @@
+17:59:57. A dispensa fecha às 18:00:00 e você está em 2º.
+
+Na dispensa eletrônica não existe prorrogação: quando o relógio zera, vale o melhor lance registrado. No manual, não dá tempo de cobrir.
+
+O robô do Kairos cobre em milissegundos, só acima do seu stop loss. Você liga o monitoramento pelo celular e ele roda no servidor.
+
+Comenta PREGÃO e receba o Kit do Pregão no Direct.
+
+Simulação com valores de exemplo. O resultado depende do seu limite: o robô não garante vitória. Confira sempre o aviso da dispensa.
+#dispensaeletronica #licitacoes #comprasgovbr #robodelances #licitacao #fornecedor

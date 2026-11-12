@@ -507,9 +507,66 @@ function vB1(lt){return bg('rgba(255,95,60,.22)')+vtag()+`<div class="L D" style
 function vB2(lt){return bg('rgba(255,95,60,.22)')+vtag()+`<div class="L D" style="top:270px;font-size:124px">Dispensa não<br>se ganha às 12h.<br><span style="color:#ff5f3c">Se decide às<br>17:59:59.</span></div>`+tline(900,'17:59:59')+note('Ilustração. Na dispensa eletrônica não há prorrogação.',1440);}
 function vB3(lt){return bg('rgba(255,95,60,.26)')+vtag()+`<div class="L D" style="top:270px;font-size:120px">Você liderou<br>por 5h59.<br><span style="color:#ff5f3c">E perdeu no<br>último minuto.</span></div>`+
   board(880,[`<div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">ITEM 1 · ENCERRADO 18:00:00</span></div>`,drow('1º · Concorrente','R$ 1.279,90',null,null,46),drow('<b>2º · Você</b>','R$ 1.280,00','#ff8a6d','rgba(255,95,60,.16)',46)],'lance do concorrente: <span style="color:#ff5f3c">17:59:52</span>')+note('Simulação com valores de exemplo.',1420);}
+/* ================= LOTE V6 · Reels finais (ganchos A1 e B3 aprovados 12/11) ================= */
+const lrow=(lt,d,tm,tx,col,hl)=>`<div style="display:flex;gap:22px;align-items:center;margin-top:18px;font-size:34px;color:${col};${hl?'background:rgba(185,238,79,.12);border-radius:18px;padding:14px 18px;margin-left:-18px;margin-right:-18px;':''}${fin(lt,d)}"><span class="mono">${tm}</span><span>${tx}</span></div>`;
+/* ---- A · 17:59:57 (17,6 s) ---- */
+function xA2(lt){
+  const typ='1.279,80'; const n=Math.min(5,Math.max(0,Math.floor((lt-.9)/.42)));
+  return bg('rgba(255,95,60,.28)')+vtag()+clock('17:59:58','#ff5f3c',250,210)+head(lt,'No manual,<br><span style="color:#ff5f3c">não dá tempo.</span>',124,520,false)+
+  board(860,[`<div class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">SEU LANCE · DIGITANDO</div>`,
+   `<div class="mono" style="font-size:104px;letter-spacing:-.05em;margin-top:20px">R$ ${typ.slice(0,n)}<span style="opacity:${Math.floor(lt*4)%2}">|</span></div>`,
+   drow('1º · Concorrente','R$ 1.279,90','#ff8a6d',null,46)])+note('Simulação com valores de exemplo.',1420);
+}
+function xA3(lt){
+  const cov=lt>=1.7;
+  return bg('rgba(185,238,79,.16)')+vtag()+clock(cov?'17:59:59':'17:59:58',cov?'#b9ee4f':'#ff5f3c',250,210)+head(lt,'O robô cobre em<br><span style="color:#b9ee4f">milissegundos.</span>',104,520,false)+
+  board(800,[`<div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">LOG DE ATIVIDADES</span><span class="mono" style="font-size:26px;color:#b9ee4f">● robô ligado 17:57</span></div>`,
+   lrow(lt,.6,'17:59:58','Concorrente: R$ 1.279,90','#ff8a6d'),
+   lrow(lt,1.7,'17:59:58','<b>Robô cobriu: R$ 1.279,80</b>','#b9ee4f',true),
+   `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:26px;border:2px dashed #3c5a4e;border-radius:18px;padding:14px 20px;${fin(lt,2.6)}"><span class="mono" style="font-size:26px;color:#8fa699">STOP LOSS</span><span class="mono" style="font-size:34px">R$ 1.250,00</span></div>`])+
+  note('Só cobre acima do seu stop loss. Simulação.',1440,ease((lt-2.8)/.3));
+}
+function xA4(lt){
+  const st=back((lt-.5)/.3);
+  return bg('rgba(185,238,79,.2)')+vtag()+clock('18:00:00','#b9ee4f',250,210)+head(lt,'Encerrado.<br><span style="color:#b9ee4f">Você em 1º.</span>',136,520,false)+
+  board(880,[`<div class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">ITEM 1 · ENCERRADO</div>`,drow('<b>1º · Você</b>','R$ 1.279,80','#b9ee4f','rgba(185,238,79,.12)',46),drow('2º · Concorrente','R$ 1.279,90',null,null,46)])+
+  note('Simulação. O resultado depende do seu limite: o robô não garante vitória.',1380,ease((lt-1)/.3));
+}
+function xA5(lt){
+  const p=1+.03*Math.sin(lt*6); const L=3.8, fo=clamp((lt-(L-.5))/.22), lp=clamp((lt-(L-.28))/.18);
+  const cta=bg('rgba(255,95,60,.24)')+vtag()+head(lt,'Na dispensa<br>não existe<br><span style="color:#ff5f3c">prorrogação.</span>',130,270,false)+`
+  <div style="position:absolute;left:80px;top:760px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.9)/.3))});transform-origin:left center;opacity:${clamp((lt-.9)/.1)}">Comenta PREGÃO</div>
+  <div class="L" style="top:975px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-1.4)/.3)}">e receba o Kit do Pregão no Direct.</div>
+  <div class="L" style="top:1090px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.8)/.3)}"><b>Siga o Kairos</b> · robô de lances no Compras.gov.br</div>`;
+  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${vA1(0)}</div>`:'');
+}
+const SCxa=[[0,3.2],[3.2,6.2],[6.2,10.8],[10.8,14.0],[14.0,17.8]];
+/* ---- B · Você liderou por 5h59 (19,2 s) ---- */
+function tlineA(lt,top,hot){let b='';for(let i=0;i<36;i++){const last=i>=34;const g=ease((lt-.3-i*.035)/.3);const h=(last?(i==35?260:120):8+((i*7)%5)*5)*g;b+=`<div style="flex:1;height:${Math.max(2,h)}px;border-radius:6px;background:${last?'#ff5f3c':'#24463a'}"></div>`}
+  return `<div class="card" style="top:${top}px"><div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">LANCES POR MINUTO</span><span class="mono" style="font-size:26px;color:#ff8a6d;opacity:${ease((lt-1.7)/.3)}">${hot}</span></div><div style="display:flex;align-items:flex-end;gap:6px;height:280px;margin-top:24px">${b}</div><div style="display:flex;justify-content:space-between;margin-top:14px" class="mono"><span style="font-size:28px;color:#8fa699">12:00</span><span style="font-size:28px;color:#8fa699">15:00</span><span style="font-size:28px;color:#ff8a6d">18:00</span></div></div>`}
+function xB2(lt){return bg('rgba(255,95,60,.2)')+vtag()+head(lt,'Na dispensa<br>não existe<br><span style="color:#ff5f3c">prorrogação.</span>',130,270,false)+tlineA(lt,790,'tudo no fim')+note('Ilustração. A fase de lances dura de 6 a 10 horas e encerra no horário.',1340,ease((lt-2.2)/.3));}
+function xB3(lt){const z=lt>=2.0;
+  return bg(z?'rgba(255,95,60,.26)':'rgba(255,95,60,.18)')+vtag()+head(lt,'Vale o melhor lance<br><span style="color:#ff5f3c">quando o<br>relógio zera.</span>',108,270,false)+
+  clock(z?'18:00:00':'17:59:5'+Math.min(9,7+Math.floor(lt/.7)),z?'#f1ede4':'#ff5f3c',760,210)+
+  `<div class="L" style="top:1040px;${fin(lt,2.0)}"><span class="stamp" style="position:static;display:inline-block;font-size:92px;transform:rotate(-4deg)">ENCERRADO</span></div>`;}
+function xB4(lt){
+  const inner=roboScreen(lt,{t0:.4,R:.9,comp:[1279.90,1271.50,1264.30],stop:1250,me0:1280.00,cp0:1285.00,tm:'17:59'});
+  return bg('rgba(185,238,79,.16)')+vtag()+head(lt,'O robô cobre até<br><span style="color:#b9ee4f">o último segundo.</span>',96,270,false)+phone(inner,540,1.08)+
+   note('Em milissegundos, só acima do seu stop loss. Simulação.',1520);
+}
+function xB5(lt){
+  const p=1+.03*Math.sin(lt*6);
+  return bg('rgba(255,95,60,.24)')+vtag()+head(lt,'Manda pra<br>quem disputa<br><span style="color:#ff5f3c">dispensa.</span>',128,270,false)+`
+  <div style="position:absolute;left:80px;top:760px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.8)/.3))});transform-origin:left center;opacity:${clamp((lt-.8)/.1)}">Comenta PREGÃO</div>
+  <div class="L" style="top:975px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-1.3)/.3)}">e receba o Kit do Pregão no Direct.</div>
+  <div class="L" style="top:1090px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.7)/.3)}"><b>Siga o Kairos</b> · robô de lances no Compras.gov.br</div>`;
+}
+const SCxb=[[0,3.6],[3.6,7.6],[7.6,11.4],[11.4,15.6],[15.6,19.2]];
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
+ xa:{SC:SCxa,F:[vA1,xA2,xA3,xA4,xA5],T:17.8},
+ xb:{SC:SCxb,F:[vB3,xB2,xB3,xB4,xB5],T:19.2},
  vA1:{SC:[[0,3.3]],F:[vA1],T:3.3},vA2:{SC:[[0,3.3]],F:[vA2],T:3.3},vA3:{SC:[[0,3.3]],F:[vA3],T:3.3},vB1:{SC:[[0,3.3]],F:[vB1],T:3.3},vB2:{SC:[[0,3.3]],F:[vB2],T:3.3},vB3:{SC:[[0,3.3]],F:[vB3],T:3.3},
  d1:{SC:SCd1,F:[d11,d12,d13,d14],T:19.0},
  d2:{SC:SCd2,F:[d21,d22,d23,d24,d25],T:20.6},
