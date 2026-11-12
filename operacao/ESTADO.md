@@ -23,7 +23,7 @@ seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Saf
 Dono reprovou C9, R12, C10 e também a série "Você decide o lance" (D1, D2): quer Reels melhores, com pesquisa e roteiro aprovado ANTES de renderizar. Só o R8 v2 (seg 16) está agendado.
 Direção do dono: o Kairos rende mais quando "o tempo termina e ele ganha". Pesquisa aponta dispensa eletrônica (IN 67/2021: 6 a 10 h, encerra no horário, sem prorrogação). Briefing com 3 conceitos em `operacao/lote_v6/BRIEFING_DISPENSA_TEMPO_ACABA.md`, aguardando escolha e confirmação dos fatos do produto.
 12/11: dono aprovou roteiros A e B e os fatos (dispensa; robô até o último segundo). Falta escolher o gancho: 6 quadros 0 em `midia/lote_v6_propostas/` (recomendação A1 e B3). Depois: render, legenda, "Aprova?" e só então agendar.
-Recurso novo: 3 contas de vídeo por IA com créditos diários sem uso (detalhes a confirmar); regras em `references/04`.
+Recurso novo: Google Flow, 3 contas, 150 créditos/dia sem uso (dono gera; Claude manda o prompt); regras em `references/04`.
 Regra nova: peça nova só é renderizada depois de roteiro aprovado.
 Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
 
