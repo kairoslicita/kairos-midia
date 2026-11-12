@@ -1,22 +1,18 @@
-KAIROS · MATERIAIS DA SEMANA 16 A 20/11/2026 (pauta de quinta, 12/11)
-Status: R8 de seg 16/11 já AGENDADO (aprovado 01/11). C9, R12 e C10: renderizados, AGUARDANDO APROVAÇÃO ("Aprova a semana?"). Nada novo foi agendado ainda.
-Sex 20/11 é feriado nacional (Consciência Negra): sem post.
+KAIROS · MATERIAIS DA SEMANA 16 A 20/11/2026 (v2, 12/11)
+Status: R8 de seg 16/11 já AGENDADO. Reels "Você decide o lance" #1 e #2: renderizados, AGUARDANDO APROVAÇÃO. Nada novo foi agendado.
+C9, R12 e C10 foram REPROVADOS pelo dono em 12/11: não usar (pastas mantidas só como histórico).
 
 RESUMO
 | Dia | Hora | Peça | Arquivo no repo | Metricool |
 |---|---|---|---|---|
 | seg 16/11 | 10h | Reel R8 v2 "Perder por R$ 0,01 dói" | midia/aprovados_aguardando_data/reel_r8_perdi_por_1_centavo | agendado · id 413203967 |
-| ter 17/11 | 10h | Carrossel C9 "5 mitos sobre robô de lances" (7 slides) | midia/2026-11-17_carrossel_c9_mitos (c9_01 a c9_07) | após "aprovado" (post 12/20) |
-| qua 18/11 | 10h | Reel R12 "Robô de lances é permitido?" (20,5 s) | midia/2026-11-18_reel_r12_permitido/reel_r12_robo_de_lances_e_permitido.mp4 | após "aprovado" (post 13/20) · capa = quadro 0 (capa_r12.png) |
-| qui 19/11 | 10h | Carrossel C10 "Cobrir por R$ 0,01? Nem sempre pode." (7 slides, intervalo mínimo) | midia/2026-11-19_carrossel_c10_intervalo_minimo (c10_01 a c10_07) | após "aprovado" (post 14/20) |
-Cota do Metricool em novembro (conferida 12/11 09h): 11 usados (publicados + agendados). Com esta semana: 14/20. Livres depois: 6 (24-30/11).
-Ordem: C9 (objeções, salvável) → R12 (dúvida legal, descoberta) → C10 (regra prática, salvável). Legendas: LEGENDA.txt em cada pasta.
-
-FONTES CONFERIDAS EM 12/11 (R12 e C10)
-- IN SEGES/ME 73/2022: art. 19 (valor final mínimo parametrizado; "lances serão de envio automático pelo sistema"); art. 21 §2º (intervalo mínimo vale para intermediários e para quem cobre a melhor oferta; lance só menor que o seu último); art. 22 §1º (o edital prevê o intervalo, em valor ou percentual); art. 5º, I, a (lance intermediário = igual ou acima do menor já ofertado).
-- TCU, Licitações e Contratos, 5.3 Envio de lances. Texto de apoio usado: reprodução da IN em ronnycharles.com.br (confira no DOU se quiser citar artigo em resposta pública).
-- Cuidado: a peça NÃO diz "é permitido, sim" nem cita acórdão; diz que a norma prevê lance automático e que valem as regras da disputa, com nota "não é parecer jurídico". Não usei a regra antiga de 20 s / 3 s (IN 3/2013), que não achei em norma atual.
-- C10: mudei o gancho do calendário ("Seu lance foi recusado?") porque a IN não diz que o sistema recusa; ficou "Cobrir por R$ 0,01? Nem sempre pode." Não usa o recurso pendente de confirmação (variação em centavos/reais/%): só "o robô cobre com a variação mínima".
+| ter 17/11 | 10h | Reel "Você decide o lance #1 · Um lance. Às cegas." (19 s) | midia/2026-11-17_reel_decide1_lance_final | após "aprovado" (post 12/20) · capa = quadro 0 |
+| qua 18/11 | 10h | Aberto: gravação real de tela (se o dono enviar até seg 16) ou sem post | - | - |
+| qui 19/11 | 10h | Reel "Você decide o lance #2 · Faltam 10 segundos." (20,6 s) | midia/2026-11-19_reel_decide2_10_segundos | após "aprovado" (post 13/20) · capa = quadro 0 |
+| sex 20/11 | - | Feriado: sem post | - | - |
+Cota do Metricool: 11 usados; com os dois Reels, 13/20.
+Por quê: em novembro, 9 posts tiveram 0 comentários e alcance de 7 a 34. A série é um quiz: a pessoa responde com uma letra, o que é o comentário mais fácil de dar, e tem motivo para seguir (próximo episódio).
+Fontes: #1 lance final sigiloso em até 5 min, para a melhor oferta e as até 10% acima (modo aberto e fechado, IN SEGES/ME 73/2022; mesma regra do C4 publicado). #2 prorrogação de 2 min a cada lance nos 2 min finais (modo aberto, IN 73/2022 art. 23; mesma regra do R6).
 
 ======================================================
 TODOS OS DIAS COM POST ÀS 10h05 (dono, ~5 min)
@@ -33,10 +29,9 @@ TODOS OS DIAS COM POST ÀS 10h05 (dono, ~5 min)
 STORY POR DIA (repost + figurinha)
 ======================================================
 SEG 16 · R8 -> repost + enquete "Já perdeu item por centavos?" (Sim / Ainda não).
-TER 17 · C9 mitos -> repost + texto "Qual desses você já ouviu?" + caixa de pergunta "Outra dúvida sobre robô de lances?".
-QUA 18 · R12 permitido -> repost + enquete "Você sabia que a norma prevê lance automático?" (Sabia / Não sabia).
-QUI 19 · C10 intervalo -> repost + enquete "Você confere o intervalo mínimo no edital?" (Sempre / Nunca reparei).
-SEX 20 · feriado: sem post. Story opcional: repost do C10 com "Salva para o próximo edital".
+TER 17 · Decide #1 -> repost + enquete de 3 opções "Seu lance final?" (A 999 / B 990 / C 980).
+QUI 19 · Decide #2 -> repost + enquete "Cobre agora ou espera?" (A / B). No fim do dia, Story com o resultado.
+Comentários A/B/C: responder cada um com uma pergunta curta ("e se o concorrente for de C?"), isso dobra os comentários do post.
 
 ======================================================
 BOOST

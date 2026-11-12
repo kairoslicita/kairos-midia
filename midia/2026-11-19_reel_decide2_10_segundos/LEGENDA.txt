@@ -1,0 +1,10 @@
+Faltam 10 segundos e o concorrente baixou. Você cobre agora ou espera o último segundo? Comenta A ou B 👇
+
+No modo aberto, não existe último segundo: cada lance nos 2 minutos finais prorroga a disputa por mais 2 minutos. Ganha quem continua cobrindo, dentro do próprio limite.
+
+O robô do Kairos cobre em milissegundos a cada prorrogação, só acima do seu stop loss. Roda no servidor e você controla tudo pelo celular.
+
+Comenta PREGÃO e receba o Kit do Pregão no Direct.
+
+Valores de exemplo. IN SEGES/ME 73/2022. Confira sempre o edital.
+#pregaoeletronico #licitacoes #comprasgovbr #robodelances #licitacao #fornecedor

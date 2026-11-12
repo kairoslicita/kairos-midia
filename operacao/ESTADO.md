@@ -19,9 +19,9 @@ seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Saf
 05/11: R7b re-renderizado com "quinta-feira, 12 de novembro" na tela de bloqueio (agendado mostra 4/11): `midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4` + `capa_r7_1211.png`. Trocar mídia do post 413202171 só após "aprovado" (A10, pedida de novo 09/11; prazo qua 11/11). Sem A10, B-03 não deve rodar.
 12/11 09h: R7b ainda com a mídia antiga (data 4/11) no post 413202171; A10 não aprovada até a pauta.
 
-## Semana 16-20/11 (LEIA-ME `midia/LEIA-ME_semana_16a20-11.txt`) · A11 aguardando aprovação
-seg 16 R8 v2 (agendado) · ter 17 C9 5 mitos · qua 18 R12 robô é permitido? (REPROVADO pelo dono 12/11; decidir: refazer, trocar ou sem post) · qui 19 C10 intervalo mínimo (cobrir por R$ 0,01?) · sex 20 feriado, sem post. C9/R12/C10 renderizados em `midia/2026-11-1{7,8,9}_*`; agendar 10h e criar lembretes 10h05 de 17-19/11 só após "aprovado".
-Fontes R12/C10: IN SEGES/ME 73/2022 arts. 5º, 19, 21 §2º, 22 §1º (conferidas 12/11). Sem 20 s/3 s (IN 3/2013, sem base atual). Gancho do C10 trocado (IN não diz que o sistema recusa).
+## Semana 16-20/11 (LEIA-ME `midia/LEIA-ME_semana_16a20-11.txt`) · A11 v2 aguardando aprovação
+Dono reprovou C9, R12 e C10 em 12/11 (não usar). Nova proposta, série "Você decide o lance" (quiz, CTA por letra): seg 16 R8 v2 (agendado) · ter 17 Reel #1 lance final às cegas · qua 18 aberto (gravação real do dono ou sem post) · qui 19 Reel #2 faltam 10 segundos · sex 20 feriado. Agendar só após "aprovado".
+Leitura 12/11 (Metricool): orgânico parado (alcance 7-34 por peça, carrossel = Reel), 0 comentários em 9 posts de novembro, 113→114 seguidores desde o fim do Boost; melhor orgânico segue a gravação real de 09/10. Erro registrado: R12 foi produzido apesar de "bloqueado até checagem jurídica" no banco de ideias.
 Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
 
 ## Decisões vigentes
@@ -33,7 +33,7 @@ Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 
 C2 7 erros (v5) · C3 preço mínimo (v5) · C4 modos de disputa (v5) · Reel R2 preço mínimo (v5) · Reel R9 3 erros (v3 + Boost) · Reel R10 avião (v4) · Reel R8 (v2, aprovado 13h26). Próximo passo: propor datas e agendar.
 
 ## Pendências e bloqueios
-- Aprovações pendentes: A11 (semana 16-20/11), A10 (mídia R7b, venceu 11/11), A5 (reserva), A6 (perfil), A7 (respostas).
+- Aprovações pendentes: A11 v2 (semana 16-20/11, série Você decide o lance), A10 (mídia R7b, venceu 11/11), A5 (reserva), A6 (perfil), A7 (respostas).
 - Dono, até ter 10/11: print final do B-02 (gasto total, dias, frequência, visitas, seguidores). A4/A9 superadas pelo calendário aprovado em 01/11.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.

@@ -417,9 +417,81 @@ function w6(lt){
   return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${n2(0)}</div>`:'');
 }
 const SCw2=[[0,4.0],[4.0,7.5],[7.5,13.0],[13.0,17.0],[17.0,21.0],[21.0,25.0]];
+/* ================= SÉRIE "VOCÊ DECIDE O LANCE" (12/11) ================= */
+const dtag=n=>tag(`VOCÊ DECIDE O LANCE · #${n}`,'#ff8a6d');
+const drow=(a,v,col,hl,big)=>`<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;font-size:38px;color:${col||'#f1ede4'};${hl?`background:${hl};border-radius:20px;padding:16px 18px;margin-left:-18px;margin-right:-18px`:''}"><span>${a}</span><span class="mono" style="font-size:${big||52}px">${v}</span></div>`;
+const mmss=s=>{s=Math.max(0,Math.ceil(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+const opt=(lt,d,l,v,s,top,sel)=>{const e=back((lt-d)/.3);return `<div style="position:absolute;left:80px;right:80px;top:${top}px;border-radius:40px;background:#123024;border:3px solid ${sel||'#24463a'};padding:30px 40px;display:flex;align-items:center;gap:34px;opacity:${clamp((lt-d)/.12)};transform:scale(${.9+.1*e})"><span class="D" style="font-size:110px;color:#ff5f3c;width:90px">${l}</span><span style="flex:1"><span class="${/R\$/.test(v)?'mono':'D'}" style="font-size:${/R\$/.test(v)?64:68}px;display:block">${v}</span><span style="font-size:32px;color:#8fa699;display:block;margin-top:8px">${s}</span></span></div>`};
+/* ---- #1 · Lance final às cegas (19 s) ---- */
+function d11(lt){
+  return bg('rgba(255,95,60,.22)')+dtag(1)+head(lt,'Um lance.<br>Às cegas.<br><span style="color:#ff5f3c">Quanto você manda?</span>',118,270,true)+`
+  <div class="card" style="top:760px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">LANCE FINAL · SIGILOSO</span><span class="mono" style="font-size:54px;color:#ffcf73">${mmss(300-lt)}</span></div>
+    ${drow('1º · Concorrente','R$ 1.000,00')}
+    ${drow('<b>2º · Você</b>','R$ 1.020,00','#ff8a6d','rgba(255,95,60,.16)')}
+  </div>`+note('Simulação com valores de exemplo.',1260);
+}
+function d12(lt){
+  return bg('rgba(255,95,60,.16)')+dtag(1)+head(lt,'Ninguém vê<br>o lance<br><span style="color:#ff5f3c">de ninguém.</span>',130,270,false)+`
+  <div class="card" style="top:800px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">O QUE VOCÊ SABE</span><span class="mono" style="font-size:54px;color:#ffcf73">${mmss(296.4-lt)}</span></div>
+    <div style="${fin(lt,1.0)}">${drow('Melhor oferta','R$ 1.000,00')}</div>
+    <div style="${fin(lt,1.7)}">${drow('Seu último lance','R$ 1.020,00','#ff8a6d')}</div>
+    <div style="${fin(lt,2.4)}">${drow('<b>Seu preço mínimo</b>','R$ 980,00','#b9ee4f','rgba(185,238,79,.12)')}</div>
+  </div>`+note('Modo aberto e fechado: lance final sigiloso, em até 5 minutos.',1330,ease((lt-2.8)/.3));
+}
+function d13(lt){
+  return bg('rgba(255,95,60,.18)')+dtag(1)+head(lt,'A, B <span style="color:#ff5f3c">ou C?</span>',150,270,false)+
+   `<div class="mono" style="position:absolute;right:80px;top:300px;font-size:54px;color:#ffcf73">${mmss(291.6-lt)}</div>`+
+   opt(lt,.7,'A','R$ 999,00','logo abaixo do 1º',500)+opt(lt,1.5,'B','R$ 990,00','com folga',760)+opt(lt,2.3,'C','R$ 980,00','no seu preço mínimo',1020)+
+   note('O concorrente também pode baixar. Você não vê.',1300,ease((lt-3.2)/.3));
+}
+function d14(lt){
+  const p=1+.03*Math.sin(lt*6);
+  return bg('rgba(255,95,60,.24)')+dtag(1)+head(lt,'Não tem<br>resposta certa.<br><span style="color:#b9ee4f">Tem o seu<br>preço mínimo.</span>',112,270,false)+`
+  <div style="position:absolute;left:80px;top:880px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:84px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-1.6)/.3))});transform-origin:left center;opacity:${clamp((lt-1.6)/.1)}">Comenta A, B ou C</div>
+  <div class="L" style="top:1090px;font-size:38px;line-height:1.35;color:#cfd8cf;opacity:${ease((lt-2.3)/.3)}">E comenta <b style="color:#f1ede4">PREGÃO</b> para receber<br>a calculadora do preço mínimo.</div>
+  <div class="L" style="top:1260px;font-size:34px;color:#f1ede4;opacity:${ease((lt-3.0)/.3)}"><b>Siga o Kairos</b> para o próximo lance.</div>`;
+}
+const SCd1=[[0,3.6],[3.6,8.4],[8.4,14.0],[14.0,19.0]];
+/* ---- #2 · Faltam 10 segundos (20,6 s) ---- */
+const d2card=(lt,sec,ext)=>`<div class="card" style="top:${ext?760:740}px;border-color:${ext?'#b9ee4f':'#24463a'}">
+    <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">SALA DE DISPUTA · MODO ABERTO</span><span class="mono" style="font-size:26px;color:#b9ee4f">● ao vivo</span></div>
+    <div class="mono" style="font-size:170px;letter-spacing:-.05em;margin-top:16px;color:${ext?'#b9ee4f':sec<=5?'#ff5f3c':'#ffcf73'}">${mmss(sec)}</div>
+    ${ext?`<div class="mono" style="font-size:34px;color:#b9ee4f;margin-top:4px">+ 2 minutos · prorrogada</div>`:''}
+    ${ext?drow('<b>1º · Você</b>','R$ 1.289,80','#b9ee4f','rgba(185,238,79,.12)',46)+drow('2º · Concorrente','R$ 1.289,90',null,null,46):drow('1º · Concorrente','R$ 1.289,90',null,null,46)+drow('<b>2º · Você</b>','R$ 1.290,00','#ff8a6d','rgba(255,95,60,.16)',46)}
+  </div>`;
+function d21(lt){
+  return bg('rgba(255,95,60,.24)')+dtag(2)+head(lt,'Faltam<br>10 segundos.<br><span style="color:#ff5f3c">O concorrente baixou.</span>',104,270,true)+d2card(lt,10-lt)+note('Simulação com valores de exemplo.',1420);
+}
+function d22(lt){
+  return bg('rgba(255,95,60,.2)')+dtag(2)+head(lt,'O que <span style="color:#ff5f3c">você faz?</span>',124,270,false)+
+   `<div class="mono" style="position:absolute;left:80px;top:430px;font-size:120px;letter-spacing:-.05em;color:${7-lt<=5?'#ff5f3c':'#ffcf73'}">${mmss(Math.max(1,6.6-lt))}</div>`+
+   opt(lt,.8,'A','Cubro agora','mando o lance já',620)+opt(lt,1.7,'B','Espero','deixo para o último segundo',880);
+}
+function d23(lt){
+  const hit=lt>=.5; const sec=hit?120-(lt-.5):1;
+  return bg('rgba(185,238,79,.16)')+dtag(2)+head(lt,'No modo aberto,<br><span style="color:#b9ee4f">não existe<br>último segundo.</span>',104,270,false)+d2card(lt,sec,hit)+
+   note('Lance nos 2 minutos finais prorroga a disputa por mais 2 minutos.<br>IN SEGES/ME 73/2022. Confira o edital.',1470,ease((lt-1.6)/.3));
+}
+function d24(lt){
+  const inner=roboScreen(lt,{t0:.3,R:.85,comp:[1289.90,1279.80,1268.70,1249.00],stop:1250,me0:1290.00,cp0:1295.00,tm:'10:12'});
+  return bg('rgba(185,238,79,.16)')+dtag(2)+head(lt,'A cada prorrogação,<br><span style="color:#b9ee4f">o robô cobre.</span>',92,270,false)+phone(inner,530,1.1)+
+   note('Em milissegundos, só acima do seu stop loss. Simulação.',1530);
+}
+function d25(lt){
+  const p=1+.03*Math.sin(lt*6);
+  return bg('rgba(255,95,60,.24)')+dtag(2)+head(lt,'Você era<br><span style="color:#ff5f3c">A ou B?</span>',150,270,false)+`
+  <div style="position:absolute;left:80px;top:680px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.8)/.3))});transform-origin:left center;opacity:${clamp((lt-.8)/.1)}">Comenta A ou B</div>
+  <div class="L" style="top:895px;font-size:38px;line-height:1.35;color:#cfd8cf;opacity:${ease((lt-1.5)/.3)}">E comenta <b style="color:#f1ede4">PREGÃO</b> para receber<br>o Kit do Pregão no Direct.</div>
+  <div class="L" style="top:1070px;font-size:34px;color:#f1ede4;opacity:${ease((lt-2.1)/.3)}"><b>Siga o Kairos</b> para o próximo lance.</div>`;
+}
+const SCd2=[[0,3.4],[3.4,7.8],[7.8,12.8],[12.8,16.8],[16.8,20.6]];
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
+ d1:{SC:SCd1,F:[d11,d12,d13,d14],T:19.0},
+ d2:{SC:SCd2,F:[d21,d22,d23,d24,d25],T:20.6},
  r7:{SC:SC7,F:[p4,g2,g3,g4,g5,lt=>g6(lt,false)],T:33.0},
  r7b:{SC:SC7,F:[p4,g2,g3,g4,g5,g6].map(B),T:33.0},
  r8:{SC:SC8,F:[h1,h2,h3,h4,lt=>h5(lt,false)],T:22.8},
