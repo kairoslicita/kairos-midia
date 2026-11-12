@@ -646,6 +646,100 @@ const locks=(k,t)=>`<div style="position:absolute;right:72px;top:146px;display:f
 SC.erro2=t=>{const k=parseInt(P.get('e')); return SC.erro(t).replace(`erro ${k+1} de 7</div>`,`erro ${k+1}/7 · destravado</div>`)+locks(k,t);};
 SC.e2cta=t=>SC.cta(t).replace(title('Quer o','Kit do Pregão?'),title('Quantos desses','você já cometeu?')).replace('Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong>','Comenta o número, de 1 a 7. <strong>E comenta PREGÃO para receber o checklist no Direct.</strong>');
 SC.m4cta=t=>SC.cta(t).replace(title('Quer o','Kit do Pregão?'),title('Qual modo','te pega mais?')).replace('Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong>','Comenta <strong>ABERTO</strong> ou <strong>FECHADO</strong>. E comenta PREGÃO para receber o Kit no Direct.');
+
+/* ================= SEMANA 16-20/11 · C9 · 5 MITOS SOBRE ROBÔ DE LANCES ================= */
+const MITO=[
+ ['"O robô ganha','qualquer pregão."','Ele cobre só até o seu limite.','Se o concorrente descer abaixo do seu stop loss, o robô para. Você não leva o item, mas também não vende no prejuízo.'],
+ ['"Ele baixa o preço','até o prejuízo."','Nunca abaixo do stop loss.','Você define o limite de cada item. O robô cobre em milissegundos só enquanto o novo lance fica acima dele.'],
+ ['"Com robô, eu perco','o controle."','Quem decide é você.','Limite, liga e desliga e ajustes de cada disputa: tudo pelo celular, a qualquer momento.'],
+ ['"Ele dá lance','a qualquer hora."','Só na hora da disputa.','Antes, a licitação só fica carregada. O robô é configurado no dia e opera quando o item entra em disputa.'],
+ ['"Robô é coisa de','empresa grande."','Um login, várias disputas.','R$ 69,90 por mês, sem fidelidade, com teste de 7 dias sem cartão. Feito para quem não pode passar o dia no pregão.']
+];
+const mitoVis=(k,t)=>{
+ const R=(txt,pl,cls,o=1,ico='')=>`<div class="row" style="font-size:20px;padding:14px 18px;width:330px;opacity:${o}">${ico?`<span style="width:28px;height:28px">${ic(ico,'#b9ee4f')}</span>`:''}<span class="tx">${txt}</span><span class="pill ${cls}">${pl}</span></div>`;
+ if(k===0) return `<div style="display:flex;flex-direction:column;gap:12px">${R('Item 1','ganhando','pw',ease((t-.4)/.3))}${R('Item 2','abaixo do limite','pl',ease((t-.9)/.3))}${R('Item 3','ganhando','pw',ease((t-1.4)/.3))}<div class="mono" style="font-size:17px;color:#8fa699;margin-top:4px">item 2: o robô parou no stop loss</div></div>`;
+ if(k===1) return faqVis(1,t);
+ if(k===2){const on=t>1.2;const tg=ease((t-1.2)/.3);return `<div style="display:flex;flex-direction:column;gap:12px">${R('Stop loss','você define','pw',1,'shield')}${R('Ajustes','pelo celular','pw',ease((t-.6)/.3),'key')}<div style="display:flex;align-items:center;gap:14px;margin-top:6px"><div style="width:64px;height:36px;border-radius:999px;background:${on?'#b9ee4f':'#2b4a3d'};position:relative"><div style="position:absolute;top:4px;left:${4+28*tg}px;width:28px;height:28px;border-radius:50%;background:${on?'#0b2219':'#8fa699'}"></div></div><span style="font-size:20px">Liga e desliga</span></div></div>`}
+ if(k===3) return `<div style="display:flex;flex-direction:column;gap:12px">${R('Antes','carregada','ph',ease((t-.3)/.3))}${R('No dia','configurar limite','pa',ease((t-.8)/.3))}${R('Em disputa','robô cobre','pw',ease((t-1.3)/.3))}</div>`;
+ return faqVis(3,t);
+};
+SC.c9capa=t=>{
+ const i=Math.min(5,Math.floor(t/0.85)); const done=i>=5; const lt=t-i*0.85; const st=clamp((lt-.25)/.35);
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:116px;line-height:.9;letter-spacing:-.045em;color:#f1ede4">5 mitos sobre<br>robô de<br><span style="color:#ff5f3c">lances.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:600px;height:500px;border-radius:44px;background:${done?'#c9f26c':'#ff5f3c'};color:${done?'#0b2219':'#1a0f0a'};padding:44px 48px;box-shadow:0 40px 90px -30px ${done?'rgba(185,238,79,.45)':'rgba(255,95,60,.6)'}">
+  <div class="mono" style="font-size:24px;letter-spacing:.08em">${done?'5 DE 5 · DESMENTIDOS':'MITO '+(i+1)+' DE 5'}</div>
+  <div style="font-family:'Inter Display';font-weight:800;font-size:72px;line-height:1;letter-spacing:-.04em;margin-top:26px;position:relative;display:inline-block">${done?'A verdade está<br>nos próximos slides.':MITO[i][0]+'<br>'+MITO[i][1]}
+   ${done?'':`<div style="position:absolute;left:0;top:50%;height:8px;width:${st*100}%;background:#0b2219;border-radius:4px"></div>`}</div>
+  <div style="position:absolute;left:48px;right:48px;bottom:44px;display:flex;gap:10px">${MITO.map((e,k)=>`<div style="flex:1;height:12px;border-radius:6px;background:${done||k<=i?(done?'#0b2219':'#1a0f0a'):'rgba(0,0,0,.15)'}"></div>`).join('')}</div>
+ </div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e veja a verdade<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
+SC.mito=t=>{
+ const k=parseInt(P.get('q')); const e=MITO[k]; const sk=ease((t-0.4)/0.5); const a=ease((t-0.9)/.35); const fx=ease((t-2.4)/.5);
+ return `<div class="bg"></div>${topbar(N)}
+ <div class="mono" style="position:absolute;left:72px;top:150px;font-size:26px;color:#d1401f">mito ${k+1} de 5</div>
+ <div style="position:absolute;left:72px;top:196px;font-family:'Inter Display';font-weight:900;font-size:84px;line-height:.96;letter-spacing:-.045em">
+  <div style="position:relative;display:inline-block">${e[0]}<div style="position:absolute;left:0;top:52%;height:9px;width:${sk*100}%;background:#ff5f3c;border-radius:5px"></div></div><br>
+  <div style="position:relative;display:inline-block;color:#ff5f3c">${e[1]}<div style="position:absolute;left:0;top:52%;height:9px;width:${clamp((t-0.7)/0.5)*100}%;background:#0b2219;border-radius:5px"></div></div></div>
+ <div class="sys" style="position:absolute;left:72px;top:450px;width:936px;height:400px;padding:34px 40px;display:flex;gap:30px">
+  <div style="flex:1"><div class="mono" style="font-size:18px;color:#8fa699;letter-spacing:.06em">NA VERDADE</div>
+   <div style="font-family:'Inter Display';font-weight:900;font-size:120px;letter-spacing:-.05em;line-height:1;margin-top:18px;color:#ff5f3c;opacity:${a};transform:scale(${.85+.15*a});transform-origin:left center">Mito.</div>
+   <div style="font-size:30px;line-height:1.2;margin-top:22px;color:#b9ee4f;opacity:${ease((t-1.3)/.35)}">${e[2]}</div></div>
+  <div style="width:340px;padding-top:40px">${mitoVis(k,t)}</div>
+ </div>
+ <div style="position:absolute;right:40px;bottom:-70px;font-family:'Inter Display';font-weight:900;font-size:440px;line-height:1;color:#e6dece;letter-spacing:-.06em">0${k+1}</div>
+ <div class="fix" style="left:72px;right:72px;top:${905+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>na prática</span>
+  <p style="font-size:30px">${e[3]}</p></div>
+ <div style="position:absolute;left:72px;top:1220px;font-size:22px;color:#56645b">Telas ilustrativas, com valores de exemplo.</div>`;
+};
+SC.c9cta=t=>SC.cta(t).replace(title('Quer o','Kit do Pregão?'),title('Qual desses','você já ouviu?')).replace('Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong>','Comenta o número, de 1 a 5. <strong>E comenta PREGÃO para receber o Kit no Direct.</strong>');
+
+/* ================= SEMANA 16-20/11 · C10 · INTERVALO MÍNIMO ENTRE LANCES ================= */
+const VM=[
+ ['O que é','o intervalo mínimo.','É a menor diferença entre um lance e outro, em reais ou em percentual. Quem define é o edital.'],
+ ['Vale para','cobrir o melhor lance.','Com melhor lance de R$ 1.289,90 e intervalo de R$ 0,10, o lance para cobrir vai até R$ 1.289,80.'],
+ ['Vale também','para subir de posição.','Você pode dar um lance intermediário: igual ou acima do menor já ofertado, abaixo do seu último lance e com o mesmo intervalo.'],
+ ['Onde achar','no edital.','Procure a seção da disputa de lances: o intervalo vem em reais ou em percentual. Cada edital pode ter o seu.']
+];
+const vmVis=(k,t)=>{
+ const L=(lb,v,col,o=1,big=false)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-radius:16px;background:#10291f;border:1px solid #24463a;opacity:${o}"><span style="font-size:22px;color:#cfd8cf">${lb}</span><span class="mono" style="font-size:${big?32:26}px;color:${col}">${v}</span></div>`;
+ if(k===0){const c=1+0.04*Math.sin(t*4);return `<div style="display:flex;flex-direction:column;gap:12px">${L('Lance A','R$ 1.289,90','#f1ede4')}<div style="display:flex;align-items:center;gap:14px;padding-left:20px;opacity:${ease((t-.6)/.3)}"><div style="width:4px;height:44px;background:#ff5f3c;border-radius:2px"></div><span class="mono" style="font-size:24px;color:#ff8a6d;transform:scale(${c})">− R$ 0,10 (intervalo)</span></div>${L('Lance B','R$ 1.289,80','#b9ee4f',ease((t-1.1)/.3))}</div>`}
+ if(k===1){const typ=t<1.6?'R$ 1.289,89':'R$ 1.289,80';const ok=t>=1.6;return `<div style="display:flex;flex-direction:column;gap:12px">${L('Melhor lance','R$ 1.289,90','#ff8a6d')}${L('Intervalo','R$ 0,10','#f1ede4',ease((t-.3)/.3))}${L('Seu lance',typ,ok?'#b9ee4f':'#ffcf73',ease((t-.6)/.3),true)}<div style="align-self:flex-start;opacity:${ease((t-.8)/.3)}" class="pill ${ok?'pw':'pa'}"><span style="font-size:18px;padding:3px 8px;display:inline-block">${ok?'respeita o intervalo':'R$ 0,01 não basta'}</span></div></div>`}
+ if(k===2){const pos=t<1.8?3:2;return `<div style="display:flex;flex-direction:column;gap:12px">${L('1º · menor lance','R$ 1.289,90','#f1ede4')}${pos===2?L('2º · você','R$ 1.295,00','#b9ee4f',1,true)+L('3º','R$ 1.302,00','#f1ede4'):L('2º','R$ 1.302,00','#f1ede4')+L('3º · você','R$ 1.310,00','#ff8a6d')}<div class="mono" style="font-size:17px;color:#8fa699;opacity:${ease((t-1.8)/.3)}">você: R$ 1.310,00 → R$ 1.295,00 · sobe para 2º</div></div>`}
+ const hl=ease((t-.8)/.4);return `<div style="background:#f1ede4;color:#0b2219;border-radius:18px;padding:22px 24px;font-size:19px;line-height:1.45"><div class="mono" style="font-size:14px;color:#56645b;letter-spacing:.06em">EDITAL · DA DISPUTA DE LANCES</div><div style="margin-top:10px;color:#56645b">…os lances deverão observar o</div><div style="background:rgba(185,238,79,${.7*hl});border-radius:6px;padding:2px 4px;margin:2px -4px;font-weight:700">intervalo mínimo de diferença de valores entre os lances: R$ 0,10…</div><div style="color:#56645b">…que incidirá também sobre os lances intermediários.</div></div><div class="mono" style="font-size:15px;color:#8fa699;margin-top:12px">trecho ilustrativo</div>`;
+};
+SC.vmcapa=t=>{
+ const cyc=(t+1.0)%3; const ok=cyc>1.6; const typed=('1.289,89').slice(0,Math.floor(clamp(cyc/0.8)*8)); const sh=(!ok&&cyc>0.9&&cyc<1.2)?Math.sin(t*80)*8:0;
+ return `<div class="bgd"></div>${topbar(N,1)}
+ <div style="position:absolute;left:72px;top:150px;font-family:'Inter Display';font-weight:900;font-size:116px;line-height:.97;letter-spacing:-.045em;color:#f1ede4">Cobrir por<br>R$ 0,01?<br><span style="color:#ff5f3c">Nem sempre pode.</span></div>
+ <div style="position:absolute;left:72px;right:72px;top:600px;height:500px;border-radius:44px;background:${ok?'#c9f26c':'#ff5f3c'};color:${ok?'#0b2219':'#1a0f0a'};padding:44px 48px;box-shadow:0 40px 90px -30px ${ok?'rgba(185,238,79,.45)':'rgba(255,95,60,.6)'};transform:translateX(${sh}px)">
+  <div class="mono" style="font-size:24px;letter-spacing:.08em">MELHOR LANCE · R$ 1.289,90</div>
+  <div style="font-size:30px;margin-top:34px;font-weight:600">seu lance</div>
+  <div class="mono" style="font-size:110px;letter-spacing:-.05em;margin-top:6px">R$ ${ok?'1.289,80':typed}</div>
+  <div class="mono" style="position:absolute;left:48px;bottom:44px;font-size:28px;letter-spacing:.04em;padding:12px 22px;border-radius:999px;background:rgba(11,34,25,.14)">${ok?'✓ respeita o intervalo de R$ 0,10':cyc>0.9?'✕ fora do intervalo mínimo':'digitando…'}</div>
+ </div>
+ <div class="swipe" style="left:72px;top:1175px;background:#f1ede4;color:#0b2219;transform:scale(${1+0.03*Math.sin(t*6)})">Arraste e entenda a regra<span style="display:flex">${chev(t,'#ff5f3c')}</span></div>`;
+};
+SC.vm=t=>{
+ const k=parseInt(P.get('q')); const e=VM[k]; const fx=ease((t-2.2)/.5); const a=ease((t-0.2)/.4);
+ return `<div class="bg"></div>${topbar(N)}
+ <div class="mono" style="position:absolute;left:72px;top:150px;font-size:26px;color:#d1401f">regra ${k+1} de 4</div>
+ <div style="position:absolute;left:72px;top:196px;font-family:'Inter Display';font-weight:900;font-size:88px;line-height:.94;letter-spacing:-.045em;opacity:${.3+.7*a}">${e[0]}<br><span style="color:#ff5f3c">${e[1]}</span></div>
+ <div class="sys" style="position:absolute;left:72px;top:450px;width:936px;height:400px;padding:34px 40px">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Inter Display';font-weight:700;font-size:26px">Disputa · item 1</div><div class="live" style="font-size:15px"><i style="opacity:${blink(t)}"></i>${k===3?'antes da disputa':'em disputa'}</div></div>
+  <div style="margin-top:22px;width:856px">${vmVis(k,t)}</div>
+ </div>
+ <div style="position:absolute;right:40px;bottom:-70px;font-family:'Inter Display';font-weight:900;font-size:440px;line-height:1;color:#e6dece;letter-spacing:-.06em">0${k+1}</div>
+ <div class="fix" style="left:72px;right:72px;top:${905+(1-fx)*30}px;opacity:${0.15+0.85*fx}">
+  <span class="lb"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#3d6310" stroke-width="3" fill="none" stroke-linecap="round"/></svg>em detalhe</span>
+  <p style="font-size:30px">${e[2]}</p></div>
+ <div style="position:absolute;left:72px;top:1220px;font-size:22px;color:#56645b">Valores de exemplo. IN SEGES/ME 73/2022. Confira sempre o edital.</div>`;
+};
+SC.vmkairos=t=>SC.orbita(t).replace(title('Perdendo','virou ganhando'),title('No Kairos,','o intervalo vem junto.',88)).replace(/<div class="sub" style="top:340px;left:72px;width:880px">.*?<\/div>/,`<div class="sub" style="top:345px;left:72px;width:900px">O robô cobre em milissegundos com a variação mínima do item, <strong>só enquanto o novo lance fica acima do seu stop loss.</strong></div>`);
+SC.vmcta=t=>SC.cta(t).replace(title('Quer o','Kit do Pregão?'),title('Já perdeu um lance','por isso?',88)).replace('Checklist antes da disputa e calculadora do preço mínimo. <strong>Grátis, no seu Direct.</strong>','Salve para conferir no próximo edital. <strong>Comenta PREGÃO e receba o Kit no Direct.</strong>');
+
 window.render=t=>{root.innerHTML=SC[S](t)};
 render(0);
 </script></body></html>

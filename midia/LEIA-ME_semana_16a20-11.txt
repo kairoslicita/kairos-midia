@@ -1,0 +1,45 @@
+KAIROS · MATERIAIS DA SEMANA 16 A 20/11/2026 (pauta de quinta, 12/11)
+Status: R8 de seg 16/11 já AGENDADO (aprovado 01/11). C9, R12 e C10: renderizados, AGUARDANDO APROVAÇÃO ("Aprova a semana?"). Nada novo foi agendado ainda.
+Sex 20/11 é feriado nacional (Consciência Negra): sem post.
+
+RESUMO
+| Dia | Hora | Peça | Arquivo no repo | Metricool |
+|---|---|---|---|---|
+| seg 16/11 | 10h | Reel R8 v2 "Perder por R$ 0,01 dói" | midia/aprovados_aguardando_data/reel_r8_perdi_por_1_centavo | agendado · id 413203967 |
+| ter 17/11 | 10h | Carrossel C9 "5 mitos sobre robô de lances" (7 slides) | midia/2026-11-17_carrossel_c9_mitos (c9_01 a c9_07) | após "aprovado" (post 12/20) |
+| qua 18/11 | 10h | Reel R12 "Robô de lances é permitido?" (20,5 s) | midia/2026-11-18_reel_r12_permitido/reel_r12_robo_de_lances_e_permitido.mp4 | após "aprovado" (post 13/20) · capa = quadro 0 (capa_r12.png) |
+| qui 19/11 | 10h | Carrossel C10 "Cobrir por R$ 0,01? Nem sempre pode." (7 slides, intervalo mínimo) | midia/2026-11-19_carrossel_c10_intervalo_minimo (c10_01 a c10_07) | após "aprovado" (post 14/20) |
+Cota do Metricool em novembro (conferida 12/11 09h): 11 usados (publicados + agendados). Com esta semana: 14/20. Livres depois: 6 (24-30/11).
+Ordem: C9 (objeções, salvável) → R12 (dúvida legal, descoberta) → C10 (regra prática, salvável). Legendas: LEGENDA.txt em cada pasta.
+
+FONTES CONFERIDAS EM 12/11 (R12 e C10)
+- IN SEGES/ME 73/2022: art. 19 (valor final mínimo parametrizado; "lances serão de envio automático pelo sistema"); art. 21 §2º (intervalo mínimo vale para intermediários e para quem cobre a melhor oferta; lance só menor que o seu último); art. 22 §1º (o edital prevê o intervalo, em valor ou percentual); art. 5º, I, a (lance intermediário = igual ou acima do menor já ofertado).
+- TCU, Licitações e Contratos, 5.3 Envio de lances. Texto de apoio usado: reprodução da IN em ronnycharles.com.br (confira no DOU se quiser citar artigo em resposta pública).
+- Cuidado: a peça NÃO diz "é permitido, sim" nem cita acórdão; diz que a norma prevê lance automático e que valem as regras da disputa, com nota "não é parecer jurídico". Não usei a regra antiga de 20 s / 3 s (IN 3/2013), que não achei em norma atual.
+- C10: mudei o gancho do calendário ("Seu lance foi recusado?") porque a IN não diz que o sistema recusa; ficou "Cobrir por R$ 0,01? Nem sempre pode." Não usa o recurso pendente de confirmação (variação em centavos/reais/%): só "o robô cobre com a variação mínima".
+
+======================================================
+TODOS OS DIAS COM POST ÀS 10h05 (dono, ~5 min)
+======================================================
+1. Confirmar que o post saiu no perfil.
+2. ManyChat: Automação > Send A Link From Comments > a specific post or reel > post do dia.
+   Palavras-chave: PREGÃO, PREGAO, pregão, pregao.
+   Mensagem: "Aqui está o seu Kit do Pregão: checklist antes da disputa + calculadora do preço mínimo. Bom lance! 👇"
+   Botão: "Baixar o Kit" -> https://github.com/kairoslicita/kairos-midia/blob/main/kit/Kit-do-Pregao.pdf
+3. Story de repost (abaixo).
+4. Responder os comentários da primeira hora (curto; dúvida comercial vai para o Direct). No C9, comentários "1" a "5": responder à mão com a verdade do mito.
+
+======================================================
+STORY POR DIA (repost + figurinha)
+======================================================
+SEG 16 · R8 -> repost + enquete "Já perdeu item por centavos?" (Sim / Ainda não).
+TER 17 · C9 mitos -> repost + texto "Qual desses você já ouviu?" + caixa de pergunta "Outra dúvida sobre robô de lances?".
+QUA 18 · R12 permitido -> repost + enquete "Você sabia que a norma prevê lance automático?" (Sabia / Não sabia).
+QUI 19 · C10 intervalo -> repost + enquete "Você confere o intervalo mínimo no edital?" (Sempre / Nunca reparei).
+SEX 20 · feriado: sem post. Story opcional: repost do C10 com "Salva para o próximo edital".
+
+======================================================
+BOOST
+======================================================
+Nada novo nesta semana. Em seg 16/11 decide-se a reserva (≤ R$ 26,63) com o print do B-03 (R7b): se o B-03 bater a meta (≥ 1 seguidor a cada R$ 10 e visita ≤ R$ 0,60), proposta = R8 v2 (versão Boost) 16→18/11, R$ 7/dia × 3 ≈ R$ 23,55 com impostos. Só pelo Safari. Precisa de "aprovado" separado.
+Novembro: B-02 37,01 (sem print final) + B-03 37,01 + B-04 49,35 = 123,37 · teto 150.

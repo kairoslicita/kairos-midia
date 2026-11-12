@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 09/11/2026 (Claude, relatório semanal 02-08/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 12/11/2026 09h (Claude, pauta da semana 16-20/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 113 (07/11; 72 em 02/11, 71 em 31/10, 13 em 24/10). Metas 75 e 100 de 12/11 batidas em 07/11. Meta proposta: 150 até 30/11.
@@ -9,7 +9,7 @@ Atualizado: 09/11/2026 (Claude, relatório semanal 02-08/11). Leia isto antes de
 - B-01: 20 seguidores com R$ 44 (≈ R$ 2,20/seguidor). B-02: sem print; Metricool sugere que rodou 03-06/11 (talvez 1 dia a mais). Metricool não lê Boost (IGRE14-20 e IGPO17-26 vazios).
 - Metricool devolve horário em UTC: subtrair 3 h.
 - Gasto de Boost: outubro R$ 49,40 (fechado). Novembro: B-02 previsto R$ 37,01 (não confirmado; se rodou 4 dias ≈ 49,35) + B-03 37,01 + B-04 49,35 = R$ 123,37 comprometidos; reserva ≤ R$ 26,63 (≤ 14,29 se o B-02 rodou 4 dias).
-- Cota do Metricool novembro: 11/20 (03-06/11 publicados; 09, 10, 11, 12, 13, 16, 23/11 pendentes, conferido 09/11). Livres: 9.
+- Cota do Metricool novembro: 11/20 (conferido 12/11 09h: 03, 04, 05, 06, 09, 10, 11/11 publicados; 12, 13, 16, 23/11 pendentes). Livres: 9. Com A11: 14/20, livres 6 (24-30/11).
 
 ## Semana 02-08/11 (fechada)
 C5, C4 v5, R9 v3 e C6 publicados pelo Metricool às 10h. Pendentes do dono: print final do B-02 e print do painel profissional (visitas ao perfil, % não seguidores) de 26/10-01/11 e 02-08/11.
@@ -17,7 +17,12 @@ C5, C4 v5, R9 v3 e C6 publicados pelo Metricool às 10h. Pendentes do dono: prin
 ## Semana 09-13/11 (LEIA-ME `midia/LEIA-ME_semana_09a13-11.txt`)
 seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Safari ~11h) · sex 13 R2. Todos agendados 10h.
 05/11: R7b re-renderizado com "quinta-feira, 12 de novembro" na tela de bloqueio (agendado mostra 4/11): `midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4` + `capa_r7_1211.png`. Trocar mídia do post 413202171 só após "aprovado" (A10, pedida de novo 09/11; prazo qua 11/11). Sem A10, B-03 não deve rodar.
-Próxima pauta (12/11): 3 livres de 17-19/11 (propostas C9 mitos, R12 é permitido?, C10 variação mínima).
+12/11 09h: R7b ainda com a mídia antiga (data 4/11) no post 413202171; A10 não aprovada até a pauta.
+
+## Semana 16-20/11 (LEIA-ME `midia/LEIA-ME_semana_16a20-11.txt`) · A11 aguardando aprovação
+seg 16 R8 v2 (agendado) · ter 17 C9 5 mitos · qua 18 R12 robô é permitido? · qui 19 C10 intervalo mínimo (cobrir por R$ 0,01?) · sex 20 feriado, sem post. C9/R12/C10 renderizados em `midia/2026-11-1{7,8,9}_*`; agendar 10h e criar lembretes 10h05 de 17-19/11 só após "aprovado".
+Fontes R12/C10: IN SEGES/ME 73/2022 arts. 5º, 19, 21 §2º, 22 §1º (conferidas 12/11). Sem 20 s/3 s (IN 3/2013, sem base atual). Gancho do C10 trocado (IN não diz que o sistema recusa).
+Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
 
 ## Decisões vigentes
 - Padrão visual aprovado = piso (`references/02`). Boost só pelo Safari (taxa Apple). Impostos de ~12,15% inclusos no teto.
@@ -28,7 +33,7 @@ Próxima pauta (12/11): 3 livres de 17-19/11 (propostas C9 mitos, R12 é permiti
 C2 7 erros (v5) · C3 preço mínimo (v5) · C4 modos de disputa (v5) · Reel R2 preço mínimo (v5) · Reel R9 3 erros (v3 + Boost) · Reel R10 avião (v4) · Reel R8 (v2, aprovado 13h26). Próximo passo: propor datas e agendar.
 
 ## Pendências e bloqueios
-- Aprovações pendentes: A10 (mídia R7b, prazo 11/11), A5 (reserva), A6 (perfil), A7 (respostas).
+- Aprovações pendentes: A11 (semana 16-20/11), A10 (mídia R7b, venceu 11/11), A5 (reserva), A6 (perfil), A7 (respostas).
 - Dono, até ter 10/11: print final do B-02 (gasto total, dias, frequência, visitas, seguidores). A4/A9 superadas pelo calendário aprovado em 01/11.
 - Dono: gravação de tela do celular (Reel de 12/11); @ do Kassumoto; parceiro para collab; confirmar o recurso de variação mínima; site (notebook + Analytics/UTM).
 - Kit do Pregão (PDF, pág. 4) diz "acompanha pelo celular": trocar para "controla" na próxima versão.

@@ -25,6 +25,7 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 | A7 | Política de respostas de comentários e Direct (`06`) | Atendimento | 0 |
 | A9 | Semana 03-06/11 (v2, 30/10): V3-R7 em 04/11 10h via Metricool; POV movido de 04 para 05/11; C5 e C6 mantidos; lembretes 10h05 de 04 e 05/11 | Publicação | 0 (cota 4/20) |
 | A10 | Trocar a mídia do R7b agendado para 12/11 (id 413202171) pela versão com data "quinta-feira, 12 de novembro" (pedido 05/11) | Correção de data no gancho | 0 (não usa cota) |
+| A11 | Semana 16-20/11: C9 mitos (17/11), R12 permitido? (18/11), C10 intervalo mínimo (19/11), 10h via Metricool + lembretes 10h05 (pedido 12/11) | Publicação | 0 (cota 14/20) |
 | A8 | Lote V3: Reels R7, R8, R9 + variantes Boost (`operacao/lote_v3/LOTE_V3_REELS.md`) | Publicação | 0 (cota Metricool) |
 
 ## Campanhas

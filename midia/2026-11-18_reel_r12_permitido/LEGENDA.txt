@@ -1,0 +1,11 @@
+Robô de lances é permitido? A própria norma prevê lance automático.
+
+A IN SEGES/ME 73/2022 (art. 19) prevê que o fornecedor parametrize um valor final mínimo e que os lances sejam de envio automático pelo sistema. Com ou sem robô, o que vale são as regras da disputa: o intervalo mínimo entre lances do edital, lance menor que o seu último e o modo de disputa.
+
+O Kairos cobre em milissegundos com a variação mínima, só acima do seu stop loss. Roda no servidor e você controla tudo pelo celular.
+
+Manda pra quem tem essa dúvida.
+Comenta PREGÃO e receba o Kit do Pregão no Direct.
+
+Conteúdo informativo, não é parecer jurídico. Valores de exemplo. Confira sempre o edital.
+#pregaoeletronico #licitacoes #comprasgovbr #robodelances #licitacao #fornecedor

@@ -243,7 +243,59 @@ function d5(lt){
 function f2(lt){ return bg('rgba(255,95,60,.28)')+safe(d2(lt)); }
 function f5(lt){ return bg('rgba(255,95,60,.24)')+safe(d5(lt)); }
 const SC6=[[0,2.3],[2.3,5.2],[5.2,9.8],[9.8,11.9],[11.9,16]];
-const CFG={r6:{SC:SC6,F:[e1,f2,e3,e4,f5],CAP:[],T:16},r5:{SC:SC4,F:[e1,e2,e3,e4,e5],CAP:[],T:15.5},r4:{SC:SC4,F:[c1,c2,c3,c4,c5],CAP:[],T:15.5},r2:{SC:SC2,F:[a1,a2,a3,a4,a5,a6],CAP:CAP2,T:18.5},r3:{SC:SC3,F:[b1,b2,b3,b4,b5],CAP:CAP3,T:18.5}}[MODE];
+
+/* ================= R12 · ROBÔ DE LANCES É PERMITIDO? (20,5 s) ================= */
+const SC12=[[0,3.6],[3.6,8.0],[8.0,13.0],[13.0,17.2],[17.2,20.5]];
+const tag12=`<div style="position:absolute;left:80px;top:250px;background:#b9ee4f;color:#0b2219;border-radius:999px;padding:12px 26px;font-family:'DejaVu Sans Mono';font-size:30px;letter-spacing:.06em">PREGÃO · COMPRAS.GOV.BR</div>`;
+function g1(lt){
+  const q=1+.06*Math.sin(lt*6); const st=ease((lt-1.6)/.25);
+  return bg('rgba(255,95,60,.20)')+tag12+`
+  <div class="L D" style="top:380px;font-size:150px">Robô de<br>lances é<br><span style="color:#ff5f3c">permitido?</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:880px;height:300px;border-radius:44px;background:#123024;border:2px solid #24463a;padding:40px 48px">
+    <div class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.08em">ITEM 1 · EM DISPUTA</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:30px"><span style="font-size:40px;color:#cfd8cf">lance automático</span>
+    <span class="D" style="font-size:120px;color:#ffcf73;transform:scale(${q});display:inline-block">?</span></div>
+  </div>
+  <div class="L" style="top:1230px;font-size:38px;color:#cfd8cf;opacity:${st}">A resposta está na norma.</div>`;
+}
+function g2(lt){
+  const c=(i,a,b,col)=>`<div style="position:absolute;left:80px;right:80px;top:${860+i*190}px;border-radius:36px;background:#123024;border:2px solid ${col};padding:30px 40px;opacity:${ease((lt-1.0-i*.5)/.3)};transform:translateY(${(1-ease((lt-1.0-i*.5)/.3))*30}px)"><div class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">${a}</div><div style="font-size:46px;font-weight:700;margin-top:10px">${b}</div></div>`;
+  return bg('rgba(185,238,79,.14)')+logo+`
+  <div class="L D" style="top:330px;font-size:112px;opacity:${ease(lt/.25)}">A própria norma<br>prevê <span style="color:#b9ee4f">lance<br>automático.</span></div>
+  ${c(0,'IN SEGES/ME 73/2022 · ART. 19','Valor final mínimo parametrizado','#24463a')}
+  ${c(1,'NO SISTEMA','Lances de envio automático','#b9ee4f')}`;
+}
+function g3(lt){
+  const items=[['Intervalo mínimo','que o edital definir'],['Lance menor','que o seu último'],['Modo e tempo','da disputa do edital']];
+  return bg('rgba(255,95,60,.16)')+logo+`
+  <div class="L D" style="top:300px;font-size:116px;opacity:${ease(lt/.25)}">O que vale são<br><span style="color:#ff5f3c">as regras<br>da disputa.</span></div>
+  ${items.map((it,i)=>{const a=ease((lt-1.3-i*.55)/.3);return `<div style="position:absolute;left:80px;right:${i==2?160:80}px;top:${790+i*170}px;display:flex;align-items:center;gap:28px;border-radius:32px;background:#123024;border:2px solid #24463a;padding:26px 34px;opacity:${a};transform:translateX(${(1-a)*-40}px)"><span class="D" style="font-size:70px;color:#ff5f3c;width:50px">${i+1}</span><span style="font-size:44px;font-weight:700;line-height:1.1">${it[0]}<br><span style="font-weight:400;color:#cfd8cf;font-size:36px">${it[1]}</span></span></div>`}).join('')}
+  <div class="L" style="top:1330px;right:160px;font-size:28px;color:#8fa699;opacity:${ease((lt-3)/.3)}">Confira sempre o edital do seu pregão.</div>`;
+}
+function g4(lt){
+  const cov=lt>1.4; const fl=cov?Math.max(0,1-(lt-1.4)/.5):0;
+  const ch=(i,txt)=>`<div style="position:absolute;left:80px;top:${1150+i*100}px;font-size:38px;color:#f1ede4;opacity:${ease((lt-2.0-i*.4)/.3)}"><span style="color:#b9ee4f">✓</span> ${txt}</div>`;
+  return bg('rgba(185,238,79,.16)')+logo+`
+  <div class="L D" style="top:300px;font-size:104px;opacity:${ease(lt/.25)}">O Kairos cobre em<br><span style="color:#b9ee4f">milissegundos.</span></div>
+  <div style="position:absolute;left:80px;right:80px;top:600px;height:480px;border-radius:44px;background:#123024;border:2px solid ${cov?'#b9ee4f':'#24463a'};padding:40px 48px">
+    <div class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.08em">ITEM 1 · IMPRESSORA MULTIFUNCIONAL</div>
+    <div style="display:flex;justify-content:space-between;margin-top:34px;font-size:34px;color:#cfd8cf"><span>concorrente</span><span class="mono" style="color:#ff8a6d">${fmt(1289.90)}</span></div>
+    <div style="font-size:34px;color:#cfd8cf;margin-top:30px">seu lance</div>
+    <div class="mono" style="font-size:110px;letter-spacing:-.05em;color:${cov?'#b9ee4f':'#f1ede4'};transform:scale(${1+fl*.06});transform-origin:left center">${fmt(cov?1289.80:1295.00)}</div>
+    <div class="mono" style="position:absolute;right:48px;bottom:40px;font-size:28px;padding:10px 20px;border-radius:999px;background:${cov?'rgba(185,238,79,.18)':'rgba(255,95,60,.18)'};color:${cov?'#b9ee4f':'#ff8a6d'}">${cov?'ganhando':'perdendo'}</div>
+  </div>
+  ${ch(0,'com a variação mínima')}${ch(1,'só acima do seu stop loss')}${ch(2,'no servidor · controle pelo celular')}`;
+}
+function g5(lt){
+  const p=1+.03*Math.sin(lt*6);
+  return bg('rgba(255,95,60,.22)')+logo+`
+  <div class="L D" style="top:330px;font-size:112px;opacity:${ease(lt/.3)}">Dúvida sobre<br>a sua <span style="color:#ff5f3c">primeira<br>disputa?</span></div>
+  <div style="position:absolute;left:80px;top:800px;background:#ff5f3c;color:#0b2219;border-radius:34px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:84px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.4)/.3))});transform-origin:left center;opacity:${clamp((lt-.4)/.1)}">Comenta PREGÃO</div>
+  <div class="L" style="top:1020px;font-size:38px;color:#f1ede4;line-height:1.35;opacity:${ease((lt-.9)/.3)}">e receba o Kit do Pregão<br>grátis no Direct.</div>
+  <div class="L" style="top:1330px;right:160px;font-size:26px;color:#8fa699;opacity:${ease((lt-1.2)/.3)}">Conteúdo informativo, não é parecer jurídico.<br>Valores de exemplo.</div>`;
+}
+
+const CFG={r12:{SC:SC12,F:[g1,g2,g3,g4,g5],CAP:[],T:20.5},r6:{SC:SC6,F:[e1,f2,e3,e4,f5],CAP:[],T:16},r5:{SC:SC4,F:[e1,e2,e3,e4,e5],CAP:[],T:15.5},r4:{SC:SC4,F:[c1,c2,c3,c4,c5],CAP:[],T:15.5},r2:{SC:SC2,F:[a1,a2,a3,a4,a5,a6],CAP:CAP2,T:18.5},r3:{SC:SC3,F:[b1,b2,b3,b4,b5],CAP:CAP3,T:18.5}}[MODE];
 window.DUR=CFG.T;
 window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],s[1]-s[0],CFG.F[i](t-s[0]),i==0)});root.innerHTML=h;capEl.innerHTML=caption(t,CFG.CAP);};
 render(0);
