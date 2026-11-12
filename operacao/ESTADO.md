@@ -20,7 +20,7 @@ seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Saf
 12/11 09h: R7b ainda com a mídia antiga (data 4/11) no post 413202171; A10 não aprovada até a pauta.
 
 ## Semana 16-20/11 (LEIA-ME `midia/LEIA-ME_semana_16a20-11.txt`) · A11 aguardando aprovação
-seg 16 R8 v2 (agendado) · ter 17 C9 5 mitos · qua 18 R12 robô é permitido? · qui 19 C10 intervalo mínimo (cobrir por R$ 0,01?) · sex 20 feriado, sem post. C9/R12/C10 renderizados em `midia/2026-11-1{7,8,9}_*`; agendar 10h e criar lembretes 10h05 de 17-19/11 só após "aprovado".
+seg 16 R8 v2 (agendado) · ter 17 C9 5 mitos · qua 18 R12 robô é permitido? (REPROVADO pelo dono 12/11; decidir: refazer, trocar ou sem post) · qui 19 C10 intervalo mínimo (cobrir por R$ 0,01?) · sex 20 feriado, sem post. C9/R12/C10 renderizados em `midia/2026-11-1{7,8,9}_*`; agendar 10h e criar lembretes 10h05 de 17-19/11 só após "aprovado".
 Fontes R12/C10: IN SEGES/ME 73/2022 arts. 5º, 19, 21 §2º, 22 §1º (conferidas 12/11). Sem 20 s/3 s (IN 3/2013, sem base atual). Gancho do C10 trocado (IN não diz que o sistema recusa).
 Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
 
