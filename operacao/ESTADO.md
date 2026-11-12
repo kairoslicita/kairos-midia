@@ -19,9 +19,10 @@ seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Saf
 05/11: R7b re-renderizado com "quinta-feira, 12 de novembro" na tela de bloqueio (agendado mostra 4/11): `midia/lote_v3_reels/reel_r7b_boost_primeira_dispensa_ou_pregao_1211.mp4` + `capa_r7_1211.png`. Trocar mídia do post 413202171 só após "aprovado" (A10, pedida de novo 09/11; prazo qua 11/11). Sem A10, B-03 não deve rodar.
 12/11 09h: R7b ainda com a mídia antiga (data 4/11) no post 413202171; A10 não aprovada até a pauta.
 
-## Semana 16-20/11 (LEIA-ME `midia/LEIA-ME_semana_16a20-11.txt`) · A11 v2 aguardando aprovação
-Dono reprovou C9, R12 e C10 em 12/11 (não usar). Nova proposta, série "Você decide o lance" (quiz, CTA por letra): seg 16 R8 v2 (agendado) · ter 17 Reel #1 lance final às cegas · qua 18 aberto (gravação real do dono ou sem post) · qui 19 Reel #2 faltam 10 segundos · sex 20 feriado. Agendar só após "aprovado".
-Leitura 12/11 (Metricool): orgânico parado (alcance 7-34 por peça, carrossel = Reel), 0 comentários em 9 posts de novembro, 113→114 seguidores desde o fim do Boost; melhor orgânico segue a gravação real de 09/10. Erro registrado: R12 foi produzido apesar de "bloqueado até checagem jurídica" no banco de ideias.
+## Semana 16-20/11 · em replanejamento (12/11)
+Dono reprovou C9, R12, C10 e também a série "Você decide o lance" (D1, D2): quer Reels melhores, com pesquisa e roteiro aprovado ANTES de renderizar. Só o R8 v2 (seg 16) está agendado.
+Direção do dono: o Kairos rende mais quando "o tempo termina e ele ganha". Pesquisa aponta dispensa eletrônica (IN 67/2021: 6 a 10 h, encerra no horário, sem prorrogação). Briefing com 3 conceitos em `operacao/lote_v6/BRIEFING_DISPENSA_TEMPO_ACABA.md`, aguardando escolha e confirmação dos fatos do produto.
+Regra nova: peça nova só é renderizada depois de roteiro aprovado.
 Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
 
 ## Decisões vigentes
