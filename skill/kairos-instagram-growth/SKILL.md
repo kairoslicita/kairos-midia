@@ -54,6 +54,8 @@ Referências: `01_contexto_kairos` · `02_padrao_visual_aprovado` · `03_direcao
 
 - Reels 1080x1920 e carrosséis 1080x1350 são **animações HTML renderizadas quadro a quadro** em `estudio/` (Playwright + ffmpeg, 30 fps), com **trilha original** sintetizada (sem risco de direitos). Reaproveite cenas e componentes existentes antes de criar novos.
 - Comandos: `python3 filmcar.py <trilha.wav> <saida> "nome|query" ...` (carrossel), `python3 filmr2.py <modo> <saida.mp4> <duração>` (Reel), `python3 shots.py <png> "query@t" ...` (prova visual).
+- **Antes de renderizar peça nova:** pesquisar o contexto (norma e benchmark), mandar roteiro e quadros 0 como imagem e esperar a aprovação.
+- **Vídeo de IA:** o dono tem 3 contas com créditos diários sem uso. Considerar para o gancho ou planos de ambientação, nunca para telas do sistema, valores ou rosto; regras em `references/04_reels_premium.md`.
 - Sempre conferir quadros-chave antes de entregar (quadro 0, meio, CTA). O quadro 0 precisa carregar o gancho inteiro.
 
 ## Como responder ao dono

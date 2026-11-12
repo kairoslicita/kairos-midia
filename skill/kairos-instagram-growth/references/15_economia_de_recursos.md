@@ -12,6 +12,7 @@
 
 ## Dinheiro
 - Ferramentas atuais, todas grátis: Metricool (20 posts/mês), ManyChat grátis (um gatilho por post), GitHub público, render local.
+- Disponível e sem uso (12/11/2026): 3 contas de vídeo por IA com créditos diários; regras em `04_reels_premium.md`. Detalhes a confirmar com o dono.
 - Não contratar nada sem aprovação. Pagos que fariam diferença, se um dia valer: Metricool Starter (cerca de US$ 25/mês, posts ilimitados e Stories); ManyChat Pro (gatilho "qualquer post"). Evitar teste grátis do Pro: vira cobrança automática.
 - Boost só pelo navegador (sem taxa Apple) e dentro do teto de R$ 150 de custo total.
 

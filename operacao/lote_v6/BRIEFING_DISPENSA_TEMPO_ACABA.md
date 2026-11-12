@@ -17,3 +17,11 @@ C. "Esperando a prorrogação?" — pregão aberto prorroga 2 min x dispensa enc
 ## A confirmar com o dono antes de renderizar
 1. A modalidade é mesmo a dispensa eletrônica.
 2. O robô opera até o último segundo da dispensa (e a prática de ligar 2-3 min antes do fim).
+
+## 12/11 · aprovado pelo dono: roteiros A e B; modalidade dispensa eletrônica; robô cobre até o último segundo; prática de ligar 2-3 min antes do fim
+Fatos de produto a respeitar: o robô age quando o monitoramento é ligado (não existe "dar lance no segundo X"); sempre busca o 1º até o stop loss; não garante vitória; em modo fechado não atua.
+
+## Propostas de gancho (quadro 0), aguardando escolha · `midia/lote_v6_propostas/ganchos_A.png` e `ganchos_B.png`
+A1 relógio 17:59:57 + "A dispensa fecha às 18:00:00. Você está em 2º." · A2 "3 segundos para o fim. O concorrente baixou agora." · A3 "Esse lance entrou às 17:59:59. A dispensa fechou às 18:00:00."
+B1 "6 horas de disputa. Decidida em 10 segundos." · B2 "Dispensa não se ganha às 12h. Se decide às 17:59:59." · B3 "Você liderou por 5h59. E perdeu no último minuto."
+Recomendação: A1 e B3.

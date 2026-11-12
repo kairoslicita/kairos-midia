@@ -42,3 +42,15 @@ Padrão: **sem voz**. O dono não pode usar a própria voz e não há locução 
 ## Validação mínima
 Tempo de leitura: cada texto principal fica na tela pelo menos (palavras ÷ 3) + 1 s; nunca manchete e detalhe entrando juntos; no máximo 2 camadas de texto por cena.
 Quadro 0 com gancho completo · nada na área dos botões · texto lido em 1 s por cena · números coerentes entre cenas · fato do produto conferido · nota "valores de exemplo" quando houver valores · CTA único e claro.
+
+## Vídeo gerado por IA (recurso disponível, informado pelo dono em 12/11/2026)
+- O dono tem **3 contas de geração de vídeo por IA com créditos diários que não estão sendo usados**. Ferramenta, logins e quantidade de créditos por dia: **confirmar com o dono** antes do primeiro uso e registrar aqui e no `ESTADO.md`. O Claude não tem acesso a essas contas na nuvem: entrega o prompt pronto e o dono gera, ou usa o computador do dono quando estiver conectado.
+- **Quando usar:** só no gancho (0-3 s) ou em um plano de ambientação que a animação não entrega bem, como mão segurando o celular, relógio de parede chegando às 18:00, mesa de trabalho, reunião, trânsito. O resto do Reel continua no estúdio, com as telas remodeladas do Kairos.
+- **Quando não usar:** para mostrar o sistema, valores, regras ou resultado (IA inventa tela e texto); peça inteira em IA; rosto reconhecível ou qualquer coisa que pareça o dono; pessoa real, marca ou órgão público identificável.
+- **Regras:** sem texto gerado pela IA dentro da cena (o texto entra por cima, no estúdio); 9:16, 4-6 s por plano; paleta escura puxando para verde-floresta e coral; ligar o selo "conteúdo de IA" do Instagram quando a cena for realista; guardar o prompt e o arquivo bruto em `midia/<pasta>/ia/`.
+- **Aprovação:** mandar o roteiro e o quadro de referência antes de gastar créditos; plano de IA reprovado não entra.
+
+## Ganchos: critérios (pesquisa de 12/11/2026)
+- Fontes: blogs de ferramentas (OpusClip, dev.to, Kickbite), todos sem dado público verificável; usar como direção, não como meta. Faixas citadas: retenção aos 3 s abaixo de 40-55% é fraca, 60-70% boa, acima de 70-80% forte. Nosso melhor (R6) tem view rate de ~50%.
+- Tipos que as fontes apontam: dor reconhecível, lacuna de curiosidade, afirmação contrária, número específico, urgência de tempo. Movimento já no primeiro meio segundo; texto grande e legível sem som.
+- Regra do dono (12/11): pesquisar o contexto, mandar o roteiro e **os quadros 0 como imagem** para aprovação antes de renderizar.
