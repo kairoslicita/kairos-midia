@@ -1,0 +1,27 @@
+KAIROS COPILOTO · REEL + STORIES (nova funcionalidade)
+
+REEL: reel_copiloto_nova_funcionalidade.mp4 (21,5 s, 1080x1920, trilha original já no arquivo)
+- Não adicionar música do app. Capa: capa_reel_copiloto.png (quadro 0). Sem localização. Selo de IA desligado.
+- Postar às 10h. Depois de publicar: criar no ManyChat a automação do comentário "COPILOTO" (igual à do PREGÃO).
+
+LEGENDA DO REEL (copiar e colar):
+O pregoeiro convocou e você não viu? Chegou o Kairos Copiloto.
+
+Ele lê o chat das licitações que você cadastrar no Compras.gov.br e avisa no seu celular só quando importa: convocação, sua vez na fila, intenção de recurso. Cada mensagem já vem explicada, com o que fazer e o prazo.
+
+E mais: antes de disputar, veja se o órgão costuma pagar em dia.
+
+Funciona com um computador ligado com o Chrome e o Leitor do Copiloto. Você acompanha tudo pelo celular.
+
+Comenta COPILOTO que eu te mando no Direct como funciona.
+
+Telas ilustrativas, com valores de exemplo.
+
+#licitacao #pregaoeletronico #comprasgov #dispensaeletronica #licitacoes
+
+STORIES (postar no mesmo dia, nesta ordem):
+1. story_copiloto_1.png + figurinha de ENQUETE no meio: "Já aconteceu com você?" (Já / Nunca)
+2. story_copiloto_2.png
+3. Compartilhar o Reel publicado
+4. story_copiloto_3.png
+5. story_copiloto_4.png + figurinha CAIXA DE PERGUNTAS no meio

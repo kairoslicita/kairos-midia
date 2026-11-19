@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--forest:#0b2219;--coral:#ff5f3c;--lime:#b9ee4f;--mut:#8fa699}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b2219}
+body{font-family:'Inter',sans-serif;color:#f1ede4;position:relative}
+.mono{font-family:'DejaVu Sans Mono',monospace}
+.D{font-family:'Inter Display';font-weight:900;letter-spacing:-.045em;line-height:.92}
+.L{position:absolute;left:80px;right:80px}
+.phone{position:absolute;width:430px;height:880px;border-radius:66px;background:#0a0f0d;padding:14px;box-shadow:0 60px 120px -30px rgba(0,0,0,.7),0 0 0 2px #26302b inset;transform-origin:top left}
+.screen{width:100%;height:100%;border-radius:54px;background:#0e271d;overflow:hidden;position:relative;color:#f1ede4}
+.island{position:absolute;left:50%;top:14px;width:120px;height:34px;margin-left:-60px;border-radius:20px;background:#000;z-index:5}
+.row{display:flex;align-items:center;gap:10px;background:#123024;border:1px solid #24463a;border-radius:14px;padding:11px 12px;font-size:13.5px}
+.row .tm{font-family:'DejaVu Sans Mono';font-size:11.5px;color:var(--mut);width:62px}.row .tx{flex:1}
+.toast{position:absolute;background:rgba(241,237,228,.97);color:#0b2219;border-radius:30px;padding:20px 24px;display:flex;gap:16px;align-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.toast .ap{width:58px;height:58px;border-radius:14px;background:#0b2219;color:#f2ede3;font-family:'Inter Display';font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.toast .ap b{color:var(--coral)}
+.toast h6{font-size:22px;font-weight:700}.toast p{font-size:21px;color:#3b4a42;margin-top:2px}
+.chip{position:absolute;left:80px;right:80px;border-radius:40px;background:#123024;border:2px solid #24463a;padding:34px 44px;display:flex;justify-content:space-between;align-items:center}
+.chip .k{font-size:40px;color:#cfd8cf}.chip .v{font-family:'DejaVu Sans Mono';font-size:76px;letter-spacing:-.04em}
+</style></head><body><div id="root"></div><div id="cap"></div>
+<script>
+const MODE=(location.hash||'#r2').slice(1);
+const root=document.getElementById('root'), capEl=document.getElementById('cap');
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+const back=x=>{x=Math.max(0,Math.min(1,x));const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const fmt=v=>'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const bg=(c)=>`<div style="position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 50%,${c},rgba(0,0,0,0) 70%),#0b2219"></div>`;
+const logo=`<div style="position:absolute;left:80px;top:150px;font-family:'Inter Display';font-weight:800;font-size:42px;letter-spacing:-.03em">Kairos<b style="color:#ff5f3c">.</b></div>`;
+// cena com corte seco + leve "punch" de zoom no início
+const wrap=(lt,len,html,first)=>{const s=first?1:1.05-0.05*ease(lt/.22);const o=1;return `<div style="position:absolute;inset:0;opacity:${o};transform:scale(${s});transform-origin:50% 45%">${html}</div>`};
+// legenda palavra por palavra (estilo Reels)
+function caption(t,phr){
+  for(const p of phr){ if(t>=p[0]&&t<p[1]){
+    const ws=p[2].split(' '); const dur=(p[1]-p[0]); const per=dur/ws.length; const i=Math.min(ws.length-1,Math.floor((t-p[0])/per)); const lt=(t-p[0])-i*per;
+    let w=ws[i]; let hi=false; if(w.startsWith('*')){hi=true;w=w.slice(1)}
+    const sc=.82+.18*back(lt/.14);
+    return `<div style="position:absolute;left:0;right:0;top:1290px;text-align:center;transform:scale(${sc})"><span class="D" style="font-size:132px;letter-spacing:-.035em;color:${hi?'#ff5f3c':'#ffe94d'};-webkit-text-stroke:0;text-shadow:0 8px 0 rgba(0,0,0,.55),0 0 30px rgba(0,0,0,.6)">${w}</span></div>`;
+  }}
+  return '';
+}
+const note=(txt,o=1)=>`<div class="L" style="top:1215px;font-size:26px;color:#8fa699;opacity:${o}">${txt}</div>`;
+
+
+/* ================= COP · KAIROS COPILOTO, NOVA FUNCIONALIDADE (21,5 s) ================= */
+const SCC=[[0,3.2],[3.2,6.2],[6.2,10.4],[10.4,14.2],[14.2,18.0],[18.0,21.5]];
+const tagL=(t,c='#b9ee4f')=>`<div class="mono L" style="top:250px;font-size:28px;letter-spacing:.08em;color:${c}">${t}</div>`;
+const H=(top,html,fs=128)=>`<div class="D L" style="top:${top}px;font-size:${fs}px">${html}</div>`;
+const hms=s=>{s=Math.max(0,Math.round(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return [h,m,x].map(v=>String(v).padStart(2,'0')).join(':')};
+const ph=(inner,top=820,sc=1)=>`<div class="phone" style="left:${540-430*sc/2}px;top:${top}px;transform:scale(${sc})"><div class="screen"><div class="island"></div>${inner}</div></div>`;
+const bar=`<div style="display:flex;justify-content:space-between;padding:20px 34px 0;font-size:17px;font-weight:600"><span>14:53</span><span>5G ▮▮▮</span></div>`;
+function c1(lt){
+  const left=7198-lt*90, sh=lt>2.5?Math.sin(lt*60)*8*(1-clamp((lt-2.5)/.6)):0;
+  return bg('rgba(255,95,60,.20)')+logo+tagL('CHAT DO PREGÃO · COMPRAS.GOV.BR')+H(330,'O pregoeiro<br>te convocou.<br><span style="color:#ff5f3c">Você não viu.</span>')+
+  `<div style="position:absolute;left:80px;right:80px;top:820px;border-radius:52px;background:#ff5f3c;color:#fff;padding:50px 56px;transform:translateX(${sh}px);box-shadow:0 50px 110px -30px rgba(255,95,60,.55)">
+    <div class="mono" style="font-size:30px;letter-spacing:.08em;opacity:.92">PRAZO DO ANEXO · ITEM 3</div>
+    <div class="mono" style="font-size:150px;letter-spacing:-.04em;margin-top:24px">${hms(left)}</div>
+    <div style="font-size:34px;margin-top:18px;opacity:.95">"Convoco o fornecedor para envio do anexo do item 3, no prazo de 2 horas."</div></div>`;
+}
+function c2(lt){
+  const u=ease((lt-.35)/.5);
+  const rows=[['14:51','Pregoeiro','Convoco o fornecedor para envio do anexo do item 3…'],['14:46','Pregoeiro','Item 6: aberta a negociação com o 1º colocado.'],['14:31','Sistema','Item 2: encerrada a etapa de lances.']];
+  const inner=bar+`<div style="padding:30px 24px 8px;display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Inter Display';font-weight:700;font-size:25px">Copiloto</div><div style="font-size:14px;color:#b9ee4f">● lendo ao vivo</div></div>`+
+    rows.map((r,i)=>`<div style="margin:10px 16px;opacity:${clamp((lt-.6-i*.35)/.2)}" class="row"><span class="tm">${r[0]}</span><span class="tx"><b style="font-size:13px;color:#8fa699">${r[1]}</b><br>${r[2]}</span></div>`).join('');
+  return bg('rgba(185,238,79,.12)')+logo+tagL('NOVO NO KAIROS','#ff8a6d')+H(330,'Kairos<br><span style="color:#ff5f3c">Copiloto.</span>',150)+
+   `<div class="L" style="top:660px;font-size:40px;line-height:1.3;color:#cfd8cf">Lê o chat das suas licitações e avisa só quando importa.</div>`+
+   `<div style="position:absolute;inset:0;transform:translateY(${(1-u)*500}px);opacity:${u}">${ph(inner,880,1.0)}</div>`;
+}
+function c3(lt){
+  const a=back((lt-.55)/.35), o1=clamp((lt-1.9)/.2), o2=clamp((lt-2.6)/.2);
+  const inner=bar+`<div style="text-align:center;margin-top:60px"><div style="font-size:20px;color:#cfd8cf">quinta-feira, 19 de novembro</div><div style="font-family:'Inter Display';font-weight:600;font-size:96px;letter-spacing:-.03em">14:53</div></div>`;
+  return bg('rgba(255,95,60,.14)')+logo+tagL('NO SEU CELULAR')+H(330,'Te avisa<br><span style="color:#ff5f3c">na hora.</span>')+ph(inner,700,1.0)+
+   `<div class="toast" style="left:110px;right:110px;top:${1000-(1-a)*120}px;opacity:${clamp((lt-.55)/.15)};transform:scale(${.94+.06*a})"><div class="ap">K<b>.</b></div><div><h6>Você foi convocado: item 3</h6><p>Envie a proposta ajustada até 16:40.</p></div></div>`+
+   `<div style="position:absolute;left:110px;right:110px;top:1190px;border-radius:30px;background:#c9f26c;color:#0b2219;padding:24px 28px;opacity:${o1};transform:translateY(${(1-o1)*30}px)"><div class="mono" style="font-size:20px;letter-spacing:.08em">O QUE FAZER</div>
+     <div style="font-size:26px;margin-top:10px">✓ Ajuste a proposta ao valor negociado</div><div style="font-size:26px;margin-top:6px;opacity:${o2}">✓ Anexe no Compras.gov.br até 16:40</div></div>`;
+}
+function c4(lt){
+  const st=lt<1.3?['7º, faltam 2','#123024','#f1ede4']:lt<2.2?['4º, falta 1','#123024','#f1ede4']:['você é o próximo','#c9f26c','#0b2219'];
+  const pop=lt>=2.2?back((lt-2.2)/.3):1;
+  const ch=(i,txt,b,c,o,extra='')=>`<div style="position:absolute;left:80px;right:80px;top:${820+i*190}px;border-radius:40px;background:${b};color:${c};border:2px solid ${b==='#123024'?'#24463a':b};padding:34px 44px;display:flex;justify-content:space-between;align-items:center;opacity:${o};${extra}"><span style="font-size:44px;font-weight:700">Item ${[6,3,4,12][i]}</span><span class="mono" style="font-size:44px">${txt}</span></div>`;
+  return bg('rgba(185,238,79,.16)')+logo+tagL('SUA POSIÇÃO NA FILA')+H(330,'Saiba quando<br>a sua vez<br><span style="color:#b9ee4f">está chegando.</span>',120)+
+    ch(0,st[0],st[1],st[2],1,`transform:scale(${lt>=2.2?.96+.04*pop:1})`)+ch(1,'3º, faltam 2','#123024','#f1ede4',clamp((lt-.3)/.2))+ch(2,'5º','#123024','#f1ede4',clamp((lt-.5)/.2))+ch(3,'perdido ✕','#ff5f3c','#fff',clamp((lt-.7)/.2));
+}
+function c5(lt){
+  const o2=clamp((lt-1.6)/.25), e2=back((lt-1.6)/.35);
+  return bg('rgba(255,95,60,.12)')+logo+tagL('E MAIS','#ff8a6d')+H(330,'Recurso no prazo.<br><span style="color:#b9ee4f">Órgão que paga.</span>',104)+
+   `<div style="position:absolute;left:80px;right:80px;top:640px;border-radius:44px;background:#123024;border:2px solid #24463a;padding:40px 48px"><div class="mono" style="font-size:26px;letter-spacing:.08em;color:#ff8a6d">INTENÇÃO DE RECURSO · ITEM 5</div><div class="mono" style="font-size:120px;letter-spacing:-.04em;margin-top:14px">${hms(599-lt)}</div><div style="font-size:30px;color:#cfd8cf;margin-top:8px">Motivação pronta para copiar e colar.</div></div>`+
+   `<div style="position:absolute;left:80px;right:80px;top:1060px;border-radius:44px;background:#c9f26c;color:#0b2219;padding:40px 48px;opacity:${o2};transform:translateY(${(1-e2)*60}px)"><div class="mono" style="font-size:26px;letter-spacing:.08em">PAGAMENTO DO ÓRGÃO · ÓRGÃO FEDERAL</div><div class="D" style="font-size:96px;margin-top:16px">~2 dias</div><div style="font-size:32px;margin-top:6px">para pagar depois do atesto. 95% em até 30 dias.</div></div>`+note('Valores de exemplo.',o2).replace('top:1215px','top:1440px');
+}
+function c6(lt){
+  const full='COPILOTO', n=Math.min(full.length,Math.floor(Math.max(0,lt-.6)/.11)), pul=1+.04*Math.sin(lt*6), d=back((lt-2.0)/.35);
+  return bg('rgba(255,95,60,.24)')+logo+tagL('QUER CONHECER?','#ff8a6d')+H(330,'Comenta<br><span style="color:#ff5f3c">COPILOTO.</span>',150)+
+   `<div class="L" style="top:690px;font-size:40px;color:#cfd8cf">Te mando no Direct como funciona.</div>`+
+   `<div style="position:absolute;left:80px;right:80px;top:830px;border-radius:999px;background:#f1ede4;color:#0b2219;padding:30px 40px;font-size:40px;display:flex;justify-content:space-between;align-items:center"><span>${full.slice(0,n)}<span style="opacity:${Math.floor(lt*4)%2}">|</span></span><span style="font-weight:700;color:#ff5f3c">Publicar</span></div>`+
+   `<div style="position:absolute;left:80px;top:1010px;transform:scale(${pul});transform-origin:left center;background:#ff5f3c;color:#fff;border-radius:999px;padding:30px 56px;font-family:'Inter Display';font-weight:800;font-size:56px">COPILOTO</div>`+
+   `<div style="position:absolute;right:80px;left:260px;top:1190px;border-radius:36px 36px 8px 36px;background:#123024;border:2px solid #24463a;padding:30px 36px;font-size:34px;opacity:${clamp((lt-2.0)/.2)};transform:translateY(${(1-d)*40}px)"><b class="mono" style="font-size:22px;color:#8fa699;display:block;margin-bottom:8px">DIRECT · KAIROS</b>Oi! Aqui está como o Copiloto funciona.</div>`;
+}
+const CFG={SC:SCC,F:[c1,c2,c3,c4,c5,c6],CAP:[]};
+window.render=t=>{let h='';CFG.SC.forEach((s,i)=>{if(t>=s[0]&&t<s[1])h=wrap(t-s[0],s[1]-s[0],CFG.F[i](t-s[0]),i==0)});root.innerHTML=h;capEl.innerHTML='';};
+render(0);
+</script></body></html>

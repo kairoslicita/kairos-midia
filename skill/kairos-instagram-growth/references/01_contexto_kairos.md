@@ -18,7 +18,7 @@ Atualizado: 28/10/2026. Antes de publicar preço ou oferta, conferir se ainda va
 - **Confirmados pelo dono em 28/10/2026:** pesquisa de preços e fabricantes (ajuda a escolher marca/item antes de ofertar) e documentos com validades + download em ZIP. Escrever: o Kairos *pesquisa*; quem *confere o edital* é o fornecedor. Não prometer aviso automático de vencimento sem confirmar.
 - **Robô só é configurado no dia da disputa** (limite e variação); antes disso a disputa só fica carregada. Estratégia comum: ligar o robô 2-3 min antes do fim.
 - **A confirmar com o dono antes de demonstrar como recurso real:** variação mínima automática em centavos/reais/percentual, disputa por grupo, lance individual manual, Painel do Dia.
-- **Não anunciar:** Kairos Copiloto (em desenvolvimento). "Acompanhamento pelo chat" pode aparecer só como "em breve".
+- **Kairos Copiloto (liberado para divulgação em 19/11/2026, pelo dono):** lê o chat das licitações cadastradas e avisa no celular. Sempre dizer que precisa de um computador ligado com o Chrome e o Leitor; nunca "funciona sem computador". Sem preço e sem data. Pagamento do órgão: monitor de recebimento só para órgãos federais; estados e prefeituras = Capag.
 
 ## Posicionamento e tom
 - Mensagens-mãe: "Você define a estratégia. O Kairos acompanha a disputa." / "Você define até onde quer ir. O Kairos calcula como chegar." / "Desligou o computador? O robô, não."

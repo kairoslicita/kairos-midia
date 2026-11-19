@@ -24,6 +24,9 @@ Regras do dono (12/11): pesquisar contexto e benchmark; mandar roteiro e quadro 
 Estoque: dono quer peças prontas além da semana, com abertura no Google Flow (3 contas, 150 créditos/dia; 1º teste descartado, ver `17`). Próximo passo: roteiros + prompts detalhados para aprovação.
 Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
 
+## Copiloto (19/11)
+Aprovado pelo dono: divulgar o Kairos Copiloto como nova funcionalidade. Prontos em `midia/copiloto/`: Reel 21,5 s (CTA "Comenta COPILOTO", ManyChat a criar pelo dono) e 4 Stories + LEIA-ME. Data de postagem a definir com o dono (cota Metricool de novembro).
+
 ## Decisões vigentes
 - Padrão visual aprovado = piso (`references/02`). Boost só pelo Safari (taxa Apple). Impostos de ~12,15% inclusos no teto.
 - Stories e ManyChat por post ficam com o dono. CTA padrão: Comenta PREGÃO → Kit.
