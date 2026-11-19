@@ -1,0 +1,25 @@
+KAIROS · SEMANA 23-27/11/2026 · STATUS: AGUARDANDO APROVAÇÃO (preparado 19/11)
+Todos os posts às 10h, sem localização, sem música do app, selo de IA desligado.
+Cota do Metricool em novembro: 13/20 usados (12 publicados/agendados até 19/11 + R10 de 23/11). Esta semana usa +3 = 16/20. Sobram 4 para 27-30/11.
+
+SEG 23/11 · Reel R10 "Nem no avião" · JÁ AGENDADO no Metricool (id 413204015)
+- Capa: quadro 0. ManyChat: gatilho PREGÃO no post. Story: repostar o Reel com a figurinha "Já disputou de fora do escritório?" (enquete Sim/Não).
+
+TER 24/11 · Reel Kairos Copiloto (nova funcionalidade) · pronto, a agendar após "aprovado"
+- Arquivo: midia/copiloto/reel_copiloto_nova_funcionalidade.mp4 (21,5 s). Capa: quadro 0 (capa_reel_copiloto.png).
+- Legenda: a de midia/copiloto/LEIA-ME_copiloto_reel_stories.txt (copiar exatamente).
+- ManyChat: gatilho COPILOTO (novo, igual ao do PREGÃO). Stories: sequência de 5 do LEIA-ME do Copiloto.
+
+QUA 25/11 · Reel V7-C "Esperando a prorrogação?" · AGUARDANDO aprovação do roteiro e do gancho (C1/C2/C3)
+- Roteiro e legenda: operacao/lote_v7/BRIEFING_V7_DISPENSA.md. Quadros 0: midia/lote_v7_propostas/ganchos_C.png.
+- Render só depois do "aprovado". ManyChat: PREGÃO. Story: repost + figurinha "Já esperou uma prorrogação que não veio?" (Já / Nunca).
+
+QUI 26/11 · Reel V7-D "17:57" · AGUARDANDO aprovação do roteiro e do gancho (D1/D2)
+- Roteiro e legenda: operacao/lote_v7/BRIEFING_V7_DISPENSA.md. Quadros 0: midia/lote_v7_propostas/ganchos_D.png.
+- ManyChat: PREGÃO. Story: repost + caixa de perguntas "Qual sua dúvida sobre dispensa?".
+
+SEX 27/11 · sem post (sem Story obrigatório).
+
+Fora da semana: C11, R14, C12, R15 (educativos genéricos do calendário) ficam de reserva; seguem a linha dos reprovados C9/C10/R12 e não da direção aprovada (dispensa).
+
+LEMBRETES 10H05 (após "aprovado"): 23, 24, 25 e 26/11 · ManyChat do post + repost no Story + responder comentários.

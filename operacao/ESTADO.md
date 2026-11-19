@@ -1,5 +1,5 @@
 # ESTADO · Instagram @kairoslicitacao
-Atualizado: 16/11/2026 (Claude, relatório semanal 09-15/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
+Atualizado: 19/11/2026 (Claude, pauta da semana 23-27/11). Leia isto antes de qualquer execução. Máximo de 1 tela.
 
 ## Números (Metricool, marca 7289138)
 - Seguidores: 131 (14/11; 15/11 sem dado). 114 em 08/11, 72 em 02/11, 13 em 24/10. Meta 150 até 30/11 (faltam 19).
@@ -8,7 +8,8 @@ Atualizado: 16/11/2026 (Claude, relatório semanal 09-15/11). Leia isto antes de
 - Retenção: R6 16 s ~56% · R9 29,6 s lista ~48% · R3 18,5 s ~42% · 21,5-25 s ~28-30% · R7b 33 s ~11%.
 - Boost: B-01 20 seguidores com R$ 44 (≈ R$ 2,20). B-02 e B-03 sem print (Metricool não lê Boost). Metricool em UTC: subtrair 3 h.
 - Gasto de Boost: outubro R$ 49,40 (fechado). Novembro sem confirmação: B-02 R$ 37,01-49,35 + B-03 ≥ R$ 24,67 (sem print) + B-04 49,35 previsto. Reserva B-RES: não ativar (16/11).
-- Cota do Metricool novembro: 13/20 (16, 17, 19 e 23/11 pendentes). Livres: 7 (24-30/11).
+- Cota do Metricool novembro (conferida 19/11): 13/20 (11 publicados até 17/11; 19 e 23/11 pendentes). Livres: 7. Proposta 23-27/11 usa +3 → 16/20.
+- V6-A (17/11): alcance 14, 29 views, VR 30%, 5,4 s de 17,8 s (~30%), 1 salvo, 1 envio. R8 v2 (16/11): alcance 14, 25 views, VR 36%, 7 s (~38%).
 
 ## Semana 02-08/11 (fechada)
 C5, C4 v5, R9 v3 e C6 publicados pelo Metricool às 10h. Pendentes do dono: print final do B-02 e print do painel profissional (visitas ao perfil, % não seguidores) de 26/10-01/11 e 02-08/11.
@@ -22,10 +23,17 @@ seg 09 C2 · ter 10 R3 POV · qua 11 C3 · qui 12 R7b (+ B-03, dono ativa no Saf
 seg 16 R8 v2 (id 413203967) · ter 17 V6-A "17:59:57" (id 425698133) · qui 19 V6-B "Liderou por 5h59" (id 425698250) · qua 18 sem post · sex 20 feriado. Lembretes 10h05 criados para 16, 17 e 19. Reprovados e fora de uso: C9, R12, C10, D1, D2.
 Regras do dono (12/11): pesquisar contexto e benchmark; mandar roteiro e quadro 0 como imagem ANTES de renderizar; direção que funciona = dispensa eletrônica, "o tempo acaba e o robô cobre".
 Estoque: dono quer peças prontas além da semana, com abertura no Google Flow (3 contas, 150 créditos/dia; 1º teste descartado, ver `17`). Próximo passo: roteiros + prompts detalhados para aprovação.
-Próxima pauta (19/11): 24-27/11 (C11, R14, C12, R15 no calendário) dentro dos 6 livres.
+Pauta 19/11 feita: ver seção 23-27/11.
+
+## Semana 23-27/11 · AGUARDANDO APROVAÇÃO (A11, enviada 19/11) · LEIA-ME `midia/LEIA-ME_semana_23a27-11.txt`
+seg 23 R10 (já agendado, id 413204015) · ter 24 Reel Copiloto (pronto) · qua 25 V7-C "Esperando a prorrogação?" · qui 26 V7-D "17:57" · sex 27 sem post.
+V7-C e V7-D: só roteiro + quadros 0 (`operacao/lote_v7/BRIEFING_V7_DISPENSA.md`, `midia/lote_v7_propostas/`), render após o "aprovado" com escolha do gancho (recomendo C1 e D1).
+C11, R14, C12, R15 foram para reserva (educativos genéricos, mesma linha dos reprovados C9/C10/R12).
+Boost B-04 (A12): R10 descartado como criativo (25,8 s, sem 4:5); proposta V6-B ou R6, 24-27/11, R$ 11/dia × 4 ≈ R$ 49,35, só com prints de B-02/B-03.
+Após "aprovado": render V7-C/V7-D, agendar 24/25/26 no Metricool, lembretes 10h05 de 23 a 26/11.
 
 ## Copiloto (19/11)
-Aprovado pelo dono: divulgar o Kairos Copiloto como nova funcionalidade. Prontos em `midia/copiloto/`: Reel 21,5 s (CTA "Comenta COPILOTO", ManyChat a criar pelo dono) e 4 Stories + LEIA-ME. Data de postagem a definir com o dono (cota Metricool de novembro).
+Aprovado pelo dono: divulgar o Kairos Copiloto como nova funcionalidade. Prontos em `midia/copiloto/`: Reel 21,5 s (CTA "Comenta COPILOTO", ManyChat a criar pelo dono) e 4 Stories + LEIA-ME. Proposto para ter 24/11 (A11).
 
 ## Decisões vigentes
 - Padrão visual aprovado = piso (`references/02`). Boost só pelo Safari (taxa Apple). Impostos de ~12,15% inclusos no teto.

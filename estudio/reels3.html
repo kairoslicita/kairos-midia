@@ -562,12 +562,32 @@ function xB5(lt){
   <div class="L" style="top:1090px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.7)/.3)}"><b>Siga o Kairos</b> · robô de lances no Compras.gov.br</div>`;
 }
 const SCxb=[[0,3.6],[3.6,7.6],[7.6,11.4],[11.4,15.6],[15.6,19.2]];
+/* ================= LOTE V7 · propostas de gancho (19/11): C "Esperando a prorrogação?" e D "17:57" ================= */
+const ext=(top,lt)=>`<div class="card" style="top:${top}px;padding:36px 44px">
+ <div style="display:flex;justify-content:space-between;align-items:center"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">PREGÃO · MODO ABERTO</span><span class="mono" style="font-size:30px;color:#b9ee4f">+2:00</span></div>
+ <div style="display:flex;gap:8px;margin-top:20px;height:34px"><div style="flex:5;border-radius:10px;background:#24463a"></div><div style="flex:1;border-radius:10px;background:#ffcf73"></div><div style="flex:1;border-radius:10px;border:3px dashed #b9ee4f"></div></div>
+ <div class="mono" style="font-size:26px;color:#cfd8cf;margin-top:14px">lance nos 2 min finais → prorroga</div>
+ <div style="height:2px;background:#24463a;margin:30px 0"></div>
+ <div style="display:flex;justify-content:space-between;align-items:center"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">DISPENSA ELETRÔNICA</span><span class="mono" style="font-size:30px;color:#ff5f3c">18:00:00</span></div>
+ <div style="display:flex;gap:8px;margin-top:20px;height:34px"><div style="flex:6;border-radius:10px;background:#24463a"></div><div style="flex:1;border-radius:10px;background:#ff5f3c"></div><div style="width:10px;background:#ff5f3c;border-radius:4px"></div></div>
+ <div class="mono" style="font-size:26px;color:#ff8a6d;margin-top:14px">fechou no horário → encerrado</div></div>`;
+function vC1(lt){return bg('rgba(255,95,60,.24)')+vtag()+`<div class="L D" style="top:270px;font-size:124px">Esperando a<br>prorrogação?<br><span style="color:#ff5f3c">Na dispensa,<br>ela não vem.</span></div>`+ext(900,lt)+note('Ilustração. IN SEGES/ME 73/2022 e 67/2021. Confira o edital/aviso.',1440);}
+function vC2(lt){return bg('rgba(255,95,60,.24)')+vtag()+`<div class="L D" style="top:270px;font-size:120px">No pregão,<br>o relógio estica.<br><span style="color:#ff5f3c">Na dispensa,<br>não.</span></div>`+ext(900,lt)+note('Ilustração. IN SEGES/ME 73/2022 e 67/2021. Confira o edital/aviso.',1440);}
+function vC3(lt){return bg('rgba(255,95,60,.28)')+vtag()+clock('18:00:00','#f1ede4',250,210)+`<div class="L D" style="top:520px;font-size:112px">Você esperou<br>a prorrogação.<br><span style="color:#ff5f3c">Ela não veio.</span></div>`+
+  `<div class="L" style="top:930px"><span class="stamp" style="position:static;display:inline-block;font-size:110px;transform:rotate(-4deg)">ENCERRADO</span></div>`+
+  board(1130,[drow('1º · Concorrente','R$ 1.279,90',null,null,46),drow('<b>2º · Você</b>','R$ 1.280,00','#ff8a6d','rgba(255,95,60,.16)',46)])+note('Simulação com valores de exemplo.',1560);}
+const robo257=(top)=>`<div class="card" style="top:${top}px">
+ <div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">ITEM 1 · ENCERRA 18:00:00</span><span class="mono" style="font-size:26px;color:#ffcf73">2º lugar</span></div>
+ <div style="display:flex;justify-content:space-between;align-items:center;margin-top:26px;border:2px dashed #3c5a4e;border-radius:18px;padding:14px 20px"><span class="mono" style="font-size:26px;color:#8fa699">STOP LOSS</span><span class="mono" style="font-size:36px">R$ 1.250,00</span></div>
+ <div style="margin-top:22px;border-radius:24px;padding:22px 26px;background:#b9ee4f;color:#0b2219;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:36px"><span>Robô ligado</span><span style="width:84px;height:46px;border-radius:26px;background:#0b2219;position:relative"><span style="position:absolute;top:6px;left:44px;width:34px;height:34px;border-radius:50%;background:#b9ee4f"></span></span></div></div>`;
+function vD1(lt){return bg('rgba(185,238,79,.16)')+vtag()+clock('17:57:00','#b9ee4f',250,210)+`<div class="L D" style="top:520px;font-size:112px">A dispensa fecha<br>às 18h.<br><span style="color:#b9ee4f">Agora é a hora<br>de ligar o robô.</span></div>`+robo257(1010)+note('Simulação com valores de exemplo. Você define o stop loss.',1500);}
+function vD2(lt){return bg('rgba(255,95,60,.22)')+vtag()+`<div class="L D" style="top:270px;font-size:118px">O que fazer<br>às 17:57?<br><span style="color:#ff5f3c">A dispensa<br>fecha às 18h.</span></div>`+robo257(900)+note('Simulação com valores de exemplo. Você define o stop loss.',1420);}
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
  xa:{SC:SCxa,F:[vA1,xA2,xA3,xA4,xA5],T:17.8},
  xb:{SC:SCxb,F:[vB3,xB2,xB3,xB4,xB5],T:19.2},
- vA1:{SC:[[0,3.3]],F:[vA1],T:3.3},vA2:{SC:[[0,3.3]],F:[vA2],T:3.3},vA3:{SC:[[0,3.3]],F:[vA3],T:3.3},vB1:{SC:[[0,3.3]],F:[vB1],T:3.3},vB2:{SC:[[0,3.3]],F:[vB2],T:3.3},vB3:{SC:[[0,3.3]],F:[vB3],T:3.3},
+ vA1:{SC:[[0,3.3]],F:[vA1],T:3.3},vC1:{SC:[[0,3.3]],F:[vC1],T:3.3},vC2:{SC:[[0,3.3]],F:[vC2],T:3.3},vC3:{SC:[[0,3.3]],F:[vC3],T:3.3},vD1:{SC:[[0,3.3]],F:[vD1],T:3.3},vD2:{SC:[[0,3.3]],F:[vD2],T:3.3},vA2:{SC:[[0,3.3]],F:[vA2],T:3.3},vA3:{SC:[[0,3.3]],F:[vA3],T:3.3},vB1:{SC:[[0,3.3]],F:[vB1],T:3.3},vB2:{SC:[[0,3.3]],F:[vB2],T:3.3},vB3:{SC:[[0,3.3]],F:[vB3],T:3.3},
  d1:{SC:SCd1,F:[d11,d12,d13,d14],T:19.0},
  d2:{SC:SCd2,F:[d21,d22,d23,d24,d25],T:20.6},
  r7:{SC:SC7,F:[p4,g2,g3,g4,g5,lt=>g6(lt,false)],T:33.0},
