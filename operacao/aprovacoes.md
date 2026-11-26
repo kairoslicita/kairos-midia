@@ -26,8 +26,10 @@ Cópia viva: `operacao/aprovacoes.md`. "Aprovado" vale só para o escopo escrito
 | A7 | Política de respostas de comentários e Direct (`06`) | Atendimento | 0 |
 | A9 | Semana 03-06/11 (v2, 30/10): V3-R7 em 04/11 10h via Metricool; POV movido de 04 para 05/11; C5 e C6 mantidos; lembretes 10h05 de 04 e 05/11 | Publicação | 0 (cota 4/20) |
 | A10 | Trocar a mídia do R7b agendado para 12/11 (id 413202171) pela versão com data "quinta-feira, 12 de novembro" (pedido 05/11) | Correção de data no gancho | 0 (não usa cota) |
-| A11 | Semana 23-27/11 (19/11): 24 Copiloto Reel · 25 V7-C (gancho C1/C2/C3) · 26 V7-D (gancho D1/D2) · 27 sem post; roteiros em `operacao/lote_v7/` | Publicação (+3 na cota → 16/20) | 0 |
-| A12 | B-04 revisado (19/11): criativo V6-B ou V2-R6 (não R10), 24-27/11, R$ 11/dia × 4, Safari, só com prints de B-02/B-03 | Gasto | ≈ R$ 49,35 |
+| A11 (superada por A13; sem resposta) | Semana 23-27/11 (19/11): 24 Copiloto Reel · 25 V7-C (gancho C1/C2/C3) · 26 V7-D (gancho D1/D2) · 27 sem post; roteiros em `operacao/lote_v7/` | Publicação (+3 na cota → 16/20) | 0 |
+| A12 (expirada 27/11, sem gasto) | B-04 revisado (19/11): criativo V6-B ou V2-R6 (não R10), 24-27/11, R$ 11/dia × 4, Safari, só com prints de B-02/B-03 | Gasto | ≈ R$ 49,35 |
+| A13 | Semana 30/11-04/12 (26/11): 30/11 Copiloto · 01/12 V7-C (C1, renderizado) · 03/12 V7-D (D1, renderizado); substitui A11 | Publicação (nov 14/20; dez 2/20) | 0 |
+| A14 | Boost B-05 (26/11): V7-C 4:5, 02-04/12, R$ 11/dia × 3, Safari, visitas ao perfil, só se VR ≥ 40% em 24 h | Gasto (dezembro) | ≈ R$ 37,01 |
 | A8 | Lote V3: Reels R7, R8, R9 + variantes Boost (`operacao/lote_v3/LOTE_V3_REELS.md`) | Publicação | 0 (cota Metricool) |
 
 ## Campanhas

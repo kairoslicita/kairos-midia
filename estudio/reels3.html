@@ -582,11 +582,65 @@ const robo257=(top)=>`<div class="card" style="top:${top}px">
  <div style="margin-top:22px;border-radius:24px;padding:22px 26px;background:#b9ee4f;color:#0b2219;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:36px"><span>Robô ligado</span><span style="width:84px;height:46px;border-radius:26px;background:#0b2219;position:relative"><span style="position:absolute;top:6px;left:44px;width:34px;height:34px;border-radius:50%;background:#b9ee4f"></span></span></div></div>`;
 function vD1(lt){return bg('rgba(185,238,79,.16)')+vtag()+clock('17:57:00','#b9ee4f',250,210)+`<div class="L D" style="top:520px;font-size:112px">A dispensa fecha<br>às 18h.<br><span style="color:#b9ee4f">Agora é a hora<br>de ligar o robô.</span></div>`+robo257(1010)+note('Simulação com valores de exemplo. Você define o stop loss.',1500);}
 function vD2(lt){return bg('rgba(255,95,60,.22)')+vtag()+`<div class="L D" style="top:270px;font-size:118px">O que fazer<br>às 17:57?<br><span style="color:#ff5f3c">A dispensa<br>fecha às 18h.</span></div>`+robo257(900)+note('Simulação com valores de exemplo. Você define o stop loss.',1420);}
+/* ================= LOTE V7 · Reels finais (ganchos recomendados C1 e D1; render 26/11 para "Aprova a semana?") ================= */
+/* ---- C · Esperando a prorrogação? (17,5 s) ---- */
+function xC2(lt){
+  const L=[.9,1.9,2.9]; let k=0; L.forEach(t=>{if(lt>=t)k++});
+  const base=k?L[k-1]:0; const rem=Math.max(0,120-(lt-base)*9-(k?0:8)); const mm=Math.floor(rem/60), ss=Math.floor(rem%60);
+  let seg=''; for(let i=0;i<k;i++) seg+=`<div style="flex:1;border-radius:10px;background:#b9ee4f;opacity:${ease((lt-L[i])/.25)}"></div>`;
+  const fl=k?Math.max(0,1-(lt-L[k-1])/.35):0;
+  return bg('rgba(185,238,79,.14)')+tag('PREGÃO · MODO ABERTO')+head(lt,'No pregão aberto,<br>lance no fim<br><span style="color:#b9ee4f">prorroga +2 min.</span>',112,270,false)+
+  `<div class="card" style="top:800px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">ENCERRA EM</span><span class="mono" style="font-size:26px;color:#b9ee4f;opacity:${k?1:0}">+2:00 × ${k}</span></div>
+   <div class="mono" style="font-size:150px;letter-spacing:-.05em;margin-top:10px;color:${fl>0?'#b9ee4f':'#ffcf73'};transform:scale(${1+fl*.06});transform-origin:left">0${mm}:${String(ss).padStart(2,'0')}</div>
+   <div style="display:flex;gap:8px;margin-top:20px;height:34px"><div style="flex:4;border-radius:10px;background:#24463a"></div>${seg}<div style="flex:${3-k+.001};"></div></div>
+   <div class="mono" style="font-size:26px;color:#cfd8cf;margin-top:16px">cada lance nos 2 min finais estica a disputa</div></div>`+
+  note('IN SEGES/ME 73/2022, art. 23. Confira sempre o edital.',1380,ease((lt-1.5)/.3));
+}
+function xC3(lt){const z=lt>=1.6;
+  return bg(z?'rgba(255,95,60,.26)':'rgba(255,95,60,.18)')+vtag()+head(lt,'Na dispensa,<br>fechou no horário.<br><span style="color:#ff5f3c">Acabou.</span>',112,270,false)+
+  clock(z?'18:00:00':'17:59:5'+Math.min(9,8+Math.floor(lt/.8)),z?'#f1ede4':'#ff5f3c',760,210)+
+  `<div class="L" style="top:1040px;${fin(lt,1.6)}"><span class="stamp" style="position:static;display:inline-block;font-size:92px;transform:rotate(-4deg)">ENCERRADO</span></div>`+
+  note('Sem prorrogação: vale o melhor lance quando o relógio zera. IN SEGES/ME 67/2021.',1330,ease((lt-2.0)/.3));}
+function xC4(lt){
+  return bg('rgba(185,238,79,.16)')+vtag()+head(lt,'O robô cobre até<br><span style="color:#b9ee4f">o último segundo.</span>',104,270,false)+
+  board(640,[`<div style="display:flex;justify-content:space-between"><span class="mono" style="font-size:26px;color:#8fa699;letter-spacing:.06em">LOG DE ATIVIDADES</span><span class="mono" style="font-size:26px;color:#b9ee4f">● robô ligado</span></div>`,
+   lrow(lt,.5,'17:59:58','Concorrente: R$ 1.279,90','#ff8a6d'),
+   lrow(lt,1.3,'17:59:58','<b>Robô cobriu: R$ 1.279,80</b>','#b9ee4f',true),
+   lrow(lt,2.0,'18:00:00','Encerrado · você em 1º','#f1ede4'),
+   `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:26px;border:2px dashed #3c5a4e;border-radius:18px;padding:14px 20px;${fin(lt,.9)}"><span class="mono" style="font-size:26px;color:#8fa699">STOP LOSS</span><span class="mono" style="font-size:34px">R$ 1.250,00</span></div>`])+
+  `<div class="L" style="top:1210px;font-size:44px;line-height:1.25;font-weight:700;${fin(lt,1.6)}">Em milissegundos,<br><span style="color:#b9ee4f">só acima do seu stop loss.</span></div>`+
+  note('Simulação com valores de exemplo. O robô não garante vitória.',1420,ease((lt-2.2)/.3));
+}
+function ctaLoop(lt,L,headHtml,size,first){
+  const p=1+.03*Math.sin(lt*6), fo=clamp((lt-(L-.5))/.22), lp=clamp((lt-(L-.28))/.18);
+  const cta=bg('rgba(255,95,60,.24)')+vtag()+head(lt,headHtml,size,270,false)+`
+  <div style="position:absolute;left:80px;top:760px;background:#ff5f3c;color:#0b2219;border-radius:36px;padding:34px 50px;font-family:'Inter Display';font-weight:900;font-size:88px;letter-spacing:-.03em;transform:scale(${p*(.8+.2*back((lt-.8)/.3))});transform-origin:left center;opacity:${clamp((lt-.8)/.1)}">Comenta PREGÃO</div>
+  <div class="L" style="top:975px;font-size:38px;color:#cfd8cf;opacity:${ease((lt-1.3)/.3)}">e receba o Kit do Pregão no Direct.</div>
+  <div class="L" style="top:1090px;font-size:36px;color:#f1ede4;opacity:${ease((lt-1.7)/.3)}"><b>Siga o Kairos</b> · robô de lances no Compras.gov.br</div>`;
+  return `<div style="position:absolute;inset:0;opacity:${1-fo}">${cta}</div>`+(lp>0?`<div style="position:absolute;inset:0;opacity:${lp}">${first(0)}</div>`:'');
+}
+const xC5=lt=>ctaLoop(lt,3.5,'Salve para<br>a próxima<br><span style="color:#ff5f3c">dispensa.</span>',130,vC1);
+const SCxc=[[0,3.3],[3.3,7.3],[7.3,11.0],[11.0,14.5],[14.5,18.0]];
+/* ---- D · 17:57 (17,4 s) ---- */
+function xD2(lt){return bg('rgba(185,238,79,.14)')+vtag()+head(lt,'Você define<br><span style="color:#b9ee4f">até onde ir.</span>',112,270,false)+
+  phone(cfgScreen(Math.min(lt,1.3),'17:57',fmt(1250),['Item 1','Dispensa · encerra 18:00']),560,1.05)+note('Stop loss = seu preço mínimo. Valores de exemplo.',1530);}
+function xD3(lt){return bg('rgba(185,238,79,.18)')+vtag()+head(lt,'Liga pelo celular.<br><span style="color:#b9ee4f">Roda no servidor.</span>',104,270,false)+
+  phone(cfgScreen(lt+.9,'17:57',fmt(1250),['Item 1','Dispensa · encerra 18:00']),560,1.05)+note('Pode bloquear o celular.',1530);}
+function xD4(lt){
+  const inner=roboScreen(lt,{t0:.3,R:.75,comp:[1279.90,1271.50,1264.30],stop:1250,me0:1280.00,cp0:1285.00,tm:'17:59'});
+  return bg('rgba(185,238,79,.16)')+vtag()+head(lt,'Em milissegundos.<br><span style="color:#b9ee4f">Só acima do limite.</span>',96,270,false)+phone(inner,520,1.08)+
+   note('Simulação. O resultado depende do seu limite: o robô não garante vitória.',1500);
+}
+const xD5=lt=>ctaLoop(lt,3.6,'Manda pra quem<br>disputa dispensa<br><span style="color:#ff5f3c">no manual.</span>',116,vD1);
+const SCxd=[[0,3.3],[3.3,6.6],[6.6,9.9],[9.9,13.8],[13.8,17.4]];
 /* ---------- modos ---------- */
 const B=f=>(lt)=>{const h=f(lt,true);const m=h.match(/^<div style="position:absolute;inset:0;background:[^"]*"><\/div>/);return m?m[0]+safe(h.slice(m[0].length)):safe(h)};
 const CFG={
  xa:{SC:SCxa,F:[vA1,xA2,xA3,xA4,xA5],T:17.8},
  xb:{SC:SCxb,F:[vB3,xB2,xB3,xB4,xB5],T:19.2},
+ xc:{SC:SCxc,F:[vC1,xC2,xC3,xC4,xC5],T:18.0},
+ xcb:{SC:SCxc,F:[vC1,xC2,xC3,xC4,xC5].map(B),T:18.0},
+ xd:{SC:SCxd,F:[vD1,xD2,xD3,xD4,xD5],T:17.4},
  vA1:{SC:[[0,3.3]],F:[vA1],T:3.3},vC1:{SC:[[0,3.3]],F:[vC1],T:3.3},vC2:{SC:[[0,3.3]],F:[vC2],T:3.3},vC3:{SC:[[0,3.3]],F:[vC3],T:3.3},vD1:{SC:[[0,3.3]],F:[vD1],T:3.3},vD2:{SC:[[0,3.3]],F:[vD2],T:3.3},vA2:{SC:[[0,3.3]],F:[vA2],T:3.3},vA3:{SC:[[0,3.3]],F:[vA3],T:3.3},vB1:{SC:[[0,3.3]],F:[vB1],T:3.3},vB2:{SC:[[0,3.3]],F:[vB2],T:3.3},vB3:{SC:[[0,3.3]],F:[vB3],T:3.3},
  d1:{SC:SCd1,F:[d11,d12,d13,d14],T:19.0},
  d2:{SC:SCd2,F:[d21,d22,d23,d24,d25],T:20.6},

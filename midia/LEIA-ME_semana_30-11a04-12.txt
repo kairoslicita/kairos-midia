@@ -1,0 +1,34 @@
+KAIROS · SEMANA 30/11 A 04/12/2026 · STATUS: AGUARDANDO APROVAÇÃO (preparado qui 26/11)
+Todos os posts às 10h, sem localização, sem música do app, selo de IA desligado. Nada foi agendado ainda.
+
+Contexto: a semana 23-27/11 (A11) não foi aprovada; só o R10 (23/11) saiu. Copiloto, V7-C e V7-D passam para esta semana.
+Cota do Metricool: novembro 13/20 (todos publicados) → +1 em 30/11 = 14/20. Dezembro zera dia 1º → +2 = 2/20.
+
+SEG 30/11 · Reel Kairos Copiloto (nova funcionalidade) · pronto desde 19/11
+- Arquivo: midia/copiloto/reel_copiloto_nova_funcionalidade.mp4 (21,5 s). Capa: quadro 0 (capa_reel_copiloto.png).
+- Legenda: midia/copiloto/LEIA-ME_copiloto_reel_stories.txt (copiar exatamente).
+- ManyChat: gatilho COPILOTO (novo, igual ao do PREGÃO). Stories: sequência de 5 do LEIA-ME do Copiloto.
+
+TER 01/12 · Reel V7-C "Esperando a prorrogação?" · RENDERIZADO 26/11 (gancho C1, o recomendado)
+- Arquivo: midia/2026-12-01_reel_v7c_prorrogacao/reel_v7c_esperando_prorrogacao.mp4 (18,0 s). Capa: quadro 0 (capa.png).
+- Legenda: LEGENDA.txt da mesma pasta. ManyChat: PREGÃO.
+- Story: repost + figurinha de enquete "Já esperou uma prorrogação que não veio?" (Já / Nunca).
+- Variante Boost 4:5 (só se B-05 for aprovado): reel_v7c_boost_4x5.mp4. Para Boost, publicar esta versão no lugar da normal.
+
+QUA 02/12 · sem post. Story opcional: caixa de perguntas "Qual sua dúvida sobre dispensa?".
+
+QUI 03/12 · Reel V7-D "17:57" · RENDERIZADO 26/11 (gancho D1, o recomendado)
+- Arquivo: midia/2026-12-03_reel_v7d_1757/reel_v7d_1757.mp4 (17,4 s). Capa: quadro 0 (capa.png).
+- Legenda: LEGENDA.txt da mesma pasta. ManyChat: PREGÃO.
+- Story: repost + figurinha "Você liga o robô quantos minutos antes do fim?" (enquete: 1-3 min / Antes).
+
+SEX 04/12 · sem post.
+
+Se o dono preferir os ganchos C2/C3 ou D2: troca o quadro 0 e re-renderiza no mesmo dia (resto igual).
+
+LEMBRETES 10H05 (criados só após "aprovado"): 30/11, 01/12 e 03/12 · ManyChat do post + repost no Story + responder comentários.
+
+BOOST (proposta B-05, dezembro, orçamento novo de R$ 150):
+V7-C variante 4:5 · qua 02/12 ~11h a sex 04/12 · R$ 11/dia × 3 ≈ R$ 33 + impostos ≈ R$ 37 · visitas ao perfil · mesmo público do B-01 · SÓ PELO SAFARI.
+Condição: V7-C com view rate ≥ 40% nas primeiras 24 h (Claude confere 02/12 às 10h). Parar com ≥ R$ 15 se 0 visitas ou frequência > 2,5.
+Quem ativa é o dono. Sem "aprovado" do B-05, nada é gasto.
